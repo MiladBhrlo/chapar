@@ -236,7 +236,7 @@ await _bus.PublishAsync(new OrderPlaced(orderId), headers);
 
 ---
 
-## 7. Zamin Integration
+## 7. [Zamin](https://github.com/oroumand/Zamin) Integration
 
 ### 7.1 Installation
 
