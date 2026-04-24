@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Chapar.Core\Chapar.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.7" />
+    <PackageReference Include="Zamin.Infra.Data.Sql" Version="10.0.0" />
+    <PackageReference Include="Zamin.Infra.Data.Sql.Commands" Version="10.0.0" />
+    <PackageReference Include="Zamin.Extensions.Events.Abstractions" Version="10.0.0" />
+    <PackageReference Include="Zamin.Extensions.Events.PollingPublisher" Version="10.0.0" />
+    <PackageReference Include="Zamin.Extensions.Events.Outbox.Dal.EF" Version="10.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+    <Folder Include="Inbox\" />
+    <Folder Include="Outbox\" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>

@@ -1,0 +1,17 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Chapar.Core/Chapar.Core.csproj" />
+    <Project Path="src/Chapar.Inbox.EntityFrameworkCore/Chapar.Inbox.EntityFrameworkCore.csproj" />
+    <Project Path="src/Chapar.MassTransit/Chapar.MassTransit.csproj" />
+    <Project Path="src/Chapar.Outbox.EntityFrameworkCore/Chapar.Outbox.EntityFrameworkCore.csproj" />
+    <Project Path="src/Chapar.Pipeline/Chapar.Pipeline.csproj" />
+    <Project Path="src/Chapar.Sample/Chapar.Sample.csproj" />
+    <Project Path="src/Chapar.Zamin.MassTransit/Chapar.Zamin.MassTransit.csproj" />
+    <Project Path="src/Chapar.Zamin.Outbox/Chapar.Zamin.Outbox.csproj" />
+    <Project Path="src/Chapar.Zamin.Sample/Chapar.Zamin.Sample.csproj" />
+    <Project Path="src/Chapar.Zamin/Chapar.Zamin.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Chapar.Core.Tests/Chapar.Core.Tests.csproj" />
+  </Folder>
+</Solution>
