@@ -1,23 +1,29 @@
 using Chapar.Core.Inbox;
+using Chapar.Inbox.EntityFrameworkCore.Options;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 namespace Chapar.Inbox.EntityFrameworkCore.Stores;
 
 /// <summary>
 /// Entity Framework Core implementation of <see cref="IInboxStore"/>.
-/// Relies on a unique database constraint on (MessageId, ConsumerTypeName) to provide atomic reservations.
+/// Relies on a unique database constraint on (MessageId, ConsumerTypeName) to provide atomic reservations,
+/// and supports both at‑most‑once and at‑least‑once delivery via <see cref="ChaparInboxOptions"/>.
 /// </summary>
 public sealed class EfInboxStore : IInboxStore
 {
     private readonly DbContext _dbContext;
+    private readonly IOptions<ChaparInboxOptions> _options;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="EfInboxStore"/> class.
     /// </summary>
     /// <param name="dbContext">The <see cref="DbContext"/> used to access the inbox table.</param>
-    public EfInboxStore(DbContext dbContext)
+    /// <param name="options">The inbox configuration options.</param>
+    public EfInboxStore(DbContext dbContext, IOptions<ChaparInboxOptions> options)
     {
         _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
+        _options = options;
     }
 
     /// <inheritdoc />
@@ -41,7 +47,21 @@ public sealed class EfInboxStore : IInboxStore
         }
         catch (DbUpdateException ex) when (IsUniqueConstraintViolation(ex))
         {
-            return false; // Duplicate – another consumer already reserved it
+            // Record already exists
+            if (_options.Value.MarkProcessedAfterFirstAttempt)
+            {
+                // At-most-once mode: never retry, treat as duplicate immediately
+                return false;
+            }
+
+            // At-least-once mode: attempt to atomically reclaim the record if it was not yet processed
+            var updated = await _dbContext.Set<InboxMessageEntity>()
+                .Where(e => e.MessageId == messageId && e.ConsumerTypeName == consumerTypeName && !e.IsProcessed)
+                .ExecuteUpdateAsync(
+                    setters => setters.SetProperty(e => e.ReceivedAt, DateTime.UtcNow),
+                    cancellationToken);
+
+            return updated > 0;
         }
     }
 
@@ -55,11 +75,11 @@ public sealed class EfInboxStore : IInboxStore
                                              cancellationToken);
 
         if (entity is null)
-            return false; // never reserved (should not happen)
+            return false; // should not happen – reservation was never made
 
         // Direct check and set, since InboxMessageEntity is a plain EF entity
         if (entity.IsProcessed)
-            return false; // already processed
+            return false; // already marked by a previous attempt
 
         entity.IsProcessed = true;
         await _dbContext.SaveChangesAsync(cancellationToken);
@@ -69,6 +89,10 @@ public sealed class EfInboxStore : IInboxStore
     /// <summary>
     /// Checks whether the <see cref="DbUpdateException"/> was caused by a unique constraint violation.
     /// </summary>
+    /// <remarks>
+    /// Relies on the exception message containing "UNIQUE". For production use, prefer provider‑specific
+    /// error codes (e.g. SQL Server 2601/2627, PostgreSQL 23505).
+    /// </remarks>
     private static bool IsUniqueConstraintViolation(DbUpdateException ex)
         => ex.InnerException?.Message?.Contains("UNIQUE", StringComparison.OrdinalIgnoreCase) == true;
 }
