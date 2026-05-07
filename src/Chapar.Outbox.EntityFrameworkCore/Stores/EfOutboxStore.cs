@@ -1,3 +1,4 @@
+using Chapar.Core.Abstractions;
 using Chapar.Core.Outbox;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,10 +14,10 @@ public sealed class EfOutboxStore : IOutboxStore
     /// <summary>
     /// Initializes a new instance of the <see cref="EfOutboxStore"/> class.
     /// </summary>
-    /// <param name="dbContext">The <see cref="DbContext"/> used to access the outbox table.</param>
-    public EfOutboxStore(DbContext dbContext)
+    /// <param name="dbContext">The <see cref="IChaparDbContext"/> used to access the outbox table.</param>
+    public EfOutboxStore(IChaparDbContext dbContext)
     {
-        _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
+        _dbContext = (DbContext)dbContext ?? throw new ArgumentNullException(nameof(dbContext));
     }
 
     /// <inheritdoc />

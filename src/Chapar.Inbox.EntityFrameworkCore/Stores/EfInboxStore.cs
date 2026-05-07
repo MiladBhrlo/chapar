@@ -1,3 +1,4 @@
+using Chapar.Core.Abstractions;
 using Chapar.Core.Inbox;
 using Chapar.Inbox.EntityFrameworkCore.Options;
 using Microsoft.EntityFrameworkCore;
@@ -18,11 +19,11 @@ public sealed class EfInboxStore : IInboxStore
     /// <summary>
     /// Initializes a new instance of the <see cref="EfInboxStore"/> class.
     /// </summary>
-    /// <param name="dbContext">The <see cref="DbContext"/> used to access the inbox table.</param>
+    /// <param name="dbContext">The <see cref="IChaparDbContext "/> used to access the inbox table.</param>
     /// <param name="options">The inbox configuration options (optional; falls back to defaults).</param>
-    public EfInboxStore(DbContext dbContext, IOptions<ChaparInboxOptions>? options = null)
+    public EfInboxStore(IChaparDbContext dbContext, IOptions<ChaparInboxOptions>? options = null)
     {
-        _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
+        _dbContext = (DbContext)dbContext ?? throw new ArgumentNullException(nameof(dbContext));
         _options = options?.Value ?? new ChaparInboxOptions();
     }
 
