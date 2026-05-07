@@ -19,7 +19,7 @@ public sealed class EfInboxStore : IInboxStore
     /// <summary>
     /// Initializes a new instance of the <see cref="EfInboxStore"/> class.
     /// </summary>
-    /// <param name="dbContext">The <see cref="IChaparDbContext "/> used to access the inbox table.</param>
+    /// <param name="dbContext">The <see cref="IChaparDbContext"/> used to access the inbox table.</param>
     /// <param name="options">The inbox configuration options (optional; falls back to defaults).</param>
     public EfInboxStore(IChaparDbContext dbContext, IOptions<ChaparInboxOptions>? options = null)
     {
