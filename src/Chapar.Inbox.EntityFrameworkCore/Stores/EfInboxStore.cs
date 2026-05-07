@@ -23,7 +23,16 @@ public sealed class EfInboxStore : IInboxStore
     /// <param name="options">The inbox configuration options (optional; falls back to defaults).</param>
     public EfInboxStore(IChaparDbContext dbContext, IOptions<ChaparInboxOptions>? options = null)
     {
-        _dbContext = (DbContext)dbContext ?? throw new ArgumentNullException(nameof(dbContext));
+        ArgumentNullException.ThrowIfNull(dbContext);
+
+        if (dbContext is not DbContext typedDbContext)
+        {
+            throw new ArgumentException(
+                $"{nameof(EfInboxStore)} requires an {nameof(IChaparDbContext)} implementation that also inherits from {nameof(DbContext)}.",
+                nameof(dbContext));
+        }
+
+        _dbContext = typedDbContext;
         _options = options?.Value ?? new ChaparInboxOptions();
     }
 
