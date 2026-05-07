@@ -6,10 +6,12 @@ namespace Chapar.Inbox.EntityFrameworkCore.Options;
 public sealed class ChaparInboxOptions
 {
     /// <summary>
-    /// If <c>true</c>, the inbox marks a message as processed immediately after the first delivery attempt,
-    /// regardless of whether the handler succeeded or threw an exception.
-    /// This disables retries and ensures at‑most‑once delivery semantics.
-    /// Default is <c>false</c>, which allows MassTransit retries and expects idempotent handlers.
+    /// If <c>true</c>, a message that has already been seen (duplicate) is immediately treated as
+    /// processed and will not be reservable again. This effectively disables retries and provides
+    /// at‑most‑once delivery semantics.
+    /// If <c>false</c> (the default), an orphaned reservation (where <c>IsProcessed</c> is still
+    /// <c>false</c>) can be reclaimed atomically, allowing MassTransit to retry the message and
+    /// expecting an idempotent handler.
     /// </summary>
     public bool MarkProcessedAfterFirstAttempt { get; set; } = false;
 }

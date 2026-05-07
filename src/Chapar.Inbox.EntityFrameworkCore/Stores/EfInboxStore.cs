@@ -13,17 +13,17 @@ namespace Chapar.Inbox.EntityFrameworkCore.Stores;
 public sealed class EfInboxStore : IInboxStore
 {
     private readonly DbContext _dbContext;
-    private readonly IOptions<ChaparInboxOptions> _options;
+    private readonly ChaparInboxOptions _options;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="EfInboxStore"/> class.
     /// </summary>
     /// <param name="dbContext">The <see cref="DbContext"/> used to access the inbox table.</param>
-    /// <param name="options">The inbox configuration options.</param>
-    public EfInboxStore(DbContext dbContext, IOptions<ChaparInboxOptions> options)
+    /// <param name="options">The inbox configuration options (optional; falls back to defaults).</param>
+    public EfInboxStore(DbContext dbContext, IOptions<ChaparInboxOptions>? options = null)
     {
         _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
-        _options = options;
+        _options = options?.Value ?? new ChaparInboxOptions();
     }
 
     /// <inheritdoc />
@@ -47,14 +47,17 @@ public sealed class EfInboxStore : IInboxStore
         }
         catch (DbUpdateException ex) when (IsUniqueConstraintViolation(ex))
         {
-            // Record already exists
-            if (_options.Value.MarkProcessedAfterFirstAttempt)
+            // Record already exists – decide based on delivery semantics.
+            if (_options.MarkProcessedAfterFirstAttempt)
             {
                 // At-most-once mode: never retry, treat as duplicate immediately
                 return false;
             }
 
-            // At-least-once mode: attempt to atomically reclaim the record if it was not yet processed
+            // At‑least‑once mode: attempt to atomically reclaim the record if it was not yet processed.
+            // NOTE: In MassTransit, retries for the same message are never concurrent with the original
+            // consumer. The previous consumer must have failed and stopped before redelivery occurs.
+            // Therefore, reclaiming the record is safe without a lock token.   
             var updated = await _dbContext.Set<InboxMessageEntity>()
                 .Where(e => e.MessageId == messageId && e.ConsumerTypeName == consumerTypeName && !e.IsProcessed)
                 .ExecuteUpdateAsync(
@@ -69,21 +72,16 @@ public sealed class EfInboxStore : IInboxStore
     public async Task<bool> MarkAsProcessedAsync(InboxMessage message,
                                                  CancellationToken cancellationToken = default)
     {
-        var entity = await _dbContext.Set<InboxMessageEntity>()
-                        .FirstOrDefaultAsync(e => e.MessageId == message.MessageId
-                                                && e.ConsumerTypeName == message.ConsumerTypeName,
-                                             cancellationToken);
+        // Atomic conditional update: only mark if not already processed.
+        var updated = await _dbContext.Set<InboxMessageEntity>()
+            .Where(e => e.MessageId == message.MessageId &&
+                         e.ConsumerTypeName == message.ConsumerTypeName &&
+                         !e.IsProcessed)
+            .ExecuteUpdateAsync(
+                setters => setters.SetProperty(e => e.IsProcessed, true),
+                cancellationToken);
 
-        if (entity is null)
-            return false; // should not happen – reservation was never made
-
-        // Direct check and set, since InboxMessageEntity is a plain EF entity
-        if (entity.IsProcessed)
-            return false; // already marked by a previous attempt
-
-        entity.IsProcessed = true;
-        await _dbContext.SaveChangesAsync(cancellationToken);
-        return true;
+        return updated > 0;
     }
 
     /// <summary>

@@ -1,6 +1,7 @@
 using Chapar.Core.Abstractions;
 using Chapar.Core.Inbox;
 using Chapar.Inbox.EntityFrameworkCore.Filters;
+using Chapar.Inbox.EntityFrameworkCore.Options;
 using Chapar.Inbox.EntityFrameworkCore.Stores;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,10 +14,25 @@ namespace Chapar.Inbox.EntityFrameworkCore.Extensions;
 public static class ChaparInboxExtensions
 {
     /// <summary>
-    /// Registers the EF Core‑based inbox services.
+    /// Registers the EF Core‑based inbox services and optional delivery behavior.
     /// </summary>
-    public static IServiceCollection AddChaparInboxEntityFramework(this IServiceCollection services)
+    /// <param name="services">The <see cref="IServiceCollection"/> to add the services to.</param>
+    /// <param name="configure">
+    /// An optional action to customize <see cref="ChaparInboxOptions"/>,
+    /// such as enabling at‑most‑once delivery through
+    /// <see cref="ChaparInboxOptions.MarkProcessedAfterFirstAttempt"/>.
+    /// </param>
+    /// <returns>The same service collection so that multiple calls can be chained.</returns>
+    public static IServiceCollection AddChaparInboxEntityFramework(this IServiceCollection services,
+                                                                   Action<ChaparInboxOptions>? configure = null)
     {
+        var options = new ChaparInboxOptions();
+        configure?.Invoke(options);
+        services.Configure<ChaparInboxOptions>(opt =>
+        {
+            opt.MarkProcessedAfterFirstAttempt = options.MarkProcessedAfterFirstAttempt;
+        });
+
         services.AddScoped<IInboxStore, EfInboxStore>();
         services.AddScoped<IConsumeFilter, InboxConsumeFilter>();
         return services;
@@ -30,8 +46,8 @@ public static class ChaparInboxExtensions
     /// <param name="schema">The schema of the inbox table. Default is "chapar".</param>
     /// <returns>The <see cref="ModelBuilder"/> for chaining.</returns>
     public static ModelBuilder ConfigureChaparInbox(this ModelBuilder builder,
-        string tableName = "InboxMessages",
-        string schema = "chapar")
+                                                    string tableName = "InboxMessages",
+                                                    string schema = "chapar")
     {
         builder.Entity<InboxMessageEntity>(entity =>
         {

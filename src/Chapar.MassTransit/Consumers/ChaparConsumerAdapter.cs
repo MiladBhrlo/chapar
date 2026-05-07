@@ -69,7 +69,16 @@ public class ChaparConsumerAdapter<T> : IConsumer<T> where T : class, IMessage
                         "Message {MessageId} was already marked as processed for consumer {ConsumerName}. " +
                         "This indicates a potential race condition or duplicate call.",
                         messageId, consumerName);
+                else
+                    _logger.LogWarning(
+                        "Message {MessageId} could not be marked as processed for consumer {ConsumerName}. " +
+                        "It may have been processed already.",
+                        messageId, consumerName);
             }
+            else
+                _logger.LogInformation(
+                    "Message {MessageId} processed successfully by {ConsumerName}.",
+                    messageId, consumerName);
 
             _logger.LogInformation("Message {MessageId} processed successfully by {ConsumerName}.",
                                    messageId,
