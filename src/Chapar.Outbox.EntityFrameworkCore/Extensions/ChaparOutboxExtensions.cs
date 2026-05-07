@@ -21,9 +21,8 @@ public static class ChaparOutboxExtensions
     /// <param name="services">The <see cref="IServiceCollection"/> to add the services to.</param>
     /// <param name="configure">An optional action to customize <see cref="ChaparOutboxOptions"/>.</param>
     /// <returns>The same service collection so that multiple calls can be chained.</returns>
-    public static IServiceCollection AddChaparOutboxEntityFramework(
-        this IServiceCollection services,
-        Action<ChaparOutboxOptions>? configure = null)
+    public static IServiceCollection AddChaparOutboxEntityFramework(this IServiceCollection services,
+                                                                    Action<ChaparOutboxOptions>? configure = null)
     {
         var options = new ChaparOutboxOptions();
         configure?.Invoke(options);

@@ -21,12 +21,14 @@ internal sealed class InboxConsumeFilter : IConsumeFilter
     /// <inheritdoc />
     public async Task<bool> ShouldProcessAsync(string messageId, string consumerTypeName)
     {
-        if (await _inbox.IsDuplicate(messageId, consumerTypeName))
+        var reserved = await _inbox.TryReserveAsync(messageId, consumerTypeName);
+        if (!reserved)
         {
-            _logger.LogWarning("Duplicate message {MessageId} for consumer {ConsumerTypeName} skipped.", messageId, consumerTypeName);
-            return false;
+            _logger.LogWarning("Message {MessageId} already reserved for {ConsumerTypeName}. Skipping.",
+                               messageId,
+                               consumerTypeName);
         }
-        return true;
+        return reserved;
     }
 
     /// <inheritdoc />
@@ -39,6 +41,8 @@ internal sealed class InboxConsumeFilter : IConsumeFilter
             ReceivedAt = DateTime.UtcNow
         };
         await _inbox.MarkAsProcessedAsync(inboxMessage);
-        _logger.LogDebug("Message {MessageId} marked as processed for consumer {ConsumerTypeName}.", messageId, consumerTypeName);
+        _logger.LogDebug("Message {MessageId} marked as processed for consumer {ConsumerTypeName}.",
+                         messageId,
+                         consumerTypeName);
     }
 }

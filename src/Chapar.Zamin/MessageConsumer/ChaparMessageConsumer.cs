@@ -1,7 +1,6 @@
 using Chapar.Core.Abstractions;
 using Chapar.Core.Messages;
 using Zamin.Core.Contracts.ApplicationServices.Events;
-using Zamin.Core.Domain.Events;
 using Zamin.Extensions.MessageBus.Abstractions;
 using Zamin.Extensions.Serializers.Abstractions;
 using Microsoft.Extensions.Logging;

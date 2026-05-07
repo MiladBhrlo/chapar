@@ -1,18 +1,30 @@
 namespace Chapar.Core.Inbox;
 
 /// <summary>
-/// Contract for recording incoming message ids to enable idempotent processing.
+/// Abstraction for storing and tracking incoming message ids to guarantee exactly‑once processing.
 /// </summary>
 public interface IInboxStore
 {
     /// <summary>
-    /// Checks whether a message with the given id has already been processed.
-    /// If not, the implementation should atomically reserve (or insert) the id
-    /// to prevent concurrent duplicates.
+    /// Attempts to atomically reserve an incoming message for processing.
+    /// When the method returns <c>true</c> the caller is the exclusive processor of the message;
+    /// when it returns <c>false</c> the message has already been reserved by another consumer.
     /// </summary>
-    /// <returns>True if the message has already been processed; otherwise false.</returns>
-    Task<bool> IsDuplicate(string messageId, string consumerTypeName);
+    /// <param name="messageId">The unique identifier of the incoming message.</param>
+    /// <param name="consumerTypeName">The fully qualified type name of the consumer that will handle the message.</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns><c>true</c> if the reservation was successful; otherwise <c>false</c>.</returns>
+    Task<bool> TryReserveAsync(string messageId,
+                               string consumerTypeName,
+                               CancellationToken cancellationToken = default);
 
-    /// <summary>Records a message as successfully processed.</summary>
-    Task MarkAsProcessedAsync(InboxMessage message);
+    /// <summary>
+    /// Marks a previously reserved message as completely processed.
+    /// Called only after the handler has finished without exception.
+    /// </summary>
+    /// <param name="message">The inbox message record that should be updated.</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns><c>true</c> if the message was marked for the first time; <c>false</c> if it was already processed.</returns>
+    Task<bool> MarkAsProcessedAsync(InboxMessage message,
+                                    CancellationToken cancellationToken = default);
 }

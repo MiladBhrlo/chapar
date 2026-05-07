@@ -162,11 +162,13 @@ public static class ChaparMassTransitExtensions
 
 internal class NullInboxStore : IInboxStore
 {
-    public Task<bool> IsDuplicate(string messageId, string consumerTypeName)
-        => Task.FromResult(false);
+    public Task<bool> TryReserveAsync(string messageId,
+                                      string consumerTypeName,
+                                      CancellationToken cancellationToken)
+        => Task.FromResult(true);
 
-    public Task MarkAsProcessedAsync(InboxMessage message)
-        => Task.CompletedTask;
+    public Task<bool> MarkAsProcessedAsync(InboxMessage message, CancellationToken cancellationToken)
+        => Task.FromResult(true);
 }
 
 internal class NullOutboxStore : IOutboxStore
