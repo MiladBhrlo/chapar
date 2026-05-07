@@ -6,10 +6,10 @@ namespace Chapar.Core.Abstractions;
 public interface IAggregateRoot
 {
     /// <summary>Gets the domain events that have been raised but not yet dispatched.</summary>
-    IReadOnlyCollection<object> DomainEvents { get; }
+    IReadOnlyCollection<IDomainEvent> DomainEvents { get; }
 
     /// <summary>Adds a domain event to the aggregate's internal collection.</summary>
-    void AddDomainEvent(object domainEvent);
+    void AddDomainEvent(IDomainEvent domainEvent);
 
     /// <summary>Clears all domain events, usually after they have been dispatched.</summary>
     void ClearDomainEvents();
@@ -20,11 +20,14 @@ public interface IAggregateRoot
 /// </summary>
 public abstract class AggregateRoot : IAggregateRoot
 {
-    private readonly List<object> _domainEvents = [];
+    private readonly List<IDomainEvent> _domainEvents = [];
 
-    public IReadOnlyCollection<object> DomainEvents => _domainEvents.AsReadOnly();
+    /// <inheritdoc />
+    public IReadOnlyCollection<IDomainEvent> DomainEvents => _domainEvents.AsReadOnly();
 
-    public void AddDomainEvent(object domainEvent) => _domainEvents.Add(domainEvent);
+    /// <inheritdoc />
+    public void AddDomainEvent(IDomainEvent domainEvent) => _domainEvents.Add(domainEvent);
 
+    /// <inheritdoc />
     public void ClearDomainEvents() => _domainEvents.Clear();
 }
