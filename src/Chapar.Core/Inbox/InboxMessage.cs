@@ -16,5 +16,18 @@ public class InboxMessage
     public DateTime ReceivedAt { get; init; } = DateTime.UtcNow;
 
     /// <summary>Indicates if the message has already been fully processed.</summary>
-    public bool IsProcessed { get; init; }
+    public bool IsProcessed { get; private set; }
+
+    /// <summary>
+    /// Attempts to mark the message as processed.
+    /// </summary>
+    /// <returns><c>true</c> if the message was just marked; <c>false</c> if it was already processed.</returns>
+    public bool TryMarkAsProcessed()
+    {
+        if (IsProcessed)
+            return false;
+
+        IsProcessed = true;
+        return true;
+    }
 }

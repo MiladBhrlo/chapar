@@ -40,6 +40,9 @@ public static class ChaparInboxExtensions
             entity.Property(e => e.MessageId).HasMaxLength(50).IsRequired();
             entity.Property(e => e.ConsumerTypeName).HasMaxLength(200).IsRequired();
             entity.Property(e => e.ReceivedAt).IsRequired();
+
+            // Unique constraint for atomic reservation
+            entity.HasIndex(e => new { e.MessageId, e.ConsumerTypeName }).IsUnique();
         });
 
         return builder;

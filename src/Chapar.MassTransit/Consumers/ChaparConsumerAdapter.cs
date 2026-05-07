@@ -15,30 +15,36 @@ public class ChaparConsumerAdapter<T> : IConsumer<T> where T : class, IMessage
     private readonly IInboxStore? _inboxStore;
     private readonly ILogger<ChaparConsumerAdapter<T>> _logger;
 
-    public ChaparConsumerAdapter(
-        IMessageHandler<T> handler,
-        IInboxStore? inboxStore = null,
-        ILogger<ChaparConsumerAdapter<T>>? logger = null)
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ChaparConsumerAdapter{T}"/> class.
+    /// </summary>
+    /// <param name="handler">The message handler to invoke upon successful processing.</param>
+    /// <param name="inboxStore">An optional inbox store for idempotent message reservation.</param>
+    /// <param name="logger">The logger instance.</param>
+    public ChaparConsumerAdapter(IMessageHandler<T> handler,
+                                 IInboxStore? inboxStore = null,
+                                 ILogger<ChaparConsumerAdapter<T>>? logger = null)
     {
         _handler = handler ?? throw new ArgumentNullException(nameof(handler));
         _inboxStore = inboxStore;
         _logger = logger ?? Microsoft.Extensions.Logging.Abstractions.NullLogger<ChaparConsumerAdapter<T>>.Instance;
     }
 
+    /// <inheritdoc />
     public async Task Consume(ConsumeContext<T> context)
     {
         var messageId = context.MessageId?.ToString() ?? Guid.NewGuid().ToString();
         var consumerName = _handler.GetType().FullName ?? typeof(T).Name;
 
-        // Idempotency check
+        // Atomically try to reserve the message.
         if (_inboxStore is not null)
         {
-            if (await _inboxStore.IsDuplicate(messageId, consumerName))
+            var reserved = await _inboxStore.TryReserveAsync(messageId, consumerName, context.CancellationToken);
+            if (!reserved)
             {
-                _logger.LogWarning(
-                    "Duplicate message {MessageId} for consumer {ConsumerName} detected. Message will be acknowledged but not processed.",
-                    messageId,
-                    consumerName);
+                _logger.LogWarning("Message {MessageId} already reserved for consumer {ConsumerName}. Skipping.",
+                                   messageId,
+                                   consumerName);
                 return; // Ack without processing
             }
         }
@@ -55,13 +61,19 @@ public class ChaparConsumerAdapter<T> : IConsumer<T> where T : class, IMessage
                     MessageId = messageId,
                     ConsumerTypeName = consumerName,
                     ReceivedAt = DateTime.UtcNow,
-                    IsProcessed = true,
                 };
 
-                await _inboxStore.MarkAsProcessedAsync(inboxMessage);
+                var marked = await _inboxStore.MarkAsProcessedAsync(inboxMessage, context.CancellationToken);
+                if (!marked)
+                    _logger.LogWarning(
+                        "Message {MessageId} was already marked as processed for consumer {ConsumerName}. " +
+                        "This indicates a potential race condition or duplicate call.",
+                        messageId, consumerName);
             }
 
-            _logger.LogInformation("Message {MessageId} processed successfully by {ConsumerName}.", messageId, consumerName);
+            _logger.LogInformation("Message {MessageId} processed successfully by {ConsumerName}.",
+                                   messageId,
+                                   consumerName);
         }
         catch
         {

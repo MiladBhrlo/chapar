@@ -4,7 +4,8 @@ using Microsoft.EntityFrameworkCore;
 namespace Chapar.Inbox.EntityFrameworkCore.Stores;
 
 /// <summary>
-/// Implements <see cref="IInboxStore"/> using Entity Framework Core.
+/// Entity Framework Core implementation of <see cref="IInboxStore"/>.
+/// Relies on a unique database constraint on (MessageId, ConsumerTypeName) to provide atomic reservations.
 /// </summary>
 public sealed class EfInboxStore : IInboxStore
 {
@@ -20,25 +21,56 @@ public sealed class EfInboxStore : IInboxStore
     }
 
     /// <inheritdoc />
-    public async Task<bool> IsDuplicate(string messageId, string consumerTypeName)
-    {
-        return await _dbContext.Set<InboxMessageEntity>()
-            .AnyAsync(m => m.MessageId == messageId && m.ConsumerTypeName == consumerTypeName);
-    }
-
-    /// <inheritdoc />
-    public async Task MarkAsProcessedAsync(InboxMessage message)
+    public async Task<bool> TryReserveAsync(string messageId,
+                                            string consumerTypeName,
+                                            CancellationToken cancellationToken = default)
     {
         var entity = new InboxMessageEntity
         {
-            MessageId = message.MessageId,
-            ConsumerTypeName = message.ConsumerTypeName,
-            ReceivedAt = message.ReceivedAt
+            MessageId = messageId,
+            ConsumerTypeName = consumerTypeName,
+            ReceivedAt = DateTime.UtcNow
         };
 
-        await _dbContext.Set<InboxMessageEntity>().AddAsync(entity);
-        await _dbContext.SaveChangesAsync();
+        await _dbContext.Set<InboxMessageEntity>().AddAsync(entity, cancellationToken);
+
+        try
+        {
+            await _dbContext.SaveChangesAsync(cancellationToken);
+            return true; // Reservation successful – message is new
+        }
+        catch (DbUpdateException ex) when (IsUniqueConstraintViolation(ex))
+        {
+            return false; // Duplicate – another consumer already reserved it
+        }
     }
+
+    /// <inheritdoc />
+    public async Task<bool> MarkAsProcessedAsync(InboxMessage message,
+                                                 CancellationToken cancellationToken = default)
+    {
+        var entity = await _dbContext.Set<InboxMessageEntity>()
+                        .FirstOrDefaultAsync(e => e.MessageId == message.MessageId
+                                                && e.ConsumerTypeName == message.ConsumerTypeName,
+                                             cancellationToken);
+
+        if (entity is null)
+            return false; // never reserved (should not happen)
+
+        // Direct check and set, since InboxMessageEntity is a plain EF entity
+        if (entity.IsProcessed)
+            return false; // already processed
+
+        entity.IsProcessed = true;
+        await _dbContext.SaveChangesAsync(cancellationToken);
+        return true;
+    }
+
+    /// <summary>
+    /// Checks whether the <see cref="DbUpdateException"/> was caused by a unique constraint violation.
+    /// </summary>
+    private static bool IsUniqueConstraintViolation(DbUpdateException ex)
+        => ex.InnerException?.Message?.Contains("UNIQUE", StringComparison.OrdinalIgnoreCase) == true;
 }
 
 /// <summary>
@@ -65,4 +97,9 @@ public class InboxMessageEntity
     /// The timestamp when the message was first received.
     /// </summary>
     public DateTime ReceivedAt { get; set; }
+
+    /// <summary>
+    /// Indicates if the message has already been fully processed.
+    /// </summary>
+    public bool IsProcessed { get; set; }
 }
