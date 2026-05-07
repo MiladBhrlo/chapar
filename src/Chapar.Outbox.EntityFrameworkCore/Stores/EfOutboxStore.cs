@@ -17,7 +17,16 @@ public sealed class EfOutboxStore : IOutboxStore
     /// <param name="dbContext">The <see cref="IChaparDbContext"/> used to access the outbox table.</param>
     public EfOutboxStore(IChaparDbContext dbContext)
     {
-        _dbContext = (DbContext)dbContext ?? throw new ArgumentNullException(nameof(dbContext));
+        ArgumentNullException.ThrowIfNull(dbContext);
+
+        if (dbContext is not DbContext efDbContext)
+        {
+            throw new ArgumentException(
+                $"The provided {nameof(IChaparDbContext)} implementation must inherit from {nameof(DbContext)}.",
+                nameof(dbContext));
+        }
+
+        _dbContext = efDbContext;
     }
 
     /// <inheritdoc />
