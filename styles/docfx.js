@@ -1,5 +1,4 @@
-// Licensed to the .NET Foundation under one or more agreements.
-// The .NET Foundation licenses this file to you under the MIT license.
+// Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See LICENSE file in the project root for full license information.
 $(function () {
   var active = 'active';
   var expanded = 'in';
@@ -52,7 +51,7 @@ $(function () {
   // Styling for tables in conceptual documents using Bootstrap.
   // See http://getbootstrap.com/css/#tables
   function renderTables() {
-    $('table').addClass('table table-bordered table-condensed').wrap('<div class=\"table-responsive\"></div>');
+    $('table').addClass('table table-bordered table-striped table-condensed').wrap('<div class=\"table-responsive\"></div>');
   }
 
   // Styling for alerts.
@@ -83,7 +82,7 @@ $(function () {
   // Enable highlight.js
   function highlight() {
     $('pre code').each(function (i, block) {
-      hljs.highlightElement(block);
+      hljs.highlightBlock(block);
     });
     $('pre code[highlight-lines]').each(function (i, block) {
       if (block.innerHTML === "") return;
@@ -128,10 +127,13 @@ $(function () {
       return;
     }
     try {
-      if(!window.Worker){
-        return;
+      var worker = new Worker(relHref + 'styles/search-worker.js');
+      if (!worker && !window.worker) {
+        localSearch();
+      } else {
+        webWorkerSearch();
       }
-      webWorkerSearch();
+
       renderSearchBox();
       highlightKeywords();
       addSearchEvent();
@@ -161,13 +163,49 @@ $(function () {
       }
     }
 
-    function webWorkerSearch() {
-      var indexReady = $.Deferred();
+    // Search factory
+    function localSearch() {
+      console.log("using local search");
+      var lunrIndex = lunr(function () {
+        this.ref('href');
+        this.field('title', { boost: 50 });
+        this.field('keywords', { boost: 20 });
+      });
+      lunr.tokenizer.seperator = /[\s\-\.]+/;
+      var searchData = {};
+      var searchDataRequest = new XMLHttpRequest();
 
-      var worker = new Worker(relHref + 'styles/search-worker.min.js');
-      worker.onerror = function (oEvent) {
-        console.error('Error occurred at search-worker. message: ' + oEvent.message);
+      var indexPath = relHref + "index.json";
+      if (indexPath) {
+        searchDataRequest.open('GET', indexPath);
+        searchDataRequest.onload = function () {
+          if (this.status != 200) {
+            return;
+          }
+          searchData = JSON.parse(this.responseText);
+          for (var prop in searchData) {
+            if (searchData.hasOwnProperty(prop)) {
+              lunrIndex.add(searchData[prop]);
+            }
+          }
+        }
+        searchDataRequest.send();
       }
+
+      $("body").bind("queryReady", function () {
+        var hits = lunrIndex.search(query);
+        var results = [];
+        hits.forEach(function (hit) {
+          var item = searchData[hit.ref];
+          results.push({ 'href': item.href, 'title': item.title, 'keywords': item.keywords });
+        });
+        handleSearchResults(results);
+      });
+    }
+
+    function webWorkerSearch() {
+      console.log("using Web Worker");
+      var indexReady = $.Deferred();
 
       worker.onmessage = function (oEvent) {
         switch (oEvent.data.e) {
@@ -194,7 +232,7 @@ $(function () {
     // Highlight the searching keywords
     function highlightKeywords() {
       var q = url('?q');
-      if (q) {
+      if (q !== null) {
         var keywords = q.split("%20");
         keywords.forEach(function (keyword) {
           if (keyword !== "") {
@@ -213,7 +251,7 @@ $(function () {
 
         $('#search-query').keyup(function () {
           query = $(this).val();
-          if (query === '') {
+          if (query.length < 3) {
             flipContents("show");
           } else {
             flipContents("hide");
@@ -250,9 +288,6 @@ $(function () {
     }
 
     function extractContentBrief(content) {
-      if (!content) {
-        return
-      }
       var briefOffset = 512;
       var words = query.split(/\s+/g);
       var queryIndex = content.indexOf(words[0]);
@@ -271,7 +306,7 @@ $(function () {
       pagination.removeData("twbs-pagination");
       if (hits.length === 0) {
         $('#search-results>.sr-items').html('<p>No results found</p>');
-      } else {
+      } else {        
         pagination.twbsPagination({
           first: pagination.data('first'),
           prev: pagination.data('prev'),
@@ -288,10 +323,10 @@ $(function () {
                 var itemRawHref = relativeUrlToAbsoluteUrl(currentUrl, relHref + hit.href);
                 var itemHref = relHref + hit.href + "?q=" + query;
                 var itemTitle = hit.title;
-                var itemBrief = extractContentBrief(hit.summary || '');
+                var itemBrief = extractContentBrief(hit.keywords);
 
                 var itemNode = $('<div>').attr('class', 'sr-item');
-                var itemTitleNode = $('<div>').attr('class', 'item-title').append($('<a>').attr('href', itemHref).attr("target", "_blank").attr("rel", "noopener noreferrer").text(itemTitle));
+                var itemTitleNode = $('<div>').attr('class', 'item-title').append($('<a>').attr('href', itemHref).attr("target", "_blank").text(itemTitle));
                 var itemHrefNode = $('<div>').attr('class', 'item-href').text(itemRawHref);
                 var itemBriefNode = $('<div>').attr('class', 'item-brief').text(itemBrief);
                 itemNode.append(itemTitleNode).append(itemHrefNode).append(itemBriefNode);
@@ -319,7 +354,7 @@ $(function () {
       renderBreadcrumb();
       showSearch();
     }
-
+    
     function showSearch() {
       if ($('#search-results').length !== 0) {
           $('#search').show();
@@ -344,7 +379,7 @@ $(function () {
           navrel = navbarPath.substr(0, index + 1);
         }
         $('#navbar>ul').addClass('navbar-nav');
-        var currentAbsPath = util.getCurrentWindowAbsolutePath();
+        var currentAbsPath = util.getAbsolutePath(window.location.pathname);
         // set active item
         $('#navbar').find('a[href]').each(function (i, e) {
           var href = $(e).attr("href");
@@ -408,7 +443,7 @@ $(function () {
     function registerTocEvents() {
       var tocFilterInput = $('#toc_filter_input');
       var tocFilterClearButton = $('#toc_filter_clear');
-
+        
       $('.toc .nav > li > .expand-stub').click(function (e) {
         $(e.target).parent().toggleClass(expanded);
       });
@@ -442,7 +477,7 @@ $(function () {
           parent.removeClass(show);
           parent.removeClass(filtered);
         })
-
+        
         // Get leaf nodes
         $('#toc li>a').filter(function (i, e) {
           return $(e).siblings().length === 0
@@ -483,7 +518,7 @@ $(function () {
           return false;
         }
       });
-
+      
       // toc filter clear button
       tocFilterClearButton.hide();
       tocFilterClearButton.on("click", function(e){
@@ -521,10 +556,7 @@ $(function () {
         if (index > -1) {
           tocrel = tocPath.substr(0, index + 1);
         }
-        var currentHref = util.getCurrentWindowAbsolutePath();
-        if(!currentHref.endsWith('.html')) {
-          currentHref += '.html';
-        }
+        var currentHref = util.getAbsolutePath(window.location.pathname);
         $('#sidetoc').find('a[href]').each(function (i, e) {
           var href = $(e).attr("href");
           if (util.isRelativePath(href)) {
@@ -955,7 +987,7 @@ $(function () {
     }
 
     function readTabsQueryStringParam() {
-      var qs = parseQueryString(window.location.search);
+      var qs = parseQueryString();
       var t = qs.tabs;
       if (t === undefined || t === '') {
         return [];
@@ -964,7 +996,7 @@ $(function () {
     }
 
     function updateTabsQueryStringParam(state) {
-      var qs = parseQueryString(window.location.search);
+      var qs = parseQueryString();
       qs.tabs = state.selectedTabs.join();
       var url = location.protocol + "//" + location.host + location.pathname + "?" + toQueryString(qs) + location.hash;
       if (location.href === url) {
@@ -1022,25 +1054,14 @@ $(function () {
     this.getAbsolutePath = getAbsolutePath;
     this.isRelativePath = isRelativePath;
     this.isAbsolutePath = isAbsolutePath;
-    this.getCurrentWindowAbsolutePath = getCurrentWindowAbsolutePath;
     this.getDirectory = getDirectory;
     this.formList = formList;
 
     function getAbsolutePath(href) {
-      if (isAbsolutePath(href)) return href;
-      var currentAbsPath = getCurrentWindowAbsolutePath();
-      var stack = currentAbsPath.split("/");
-      stack.pop();
-      var parts = href.split("/");
-      for (var i=0; i< parts.length; i++) {
-        if (parts[i] == ".") continue;
-        if (parts[i] == ".." && stack.length > 0)
-          stack.pop();
-        else
-          stack.push(parts[i]);
-      }
-      var p = stack.join("/");
-      return p;
+      // Use anchor to normalize href
+      var anchor = $('<a href="' + href + '"></a>')[0];
+      // Ignore protocal, remove search and query
+      return anchor.host + anchor.pathname;
     }
 
     function isRelativePath(href) {
@@ -1054,9 +1075,6 @@ $(function () {
       return (/^(?:[a-z]+:)?\/\//i).test(href);
     }
 
-    function getCurrentWindowAbsolutePath() {
-      return window.location.origin + window.location.pathname;
-    }
     function getDirectory(href) {
       if (!href) return '';
       var index = href.lastIndexOf('/');
@@ -1108,7 +1126,7 @@ $(function () {
      * If the jQuery element contains tags, this function will not change the element.
      */
     $.fn.breakWord = function () {
-      if (!this.html().match(/(<\w*)((\s\/>)|(.*<\/\w*>))/g)) {
+      if (this.html() == this.text()) {
         this.html(function (index, text) {
           return breakPlainText(text);
         })

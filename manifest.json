@@ -1,5 +1,6 @@
 {
-  "source_base_path": "/home/runner/work/chapar/chapar",
+  "homepages": [],
+  "source_base_path": "/github/workspace",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -8,39 +9,1140 @@
         "resource": {
           "relative_path": "index.json"
         }
-      }
+      },
+      "is_incremental": false
     },
     {
       "type": "Conceptual",
       "source_relative_path": "README.md",
       "output": {
         ".html": {
-          "relative_path": "README.html"
+          "relative_path": "README.html",
+          "hash": "TNFoZWHeOnPrH1lCfAlWYQ=="
         }
       },
+      "is_incremental": false,
       "version": ""
     },
     {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Abstractions.AggregateRoot.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Abstractions.AggregateRoot.html",
+          "hash": "C0VLBnvGFjwJGGG6Ado+Ig=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Abstractions.IAggregateRoot.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Abstractions.IAggregateRoot.html",
+          "hash": "eknZK+75WreEJnululdsdQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Abstractions.IChaparBus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Abstractions.IChaparBus.html",
+          "hash": "qCaIRL5mZ6+M+u4ncge+pA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Abstractions.IChaparDbContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Abstractions.IChaparDbContext.html",
+          "hash": "dUub0a0GRK/TFnakWw4Irg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Abstractions.IChaparRequestClient-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Abstractions.IChaparRequestClient-2.html",
+          "hash": "byrXfLmmjlPuKgPrr9OO/A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Abstractions.ICommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Abstractions.ICommand.html",
+          "hash": "bHXC72Z1U4ChiK/c57amlA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Abstractions.IConsumeFilter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Abstractions.IConsumeFilter.html",
+          "hash": "+IWJ2vV5qg3L4+8SjbMVnQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Abstractions.IDomainEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Abstractions.IDomainEvent.html",
+          "hash": "DvRRqlMVCZJJVCG5IKFu1w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Abstractions.IEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Abstractions.IEvent.html",
+          "hash": "CKyGxXrc9Pvzwldhe8zneg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Abstractions.IIntegrationEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Abstractions.IIntegrationEvent.html",
+          "hash": "/LmM8VCJOmtDHWI8yIenQw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Abstractions.IMessage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Abstractions.IMessage.html",
+          "hash": "FuAPn0ti0wlkGExEGPkUnw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Abstractions.IMessageContextAccessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Abstractions.IMessageContextAccessor.html",
+          "hash": "idum4WGQuNgFEKQpiL+n6Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Abstractions.IMessageHandler-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Abstractions.IMessageHandler-1.html",
+          "hash": "cb1XzXNWDwNmRg2aM6v4QA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Abstractions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Abstractions.html",
+          "hash": "pWNcqCyqpwEfA8MT5szbqw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Attributes.AllowedOriginAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Attributes.AllowedOriginAttribute.html",
+          "hash": "FXgEuL8EqdQ5PmdTAs+2ng=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Attributes.QueueNameAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Attributes.QueueNameAttribute.html",
+          "hash": "0N3u8e7wNXVMgKStyRdAnA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Attributes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Attributes.html",
+          "hash": "HSVqRi3m8xOX4I7qysYBeg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Cleanup.CleanupOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Cleanup.CleanupOptions.html",
+          "hash": "hDNXz/x7XyfIGahZZBsL3A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Cleanup.ICleanupStore.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Cleanup.ICleanupStore.html",
+          "hash": "Zc9gIfBfCRjObNK2tAJYLQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Cleanup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Cleanup.html",
+          "hash": "52wrPd8HD8C2LXmfKcuFqg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Exceptions.IDomainException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Exceptions.IDomainException.html",
+          "hash": "NwWHRN5d9mrHL194j9TIdA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Exceptions.OriginValidationException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Exceptions.OriginValidationException.html",
+          "hash": "NwTm21mA3+MYNXbP26c/IA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Exceptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Exceptions.html",
+          "hash": "d6tcO08q6E1S5+7jrgsVlw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Inbox.IInboxStore.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Inbox.IInboxStore.html",
+          "hash": "eUDujabJjP3GfdJCOz1mEw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Inbox.InboxMessage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Inbox.InboxMessage.html",
+          "hash": "aIic5lA6Ip5GSDpjDwkbyQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Inbox.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Inbox.html",
+          "hash": "SA+VhxBKH4JTYmlFLXBaTA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Messages.ParcelMessage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Messages.ParcelMessage.html",
+          "hash": "pv5cmcd4/hN5Qgf2thtKSQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Messages.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Messages.html",
+          "hash": "asFmwuOlUkgAubPLeb2fxA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Metrics.IInboxMetrics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Metrics.IInboxMetrics.html",
+          "hash": "oySOIGS+3+NcWNCTyyHHeg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Metrics.IOutboxMetrics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Metrics.IOutboxMetrics.html",
+          "hash": "7g8K0GuVwR0c1G+q4CijYQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Metrics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Metrics.html",
+          "hash": "1Zt0+UvJatfpqem9AoF6Qw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Outbox.IOutboxStore.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Outbox.IOutboxStore.html",
+          "hash": "fV1tdyByDrZ7jARSHASvgQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Outbox.OutboxMessage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Outbox.OutboxMessage.html",
+          "hash": "Px1yA9cfoUx7pkSm5nhOXA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Outbox.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Outbox.html",
+          "hash": "xJeEAYF4PXyTw9apnYBypg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Pipeline.IPipelineBehavior-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Pipeline.IPipelineBehavior-1.html",
+          "hash": "maQvSZdGD4+rK6/OcMHufw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Pipeline.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Pipeline.html",
+          "hash": "e9VF6ISdJOE3AuJtzHjzGw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Utilities.ChaparVersion.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Utilities.ChaparVersion.html",
+          "hash": "7tSfDGHjkp3KGH+wPvlicw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Utilities.HeaderSanitizer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Utilities.HeaderSanitizer.html",
+          "hash": "aru4Tjrt6c5Wdjx8S/inVw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Utilities.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Utilities.html",
+          "hash": "Rb13454SfjRXHw+Ldh1BIQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions.html",
+          "hash": "oXGEg18imE2oravzYu12rA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Inbox.EntityFrameworkCore.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Inbox.EntityFrameworkCore.Extensions.html",
+          "hash": "5uU1XlKjAEn7Zoy5bIELMA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Inbox.EntityFrameworkCore.Options.ChaparInboxOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Inbox.EntityFrameworkCore.Options.ChaparInboxOptions.html",
+          "hash": "pvX1jib1N7T1lPxBx8PDsg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Inbox.EntityFrameworkCore.Options.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Inbox.EntityFrameworkCore.Options.html",
+          "hash": "5iYKW1Xm1VXX5puKaEjCAA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.html",
+          "hash": "JKBVQJj/i2mkJD+IFNsTww=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.html",
+          "hash": "9Sn8ti5RYTLXB3fmBK5leQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Inbox.EntityFrameworkCore.Stores.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Inbox.EntityFrameworkCore.Stores.html",
+          "hash": "VcM8XSUxePfhXaiazk/Vyg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.MassTransit.Adapters.MessageHeaders.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.MassTransit.Adapters.MessageHeaders.html",
+          "hash": "JoR9xrU4Vk+AWmnLru4Ldg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.MassTransit.Adapters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.MassTransit.Adapters.html",
+          "hash": "Fjbz0USNqXgMsoYQScrOvQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.MassTransit.Consumers.ChaparConsumerAdapter-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.MassTransit.Consumers.ChaparConsumerAdapter-1.html",
+          "hash": "n6RU1BbApLuON0KAqoQOcA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.MassTransit.Consumers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.MassTransit.Consumers.html",
+          "hash": "2TCQXCua0ZpOBQ4JLRkURw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.MassTransit.Extensions.ChaparMassTransitExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.MassTransit.Extensions.ChaparMassTransitExtensions.html",
+          "hash": "kJgtlo7wcMlNRRZQaWZNWw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.MassTransit.Extensions.ChaparMassTransitHealthCheckExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.MassTransit.Extensions.ChaparMassTransitHealthCheckExtensions.html",
+          "hash": "kBuY/BDFNCNLiXMHHa34Aw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.MassTransit.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.MassTransit.Extensions.html",
+          "hash": "gqURSEiJOP/MRd/wjDwphQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.MassTransit.Options.ChaparMassTransitOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.MassTransit.Options.ChaparMassTransitOptions.html",
+          "hash": "Gmon/H/2XBNYsZTnHAn+5g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.MassTransit.Options.ResilienceOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.MassTransit.Options.ResilienceOptions.html",
+          "hash": "eEaGNK7KibIjHscGeD+uNw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.MassTransit.Options.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.MassTransit.Options.html",
+          "hash": "e73rBnkF60e47eBhQfW9+A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.html",
+          "hash": "7FgbCOkV0iR9NkP0dIoE+w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Extensions.html",
+          "hash": "YFuohBhmn/ctluim3z717g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Interceptors.OutboxInterceptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Interceptors.OutboxInterceptor.html",
+          "hash": "jfdeJOfFenM/oj9Uz/N4mQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Interceptors.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Interceptors.html",
+          "hash": "J1BEDZ5z6x9b+ZkIEuQ1mA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Options.ChaparOutboxOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Options.ChaparOutboxOptions.html",
+          "hash": "XvSrHiOZmeBsEj9y+5j3Mg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Options.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Options.html",
+          "hash": "8JZbq/gwGIdHxsi2zh79rQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.html",
+          "hash": "Q0l+KzgmTksDm0B6tc3yeQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.html",
+          "hash": "OCBUakC7Imjn0vSIRDeBQQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Stores.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Stores.html",
+          "hash": "q8PrqSdWcHF4TO7UeFptKQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Pipeline.Behaviours.DiagnosticsBehaviour-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Pipeline.Behaviours.DiagnosticsBehaviour-1.html",
+          "hash": "gUxw6auaRueH9Vp3bbzjfw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour-1.html",
+          "hash": "xMJFdKMcgOY4h357UMsl4g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour-1.html",
+          "hash": "70j8/BUIaZ7O8bw4skjsEQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Pipeline.Behaviours.OriginValidationBehaviour-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Pipeline.Behaviours.OriginValidationBehaviour-1.html",
+          "hash": "qXXgbjl6q7KBdU5cBLGTkQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Pipeline.Behaviours.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Pipeline.Behaviours.html",
+          "hash": "nN7Bvlj6HaQzHFbrN5GoVQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Pipeline.Extensions.ChaparPipelineExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Pipeline.Extensions.ChaparPipelineExtensions.html",
+          "hash": "KoYmHD3phS+v1gsqpVwnDA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Pipeline.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Pipeline.Extensions.html",
+          "hash": "hFgUqSnVF2IGodj3X15kOQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Zamin.Consumer.ChaparMessageConsumer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Zamin.Consumer.ChaparMessageConsumer.html",
+          "hash": "FcZ/nShrJ3J4HzNjWNWd1w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Zamin.Consumer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Zamin.Consumer.html",
+          "hash": "fOOcgXUCZ6RKGGgrc3oB7g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Zamin.Extensions.ChaparZaminExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Zamin.Extensions.ChaparZaminExtensions.html",
+          "hash": "cwwUUJccrVQA4yd9GWhVeg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Zamin.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Zamin.Extensions.html",
+          "hash": "n1+SPrk1ZUQv2oYw9GjU9Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Zamin.MassTransit.Extensions.ChaparZaminMassTransitExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Zamin.MassTransit.Extensions.ChaparZaminMassTransitExtensions.html",
+          "hash": "WDZwEx3cObKnHIhPmLQRFg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Zamin.MassTransit.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Zamin.MassTransit.Extensions.html",
+          "hash": "ZDaOnp2z+nqN+pwg6jzXfQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Zamin.Outbox.Extensions.ChaparZaminOutboxExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Zamin.Outbox.Extensions.ChaparZaminOutboxExtensions.html",
+          "hash": "my8cW4Q3O1JElPWaCuFMrQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Zamin.Outbox.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Zamin.Outbox.Extensions.html",
+          "hash": "dt9epGP82eAx9m/azbi0Ew=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Zamin.Outbox.Inbox.ZaminInboxStore.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Zamin.Outbox.Inbox.ZaminInboxStore.html",
+          "hash": "QhVNlOkU/uPmQUt7fYDH6w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Zamin.Outbox.Inbox.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Zamin.Outbox.Inbox.html",
+          "hash": "ZyDNXTjNnBXMG6uILs3I5g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.html",
+          "hash": "LoZha1JaEKShxFeqTBjJZw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Zamin.Outbox.Outbox.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Zamin.Outbox.Outbox.html",
+          "hash": "NMKMjkm49zRGc9ZTF86QKQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.html",
+          "hash": "AOK3rYjATQyto8Scx/ipSw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Zamin.SendMessageBus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Zamin.SendMessageBus.html",
+          "hash": "3vDabkHE8oCO3EbRIs9GaQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "w7JxxGjWCCXjpPGTIF+ksA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "InvalidYamlHeader"
+      ],
       "type": "Conceptual",
       "source_relative_path": "docs/guide.md",
       "output": {
         ".html": {
-          "relative_path": "docs/guide.html"
+          "relative_path": "docs/guide.html",
+          "hash": "a9kkAacYaD1nd8GpBaCDYw=="
         }
       },
+      "is_incremental": false,
       "version": ""
     },
     {
+      "log_codes": [
+        "InvalidYamlHeader"
+      ],
       "type": "Conceptual",
       "source_relative_path": "index.md",
       "output": {
         ".html": {
-          "relative_path": "index.html"
+          "relative_path": "index.html",
+          "hash": "7ly61c9kPcWY9JUbol+MUg=="
         }
       },
+      "is_incremental": false,
       "version": ""
     }
   ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0,
+        "full_build_reason_code": "NoAvailableBuildCache"
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 3,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 86,
+          "skipped_file_count": 0
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: should not trace intermediate info.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
   "groups": [
     {
       "xrefmap": "xrefmap.yml"

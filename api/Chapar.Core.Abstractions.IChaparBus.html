@@ -1,0 +1,301 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IChaparBus
+   | Chapar </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IChaparBus
+   | Chapar ">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Chapar.Core.Abstractions.IChaparBus">
+  
+  
+  <h1 id="Chapar_Core_Abstractions_IChaparBus" data-uid="Chapar.Core.Abstractions.IChaparBus" class="text-break">Interface IChaparBus
+  </h1>
+  <div class="markdown level0 summary"><p>Primary abstraction for sending events and commands onto the message bus.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Chapar.Core.Abstractions.html">Chapar.Core.Abstractions</a></h6>
+  <h6><strong>Assembly</strong>: Chapar.Core.dll</h6>
+  <h5 id="Chapar_Core_Abstractions_IChaparBus_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IChaparBus</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MiladBhrlo/chapar/new/main/apiSpec/new?filename=Chapar_Core_Abstractions_IChaparBus_PublishAsync__1___0_System_Nullable_IDictionary_System_String_System_Object___CancellationToken_.md&amp;value=---%0Auid%3A%20Chapar.Core.Abstractions.IChaparBus.PublishAsync%60%601(%60%600%2CSystem.Nullable%7BIDictionary%7BSystem.String%2CSystem.Object%7D%7D%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MiladBhrlo/chapar/blob/main/src/Chapar.Core/Abstractions/IChaparBus.cs/#L15">View Source</a>
+  </span>
+  <a id="Chapar_Core_Abstractions_IChaparBus_PublishAsync_" data-uid="Chapar.Core.Abstractions.IChaparBus.PublishAsync*"></a>
+  <h4 id="Chapar_Core_Abstractions_IChaparBus_PublishAsync__1___0_System_Nullable_IDictionary_System_String_System_Object___CancellationToken_" data-uid="Chapar.Core.Abstractions.IChaparBus.PublishAsync``1(``0,System.Nullable{IDictionary{System.String,System.Object}},CancellationToken)">PublishAsync&lt;TEvent&gt;(TEvent, Nullable&lt;IDictionary&lt;String, Object&gt;&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Publishes an event to all interested subscribers (fan‑out).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task PublishAsync&lt;TEvent&gt;(TEvent event, IDictionary&lt;string, object&gt;? headers = null, CancellationToken cancellationToken = null)
+    where TEvent : class, IEvent</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TEvent</span></td>
+        <td><span class="parametername">event</span></td>
+        <td><p>The event payload.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">IDictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Object</span>&gt;&gt;</td>
+        <td><span class="parametername">headers</span></td>
+        <td><p>Optional headers that will be attached to the outgoing message.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Token to cancel the operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TEvent</span></td>
+        <td><p>The type of the event message (must implement <a class="xref" href="Chapar.Core.Abstractions.IEvent.html">IEvent</a>).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MiladBhrlo/chapar/new/main/apiSpec/new?filename=Chapar_Core_Abstractions_IChaparBus_SendAsync__1___0_System_String_System_Nullable_IDictionary_System_String_System_Object___CancellationToken_.md&amp;value=---%0Auid%3A%20Chapar.Core.Abstractions.IChaparBus.SendAsync%60%601(%60%600%2CSystem.String%2CSystem.Nullable%7BIDictionary%7BSystem.String%2CSystem.Object%7D%7D%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MiladBhrlo/chapar/blob/main/src/Chapar.Core/Abstractions/IChaparBus.cs/#L26">View Source</a>
+  </span>
+  <a id="Chapar_Core_Abstractions_IChaparBus_SendAsync_" data-uid="Chapar.Core.Abstractions.IChaparBus.SendAsync*"></a>
+  <h4 id="Chapar_Core_Abstractions_IChaparBus_SendAsync__1___0_System_String_System_Nullable_IDictionary_System_String_System_Object___CancellationToken_" data-uid="Chapar.Core.Abstractions.IChaparBus.SendAsync``1(``0,System.String,System.Nullable{IDictionary{System.String,System.Object}},CancellationToken)">SendAsync&lt;TCommand&gt;(TCommand, String, Nullable&lt;IDictionary&lt;String, Object&gt;&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Sends a command directly to the specified queue (point‑to‑point).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task SendAsync&lt;TCommand&gt;(TCommand command, string queueName, IDictionary&lt;string, object&gt;? headers = null, CancellationToken cancellationToken = null)
+    where TCommand : class, ICommand</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TCommand</span></td>
+        <td><span class="parametername">command</span></td>
+        <td><p>The command payload.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">queueName</span></td>
+        <td><p>The name of the destination queue.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">IDictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Object</span>&gt;&gt;</td>
+        <td><span class="parametername">headers</span></td>
+        <td><p>Optional headers that will be attached to the outgoing message.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Token to cancel the operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TCommand</span></td>
+        <td><p>The type of the command message (must implement <a class="xref" href="Chapar.Core.Abstractions.ICommand.html">ICommand</a>).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/MiladBhrlo/chapar/new/main/apiSpec/new?filename=Chapar_Core_Abstractions_IChaparBus.md&amp;value=---%0Auid%3A%20Chapar.Core.Abstractions.IChaparBus%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/MiladBhrlo/chapar/blob/main/src/Chapar.Core/Abstractions/IChaparBus.cs/#L6" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2026
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
