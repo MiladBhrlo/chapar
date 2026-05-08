@@ -268,12 +268,17 @@ via Zamin's `IEventDispatcher`.
 | `Username` | `guest` | Login username |
 | `Password` | `guest` | Login password |
 | `VirtualHost` | `/` | RabbitMQ vhost |
+| `DefaultHeaders` | `{}` | Headers added to every message |
+
+### `ResilienceOptions`
+
+| Property | Default | Description |
+| :--- | :--- | :--- |
 | `RetryCount` | `3` | Immediate retries |
 | `RetryInterval` | `00:00:05` | Interval between retries |
 | `CircuitBreakerEnabled` | `true` | Enable / disable CB |
 | `CircuitBreakerFailureThreshold` | `20` | % failure to trip |
 | `CircuitBreakerResetInterval` | `00:01:00` | Reset interval |
-| `DefaultHeaders` | `{}` | Headers added to every message |
 
 ---
 

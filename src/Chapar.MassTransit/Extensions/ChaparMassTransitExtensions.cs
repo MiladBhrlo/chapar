@@ -57,14 +57,15 @@ public static class ChaparMassTransitExtensions
                     h.Password(options.Password);
                 });
 
-                cfg.UseMessageRetry(r => r.Interval(options.RetryCount, options.RetryInterval));
-                if (options.CircuitBreakerEnabled)
+                cfg.UseMessageRetry(r => r.Interval(options.Resilience.RetryCount,
+                                                    options.Resilience.RetryInterval));
+                if (options.Resilience.CircuitBreakerEnabled)
                 {
                     cfg.UseCircuitBreaker(cb =>
                     {
-                        cb.TripThreshold = options.CircuitBreakerFailureThreshold;
+                        cb.TripThreshold = options.Resilience.CircuitBreakerFailureThreshold;
                         cb.ActiveThreshold = 10;
-                        cb.ResetInterval = options.CircuitBreakerResetInterval;
+                        cb.ResetInterval = options.Resilience.CircuitBreakerResetInterval;
                     });
                 }
 
