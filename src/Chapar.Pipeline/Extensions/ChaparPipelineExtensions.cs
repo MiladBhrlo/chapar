@@ -14,13 +14,21 @@ public static class ChaparPipelineExtensions
     /// </summary>
     public static IServiceCollection AddChaparPipeline(this IServiceCollection services)
     {
-        // Register all default behaviours
-        services.AddScoped(typeof(IPipelineBehavior<>), typeof(DiagnosticsBehaviour<>)); // 1
-        services.AddScoped(typeof(IPipelineBehavior<>), typeof(ErrorHandlingBehaviour<>)); // 2
-        services.AddScoped(typeof(IPipelineBehavior<>), typeof(DomainExceptionHandlingBehaviour<>)); // 3
+        // 1. Diagnostics – outermost
+        services.AddScoped(typeof(IPipelineBehavior<>), typeof(DiagnosticsBehaviour<>));
 
+        // 2. Error Handling – wraps all remaining behaviors
+        services.AddScoped(typeof(IPipelineBehavior<>), typeof(ErrorHandlingBehaviour<>));
+
+        // 3. Domain Exception Handling – must wrap Origin Validation
+        services.AddScoped(typeof(IPipelineBehavior<>), typeof(DomainExceptionHandlingBehaviour<>));
+
+        // 4. Origin Validation – innermost, runs first
+        services.AddScoped(typeof(IPipelineBehavior<>), typeof(OriginValidationBehaviour<>));
+
+        // Pipeline dispatcher decorator
         // Decorate all IMessageHandler<T> registrations with the pipeline dispatcher
-        services.TryDecorate(typeof(IMessageHandler<>), typeof(PipelineMessageHandlerDispatcher<>)); // 4
+        services.TryDecorate(typeof(IMessageHandler<>), typeof(PipelineMessageHandlerDispatcher<>));
 
         return services;
     }

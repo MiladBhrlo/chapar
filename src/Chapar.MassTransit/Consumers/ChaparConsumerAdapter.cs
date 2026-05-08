@@ -3,6 +3,7 @@ using Chapar.Core.Inbox;
 using Chapar.Core.Metrics;
 using MassTransit;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 
 namespace Chapar.MassTransit.Consumers;
 
@@ -15,6 +16,7 @@ public class ChaparConsumerAdapter<T> : IConsumer<T> where T : class, IMessage
     private readonly IMessageHandler<T> _handler;
     private readonly IInboxStore? _inboxStore;
     private readonly IInboxMetrics? _inboxMetrics;
+    private readonly IMessageContextAccessor? _contextAccessor;
     private readonly ILogger<ChaparConsumerAdapter<T>> _logger;
 
     /// <summary>
@@ -23,21 +25,35 @@ public class ChaparConsumerAdapter<T> : IConsumer<T> where T : class, IMessage
     /// <param name="handler">The message handler to invoke upon successful processing.</param>
     /// <param name="inboxStore">An optional inbox store for idempotent message reservation.</param>
     /// <param name="inboxMetrics">An optional inbox metrics recorder for monitoring processed/duplicate/failed messages.</param>
+    /// <param name="contextAccessor">An optional message context accessor used to store headers for pipeline behaviors.</param>
     /// <param name="logger">An optional logger instance.</param>
     public ChaparConsumerAdapter(IMessageHandler<T> handler,
                                  IInboxStore? inboxStore = null,
                                  IInboxMetrics? inboxMetrics = null,
+                                 IMessageContextAccessor? contextAccessor = null,
                                  ILogger<ChaparConsumerAdapter<T>>? logger = null)
     {
         _handler = handler ?? throw new ArgumentNullException(nameof(handler));
         _inboxStore = inboxStore;
         _inboxMetrics = inboxMetrics;
-        _logger = logger ?? Microsoft.Extensions.Logging.Abstractions.NullLogger<ChaparConsumerAdapter<T>>.Instance;
+        _contextAccessor = contextAccessor;
+        _logger = logger ?? NullLogger<ChaparConsumerAdapter<T>>.Instance;
     }
 
     /// <inheritdoc />
     public async Task Consume(ConsumeContext<T> context)
     {
+        // Store headers for pipeline behaviors (e.g., OriginValidation, TenantPropagation)
+        if (_contextAccessor is Adapters.MessageHeaders accessor)
+        {
+            var headers = new Dictionary<string, object?>(StringComparer.OrdinalIgnoreCase);
+            foreach (var header in context.Headers.GetAll())
+            {
+                headers[header.Key] = header.Value;
+            }
+            accessor.Headers = headers;
+        }
+
         var messageId = context.MessageId?.ToString() ?? Guid.NewGuid().ToString();
         var consumerName = _handler.GetType().FullName ?? typeof(T).Name;
 
