@@ -29,7 +29,7 @@ internal sealed class ChaparConsumeFilterAdapter<T> : IFilter<ConsumeContext<T>>
             if (!await filter.ShouldProcessAsync(messageId, consumerName))
             {
                 _logger.LogInformation("Message {MessageId} was filtered out by {FilterType}.", messageId, filter.GetType().Name);
-                return; // فیلتر تصمیم به رد کردن گرفت، پیام مصرف نمی‌شود
+                return; // The filter rejected the message; it will not be consumed.
             }
         }
 
@@ -37,7 +37,7 @@ internal sealed class ChaparConsumeFilterAdapter<T> : IFilter<ConsumeContext<T>>
         {
             await next.Send(context);
 
-            // علامت‌گذاری پیام به‌عنوان پردازش‌شده توسط تمام فیلترها
+            // Mark the message as processed by all filters
             foreach (var filter in _filters)
             {
                 await filter.MarkAsProcessedAsync(messageId, consumerName);

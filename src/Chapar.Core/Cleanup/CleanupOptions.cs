@@ -1,4 +1,4 @@
-﻿namespace Chapar.Core.Cleanup;
+namespace Chapar.Core.Cleanup;
 
 /// <summary>
 /// Configuration for the cleanup background service.

@@ -1,6 +1,6 @@
+using System.Text.Json;
 using Chapar.Core.Abstractions;
 using Chapar.Core.Outbox;
-using System.Text.Json;
 
 namespace Chapar.Outbox.EntityFrameworkCore.Publishers;
 

@@ -1,7 +1,7 @@
+using System.Diagnostics;
 using Chapar.Core.Abstractions;
 using Chapar.Core.Pipeline;
 using Microsoft.Extensions.Logging;
-using System.Diagnostics;
 
 namespace Chapar.Pipeline.Behaviours;
 

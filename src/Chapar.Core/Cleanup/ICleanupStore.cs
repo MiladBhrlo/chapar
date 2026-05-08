@@ -1,4 +1,4 @@
-﻿namespace Chapar.Core.Cleanup;
+namespace Chapar.Core.Cleanup;
 
 /// <summary>
 /// A store that supports deleting old processed records.

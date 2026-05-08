@@ -97,7 +97,7 @@ public sealed class EfInboxStore : IInboxStore, ICleanupStore
 
     /// <inheritdoc />
     public async Task<int> DeleteProcessedAsync(DateTime olderThan,
-                                                CancellationToken cancellationToken = default) 
+                                                CancellationToken cancellationToken = default)
         => await _dbContext.Set<InboxMessageEntity>()
             .Where(m => m.IsProcessed && m.ReceivedAt < olderThan)
             .ExecuteDeleteAsync(cancellationToken);
