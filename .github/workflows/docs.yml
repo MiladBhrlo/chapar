@@ -26,10 +26,15 @@ jobs:
       - name: Build solution (to generate XML docs)
         run: dotnet build Chapar.slnx -c Release
 
-      - name: Build documentation with DocFX
-        uses: nikeee/docfx-action@v1.0.0
-        with:
-          args: docfx.json
+      - name: Build API metadata
+        run: docfx metadata docfx.json
+
+      - name: Generate API index
+        shell: pwsh
+        run: ./generate-api-index.ps1
+
+      - name: Build documentation site
+        run: docfx build docfx.json
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4

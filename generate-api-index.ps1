@@ -1,8 +1,15 @@
+# generate-api-index.ps1
+$apiDir = "api"
+$outputFile = "index.md"
+
+# پیدا کردن تمام فایل‌های YAML مربوط به Namespace (به‌جز toc.yml)
+$nsFiles = Get-ChildItem -Path $apiDir -Filter "*.yml" | Where-Object { $_.Name -ne "toc.yml" } | Sort-Object Name
+
+# شروع ساخت فایل index.md
+$content = @"
+```text
 ***
-
-_layout: landing
 title: Chapar – The Persian Courier for .NET Messaging
-
 ***
 
 # 🐎 Chapar
@@ -55,28 +62,56 @@ public class UserRegisteredHandler : IMessageHandler`UserRegistered`
 
 | Section | Description |
 | :--- | :--- |
-| [Complete Guide](docs/guide.md) | Walk through every scenario from publish/subscribe to advanced Outbox/Inbox, Pipeline, and Zamin integration. |
+| [Complete Guide](docs/guide.html) | Walk through every scenario from publish/subscribe to advanced Outbox/Inbox, Pipeline, and Zamin integration. |
 | [GitHub Repository](https://github.com/MiladBhrlo/chapar) | Source code, issue tracker, and contribution guidelines. |
-
-**Full API Reference** is just a click away — use the **API Reference** tab in the top navigation bar.
 
 ***
 
-## Packages
+## API Reference (Generated Automatically)
 
-| Package | Description |
-| :--- | :--- |
-| `Chapar` (`Chapar.Core`) | Core abstractions: `IChaparBus`, `IMessageHandler`T``, `Outbox`/`Inbox` contracts |
-| `Chapar.MassTransit` | MassTransit + RabbitMQ implementation |
-| `Chapar.Pipeline` | Extensible message handling pipeline |
-| `Chapar.Outbox.EntityFrameworkCore` | EF Core‑based Outbox (transparent decorator) |
-| `Chapar.Inbox.EntityFrameworkCore` | EF Core‑based Inbox (idempotency filter) |
-| `Chapar.Zamin` | Bridges Chapar with the Zamin framework |
-| `Chapar.Zamin.MassTransit` | One‑line setup for Chapar + Zamin + MassTransit |
-| `Chapar.Zamin.Outbox` | Outbox/Inbox stores backed by Zamin's native tables |
+Welcome to the complete API reference for Chapar.  
+Below you can find every namespace documented in the library.
+
+## Documentation
+
+- [Home (README)](README.html)
+- [Complete Guide](docs/guide.html)
+
+***
+
+"@
+
+$currentPackage = ""
+foreach ($file in $nsFiles) {
+    $name = $file.BaseName                     # مثلاً "Chapar.Core.Abstractions"
+    $parts = $name.Split('.')
+    if ($parts.Length -ge 2) {
+        $packageName = "$($parts[0]).$($parts[1])"   # "Chapar.Core"
+    } else {
+        $packageName = $parts[0]
+    }
+
+    # اگر پکیج تغییر کرد، یک هدر <h2> اضافه کن
+    if ($packageName -ne $currentPackage) {
+        $currentPackage = $packageName
+        $content += "`n## $currentPackage`n`n"
+    }
+
+    # اضافه کردن لینک به صفحه HTML (مسیر نسبی از ریشه)
+    $content += "- [$name](api/$name.html)`n"
+}
+
+# بخش ثابت نهایی (Packages, License, etc.)
+$content += @"
 
 ***
 
 ## License
 
 MIT
+"@
+
+# نوشتن در فایل
+Set-Content -Path $outputFile -Value $content -Encoding UTF8
+
+Write-Host "Generated $outputFile with $($nsFiles.Count) namespaces"
