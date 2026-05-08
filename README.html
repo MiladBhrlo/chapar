@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>&#128014; Chapar </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="&#128014; Chapar ">
+    
+    
+      <link rel="shortcut icon" href="favicon.ico">
+      <link rel="stylesheet" href="styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="styles/docfx.css">
+      <link rel="stylesheet" href="styles/main.css">
+      <meta property="docfx:navrel" content="">
+      <meta property="docfx:tocrel" content="">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="index.html">
+                <img id="logo" class="svg" src="logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="-chapar">🐎 Chapar</h1>
+
+<p><a href="https://deepwiki.com/MiladBhrlo/Chapar"><img src="https://devin.ai/assets/askdeepwiki.png" alt="Ask DeepWiki"></a></p>
+<p><strong>Chapar</strong> is a clean, extensible, and business‑friendly messaging abstraction for .NET.
+It hides the complexity of RabbitMQ and MassTransit behind a minimal API, while providing
+out‑of‑the‑box support for the <strong>Outbox</strong>, <strong>Inbox</strong>, and <strong>Pipeline</strong> patterns.</p>
+<blockquote>
+<p>Inspired by the ancient Persian courier system – fast, reliable, and invisible to the message sender.</p>
+</blockquote>
+<h2 id="why-chapar">Why Chapar?</h2>
+<ul>
+<li><strong>Zero ceremony</strong>: <code>PublishAsync</code> and <code>SendAsync</code> are all you need.</li>
+<li><strong>Transparent Outbox / Inbox</strong>: Add <em>one</em> NuGet package and every message is automatically stored in the database before delivery. No code changes.</li>
+<li><strong>Pipeline</strong>: a chain of configurable behaviours (logging, error handling, validation, …) that wrap every handler.</li>
+<li><strong>Framework agnostic</strong>: works standalone or on top of <strong>Zamin</strong>.</li>
+<li><strong>Transport agnostic</strong>: currently uses <strong>MassTransit v8</strong> (free &amp; community‑supported), with <strong>Wolverine</strong> coming soon.</li>
+</ul>
+<h2 id="packages">Packages</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Package</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Chapar</code> (<code>Chapar.Core</code>)</td>
+<td style="text-align: left;">Core abstractions: <code>IChaparBus</code>, <code>IMessageHandler&lt;T&gt;</code>, <code>Outbox</code>/<code>Inbox</code> contracts</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Chapar.MassTransit</code></td>
+<td style="text-align: left;">MassTransit + RabbitMQ implementation</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Chapar.Pipeline</code></td>
+<td style="text-align: left;">Extensible message handling pipeline</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Chapar.Outbox.EntityFrameworkCore</code></td>
+<td style="text-align: left;">EF Core‑based Outbox (transparent decorator)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Chapar.Inbox.EntityFrameworkCore</code></td>
+<td style="text-align: left;">EF Core‑based Inbox (idempotency filter)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Chapar.Zamin</code></td>
+<td style="text-align: left;">Bridges Chapar with the Zamin framework</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Chapar.Zamin.MassTransit</code></td>
+<td style="text-align: left;">One‑line setup for Chapar + Zamin + MassTransit</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Chapar.Zamin.Outbox</code></td>
+<td style="text-align: left;">Outbox/Inbox stores backed by Zamin's native tables</td>
+</tr>
+</tbody>
+</table>
+<h2 id="quick-start-standalone">Quick start (standalone)</h2>
+<pre><code class="lang-bash">dotnet add package Chapar
+dotnet add package Chapar.MassTransit
+</code></pre>
+<pre><code class="lang-csharp">services.AddChaparMassTransit(opt =&gt; opt.Host = &quot;localhost&quot;);
+
+// Define a message
+public record OrderPlaced(Guid OrderId) : IEvent;
+
+// Publish
+var bus = provider.GetRequiredService&lt;IChaparBus&gt;();
+await bus.PublishAsync(new OrderPlaced(Guid.NewGuid()));
+
+// Handle
+public class OrderPlacedHandler : IMessageHandler&lt;OrderPlaced&gt;
+{
+    public Task HandleAsync(OrderPlaced message, CancellationToken ct)
+    {
+        Console.WriteLine($&quot;Order {message.OrderId} received.&quot;);
+        return Task.CompletedTask;
+    }
+}
+</code></pre>
+<h2 id="documentation">Documentation</h2>
+<ul>
+<li><a href="docs/guide.html">Complete Guide</a> – from simple publish/subscribe to advanced Outbox/Inbox, Pipeline, and Zamin integration.</li>
+<li><a href="https://github.com/MiladBhrlo/chapar/wiki">API Reference</a> (coming soon)</li>
+</ul>
+<h2 id="roadmap--backlog">Roadmap / Backlog</h2>
+<p>We welcome contributions! If you are interested in any of the items below, feel free to open an issue or send a pull request.</p>
+<h3 id="-completed">✅ Completed</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Feature / Package</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Chapar.Core</code></td>
+<td style="text-align: left;">Core abstractions and contracts</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Chapar.MassTransit</code></td>
+<td style="text-align: left;">MassTransit v8 integration</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Chapar.Pipeline</code></td>
+<td style="text-align: left;">Pipeline behaviour infrastructure (diagnostics, error handling, etc.)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Chapar.Outbox.EntityFrameworkCore</code></td>
+<td style="text-align: left;">Outbox store backed by EF Core</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Chapar.Inbox.EntityFrameworkCore</code></td>
+<td style="text-align: left;">Inbox store backed by EF Core</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Chapar.Zamin</code></td>
+<td style="text-align: left;">Zamin framework integration (replaces <code>ISendMessageBus</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Chapar.Zamin.MassTransit</code></td>
+<td style="text-align: left;">One‑line setup for Chapar + Zamin + MassTransit</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Chapar.Zamin.Outbox</code></td>
+<td style="text-align: left;">Outbox/Inbox stores backed by Zamin's native tables</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-in-progress-by-core-team">🚧 In Progress (by core team)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Feature / Package</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Chapar.RoutingSlip</code></td>
+<td style="text-align: left;">Content‑based routing (Courier / Routing Slip)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Chapar.Saga</code></td>
+<td style="text-align: left;">Saga / Process Manager (state machine) support</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-backlog-up-for-grabs--contributions-welcome">💡 Backlog (up for grabs – contributions welcome!)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Feature / Package</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Chapar.Wolverine</code></td>
+<td style="text-align: left;">Wolverine transport adapter</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Chapar.Outbox.Dapper</code></td>
+<td style="text-align: left;">Outbox store using Dapper</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Chapar.Inbox.Dapper</code></td>
+<td style="text-align: left;">Inbox store using Dapper</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Chapar.Outbox.InMemory</code></td>
+<td style="text-align: left;">In‑memory Outbox (for testing / lightweight scenarios)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Chapar.Inbox.InMemory</code></td>
+<td style="text-align: left;">In‑memory Inbox (for testing)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Chapar.Outbox.Redis</code></td>
+<td style="text-align: left;">Outbox store backed by Redis</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Chapar.Inbox.Redis</code></td>
+<td style="text-align: left;">Inbox store backed by Redis</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Chapar.RequestResponse</code></td>
+<td style="text-align: left;">Stronger abstractions for request/response patterns</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Chapar.FluentValidation</code></td>
+<td style="text-align: left;">Pre‑built pipeline behaviour for FluentValidation</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Chapar.Authorization</code></td>
+<td style="text-align: left;">Security behaviour for header/token checks</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Chapar.Outbox.MongoDB</code></td>
+<td style="text-align: left;">Outbox store for MongoDB</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Chapar.Inbox.MongoDB</code></td>
+<td style="text-align: left;">Inbox store for MongoDB</td>
+</tr>
+<tr>
+<td style="text-align: left;">Management / Observability</td>
+<td style="text-align: left;">Dashboard, dead‑letter browser, metrics</td>
+</tr>
+</tbody>
+</table>
+<h2 id="license">License</h2>
+<p>MIT</p>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/MiladBhrlo/chapar/blob/main/README.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="styles/docfx.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+  </body>
+</html>

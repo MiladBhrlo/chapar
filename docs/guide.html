@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Chapar – Complete Guide </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Chapar – Complete Guide ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="">
+      <meta property="docfx:tocrel" content="">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="chapar--complete-guide">Chapar – Complete Guide</h1>
+
+<p>This guide walks through every supported scenario, from the simplest possible
+usage to the most advanced configurations.</p>
+<hr>
+<h2 id="1-getting-started">1. Getting Started</h2>
+<h3 id="11-installation">1.1 Installation</h3>
+<pre><code class="lang-bash">dotnet add package Chapar
+dotnet add package Chapar.MassTransit
+</code></pre>
+<h3 id="12-basic-setup">1.2 Basic Setup</h3>
+<pre><code class="lang-csharp">// Program.cs
+using Chapar.Core.Abstractions;
+using Chapar.MassTransit.Extensions;
+
+var builder = Host.CreateDefaultBuilder(args);
+builder.ConfigureServices((ctx, services) =&gt;
+{
+    services.AddChaparMassTransit(opt =&gt;
+    {
+        opt.Host = &quot;localhost&quot;;
+        opt.Username = &quot;guest&quot;;
+        opt.Password = &quot;guest&quot;;
+    });
+});
+</code></pre>
+<h3 id="13-defining-messages">1.3 Defining Messages</h3>
+<pre><code class="lang-csharp">// Events (broadcast)
+public record UserRegistered(Guid UserId, string Email) : IEvent;
+
+// Commands (point‑to‑point)
+public record SendWelcomeEmail(Guid UserId) : ICommand;
+</code></pre>
+<h3 id="14-publishing--sending">1.4 Publishing / Sending</h3>
+<pre><code class="lang-csharp">public class RegistrationService
+{
+    private readonly IChaparBus `bus`;
+
+    public RegistrationService(IChaparBus bus) =&gt; `bus` = bus;
+
+    public async Task RegisterAsync(User user)
+    {
+        // ... save user ...
+        await `bus`.PublishAsync(new UserRegistered(user.Id, user.Email));
+    }
+}
+</code></pre>
+<h3 id="15-handling-messages">1.5 Handling Messages</h3>
+<pre><code class="lang-csharp">public class UserRegisteredHandler : IMessageHandler&lt;UserRegistered&gt;
+{
+    public Task HandleAsync(UserRegistered message, CancellationToken ct)
+    {
+        Console.WriteLine(`$&quot;User {message.Email} registered.&quot;`);
+        return Task.CompletedTask;
+    }
+}
+</code></pre>
+<p><code>No manual registration needed</code> – Chapar scans all assemblies automatically.</p>
+<hr>
+<h2 id="2-sending-commands-pointtopoint">2. Sending Commands (Point‑to‑Point)</h2>
+<h3 id="21-the-queuename-attribute">2.1 The <code>[QueueName]</code> Attribute</h3>
+<pre><code class="lang-csharp">[QueueName(&quot;email-service&quot;)]
+public class SendWelcomeEmailHandler : IMessageHandler&lt;SendWelcomeEmail&gt;
+{
+    public Task HandleAsync(SendWelcomeEmail message, CancellationToken ct) =&gt; ...;
+}
+</code></pre>
+<h3 id="22-sending">2.2 Sending</h3>
+<pre><code class="lang-csharp">await `bus`.SendAsync(new SendWelcomeEmail(user.Id), &quot;email-service&quot;);
+</code></pre>
+<hr>
+<h2 id="3-outbox-pattern-guaranteed-delivery">3. Outbox Pattern (Guaranteed Delivery)</h2>
+<h3 id="31-install">3.1 Install</h3>
+<pre><code class="lang-bash">dotnet add package Chapar.Outbox.EntityFrameworkCore
+</code></pre>
+<h3 id="32-configure">3.2 Configure</h3>
+<pre><code class="lang-csharp">services.AddChaparOutboxEntityFramework(); // Enables outbox for `all` messages
+
+// In your DbContext:
+protected override void OnModelCreating(ModelBuilder builder)
+{
+    builder.ConfigureChaparOutbox();
+}
+</code></pre>
+<p>After this, <code>every</code> <code>PublishAsync</code> / <code>SendAsync</code> call is stored in the outbox table
+and dispatched later by a background service.</p>
+<h3 id="33-aggregateroot-integration-optional">3.3 Aggregate‑Root Integration (optional)</h3>
+<p>If your entities implement <code>IAggregateRoot</code>, the <code>OutboxInterceptor</code> automatically
+extracts events during <code>SaveChangesAsync</code> and persists them.</p>
+<pre><code class="lang-csharp">public class Order : AggregateRoot
+{
+    public void Place()
+    {
+        AddDomainEvent(new OrderPlaced(Id));
+    }
+}
+</code></pre>
+<p>Use <code>ChaparOutboxOptions</code> to decide which events are persisted.</p>
+<pre><code class="lang-csharp">services.Configure&lt;ChaparOutboxOptions&gt;(opt =&gt;
+{
+    opt.PublishDomainEvents = true;
+    opt.PublishIntegrationEvents = true;
+});
+</code></pre>
+<hr>
+<h2 id="4-inbox-pattern-idempotency">4. Inbox Pattern (Idempotency)</h2>
+<h3 id="41-install">4.1 Install</h3>
+<pre><code class="lang-bash">dotnet add package Chapar.Inbox.EntityFrameworkCore
+</code></pre>
+<h3 id="42-configure">4.2 Configure</h3>
+<pre><code class="lang-csharp">services.AddChaparInboxEntityFramework(); // Automatically filters duplicates
+
+// In your DbContext:
+protected override void OnModelCreating(ModelBuilder builder)
+{
+    builder.ConfigureChaparInbox();
+}
+</code></pre>
+<p>No handler changes needed – the <code>InboxConsumeFilter</code> runs transparently.</p>
+<hr>
+<h2 id="5-pipeline-behaviours">5. Pipeline (Behaviours)</h2>
+<h3 id="51-install">5.1 Install</h3>
+<pre><code class="lang-bash">dotnet add package Chapar.Pipeline
+</code></pre>
+<h3 id="52-enable">5.2 Enable</h3>
+<pre><code class="lang-csharp">services.AddChaparPipeline(); // Adds diagnostics, error handling, domain exception handling, and origin validation
+</code></pre>
+<h3 id="53-custom-behaviours">5.3 Custom Behaviours</h3>
+<p>Create a class that implements <code>IPipelineBehavior&lt;TMessage&gt;</code>:</p>
+<pre><code class="lang-csharp">public class LoggingBehaviour&lt;TMessage&gt; : IPipelineBehavior&lt;TMessage&gt;
+    where TMessage : class, IMessage
+{
+    public async Task HandleAsync(TMessage message, Func&lt;Task&gt; next, CancellationToken ct)
+    {
+        Console.WriteLine(`$&quot;Before {typeof(TMessage).Name}&quot;`);
+        await next();
+        Console.WriteLine(`$&quot;After {typeof(TMessage).Name}&quot;`);
+    }
+}
+</code></pre>
+<p>Register it:</p>
+<pre><code class="lang-csharp">services.AddChaparPipelineBehavior(typeof(LoggingBehaviour&lt;&gt;));
+</code></pre>
+<h3 id="54-origin-validation">5.4 Origin Validation</h3>
+<p>Chapar provides a built‑in pipeline behavior that validates the origin of incoming messages.
+Apply <code>[AllowedOrigin(&quot;OrderService&quot;)]</code> on your handler, and add the behavior to the pipeline:</p>
+<pre><code class="lang-csharp">// The handler
+[AllowedOrigin(&quot;OrderService&quot;)]
+public class FinalizeInvoiceHandler : IMessageHandler&lt;OrderPlaced&gt; { ... }
+
+// Registration
+services.AddChaparPipeline(); // OriginValidationBehaviour is added automatically
+</code></pre>
+<p>By default, the behavior reads the <code>Origin</code> header. Set the origin header when publishing:</p>
+<pre><code class="lang-csharp">await `bus`.PublishAsync(new OrderPlaced(), new Dictionary&lt;string, object&gt;
+{
+    [&quot;Origin&quot;] = &quot;OrderService&quot;
+});
+</code></pre>
+<hr>
+<h2 id="6-headers-multitenancy-and-security">6. Headers, Multi‑Tenancy, and Security</h2>
+<h3 id="61-default-headers">6.1 Default Headers</h3>
+<pre><code class="lang-csharp">services.AddChaparMassTransit(opt =&gt;
+{
+    opt.DefaultHeaders[&quot;X-Tenant&quot;] = &quot;tenant-A&quot;;
+});
+</code></pre>
+<p>All outgoing messages will carry this header.</p>
+<h3 id="62-permessage-headers">6.2 Per‑Message Headers</h3>
+<pre><code class="lang-csharp">var headers = new Dictionary&lt;string, object&gt; { [&quot;Priority&quot;] = &quot;High&quot; };
+await `bus`.PublishAsync(new OrderPlaced(orderId), headers);
+</code></pre>
+<h3 id="63-header-access-in-pipeline">6.3 Header Access in Pipeline</h3>
+<p>Chapar provides an <code>IMessageContextAccessor</code> service that allows pipeline behaviors
+to both <code>read</code> and <code>write</code> message headers.</p>
+<pre><code class="lang-csharp">public class TenantPropagationBehaviour&lt;TMessage&gt; : IPipelineBehavior&lt;TMessage&gt;
+    where TMessage : IMessage
+{
+    private readonly IMessageContextAccessor `accessor`;
+
+    public TenantPropagationBehaviour(IMessageContextAccessor accessor) =&gt; `accessor` = accessor;
+
+    public async Task HandleAsync(TMessage message, Func&lt;Task&gt; next, CancellationToken cancellationToken)
+    {
+        `accessor`.Headers ??= new Dictionary&lt;string, object?&gt;();
+        `accessor`.Headers[&quot;TenantId&quot;] = &quot;tenant-123&quot;;
+        await next();
+    }
+}
+</code></pre>
+<h3 id="64-origin-validation">6.4 Origin Validation</h3>
+<p>Apply <code>[AllowedOrigin(&quot;OrderService&quot;)]</code> on your handler, and Chapar automatically validates the <code>Origin</code> header.
+This behavior is enabled by default when you call <code>AddChaparPipeline()</code>.</p>
+<pre><code class="lang-csharp">[AllowedOrigin(&quot;OrderService&quot;)]
+public class FinalizeInvoiceHandler : IMessageHandler&lt;OrderPlaced&gt; { ... }
+</code></pre>
+<p>Set the origin header when publishing:</p>
+<pre><code class="lang-csharp">await `bus`.PublishAsync(new OrderPlaced(), new Dictionary&lt;string, object&gt;
+{
+    [&quot;Origin&quot;] = &quot;OrderService&quot;
+});
+</code></pre>
+<h3 id="65-headersanitizer">6.5 HeaderSanitizer</h3>
+<p>Use <code>HeaderSanitizer.Sanitize()</code> before logging or persisting headers.
+This helper redacts sensitive keys (like <code>Authorization</code>, <code>Token</code>)
+and strips dangerous characters (CRLF, NULL) to prevent injection attacks.</p>
+<pre><code class="lang-csharp">var safeHeaders = HeaderSanitizer.Sanitize(headers);
+logger.LogInformation(&quot;Headers: {@Headers}&quot;, safeHeaders);
+</code></pre>
+<hr>
+<h2 id="7-zamin-integration">7. Zamin Integration</h2>
+<h3 id="71-installation">7.1 Installation</h3>
+<pre><code class="lang-bash">dotnet add package Chapar.Zamin.MassTransit
+dotnet add package Chapar.Zamin.Outbox   # For outbox on Zamin's native tables
+</code></pre>
+<h3 id="72-setup">7.2 Setup</h3>
+<pre><code class="lang-csharp">services.AddChaparZaminMassTransit(opt =&gt; opt.Host = &quot;localhost&quot;);
+services.AddChaparZaminOutbox();   // Uses Zamin's Outbox ``and`` Inbox tables
+</code></pre>
+<p>Now every <code>ISendMessageBus.Send(parcel)</code> call goes through Chapar.
+Incoming messages are received by <code>ChaparMessageConsumer</code> and dispatched
+via Zamin's <code>IEventDispatcher</code>.</p>
+<hr>
+<h2 id="8-configuration-reference">8. Configuration Reference</h2>
+<h3 id="chaparmasstransitoptions"><code>ChaparMassTransitOptions</code></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Property</th>
+<th style="text-align: left;">Default</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Host</code></td>
+<td style="text-align: left;"><code>localhost</code></td>
+<td style="text-align: left;">RabbitMQ host</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Username</code></td>
+<td style="text-align: left;"><code>guest</code></td>
+<td style="text-align: left;">Login username</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Password</code></td>
+<td style="text-align: left;"><code>guest</code></td>
+<td style="text-align: left;">Login password</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>VirtualHost</code></td>
+<td style="text-align: left;"><code>/</code></td>
+<td style="text-align: left;">RabbitMQ vhost</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>DefaultHeaders</code></td>
+<td style="text-align: left;"><code>{}</code></td>
+<td style="text-align: left;">Headers added to every message</td>
+</tr>
+</tbody>
+</table>
+<h3 id="resilienceoptions"><code>ResilienceOptions</code></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Property</th>
+<th style="text-align: left;">Default</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>RetryCount</code></td>
+<td style="text-align: left;"><code>3</code></td>
+<td style="text-align: left;">Immediate retries</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>RetryInterval</code></td>
+<td style="text-align: left;"><code>00:00:05</code></td>
+<td style="text-align: left;">Interval between retries</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>CircuitBreakerEnabled</code></td>
+<td style="text-align: left;"><code>true</code></td>
+<td style="text-align: left;">Enable / disable CB</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>CircuitBreakerFailureThreshold</code></td>
+<td style="text-align: left;"><code>20</code></td>
+<td style="text-align: left;"><code>%</code> failure to trip</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>CircuitBreakerResetInterval</code></td>
+<td style="text-align: left;"><code>00:01:00</code></td>
+<td style="text-align: left;">Reset interval</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="9-supported-patterns-summary">9. Supported Patterns Summary</h2>
+<ul>
+<li>Publish / Subscribe (fan‑out)</li>
+<li>Point‑to‑Point commands (<code>[QueueName]</code>)</li>
+<li>Request / Response (planned)</li>
+<li>Schedule / Delayed messages (planned)</li>
+<li>Outbox (Guaranteed delivery)</li>
+<li>Inbox (Idempotency)</li>
+<li>Pipeline (Behaviours)</li>
+<li>Multi‑tenancy (Headers)</li>
+<li>Origin Validation</li>
+<li>Zamin framework integration</li>
+</ul>
+<hr>
+<h2 id="10-automated-table-cleanup">10. Automated Table Cleanup</h2>
+<p>Chapar automatically cleans up old processed records from Inbox, Outbox, and Zamin Outbox tables.
+The default retention period is 7 days, and the cleanup runs every hour.
+You can customize or disable this behavior.</p>
+<h3 id="default-usage">Default Usage</h3>
+<pre><code class="lang-csharp">// Customize retention to 30 days
+services.AddChaparInboxEntityFramework(
+    configureCleanup: opt =&gt; opt.RetentionPeriod = TimeSpan.FromDays(30));
+
+// Disable cleanup entirely
+services.AddChaparOutboxEntityFramework(
+    configureCleanup: opt =&gt; opt.Enabled = false);
+</code></pre>
+<h3 id="custom-cleanup-store">Custom Cleanup Store</h3>
+<p>For advanced scenarios, you can register a custom cleanup store that implements <code>ICleanupStore</code>:</p>
+<pre><code class="lang-csharp">services.AddInboxCleanup&lt;MyCustomStore&gt;(opt =&gt; opt.RetentionPeriod = TimeSpan.FromHours(12));
+</code></pre>
+<h3 id="zamin-inbox-cleanup">Zamin Inbox Cleanup</h3>
+<p>Chapar does <code>not</code> provide a built‑in cleanup job for Zamin Inbox.
+The underlying <code>IMessageInboxItemRepository</code> may use different storage technologies,
+so a single cleanup strategy cannot be assumed.</p>
+<p>If you need automatic cleanup, you can implement <code>ICleanupStore</code> yourself
+and register it with <code>AddInboxCleanup</code> (which adds a background hosted service):</p>
+<pre><code class="lang-csharp">public class ZaminInboxCleanupStore : ICleanupStore
+{
+    public Task&lt;int&gt; DeleteProcessedAsync(DateTime olderThan, CancellationToken ct)
+    {
+        // Implement your cleanup logic here
+    }
+}
+
+services.AddInboxCleanup&lt;ZaminInboxCleanupStore&gt;(opt =&gt; opt.RetentionPeriod = TimeSpan.FromDays(14));
+</code></pre>
+<hr>
+<h2 id="11-monitoring--health-checks">11. Monitoring &amp; Health Checks</h2>
+<p>Chapar provides built‑in metrics and health checks to monitor the message bus, inbox, and outbox processing.</p>
+<h3 id="health-check">Health Check</h3>
+<p>You can register a health check that reports the status of the MassTransit bus and all its endpoints:</p>
+<pre><code class="lang-csharp">builder.Services.AddHealthChecks().AddChaparMassTransitHealthCheck();
+</code></pre>
+<p>This health check is available at the standard <code>/healthz</code> endpoint when configured.</p>
+<h3 id="metrics">Metrics</h3>
+<p>Chapar records the following counters for inbox and outbox message processing.</p>
+<h4 id="inbox-metrics">Inbox Metrics</h4>
+<ul>
+<li><code>chapar.inbox.processed</code> – Successfully processed incoming messages</li>
+<li><code>chapar.inbox.duplicate</code> – Duplicate incoming messages skipped</li>
+<li><code>chapar.inbox.failed</code> – Incoming messages that failed processing</li>
+</ul>
+<h4 id="outbox-metrics">Outbox Metrics</h4>
+<ul>
+<li><code>chapar.outbox.published</code> – Outbox messages successfully published to the broker</li>
+<li><code>chapar.outbox.failed</code> – Outbox messages that failed to publish</li>
+<li><code>chapar.outbox.pending</code> – Current number of outbox messages waiting to be published (observable gauge)</li>
+</ul>
+<p>Metrics are exposed using <code>System.Diagnostics.Metrics</code> and can be collected by any OpenTelemetry‑compatible tool.</p>
+<h3 id="distributed-tracing">Distributed Tracing</h3>
+<p>The <code>DiagnosticsBehaviour</code> in the Chapar pipeline automatically creates an <code>Activity</code> for each handled message,
+with tags for message type and messaging kind. This integrates with OpenTelemetry tracing.</p>
+<p>No additional configuration is required – it works out of the box when the pipeline is enabled.</p>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/MiladBhrlo/chapar/blob/main/docs/guide.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
