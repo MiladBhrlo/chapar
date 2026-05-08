@@ -89,6 +89,13 @@ public sealed class EfOutboxStore : IOutboxStore, ICleanupStore
             .Where(m => m.IsProcessed && m.OccurredOn < olderThan)
             .ExecuteDeleteAsync(cancellationToken);
     }
+
+    /// <inheritdoc />
+    public async Task<int> GetUnprocessedMessagesCountAsync(CancellationToken cancellationToken = default)
+    {
+        return await _dbContext.Set<OutboxMessageEntity>()
+            .CountAsync(m => !m.IsProcessed, cancellationToken);
+    }
 }
 
 /// <summary>

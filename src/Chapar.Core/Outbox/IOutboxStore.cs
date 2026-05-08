@@ -17,4 +17,9 @@ public interface IOutboxStore
 
     /// <summary>Marks an outbox message as successfully published.</summary>
     Task MarkAsProcessedAsync(Guid messageId, CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Gets the total count of unprocessed outbox messages.
+    /// </summary>
+    Task<int> GetUnprocessedMessagesCountAsync(CancellationToken cancellationToken = default);
 }

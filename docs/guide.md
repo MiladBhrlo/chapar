@@ -294,7 +294,6 @@ via Zamin's `IEventDispatcher`.
 - Multi‑tenancy (Headers)
 - Zamin framework integration
 
-
 ---
 
 ## 10. Automated Table Cleanup
@@ -339,3 +338,43 @@ public class ZaminInboxCleanupStore : ICleanupStore
 
 services.AddInboxCleanup<ZaminInboxCleanupStore>(opt => opt.RetentionPeriod = TimeSpan.FromDays(14));
 ```
+
+---
+
+## 11. Monitoring & Health Checks
+
+Chapar provides built‑in metrics and health checks to monitor the message bus, inbox, and outbox processing.
+
+### Health Check
+
+You can register a health check that reports the status of the MassTransit bus and all its endpoints:
+
+```csharp
+builder.Services.AddHealthChecks().AddChaparMassTransitHealthCheck();
+```
+
+This health check is available at the standard `/healthz` endpoint when configured.
+
+### Metrics
+
+Chapar records the following counters for inbox and outbox message processing.
+
+#### Inbox Metrics
+
+- `chapar.inbox.processed` – Successfully processed incoming messages
+- `chapar.inbox.duplicate` – Duplicate incoming messages skipped
+- `chapar.inbox.failed` – Incoming messages that failed processing
+
+#### Outbox Metrics
+
+- `chapar.outbox.published` – Outbox messages successfully published to the broker
+- `chapar.outbox.failed` – Outbox messages that failed to publish
+- `chapar.outbox.pending` – Current number of outbox messages waiting to be published (observable gauge)
+
+Metrics are exposed using `System.Diagnostics.Metrics` and can be collected by any OpenTelemetry‑compatible tool.
+
+### Distributed Tracing
+
+The `DiagnosticsBehaviour` in the Chapar pipeline automatically creates an `Activity` for each handled message, with tags for message type and messaging kind. This integrates with OpenTelemetry tracing.
+
+No additional configuration is required – it works out of the box when the pipeline is enabled.

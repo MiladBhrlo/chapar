@@ -69,4 +69,11 @@ public sealed class ZaminOutboxStore : IOutboxStore, ICleanupStore
             .Where(m => m.IsProcessed && m.AccuredOn < olderThan)
             .ExecuteDeleteAsync(cancellationToken);
     }
+
+    /// <inheritdoc />
+    public async Task<int> GetUnprocessedMessagesCountAsync(CancellationToken cancellationToken = default)
+    {
+        return await _dbContext.Set<OutBoxEventItem>()
+            .CountAsync(m => !m.IsProcessed, cancellationToken);
+    }
 }
