@@ -2,11 +2,13 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 namespace Chapar.Inbox.EntityFrameworkCore.Cleanup;
 
 /// <summary>
-/// Generic background service that periodically deletes old processed inbox records.
+/// Periodically deletes old processed records from the inbox table using a store that implements <see cref="ICleanupStore"/>.
+/// The cleanup interval and retention period are read from named <see cref="CleanupOptions"/> associated with <typeparamref name="TStore"/>.
 /// </summary>
 /// <typeparam name="TStore">The type of the store that implements <see cref="ICleanupStore"/>.</typeparam>
 internal sealed class CleanupBackgroundService<TStore> : BackgroundService
@@ -14,22 +16,23 @@ internal sealed class CleanupBackgroundService<TStore> : BackgroundService
 {
     private readonly IServiceScopeFactory _scopeFactory;
     private readonly ILogger<CleanupBackgroundService<TStore>> _logger;
-    private readonly CleanupOptions _options;
+    private readonly IOptionsSnapshot<CleanupOptions> _optionsSnapshot;
 
     public CleanupBackgroundService(IServiceScopeFactory scopeFactory,
-                                    CleanupOptions options,
-                                    ILogger<CleanupBackgroundService<TStore>> logger)
+                                    ILogger<CleanupBackgroundService<TStore>> logger,
+                                    IOptionsSnapshot<CleanupOptions> optionsSnapshot)
     {
         _scopeFactory = scopeFactory;
-        _options = options;
         _logger = logger;
+        _optionsSnapshot = optionsSnapshot;
     }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        if (!_options.Enabled)
+        var options = _optionsSnapshot.Get(typeof(TStore).FullName!);
+        if (!options.Enabled)
         {
-            _logger.LogInformation("Inbox cleanup is disabled.");
+            _logger.LogInformation("Cleanup for {StoreType} is disabled.", typeof(TStore).Name);
             return;
         }
 
@@ -39,20 +42,20 @@ internal sealed class CleanupBackgroundService<TStore> : BackgroundService
             {
                 await using var scope = _scopeFactory.CreateAsyncScope();
                 var store = scope.ServiceProvider.GetRequiredService<TStore>();
-                var cutoff = DateTime.UtcNow - _options.RetentionPeriod;
+                var cutoff = DateTime.UtcNow - options.RetentionPeriod;
 
                 var deleted = await store.DeleteProcessedAsync(cutoff, stoppingToken);
                 if (deleted > 0)
                 {
-                    _logger.LogInformation("Inbox cleanup deleted {Count} old records.", deleted);
+                    _logger.LogInformation("{StoreType} cleanup deleted {Count} old records.", typeof(TStore).Name, deleted);
                 }
             }
             catch (Exception ex) when (ex is not OperationCanceledException)
             {
-                _logger.LogError(ex, "Inbox cleanup job failed.");
+                _logger.LogError(ex, "{StoreType} cleanup job failed.", typeof(TStore).Name);
             }
 
-            await Task.Delay(_options.Interval, stoppingToken);
+            await Task.Delay(options.Interval, stoppingToken);
         }
     }
 }

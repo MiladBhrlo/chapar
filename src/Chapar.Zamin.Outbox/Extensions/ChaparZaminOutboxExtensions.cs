@@ -6,6 +6,7 @@ using Chapar.Zamin.Outbox.Inbox;
 using Chapar.Zamin.Outbox.Outbox;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
 namespace Chapar.Zamin.Outbox.Extensions;
@@ -24,8 +25,10 @@ public static class ChaparZaminOutboxExtensions
     public static IServiceCollection AddChaparZaminOutbox(this IServiceCollection services,
                                                           Action<CleanupOptions>? configureCleanup = null)
     {
-        services.AddScoped<IOutboxStore, ZaminOutboxStore>();
         services.AddScoped<IInboxStore, ZaminInboxStore>();
+
+        services.TryAddScoped<ZaminOutboxStore>();
+        services.AddScoped<IOutboxStore>(sp => sp.GetRequiredService<ZaminOutboxStore>());
 
         services.AddZaminOutboxCleanup<ZaminOutboxStore>(configureCleanup);
 
@@ -42,17 +45,23 @@ public static class ChaparZaminOutboxExtensions
                                                                    Action<CleanupOptions>? configure = null)
     where TStore : class, ICleanupStore
     {
-        services.TryAddScoped<TStore>();
-
-        services.AddHostedService(sp =>
+        // named options for this specific store
+        services.Configure<CleanupOptions>(typeof(TStore).FullName!, opt =>
         {
-            var options = new CleanupOptions();
-            configure?.Invoke(options);
-            return new CleanupBackgroundService<TStore>(
-                sp.GetRequiredService<IServiceScopeFactory>(),
-                options,
-                sp.GetRequiredService<ILogger<CleanupBackgroundService<TStore>>>());
+            if (configure != null)
+            {
+                // apply custom settings over defaults
+                var custom = new CleanupOptions();
+                configure(custom);
+                opt.Enabled = custom.Enabled;
+                opt.RetentionPeriod = custom.RetentionPeriod;
+                opt.Interval = custom.Interval;
+            }
         });
+
+        // register the background service idempotently
+        services.TryAddSingleton<CleanupBackgroundService<TStore>>();
+        services.TryAddEnumerable(ServiceDescriptor.Singleton<IHostedService, CleanupBackgroundService<TStore>>());
 
         return services;
     }
