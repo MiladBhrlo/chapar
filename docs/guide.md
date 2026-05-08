@@ -288,3 +288,57 @@ via Zamin's `IEventDispatcher`.
 - Pipeline (Behaviours)
 - Multi‑tenancy (Headers)
 - Zamin framework integration
+
+---
+
+## 10. Automated Table Cleanup
+
+Chapar automatically cleans up old processed records from Inbox, Outbox, and Zamin Outbox tables. The default retention period is 7 days, and the cleanup runs every hour. You can customize or disable this behavior.
+
+### Default Usage
+
+```csharp
+// Customize retention to 30 days
+services.AddChaparInboxEntityFramework(
+    configureCleanup: opt => opt.RetentionPeriod = TimeSpan.FromDays(30));
+
+// Disable cleanup entirely
+services.AddChaparOutboxEntityFramework(
+    configureCleanup: opt => opt.Enabled = false);
+```
+
+### Custom Cleanup Store
+
+For advanced scenarios, you can register a custom cleanup store that implements `ICleanupStore`:
+
+```csharp
+services.AddInboxCleanup<MyCustomStore>(opt => opt.RetentionPeriod = TimeSpan.FromHours(12));
+```
+
+### Zamin Inbox Cleanup
+
+Chapar does **not** provide an automatic cleanup job for Zamin Inbox.  
+This is because the underlying `IMessageInboxItemRepository` may use different storage technologies (Dapper, SQL, etc.), and we cannot assume a single cleanup strategy.
+
+If you need to clean up old records from Zamin Inbox, you can implement `ICleanupStore` yourself and register it:
+
+```csharp
+public class ZaminInboxCleanupStore : ICleanupStore
+{
+    private readonly IMessageInboxItemRepository _repository;
+
+    public ZaminInboxCleanupStore(IMessageInboxItemRepository repository)
+    {
+        _repository = repository;
+    }
+
+    public Task<int> DeleteProcessedAsync(DateTime olderThan, CancellationToken cancellationToken = default)
+    {
+        // Implement your cleanup logic here, e.g. using Dapper or direct SQL
+        throw new NotImplementedException();
+    }
+}
+
+// Register your custom cleanup
+services.AddInboxCleanup<ZaminInboxCleanupStore>(opt => opt.RetentionPeriod = TimeSpan.FromDays(14));
+```

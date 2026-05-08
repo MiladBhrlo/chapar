@@ -1,5 +1,7 @@
 using Chapar.Core.Abstractions;
+using Chapar.Core.Cleanup;
 using Chapar.Core.Outbox;
+using Chapar.Outbox.EntityFrameworkCore.Cleanup;
 using Chapar.Outbox.EntityFrameworkCore.Interceptors;
 using Chapar.Outbox.EntityFrameworkCore.Options;
 using Chapar.Outbox.EntityFrameworkCore.Publishers;
@@ -7,6 +9,7 @@ using Chapar.Outbox.EntityFrameworkCore.Stores;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Logging;
 
 namespace Chapar.Outbox.EntityFrameworkCore.Extensions;
 
@@ -16,13 +19,15 @@ namespace Chapar.Outbox.EntityFrameworkCore.Extensions;
 public static class ChaparOutboxExtensions
 {
     /// <summary>
-    /// Registers the EF Core‑based outbox services.
+    /// Registers the EF Core‑based outbox services, optional delivery behavior, and cleanup job.
     /// </summary>
-    /// <param name="services">The <see cref="IServiceCollection"/> to add the services to.</param>
-    /// <param name="configure">An optional action to customize <see cref="ChaparOutboxOptions"/>.</param>
+    /// <param name="services">The service collection.</param>
+    /// <param name="configure">Optional action to customize <see cref="ChaparOutboxOptions"/>.</param>
+    /// <param name="configureCleanup">Optional action to customize <see cref="CleanupOptions"/> for the outbox table.</param>
     /// <returns>The same service collection so that multiple calls can be chained.</returns>
     public static IServiceCollection AddChaparOutboxEntityFramework(this IServiceCollection services,
-                                                                    Action<ChaparOutboxOptions>? configure = null)
+                                                                    Action<ChaparOutboxOptions>? configure = null,
+                                                                    Action<CleanupOptions>? configureCleanup = null)
     {
         var options = new ChaparOutboxOptions();
         configure?.Invoke(options);
@@ -33,10 +38,13 @@ public static class ChaparOutboxExtensions
             opt.PublishIntegrationEvents = options.PublishIntegrationEvents;
         });
 
-        services.AddScoped<IOutboxStore, EfOutboxStore>();
+        services.TryAddScoped<EfOutboxStore>();
+        services.AddScoped<IOutboxStore>(sp => sp.GetRequiredService<EfOutboxStore>());
         services.AddScoped<OutboxInterceptor>();
 
         services.Replace(ServiceDescriptor.Scoped<IChaparBus, OutboxChaparBus>());
+
+        services.AddOutboxCleanup<EfOutboxStore>(configureCleanup);
 
         return services;
     }
@@ -65,5 +73,30 @@ public static class ChaparOutboxExtensions
         });
 
         return builder;
+    }
+
+    /// <summary>
+    /// Registers a custom cleanup job for the outbox using the specified store.
+    /// </summary>
+    /// <typeparam name="TStore">The store type that implements <see cref="ICleanupStore"/>.</typeparam>
+    /// <param name="services">The service collection.</param>
+    /// <param name="configure">Optional configuration for the cleanup job.</param>
+    public static IServiceCollection AddOutboxCleanup<TStore>(this IServiceCollection services,
+                                                              Action<CleanupOptions>? configure = null)
+    where TStore : class, ICleanupStore
+    {
+        services.TryAddScoped<TStore>();
+
+        services.AddHostedService(sp =>
+        {
+            var options = new CleanupOptions();
+            configure?.Invoke(options);
+            return new CleanupBackgroundService<TStore>(
+                sp.GetRequiredService<IServiceScopeFactory>(),
+                options,
+                sp.GetRequiredService<ILogger<CleanupBackgroundService<TStore>>>());
+        });
+
+        return services;
     }
 }

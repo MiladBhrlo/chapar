@@ -1,3 +1,4 @@
+using Chapar.Core.Cleanup;
 using Chapar.Core.Outbox;
 using Microsoft.EntityFrameworkCore;
 using Zamin.Extensions.Events.Abstractions;
@@ -5,12 +6,16 @@ using Zamin.Extensions.Events.Outbox.Dal.EF;
 
 namespace Chapar.Zamin.Outbox.Outbox;
 
-public sealed class ZaminOutboxStore : IOutboxStore
+/// <summary>
+/// Implements <see cref="IOutboxStore"/> and <see cref="ICleanupStore"/> using Zamin's native OutBoxEventItem table.
+/// </summary>
+public sealed class ZaminOutboxStore : IOutboxStore, ICleanupStore
 {
     private readonly BaseOutboxCommandDbContext _dbContext;
 
     public ZaminOutboxStore(BaseOutboxCommandDbContext dbContext) => _dbContext = dbContext;
 
+    /// <inheritdoc />
     public async Task SaveAsync(OutboxMessage message, CancellationToken cancellationToken = default)
     {
         var entity = new OutBoxEventItem
@@ -25,6 +30,7 @@ public sealed class ZaminOutboxStore : IOutboxStore
         await _dbContext.SaveChangesAsync(cancellationToken);
     }
 
+    /// <inheritdoc />
     public async Task<IReadOnlyList<OutboxMessage>> GetUnprocessedMessagesAsync(CancellationToken cancellationToken = default)
     {
         var entities = await _dbContext.Set<OutBoxEventItem>()
@@ -43,6 +49,7 @@ public sealed class ZaminOutboxStore : IOutboxStore
         }).ToList();
     }
 
+    /// <inheritdoc />
     public async Task MarkAsProcessedAsync(Guid messageId, CancellationToken cancellationToken = default)
     {
         var entity = await _dbContext.Set<OutBoxEventItem>()
@@ -52,5 +59,14 @@ public sealed class ZaminOutboxStore : IOutboxStore
             entity.IsProcessed = true;
             await _dbContext.SaveChangesAsync(cancellationToken);
         }
+    }
+
+    /// <inheritdoc />
+    public async Task<int> DeleteProcessedAsync(DateTime olderThan,
+                                                CancellationToken cancellationToken = default)
+    {
+        return await _dbContext.Set<OutBoxEventItem>()
+            .Where(m => m.IsProcessed && m.AccuredOn < olderThan)
+            .ExecuteDeleteAsync(cancellationToken);
     }
 }
