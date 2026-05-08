@@ -1,21 +1,21 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
-  
+
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>&#128014; Chapar | Chapar </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="&#128014; Chapar | Chapar ">
-    <meta name="generator" content="docfx 2.56.7.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>&#128014; Chapar | Chapar </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="&#128014; Chapar | Chapar ">
     
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" href="styles/docfx.vendor.css">
-    <link rel="stylesheet" href="styles/docfx.css">
-    <link rel="stylesheet" href="styles/main.css">
-    <meta property="docfx:navrel" content="">
-    <meta property="docfx:tocrel" content="">
+    
+      <link rel="shortcut icon" href="favicon.ico">
+      <link rel="stylesheet" href="styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="styles/docfx.css">
+      <link rel="stylesheet" href="styles/main.css">
+      <meta property="docfx:navrel" content="">
+      <meta property="docfx:tocrel" content="">
     
     <meta property="docfx:rel" content="">
     
@@ -23,7 +23,7 @@
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
-        
+
         <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
           <div class="container">
             <div class="navbar-header">
@@ -33,7 +33,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
+
               <a class="navbar-brand" href="index.html">
                 <img id="logo" class="svg" src="logo.svg" alt="">
               </a>
@@ -47,7 +47,7 @@
             </div>
           </div>
         </nav>
-        
+
         <div class="subnav navbar navbar-default">
           <div class="container hide-when-search" id="breadcrumb">
             <ul class="breadcrumb">
@@ -57,13 +57,13 @@
         </div>
       </header>
       <div class="container body-content">
-        
+
         <div id="search-results">
           <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -71,132 +71,202 @@
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
 
+<p>`	ext</p>
 <hr>
-<p>_layout: landing
-title: Chapar – The Persian Courier for .NET Messaging</p>
+<p>title: Chapar – The Persian Courier for .NET Messaging</p>
 <hr>
 <h1 id="-chapar">🐎 Chapar</h1>
 <h3 id="the-clean-extensible-and-businessfriendly-messaging-abstraction-for-net">The Clean, Extensible, and Business‑Friendly Messaging Abstraction for .NET</h3>
-<pre><code class="lang-text">dotnet add package Chapar
-dotnet add package Chapar.MassTransit
-</code></pre><hr>
+<p><code>	ext dotnet add package Chapar dotnet add package Chapar.MassTransit </code></p>
+<hr>
 <h2 id="why-chapar">Why Chapar?</h2>
 <ul>
-<li><strong>Zero ceremony</strong> — <code>PublishAsync</code> and <code>SendAsync</code> are all you need.</li>
-<li><strong>Transparent Outbox / Inbox</strong> — Add <code>one</code> NuGet package and every message is automatically stored in the database before delivery. No code changes.</li>
+<li><strong>Zero ceremony</strong> — PublishAsync and SendAsync are all you need.</li>
+<li><strong>Transparent Outbox / Inbox</strong> — Add one NuGet package and every message is automatically stored in the database before delivery. No code changes.</li>
 <li><strong>Pipeline</strong> — A chain of configurable behaviours (diagnostics, error handling, origin validation, …) that wrap every handler.</li>
 <li><strong>Framework agnostic</strong> — Works standalone or on top of <strong>Zamin</strong>.</li>
 <li><strong>Transport agnostic</strong> — Currently uses <strong>MassTransit v8</strong> (free &amp; community‑supported), with <strong>Wolverine</strong> coming soon.</li>
 </ul>
-<blockquote><p>Inspired by the ancient Persian courier system – fast, reliable, and invisible to the message sender.</p>
+<blockquote>
+<p>Inspired by the ancient Persian courier system – fast, reliable, and invisible to the message sender.</p>
 </blockquote>
 <hr>
 <h2 id="quick-start">Quick Start</h2>
-<pre><code class="lang-csharp">// 1. Define a message
-public record UserRegistered(Guid UserId, string Email) : IEvent;
-
-// 2. Publish
-var bus = provider.GetRequiredService`IChaparBus`();
-await bus.PublishAsync(new UserRegistered(Guid.NewGuid(), &quot;user@example.com&quot;));
-
-// 3. Handle
-public class UserRegisteredHandler : IMessageHandler`UserRegistered`
+<p>`csharp
+// 1. Define a message
+public record UserRegistered(Guid UserId, string Email) : IEvent;</p>
+<p>// 2. Publish
+var bus = provider.GetRequiredServiceIChaparBus();
+await bus.PublishAsync(new UserRegistered(Guid.NewGuid(), &quot;user@example.com&quot;));</p>
+<p>// 3. Handle
+public class UserRegisteredHandler : IMessageHandlerUserRegistered
 {
-    public Task HandleAsync(UserRegistered message, CancellationToken ct)
-    {
-        Console.WriteLine($&quot;User {message.Email} registered.&quot;);
-        return Task.CompletedTask;
-    }
+public Task HandleAsync(UserRegistered message, CancellationToken ct)
+{
+Console.WriteLine($&quot;User {message.Email} registered.&quot;);
+return Task.CompletedTask;
 }
-</code></pre><hr>
+}
+`</p>
+<hr>
 <h2 id="explore-the-documentation">Explore the Documentation</h2>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">Section</th>
-<th style="text-align:left">Description</th>
+<th style="text-align: left;">Section</th>
+<th style="text-align: left;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left"><a href="docs/guide.html">Complete Guide</a></td>
-<td style="text-align:left">Walk through every scenario from publish/subscribe to advanced Outbox/Inbox, Pipeline, and Zamin integration.</td>
+<td style="text-align: left;"><a href="docs/guide.html">Complete Guide</a></td>
+<td style="text-align: left;">Walk through every scenario from publish/subscribe to advanced Outbox/Inbox, Pipeline, and Zamin integration.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="https://github.com/MiladBhrlo/chapar">GitHub Repository</a></td>
-<td style="text-align:left">Source code, issue tracker, and contribution guidelines.</td>
+<td style="text-align: left;"><a href="https://github.com/MiladBhrlo/chapar">GitHub Repository</a></td>
+<td style="text-align: left;">Source code, issue tracker, and contribution guidelines.</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Full API Reference</strong> is just a click away — use the <strong>API Reference</strong> tab in the top navigation bar.</p>
 <hr>
-<h2 id="packages">Packages</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Package</th>
-<th style="text-align:left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>Chapar</code> (<code>Chapar.Core</code>)</td>
-<td style="text-align:left">Core abstractions: <code>IChaparBus</code>, <code>IMessageHandler</code>T<code>`,</code>Outbox<code>/</code>Inbox` contracts</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>Chapar.MassTransit</code></td>
-<td style="text-align:left">MassTransit + RabbitMQ implementation</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>Chapar.Pipeline</code></td>
-<td style="text-align:left">Extensible message handling pipeline</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>Chapar.Outbox.EntityFrameworkCore</code></td>
-<td style="text-align:left">EF Core‑based Outbox (transparent decorator)</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>Chapar.Inbox.EntityFrameworkCore</code></td>
-<td style="text-align:left">EF Core‑based Inbox (idempotency filter)</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>Chapar.Zamin</code></td>
-<td style="text-align:left">Bridges Chapar with the Zamin framework</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>Chapar.Zamin.MassTransit</code></td>
-<td style="text-align:left">One‑line setup for Chapar + Zamin + MassTransit</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>Chapar.Zamin.Outbox</code></td>
-<td style="text-align:left">Outbox/Inbox stores backed by Zamin&#39;s native tables</td>
-</tr>
-</tbody>
-</table>
+<h2 id="api-reference-generated-automatically">API Reference (Generated Automatically)</h2>
+<p>Welcome to the complete API reference for Chapar.<br>
+Below you can find every namespace documented in the library.</p>
+<h2 id="documentation">Documentation</h2>
+<ul>
+<li><a href="README.html">Home (README)</a></li>
+<li><a href="docs/guide.html">Complete Guide</a></li>
+</ul>
+<hr>
+<h2 id="chaparcore">Chapar.Core</h2>
+<ul>
+<li><a href="api/Chapar.Core.Abstractions.AggregateRoot.html">Chapar.Core.Abstractions.AggregateRoot</a></li>
+<li><a href="api/Chapar.Core.Abstractions.IAggregateRoot.html">Chapar.Core.Abstractions.IAggregateRoot</a></li>
+<li><a href="api/Chapar.Core.Abstractions.IChaparBus.html">Chapar.Core.Abstractions.IChaparBus</a></li>
+<li><a href="api/Chapar.Core.Abstractions.IChaparDbContext.html">Chapar.Core.Abstractions.IChaparDbContext</a></li>
+<li><a href="api/Chapar.Core.Abstractions.IChaparRequestClient-2.html">Chapar.Core.Abstractions.IChaparRequestClient-2</a></li>
+<li><a href="api/Chapar.Core.Abstractions.ICommand.html">Chapar.Core.Abstractions.ICommand</a></li>
+<li><a href="api/Chapar.Core.Abstractions.IConsumeFilter.html">Chapar.Core.Abstractions.IConsumeFilter</a></li>
+<li><a href="api/Chapar.Core.Abstractions.IDomainEvent.html">Chapar.Core.Abstractions.IDomainEvent</a></li>
+<li><a href="api/Chapar.Core.Abstractions.IEvent.html">Chapar.Core.Abstractions.IEvent</a></li>
+<li><a href="api/Chapar.Core.Abstractions.IIntegrationEvent.html">Chapar.Core.Abstractions.IIntegrationEvent</a></li>
+<li><a href="api/Chapar.Core.Abstractions.IMessage.html">Chapar.Core.Abstractions.IMessage</a></li>
+<li><a href="api/Chapar.Core.Abstractions.IMessageContextAccessor.html">Chapar.Core.Abstractions.IMessageContextAccessor</a></li>
+<li><a href="api/Chapar.Core.Abstractions.IMessageHandler-1.html">Chapar.Core.Abstractions.IMessageHandler-1</a></li>
+<li><a href="api/Chapar.Core.Abstractions.html">Chapar.Core.Abstractions</a></li>
+<li><a href="api/Chapar.Core.Attributes.AllowedOriginAttribute.html">Chapar.Core.Attributes.AllowedOriginAttribute</a></li>
+<li><a href="api/Chapar.Core.Attributes.QueueNameAttribute.html">Chapar.Core.Attributes.QueueNameAttribute</a></li>
+<li><a href="api/Chapar.Core.Attributes.html">Chapar.Core.Attributes</a></li>
+<li><a href="api/Chapar.Core.Cleanup.CleanupOptions.html">Chapar.Core.Cleanup.CleanupOptions</a></li>
+<li><a href="api/Chapar.Core.Cleanup.ICleanupStore.html">Chapar.Core.Cleanup.ICleanupStore</a></li>
+<li><a href="api/Chapar.Core.Cleanup.html">Chapar.Core.Cleanup</a></li>
+<li><a href="api/Chapar.Core.Exceptions.IDomainException.html">Chapar.Core.Exceptions.IDomainException</a></li>
+<li><a href="api/Chapar.Core.Exceptions.OriginValidationException.html">Chapar.Core.Exceptions.OriginValidationException</a></li>
+<li><a href="api/Chapar.Core.Exceptions.html">Chapar.Core.Exceptions</a></li>
+<li><a href="api/Chapar.Core.Inbox.IInboxStore.html">Chapar.Core.Inbox.IInboxStore</a></li>
+<li><a href="api/Chapar.Core.Inbox.InboxMessage.html">Chapar.Core.Inbox.InboxMessage</a></li>
+<li><a href="api/Chapar.Core.Inbox.html">Chapar.Core.Inbox</a></li>
+<li><a href="api/Chapar.Core.Messages.ParcelMessage.html">Chapar.Core.Messages.ParcelMessage</a></li>
+<li><a href="api/Chapar.Core.Messages.html">Chapar.Core.Messages</a></li>
+<li><a href="api/Chapar.Core.Metrics.IInboxMetrics.html">Chapar.Core.Metrics.IInboxMetrics</a></li>
+<li><a href="api/Chapar.Core.Metrics.IOutboxMetrics.html">Chapar.Core.Metrics.IOutboxMetrics</a></li>
+<li><a href="api/Chapar.Core.Metrics.html">Chapar.Core.Metrics</a></li>
+<li><a href="api/Chapar.Core.Outbox.IOutboxStore.html">Chapar.Core.Outbox.IOutboxStore</a></li>
+<li><a href="api/Chapar.Core.Outbox.OutboxMessage.html">Chapar.Core.Outbox.OutboxMessage</a></li>
+<li><a href="api/Chapar.Core.Outbox.html">Chapar.Core.Outbox</a></li>
+<li><a href="api/Chapar.Core.Pipeline.IPipelineBehavior-1.html">Chapar.Core.Pipeline.IPipelineBehavior-1</a></li>
+<li><a href="api/Chapar.Core.Pipeline.html">Chapar.Core.Pipeline</a></li>
+<li><a href="api/Chapar.Core.Utilities.ChaparVersion.html">Chapar.Core.Utilities.ChaparVersion</a></li>
+<li><a href="api/Chapar.Core.Utilities.HeaderSanitizer.html">Chapar.Core.Utilities.HeaderSanitizer</a></li>
+<li><a href="api/Chapar.Core.Utilities.html">Chapar.Core.Utilities</a></li>
+</ul>
+<h2 id="chaparinbox">Chapar.Inbox</h2>
+<ul>
+<li><a href="api/Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions.html">Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions</a></li>
+<li><a href="api/Chapar.Inbox.EntityFrameworkCore.Extensions.html">Chapar.Inbox.EntityFrameworkCore.Extensions</a></li>
+<li><a href="api/Chapar.Inbox.EntityFrameworkCore.Options.ChaparInboxOptions.html">Chapar.Inbox.EntityFrameworkCore.Options.ChaparInboxOptions</a></li>
+<li><a href="api/Chapar.Inbox.EntityFrameworkCore.Options.html">Chapar.Inbox.EntityFrameworkCore.Options</a></li>
+<li><a href="api/Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.html">Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore</a></li>
+<li><a href="api/Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.html">Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity</a></li>
+<li><a href="api/Chapar.Inbox.EntityFrameworkCore.Stores.html">Chapar.Inbox.EntityFrameworkCore.Stores</a></li>
+</ul>
+<h2 id="chaparmasstransit">Chapar.MassTransit</h2>
+<ul>
+<li><a href="api/Chapar.MassTransit.Adapters.MessageHeaders.html">Chapar.MassTransit.Adapters.MessageHeaders</a></li>
+<li><a href="api/Chapar.MassTransit.Adapters.html">Chapar.MassTransit.Adapters</a></li>
+<li><a href="api/Chapar.MassTransit.Consumers.ChaparConsumerAdapter-1.html">Chapar.MassTransit.Consumers.ChaparConsumerAdapter-1</a></li>
+<li><a href="api/Chapar.MassTransit.Consumers.html">Chapar.MassTransit.Consumers</a></li>
+<li><a href="api/Chapar.MassTransit.Extensions.ChaparMassTransitExtensions.html">Chapar.MassTransit.Extensions.ChaparMassTransitExtensions</a></li>
+<li><a href="api/Chapar.MassTransit.Extensions.ChaparMassTransitHealthCheckExtensions.html">Chapar.MassTransit.Extensions.ChaparMassTransitHealthCheckExtensions</a></li>
+<li><a href="api/Chapar.MassTransit.Extensions.html">Chapar.MassTransit.Extensions</a></li>
+<li><a href="api/Chapar.MassTransit.Options.ChaparMassTransitOptions.html">Chapar.MassTransit.Options.ChaparMassTransitOptions</a></li>
+<li><a href="api/Chapar.MassTransit.Options.ResilienceOptions.html">Chapar.MassTransit.Options.ResilienceOptions</a></li>
+<li><a href="api/Chapar.MassTransit.Options.html">Chapar.MassTransit.Options</a></li>
+</ul>
+<h2 id="chaparoutbox">Chapar.Outbox</h2>
+<ul>
+<li><a href="api/Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.html">Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions</a></li>
+<li><a href="api/Chapar.Outbox.EntityFrameworkCore.Extensions.html">Chapar.Outbox.EntityFrameworkCore.Extensions</a></li>
+<li><a href="api/Chapar.Outbox.EntityFrameworkCore.Interceptors.OutboxInterceptor.html">Chapar.Outbox.EntityFrameworkCore.Interceptors.OutboxInterceptor</a></li>
+<li><a href="api/Chapar.Outbox.EntityFrameworkCore.Interceptors.html">Chapar.Outbox.EntityFrameworkCore.Interceptors</a></li>
+<li><a href="api/Chapar.Outbox.EntityFrameworkCore.Options.ChaparOutboxOptions.html">Chapar.Outbox.EntityFrameworkCore.Options.ChaparOutboxOptions</a></li>
+<li><a href="api/Chapar.Outbox.EntityFrameworkCore.Options.html">Chapar.Outbox.EntityFrameworkCore.Options</a></li>
+<li><a href="api/Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.html">Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore</a></li>
+<li><a href="api/Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.html">Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity</a></li>
+<li><a href="api/Chapar.Outbox.EntityFrameworkCore.Stores.html">Chapar.Outbox.EntityFrameworkCore.Stores</a></li>
+</ul>
+<h2 id="chaparpipeline">Chapar.Pipeline</h2>
+<ul>
+<li><a href="api/Chapar.Pipeline.Behaviours.DiagnosticsBehaviour-1.html">Chapar.Pipeline.Behaviours.DiagnosticsBehaviour-1</a></li>
+<li><a href="api/Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour-1.html">Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour-1</a></li>
+<li><a href="api/Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour-1.html">Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour-1</a></li>
+<li><a href="api/Chapar.Pipeline.Behaviours.OriginValidationBehaviour-1.html">Chapar.Pipeline.Behaviours.OriginValidationBehaviour-1</a></li>
+<li><a href="api/Chapar.Pipeline.Behaviours.html">Chapar.Pipeline.Behaviours</a></li>
+<li><a href="api/Chapar.Pipeline.Extensions.ChaparPipelineExtensions.html">Chapar.Pipeline.Extensions.ChaparPipelineExtensions</a></li>
+<li><a href="api/Chapar.Pipeline.Extensions.html">Chapar.Pipeline.Extensions</a></li>
+</ul>
+<h2 id="chaparzamin">Chapar.Zamin</h2>
+<ul>
+<li><a href="api/Chapar.Zamin.Consumer.ChaparMessageConsumer.html">Chapar.Zamin.Consumer.ChaparMessageConsumer</a></li>
+<li><a href="api/Chapar.Zamin.Consumer.html">Chapar.Zamin.Consumer</a></li>
+<li><a href="api/Chapar.Zamin.Extensions.ChaparZaminExtensions.html">Chapar.Zamin.Extensions.ChaparZaminExtensions</a></li>
+<li><a href="api/Chapar.Zamin.Extensions.html">Chapar.Zamin.Extensions</a></li>
+<li><a href="api/Chapar.Zamin.MassTransit.Extensions.ChaparZaminMassTransitExtensions.html">Chapar.Zamin.MassTransit.Extensions.ChaparZaminMassTransitExtensions</a></li>
+<li><a href="api/Chapar.Zamin.MassTransit.Extensions.html">Chapar.Zamin.MassTransit.Extensions</a></li>
+<li><a href="api/Chapar.Zamin.Outbox.Extensions.ChaparZaminOutboxExtensions.html">Chapar.Zamin.Outbox.Extensions.ChaparZaminOutboxExtensions</a></li>
+<li><a href="api/Chapar.Zamin.Outbox.Extensions.html">Chapar.Zamin.Outbox.Extensions</a></li>
+<li><a href="api/Chapar.Zamin.Outbox.Inbox.html">Chapar.Zamin.Outbox.Inbox</a></li>
+<li><a href="api/Chapar.Zamin.Outbox.Inbox.ZaminInboxStore.html">Chapar.Zamin.Outbox.Inbox.ZaminInboxStore</a></li>
+<li><a href="api/Chapar.Zamin.Outbox.Outbox.html">Chapar.Zamin.Outbox.Outbox</a></li>
+<li><a href="api/Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.html">Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore</a></li>
+<li><a href="api/Chapar.Zamin.SendMessageBus.html">Chapar.Zamin.SendMessageBus</a></li>
+<li><a href="api/Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.html">Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus</a></li>
+</ul>
 <hr>
 <h2 id="license">License</h2>
 <p>MIT</p>
+
 </article>
           </div>
-          
+
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MiladBhrlo/chapar/blob/main/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/MiladBhrlo/chapar/blob/main/index.md/#L1" class="contribution-link">Edit this page</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
               </nav>
             </div>
           </div>
         </div>
       </div>
-      
+
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
@@ -204,14 +274,14 @@ public class UserRegisteredHandler : IMessageHandler`UserRegistered`
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Copyright © 2026
-            
+      Copyright © 2026
+      
           </div>
         </div>
       </footer>
     </div>
-    
-    <script type="text/javascript" src="styles/docfx.vendor.js"></script>
+
+    <script type="text/javascript" src="styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="styles/docfx.js"></script>
     <script type="text/javascript" src="styles/main.js"></script>
   </body>

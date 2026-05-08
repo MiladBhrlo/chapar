@@ -1,6 +1,5 @@
 {
-  "homepages": [],
-  "source_base_path": "/github/workspace",
+  "source_base_path": "/home/runner/work/chapar/chapar",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -9,19 +8,16 @@
         "resource": {
           "relative_path": "index.json"
         }
-      },
-      "is_incremental": false
+      }
     },
     {
       "type": "Conceptual",
       "source_relative_path": "README.md",
       "output": {
         ".html": {
-          "relative_path": "README.html",
-          "hash": "TNFoZWHeOnPrH1lCfAlWYQ=="
+          "relative_path": "README.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -29,1043 +25,1216 @@
       "source_relative_path": "api/Chapar.Core.Abstractions.AggregateRoot.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Core.Abstractions.AggregateRoot.html",
-          "hash": "C0VLBnvGFjwJGGG6Ado+Ig=="
+          "relative_path": "api/Chapar.Core.Abstractions.AggregateRoot.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Abstractions.AggregateRoot",
+      "Summary": "<p sourcefile=\"api/Chapar.Core.Abstractions.AggregateRoot.yml\" sourcestartlinenumber=\"1\">Base class for aggregate roots with built‑in domain event collection.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Abstractions.IAggregateRoot.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Core.Abstractions.IAggregateRoot.html",
-          "hash": "eknZK+75WreEJnululdsdQ=="
+          "relative_path": "api/Chapar.Core.Abstractions.IAggregateRoot.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Abstractions.IAggregateRoot",
+      "Summary": "<p sourcefile=\"api/Chapar.Core.Abstractions.IAggregateRoot.yml\" sourcestartlinenumber=\"1\">Marks an entity as an aggregate root that can collect domain events.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Abstractions.IChaparBus.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Core.Abstractions.IChaparBus.html",
-          "hash": "qCaIRL5mZ6+M+u4ncge+pA=="
+          "relative_path": "api/Chapar.Core.Abstractions.IChaparBus.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Abstractions.IChaparBus",
+      "Summary": "<p sourcefile=\"api/Chapar.Core.Abstractions.IChaparBus.yml\" sourcestartlinenumber=\"1\">Primary abstraction for sending events and commands onto the message bus.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Abstractions.IChaparDbContext.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Core.Abstractions.IChaparDbContext.html",
-          "hash": "dUub0a0GRK/TFnakWw4Irg=="
+          "relative_path": "api/Chapar.Core.Abstractions.IChaparDbContext.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Abstractions.IChaparDbContext",
+      "Summary": "<p sourcefile=\"api/Chapar.Core.Abstractions.IChaparDbContext.yml\" sourcestartlinenumber=\"1\">Marker interface for the DbContext used by Chapar stores.\nImplement this interface on your application's DbContext to resolve ambiguous\ninjections when multiple DbContext types are registered in the DI container.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Abstractions.IChaparRequestClient-2.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Core.Abstractions.IChaparRequestClient-2.html",
-          "hash": "byrXfLmmjlPuKgPrr9OO/A=="
+          "relative_path": "api/Chapar.Core.Abstractions.IChaparRequestClient-2.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Abstractions.IChaparRequestClient<TRequest, TResponse>",
+      "Summary": "<p sourcefile=\"api/Chapar.Core.Abstractions.IChaparRequestClient-2.yml\" sourcestartlinenumber=\"1\">Abstraction for request/response messaging pattern.\nThe client is specialised for one request‑response pair and is typically\nregistered in the DI container for a specific <code class=\"typeparamref\">TRequest</code>.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Abstractions.ICommand.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Core.Abstractions.ICommand.html",
-          "hash": "bHXC72Z1U4ChiK/c57amlA=="
+          "relative_path": "api/Chapar.Core.Abstractions.ICommand.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Abstractions.ICommand",
+      "Summary": "<p sourcefile=\"api/Chapar.Core.Abstractions.ICommand.yml\" sourcestartlinenumber=\"1\">Represents a command that is sent to exactly one logical receiver.\nCommands express an intent that should be executed once.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Abstractions.IConsumeFilter.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Core.Abstractions.IConsumeFilter.html",
-          "hash": "+IWJ2vV5qg3L4+8SjbMVnQ=="
+          "relative_path": "api/Chapar.Core.Abstractions.IConsumeFilter.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Abstractions.IConsumeFilter",
+      "Summary": "<p sourcefile=\"api/Chapar.Core.Abstractions.IConsumeFilter.yml\" sourcestartlinenumber=\"1\">An abstraction for a filter that is applied to every incoming message before it reaches the handler.\nImplementations can enforce policies like Idempotency (Inbox pattern), validation, etc.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Abstractions.IDomainEvent.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Core.Abstractions.IDomainEvent.html",
-          "hash": "DvRRqlMVCZJJVCG5IKFu1w=="
+          "relative_path": "api/Chapar.Core.Abstractions.IDomainEvent.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Abstractions.IDomainEvent",
+      "Summary": "<p sourcefile=\"api/Chapar.Core.Abstractions.IDomainEvent.yml\" sourcestartlinenumber=\"1\">Marker interface for domain events that are handled internally within the domain.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Abstractions.IEvent.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Core.Abstractions.IEvent.html",
-          "hash": "CKyGxXrc9Pvzwldhe8zneg=="
+          "relative_path": "api/Chapar.Core.Abstractions.IEvent.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Abstractions.IEvent",
+      "Summary": "<p sourcefile=\"api/Chapar.Core.Abstractions.IEvent.yml\" sourcestartlinenumber=\"1\">Represents an event that can be broadcast to any number of subscribers.\nEvents are immutable facts that happened in the past.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Abstractions.IIntegrationEvent.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Core.Abstractions.IIntegrationEvent.html",
-          "hash": "/LmM8VCJOmtDHWI8yIenQw=="
+          "relative_path": "api/Chapar.Core.Abstractions.IIntegrationEvent.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Abstractions.IIntegrationEvent",
+      "Summary": "<p sourcefile=\"api/Chapar.Core.Abstractions.IIntegrationEvent.yml\" sourcestartlinenumber=\"1\">Marker interface for events that cross service boundaries and are published\non the message bus (Integration Events).</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Abstractions.IMessage.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Core.Abstractions.IMessage.html",
-          "hash": "FuAPn0ti0wlkGExEGPkUnw=="
+          "relative_path": "api/Chapar.Core.Abstractions.IMessage.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Abstractions.IMessage",
+      "Summary": "<p sourcefile=\"api/Chapar.Core.Abstractions.IMessage.yml\" sourcestartlinenumber=\"1\">Marker interface for all messages flowing through the Chapar bus.\nThere is no constraint on the structure; it exists to enable compile‑time dispatch.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Abstractions.IMessageContextAccessor.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Core.Abstractions.IMessageContextAccessor.html",
-          "hash": "idum4WGQuNgFEKQpiL+n6Q=="
+          "relative_path": "api/Chapar.Core.Abstractions.IMessageContextAccessor.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Abstractions.IMessageContextAccessor",
+      "Summary": "<p sourcefile=\"api/Chapar.Core.Abstractions.IMessageContextAccessor.yml\" sourcestartlinenumber=\"1\">Provides access to the current message headers for both reading and writing.\nThis allows pipeline behaviors to inspect and enrich message metadata\nwithout coupling to a specific transport.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Abstractions.IMessageHandler-1.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Core.Abstractions.IMessageHandler-1.html",
-          "hash": "cb1XzXNWDwNmRg2aM6v4QA=="
+          "relative_path": "api/Chapar.Core.Abstractions.IMessageHandler-1.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Abstractions.IMessageHandler<TMessage>",
+      "Summary": "<p sourcefile=\"api/Chapar.Core.Abstractions.IMessageHandler-1.yml\" sourcestartlinenumber=\"1\">Defines a handler for a specific message type.\nThe bus infrastructure will invoke this when a matching message arrives.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Abstractions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Core.Abstractions.html",
-          "hash": "pWNcqCyqpwEfA8MT5szbqw=="
+          "relative_path": "api/Chapar.Core.Abstractions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Abstractions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Attributes.AllowedOriginAttribute.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Core.Attributes.AllowedOriginAttribute.html",
-          "hash": "FXgEuL8EqdQ5PmdTAs+2ng=="
+          "relative_path": "api/Chapar.Core.Attributes.AllowedOriginAttribute.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Attributes.AllowedOriginAttribute",
+      "Summary": "<p sourcefile=\"api/Chapar.Core.Attributes.AllowedOriginAttribute.yml\" sourcestartlinenumber=\"1\">Specifies the expected origin service for a message handler.\nWhen applied, the <code>OriginValidationBehaviour</code> in the pipeline checks\nthat the incoming message contains an &quot;Origin&quot; header with this value.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Attributes.QueueNameAttribute.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Core.Attributes.QueueNameAttribute.html",
-          "hash": "0N3u8e7wNXVMgKStyRdAnA=="
+          "relative_path": "api/Chapar.Core.Attributes.QueueNameAttribute.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Attributes.QueueNameAttribute",
+      "Summary": "<p sourcefile=\"api/Chapar.Core.Attributes.QueueNameAttribute.yml\" sourcestartlinenumber=\"1\">Specifies the queue name that a consumer should bind to when processing commands.\nIf not provided, MassTransit's default naming convention is used.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Attributes.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Core.Attributes.html",
-          "hash": "HSVqRi3m8xOX4I7qysYBeg=="
+          "relative_path": "api/Chapar.Core.Attributes.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Attributes",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Cleanup.CleanupOptions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Core.Cleanup.CleanupOptions.html",
-          "hash": "hDNXz/x7XyfIGahZZBsL3A=="
+          "relative_path": "api/Chapar.Core.Cleanup.CleanupOptions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Cleanup.CleanupOptions",
+      "Summary": "<p sourcefile=\"api/Chapar.Core.Cleanup.CleanupOptions.yml\" sourcestartlinenumber=\"1\">Configuration for the cleanup background service.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Cleanup.ICleanupStore.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Core.Cleanup.ICleanupStore.html",
-          "hash": "Zc9gIfBfCRjObNK2tAJYLQ=="
+          "relative_path": "api/Chapar.Core.Cleanup.ICleanupStore.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Cleanup.ICleanupStore",
+      "Summary": "<p sourcefile=\"api/Chapar.Core.Cleanup.ICleanupStore.yml\" sourcestartlinenumber=\"1\">A store that supports deleting old processed records.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Cleanup.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Core.Cleanup.html",
-          "hash": "52wrPd8HD8C2LXmfKcuFqg=="
+          "relative_path": "api/Chapar.Core.Cleanup.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Cleanup",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Exceptions.IDomainException.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Core.Exceptions.IDomainException.html",
-          "hash": "NwWHRN5d9mrHL194j9TIdA=="
+          "relative_path": "api/Chapar.Core.Exceptions.IDomainException.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Exceptions.IDomainException",
+      "Summary": "<p sourcefile=\"api/Chapar.Core.Exceptions.IDomainException.yml\" sourcestartlinenumber=\"1\">Marker interface for domain-level exceptions that should not be retried.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Exceptions.OriginValidationException.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Core.Exceptions.OriginValidationException.html",
-          "hash": "NwTm21mA3+MYNXbP26c/IA=="
+          "relative_path": "api/Chapar.Core.Exceptions.OriginValidationException.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Exceptions.OriginValidationException",
+      "Summary": "<p sourcefile=\"api/Chapar.Core.Exceptions.OriginValidationException.yml\" sourcestartlinenumber=\"1\">The exception that is thrown when the origin of an incoming message does not match\nthe expected value defined by <xref href=\"Chapar.Core.Attributes.AllowedOriginAttribute\" data-throw-if-not-resolved=\"false\"></xref>.\nImplements <xref href=\"Chapar.Core.Exceptions.IDomainException\" data-throw-if-not-resolved=\"false\"></xref> so that the pipeline does not trigger retries.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Exceptions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Core.Exceptions.html",
-          "hash": "d6tcO08q6E1S5+7jrgsVlw=="
+          "relative_path": "api/Chapar.Core.Exceptions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Exceptions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Inbox.IInboxStore.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Core.Inbox.IInboxStore.html",
-          "hash": "eUDujabJjP3GfdJCOz1mEw=="
+          "relative_path": "api/Chapar.Core.Inbox.IInboxStore.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Inbox.IInboxStore",
+      "Summary": "<p sourcefile=\"api/Chapar.Core.Inbox.IInboxStore.yml\" sourcestartlinenumber=\"1\">Abstraction for storing and tracking incoming message ids to guarantee exactly‑once processing.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Inbox.InboxMessage.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Core.Inbox.InboxMessage.html",
-          "hash": "aIic5lA6Ip5GSDpjDwkbyQ=="
+          "relative_path": "api/Chapar.Core.Inbox.InboxMessage.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Inbox.InboxMessage",
+      "Summary": "<p sourcefile=\"api/Chapar.Core.Inbox.InboxMessage.yml\" sourcestartlinenumber=\"1\">Represents a record of an incoming message that has been (or is being) processed.\nUsed by the Inbox pattern to guarantee exactly‑once processing semantics.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Inbox.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Core.Inbox.html",
-          "hash": "SA+VhxBKH4JTYmlFLXBaTA=="
+          "relative_path": "api/Chapar.Core.Inbox.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Inbox",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Messages.ParcelMessage.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Core.Messages.ParcelMessage.html",
-          "hash": "pv5cmcd4/hN5Qgf2thtKSQ=="
+          "relative_path": "api/Chapar.Core.Messages.ParcelMessage.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Messages.ParcelMessage",
+      "Summary": "<p sourcefile=\"api/Chapar.Core.Messages.ParcelMessage.yml\" sourcestartlinenumber=\"1\">A Chapar event that carriers the parcel data from Third party's outbox.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Messages.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Core.Messages.html",
-          "hash": "asFmwuOlUkgAubPLeb2fxA=="
+          "relative_path": "api/Chapar.Core.Messages.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Messages",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Metrics.IInboxMetrics.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Core.Metrics.IInboxMetrics.html",
-          "hash": "oySOIGS+3+NcWNCTyyHHeg=="
+          "relative_path": "api/Chapar.Core.Metrics.IInboxMetrics.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Metrics.IInboxMetrics",
+      "Summary": "<p sourcefile=\"api/Chapar.Core.Metrics.IInboxMetrics.yml\" sourcestartlinenumber=\"1\">Defines core counter metrics for inbox message processing.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Metrics.IOutboxMetrics.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Core.Metrics.IOutboxMetrics.html",
-          "hash": "7g8K0GuVwR0c1G+q4CijYQ=="
+          "relative_path": "api/Chapar.Core.Metrics.IOutboxMetrics.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Metrics.IOutboxMetrics",
+      "Summary": "<p sourcefile=\"api/Chapar.Core.Metrics.IOutboxMetrics.yml\" sourcestartlinenumber=\"1\">Defines core counter metrics for outbox message processing.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Metrics.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Core.Metrics.html",
-          "hash": "1Zt0+UvJatfpqem9AoF6Qw=="
+          "relative_path": "api/Chapar.Core.Metrics.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Metrics",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Outbox.IOutboxStore.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Core.Outbox.IOutboxStore.html",
-          "hash": "fV1tdyByDrZ7jARSHASvgQ=="
+          "relative_path": "api/Chapar.Core.Outbox.IOutboxStore.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Outbox.IOutboxStore",
+      "Summary": "<p sourcefile=\"api/Chapar.Core.Outbox.IOutboxStore.yml\" sourcestartlinenumber=\"1\">Contract for persisting outgoing messages before they are sent to the broker.\nEach provider (e.g. MassTransit, Zamin) will supply its own implementation.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Outbox.OutboxMessage.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Core.Outbox.OutboxMessage.html",
-          "hash": "Px1yA9cfoUx7pkSm5nhOXA=="
+          "relative_path": "api/Chapar.Core.Outbox.OutboxMessage.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Outbox.OutboxMessage",
+      "Summary": "<p sourcefile=\"api/Chapar.Core.Outbox.OutboxMessage.yml\" sourcestartlinenumber=\"1\">Represents a message that has been stored locally as part of an outbox\nand is waiting to be dispatched to the real message broker.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Outbox.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Core.Outbox.html",
-          "hash": "xJeEAYF4PXyTw9apnYBypg=="
+          "relative_path": "api/Chapar.Core.Outbox.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Outbox",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Pipeline.IPipelineBehavior-1.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Core.Pipeline.IPipelineBehavior-1.html",
-          "hash": "maQvSZdGD4+rK6/OcMHufw=="
+          "relative_path": "api/Chapar.Core.Pipeline.IPipelineBehavior-1.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Pipeline.IPipelineBehavior<TMessage>",
+      "Summary": "<p sourcefile=\"api/Chapar.Core.Pipeline.IPipelineBehavior-1.yml\" sourcestartlinenumber=\"1\">Defines a behaviour that can be plugged into the message handling pipeline.\nBehaviours are executed in a chain around the core handler logic.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Pipeline.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Core.Pipeline.html",
-          "hash": "e9VF6ISdJOE3AuJtzHjzGw=="
+          "relative_path": "api/Chapar.Core.Pipeline.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Pipeline",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Utilities.ChaparVersion.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Core.Utilities.ChaparVersion.html",
-          "hash": "7tSfDGHjkp3KGH+wPvlicw=="
+          "relative_path": "api/Chapar.Core.Utilities.ChaparVersion.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Utilities.ChaparVersion",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Utilities.HeaderSanitizer.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Core.Utilities.HeaderSanitizer.html",
-          "hash": "aru4Tjrt6c5Wdjx8S/inVw=="
+          "relative_path": "api/Chapar.Core.Utilities.HeaderSanitizer.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Utilities.HeaderSanitizer",
+      "Summary": "<p sourcefile=\"api/Chapar.Core.Utilities.HeaderSanitizer.yml\" sourcestartlinenumber=\"1\">Provides a helper to remove sensitive or dangerous data from message headers.\nThis is particularly useful before logging or persisting headers.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Utilities.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Core.Utilities.html",
-          "hash": "Rb13454SfjRXHw+Ldh1BIQ=="
+          "relative_path": "api/Chapar.Core.Utilities.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Utilities",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions.html",
-          "hash": "oXGEg18imE2oravzYu12rA=="
+          "relative_path": "api/Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions",
+      "Summary": "<p sourcefile=\"api/Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for configuring the Chapar Inbox on Entity Framework Core.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Inbox.EntityFrameworkCore.Extensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Inbox.EntityFrameworkCore.Extensions.html",
-          "hash": "5uU1XlKjAEn7Zoy5bIELMA=="
+          "relative_path": "api/Chapar.Inbox.EntityFrameworkCore.Extensions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Inbox.EntityFrameworkCore.Extensions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Inbox.EntityFrameworkCore.Options.ChaparInboxOptions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Inbox.EntityFrameworkCore.Options.ChaparInboxOptions.html",
-          "hash": "pvX1jib1N7T1lPxBx8PDsg=="
+          "relative_path": "api/Chapar.Inbox.EntityFrameworkCore.Options.ChaparInboxOptions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Inbox.EntityFrameworkCore.Options.ChaparInboxOptions",
+      "Summary": "<p sourcefile=\"api/Chapar.Inbox.EntityFrameworkCore.Options.ChaparInboxOptions.yml\" sourcestartlinenumber=\"1\">Configuration options for the Chapar Inbox pattern.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Inbox.EntityFrameworkCore.Options.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Inbox.EntityFrameworkCore.Options.html",
-          "hash": "5iYKW1Xm1VXX5puKaEjCAA=="
+          "relative_path": "api/Chapar.Inbox.EntityFrameworkCore.Options.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Inbox.EntityFrameworkCore.Options",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.html",
-          "hash": "JKBVQJj/i2mkJD+IFNsTww=="
+          "relative_path": "api/Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore",
+      "Summary": "<p sourcefile=\"api/Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.yml\" sourcestartlinenumber=\"1\">Entity Framework Core implementation of <xref href=\"Chapar.Core.Inbox.IInboxStore\" data-throw-if-not-resolved=\"false\"></xref> and <xref href=\"Chapar.Core.Cleanup.ICleanupStore\" data-throw-if-not-resolved=\"false\"></xref>.\nRelies on a unique database constraint on (MessageId, ConsumerTypeName) to provide atomic reservations,\nand supports both at‑most‑once and at‑least‑once delivery via <xref href=\"Chapar.Inbox.EntityFrameworkCore.Options.ChaparInboxOptions\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.html",
-          "hash": "9Sn8ti5RYTLXB3fmBK5leQ=="
+          "relative_path": "api/Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity",
+      "Summary": "<p sourcefile=\"api/Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.yml\" sourcestartlinenumber=\"1\">Entity that maps to the inbox table.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Inbox.EntityFrameworkCore.Stores.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Inbox.EntityFrameworkCore.Stores.html",
-          "hash": "VcM8XSUxePfhXaiazk/Vyg=="
+          "relative_path": "api/Chapar.Inbox.EntityFrameworkCore.Stores.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Inbox.EntityFrameworkCore.Stores",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.MassTransit.Adapters.MessageHeaders.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.MassTransit.Adapters.MessageHeaders.html",
-          "hash": "JoR9xrU4Vk+AWmnLru4Ldg=="
+          "relative_path": "api/Chapar.MassTransit.Adapters.MessageHeaders.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.MassTransit.Adapters.MessageHeaders",
+      "Summary": "<p sourcefile=\"api/Chapar.MassTransit.Adapters.MessageHeaders.yml\" sourcestartlinenumber=\"1\">A settable implementation of <xref href=\"Chapar.Core.Abstractions.IMessageContextAccessor\" data-throw-if-not-resolved=\"false\"></xref>.\nThe headers are populated by <xref href=\"Chapar.MassTransit.Consumers.ChaparConsumerAdapter%601\" data-throw-if-not-resolved=\"false\"></xref>\nduring message consumption and can be read/modified by pipeline behaviors.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.MassTransit.Adapters.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.MassTransit.Adapters.html",
-          "hash": "Fjbz0USNqXgMsoYQScrOvQ=="
+          "relative_path": "api/Chapar.MassTransit.Adapters.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.MassTransit.Adapters",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.MassTransit.Consumers.ChaparConsumerAdapter-1.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.MassTransit.Consumers.ChaparConsumerAdapter-1.html",
-          "hash": "n6RU1BbApLuON0KAqoQOcA=="
+          "relative_path": "api/Chapar.MassTransit.Consumers.ChaparConsumerAdapter-1.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.MassTransit.Consumers.ChaparConsumerAdapter<T>",
+      "Summary": "<p sourcefile=\"api/Chapar.MassTransit.Consumers.ChaparConsumerAdapter-1.yml\" sourcestartlinenumber=\"1\">Bridges the generic <xref href=\"Chapar.Core.Abstractions.IMessageHandler%601\" data-throw-if-not-resolved=\"false\"></xref> to MassTransit's <xref href=\"MassTransit.IConsumer%601\" data-throw-if-not-resolved=\"false\"></xref>,\nand applies the Inbox pattern for idempotent processing.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.MassTransit.Consumers.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.MassTransit.Consumers.html",
-          "hash": "2TCQXCua0ZpOBQ4JLRkURw=="
+          "relative_path": "api/Chapar.MassTransit.Consumers.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.MassTransit.Consumers",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.MassTransit.Extensions.ChaparMassTransitExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.MassTransit.Extensions.ChaparMassTransitExtensions.html",
-          "hash": "kJgtlo7wcMlNRRZQaWZNWw=="
+          "relative_path": "api/Chapar.MassTransit.Extensions.ChaparMassTransitExtensions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.MassTransit.Extensions.ChaparMassTransitExtensions",
+      "Summary": "<p sourcefile=\"api/Chapar.MassTransit.Extensions.ChaparMassTransitExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"Microsoft.Extensions.DependencyInjection.IServiceCollection\" data-throw-if-not-resolved=\"false\"></xref> to register Chapar services\nbacked by MassTransit and RabbitMQ.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.MassTransit.Extensions.ChaparMassTransitHealthCheckExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.MassTransit.Extensions.ChaparMassTransitHealthCheckExtensions.html",
-          "hash": "kBuY/BDFNCNLiXMHHa34Aw=="
+          "relative_path": "api/Chapar.MassTransit.Extensions.ChaparMassTransitHealthCheckExtensions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.MassTransit.Extensions.ChaparMassTransitHealthCheckExtensions",
+      "Summary": "<p sourcefile=\"api/Chapar.MassTransit.Extensions.ChaparMassTransitHealthCheckExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for adding Chapar health checks.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.MassTransit.Extensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.MassTransit.Extensions.html",
-          "hash": "gqURSEiJOP/MRd/wjDwphQ=="
+          "relative_path": "api/Chapar.MassTransit.Extensions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.MassTransit.Extensions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.MassTransit.Options.ChaparMassTransitOptions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.MassTransit.Options.ChaparMassTransitOptions.html",
-          "hash": "Gmon/H/2XBNYsZTnHAn+5g=="
+          "relative_path": "api/Chapar.MassTransit.Options.ChaparMassTransitOptions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.MassTransit.Options.ChaparMassTransitOptions",
+      "Summary": "<p sourcefile=\"api/Chapar.MassTransit.Options.ChaparMassTransitOptions.yml\" sourcestartlinenumber=\"1\">Configuration options for the MassTransit‑based Chapar bus.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.MassTransit.Options.ResilienceOptions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.MassTransit.Options.ResilienceOptions.html",
-          "hash": "eEaGNK7KibIjHscGeD+uNw=="
+          "relative_path": "api/Chapar.MassTransit.Options.ResilienceOptions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.MassTransit.Options.ResilienceOptions",
+      "Summary": "<p sourcefile=\"api/Chapar.MassTransit.Options.ResilienceOptions.yml\" sourcestartlinenumber=\"1\">Retry and circuit breaker settings for the Chapar MassTransit transport.\nThese are applied automatically when using <code>AddChaparMassTransit</code>.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.MassTransit.Options.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.MassTransit.Options.html",
-          "hash": "e73rBnkF60e47eBhQfW9+A=="
+          "relative_path": "api/Chapar.MassTransit.Options.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.MassTransit.Options",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.html",
-          "hash": "7FgbCOkV0iR9NkP0dIoE+w=="
+          "relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions",
+      "Summary": "<p sourcefile=\"api/Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for configuring the Chapar Outbox on Entity Framework Core.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Extensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Extensions.html",
-          "hash": "YFuohBhmn/ctluim3z717g=="
+          "relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Extensions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Outbox.EntityFrameworkCore.Extensions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Interceptors.OutboxInterceptor.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Interceptors.OutboxInterceptor.html",
-          "hash": "jfdeJOfFenM/oj9Uz/N4mQ=="
+          "relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Interceptors.OutboxInterceptor.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Outbox.EntityFrameworkCore.Interceptors.OutboxInterceptor",
+      "Summary": "<p sourcefile=\"api/Chapar.Outbox.EntityFrameworkCore.Interceptors.OutboxInterceptor.yml\" sourcestartlinenumber=\"1\">An EF Core <xref href=\"Microsoft.EntityFrameworkCore.Diagnostics.SaveChangesInterceptor\" data-throw-if-not-resolved=\"false\"></xref> that, before saving changes,\nextracts domain events from aggregate roots and persists the configured subset\nas <xref href=\"Chapar.Core.Outbox.OutboxMessage\" data-throw-if-not-resolved=\"false\"></xref> records.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Interceptors.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Interceptors.html",
-          "hash": "J1BEDZ5z6x9b+ZkIEuQ1mA=="
+          "relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Interceptors.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Outbox.EntityFrameworkCore.Interceptors",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Options.ChaparOutboxOptions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Options.ChaparOutboxOptions.html",
-          "hash": "XvSrHiOZmeBsEj9y+5j3Mg=="
+          "relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Options.ChaparOutboxOptions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Outbox.EntityFrameworkCore.Options.ChaparOutboxOptions",
+      "Summary": "<p sourcefile=\"api/Chapar.Outbox.EntityFrameworkCore.Options.ChaparOutboxOptions.yml\" sourcestartlinenumber=\"1\">Options for controlling which types of domain events are persisted to the outbox\nby the <xref href=\"Chapar.Outbox.EntityFrameworkCore.Interceptors.OutboxInterceptor\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Options.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Options.html",
-          "hash": "8JZbq/gwGIdHxsi2zh79rQ=="
+          "relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Options.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Outbox.EntityFrameworkCore.Options",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.html",
-          "hash": "Q0l+KzgmTksDm0B6tc3yeQ=="
+          "relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore",
+      "Summary": "<p sourcefile=\"api/Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.yml\" sourcestartlinenumber=\"1\">Entity Framework Core implementation of <xref href=\"Chapar.Core.Outbox.IOutboxStore\" data-throw-if-not-resolved=\"false\"></xref> and <xref href=\"Chapar.Core.Cleanup.ICleanupStore\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.html",
-          "hash": "OCBUakC7Imjn0vSIRDeBQQ=="
+          "relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity",
+      "Summary": "<p sourcefile=\"api/Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.yml\" sourcestartlinenumber=\"1\">Entity that maps to the outbox table.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Stores.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Stores.html",
-          "hash": "q8PrqSdWcHF4TO7UeFptKQ=="
+          "relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Stores.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Outbox.EntityFrameworkCore.Stores",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Pipeline.Behaviours.DiagnosticsBehaviour-1.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Pipeline.Behaviours.DiagnosticsBehaviour-1.html",
-          "hash": "gUxw6auaRueH9Vp3bbzjfw=="
+          "relative_path": "api/Chapar.Pipeline.Behaviours.DiagnosticsBehaviour-1.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Pipeline.Behaviours.DiagnosticsBehaviour<TMessage>",
+      "Summary": "<p sourcefile=\"api/Chapar.Pipeline.Behaviours.DiagnosticsBehaviour-1.yml\" sourcestartlinenumber=\"1\">Logs the start, successful completion, and elapsed time of each message handler,\nand also creates a distributed tracing Activity with message details.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour-1.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour-1.html",
-          "hash": "xMJFdKMcgOY4h357UMsl4g=="
+          "relative_path": "api/Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour-1.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour<TMessage>",
+      "Summary": "<p sourcefile=\"api/Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour-1.yml\" sourcestartlinenumber=\"1\">Catches <xref href=\"Chapar.Core.Exceptions.IDomainException\" data-throw-if-not-resolved=\"false\"></xref> and logs them as warnings,\npreventing them from triggering MassTransit's retry policies.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour-1.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour-1.html",
-          "hash": "70j8/BUIaZ7O8bw4skjsEQ=="
+          "relative_path": "api/Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour-1.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour<TMessage>",
+      "Summary": "<p sourcefile=\"api/Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour-1.yml\" sourcestartlinenumber=\"1\">A generic error handling behaviour that logs any unhandled exceptions\nbefore rethrowing them.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Pipeline.Behaviours.OriginValidationBehaviour-1.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Pipeline.Behaviours.OriginValidationBehaviour-1.html",
-          "hash": "qXXgbjl6q7KBdU5cBLGTkQ=="
+          "relative_path": "api/Chapar.Pipeline.Behaviours.OriginValidationBehaviour-1.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Pipeline.Behaviours.OriginValidationBehaviour<TMessage>",
+      "Summary": "<p sourcefile=\"api/Chapar.Pipeline.Behaviours.OriginValidationBehaviour-1.yml\" sourcestartlinenumber=\"1\">Validates the origin of an incoming message by checking a configurable header\nagainst the <xref href=\"Chapar.Core.Attributes.AllowedOriginAttribute\" data-throw-if-not-resolved=\"false\"></xref> applied on the message type.\nThis behavior is automatically registered when <code>AddChaparPipeline</code> is called.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Pipeline.Behaviours.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Pipeline.Behaviours.html",
-          "hash": "nN7Bvlj6HaQzHFbrN5GoVQ=="
+          "relative_path": "api/Chapar.Pipeline.Behaviours.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Pipeline.Behaviours",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Pipeline.Extensions.ChaparPipelineExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Pipeline.Extensions.ChaparPipelineExtensions.html",
-          "hash": "KoYmHD3phS+v1gsqpVwnDA=="
+          "relative_path": "api/Chapar.Pipeline.Extensions.ChaparPipelineExtensions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Pipeline.Extensions.ChaparPipelineExtensions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Pipeline.Extensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Pipeline.Extensions.html",
-          "hash": "hFgUqSnVF2IGodj3X15kOQ=="
+          "relative_path": "api/Chapar.Pipeline.Extensions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Pipeline.Extensions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Zamin.Consumer.ChaparMessageConsumer.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Zamin.Consumer.ChaparMessageConsumer.html",
-          "hash": "FcZ/nShrJ3J4HzNjWNWd1w=="
+          "relative_path": "api/Chapar.Zamin.Consumer.ChaparMessageConsumer.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Zamin.Consumer.ChaparMessageConsumer",
+      "Summary": "<p sourcefile=\"api/Chapar.Zamin.Consumer.ChaparMessageConsumer.yml\" sourcestartlinenumber=\"1\">Consumes <xref href=\"Chapar.Core.Messages.ParcelMessage\" data-throw-if-not-resolved=\"false\"></xref> events published by the outbox,\ndeserializes the inner domain event, and dispatches it using Zamin's <xref href=\"Zamin.Core.Contracts.ApplicationServices.Events.IEventDispatcher\" data-throw-if-not-resolved=\"false\"></xref>.\nInbox idempotency is enforced via <xref href=\"Zamin.Extensions.MessageBus.Abstractions.IMessageInboxItemRepository\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Zamin.Consumer.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Zamin.Consumer.html",
-          "hash": "fOOcgXUCZ6RKGGgrc3oB7g=="
+          "relative_path": "api/Chapar.Zamin.Consumer.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Zamin.Consumer",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Zamin.Extensions.ChaparZaminExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Zamin.Extensions.ChaparZaminExtensions.html",
-          "hash": "cwwUUJccrVQA4yd9GWhVeg=="
+          "relative_path": "api/Chapar.Zamin.Extensions.ChaparZaminExtensions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Zamin.Extensions.ChaparZaminExtensions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Zamin.Extensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Zamin.Extensions.html",
-          "hash": "n1+SPrk1ZUQv2oYw9GjU9Q=="
+          "relative_path": "api/Chapar.Zamin.Extensions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Zamin.Extensions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Zamin.MassTransit.Extensions.ChaparZaminMassTransitExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Zamin.MassTransit.Extensions.ChaparZaminMassTransitExtensions.html",
-          "hash": "WDZwEx3cObKnHIhPmLQRFg=="
+          "relative_path": "api/Chapar.Zamin.MassTransit.Extensions.ChaparZaminMassTransitExtensions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Zamin.MassTransit.Extensions.ChaparZaminMassTransitExtensions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Zamin.MassTransit.Extensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Zamin.MassTransit.Extensions.html",
-          "hash": "ZDaOnp2z+nqN+pwg6jzXfQ=="
+          "relative_path": "api/Chapar.Zamin.MassTransit.Extensions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Zamin.MassTransit.Extensions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Zamin.Outbox.Extensions.ChaparZaminOutboxExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Zamin.Outbox.Extensions.ChaparZaminOutboxExtensions.html",
-          "hash": "my8cW4Q3O1JElPWaCuFMrQ=="
+          "relative_path": "api/Chapar.Zamin.Outbox.Extensions.ChaparZaminOutboxExtensions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Zamin.Outbox.Extensions.ChaparZaminOutboxExtensions",
+      "Summary": "<p sourcefile=\"api/Chapar.Zamin.Outbox.Extensions.ChaparZaminOutboxExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for configuring Chapar Outbox and Inbox on Zamin infrastructure.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Zamin.Outbox.Extensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Zamin.Outbox.Extensions.html",
-          "hash": "dt9epGP82eAx9m/azbi0Ew=="
+          "relative_path": "api/Chapar.Zamin.Outbox.Extensions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Zamin.Outbox.Extensions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Zamin.Outbox.Inbox.ZaminInboxStore.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Zamin.Outbox.Inbox.ZaminInboxStore.html",
-          "hash": "QhVNlOkU/uPmQUt7fYDH6w=="
+          "relative_path": "api/Chapar.Zamin.Outbox.Inbox.ZaminInboxStore.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Zamin.Outbox.Inbox.ZaminInboxStore",
+      "Summary": "<p sourcefile=\"api/Chapar.Zamin.Outbox.Inbox.ZaminInboxStore.yml\" sourcestartlinenumber=\"1\">Implements <xref href=\"Chapar.Core.Inbox.IInboxStore\" data-throw-if-not-resolved=\"false\"></xref> using Zamin's native <xref href=\"Chapar.Core.Inbox.InboxMessage\" data-throw-if-not-resolved=\"false\"></xref> table\nand <xref href=\"Zamin.Infra.Data.Sql.Commands.BaseCommandDbContext\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Zamin.Outbox.Inbox.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Zamin.Outbox.Inbox.html",
-          "hash": "ZyDNXTjNnBXMG6uILs3I5g=="
+          "relative_path": "api/Chapar.Zamin.Outbox.Inbox.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Zamin.Outbox.Inbox",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.html",
-          "hash": "LoZha1JaEKShxFeqTBjJZw=="
+          "relative_path": "api/Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore",
+      "Summary": "<p sourcefile=\"api/Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.yml\" sourcestartlinenumber=\"1\">Implements <xref href=\"Chapar.Core.Outbox.IOutboxStore\" data-throw-if-not-resolved=\"false\"></xref> and <xref href=\"Chapar.Core.Cleanup.ICleanupStore\" data-throw-if-not-resolved=\"false\"></xref> using Zamin's native OutBoxEventItem table.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Zamin.Outbox.Outbox.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Zamin.Outbox.Outbox.html",
-          "hash": "NMKMjkm49zRGc9ZTF86QKQ=="
+          "relative_path": "api/Chapar.Zamin.Outbox.Outbox.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Zamin.Outbox.Outbox",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.html",
-          "hash": "AOK3rYjATQyto8Scx/ipSw=="
+          "relative_path": "api/Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus",
+      "Summary": "<p sourcefile=\"api/Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.yml\" sourcestartlinenumber=\"1\">Implements <xref href=\"Zamin.Extensions.MessageBus.Abstractions.ISendMessageBus\" data-throw-if-not-resolved=\"false\"></xref> by delegating to the Chapar bus.\nOutbox records (Parcel) are published as <xref href=\"Chapar.Core.Messages.ParcelMessage\" data-throw-if-not-resolved=\"false\"></xref> events.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Zamin.SendMessageBus.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.Zamin.SendMessageBus.html",
-          "hash": "3vDabkHE8oCO3EbRIs9GaQ=="
+          "relative_path": "api/Chapar.Zamin.SendMessageBus.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Zamin.SendMessageBus",
+      "Summary": null
     },
     {
       "type": "Toc",
       "source_relative_path": "api/toc.yml",
       "output": {
         ".html": {
-          "relative_path": "api/toc.html",
-          "hash": "w7JxxGjWCCXjpPGTIF+ksA=="
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -1073,11 +1242,9 @@
       "source_relative_path": "docs/guide.md",
       "output": {
         ".html": {
-          "relative_path": "docs/guide.html",
-          "hash": "a9kkAacYaD1nd8GpBaCDYw=="
+          "relative_path": "docs/guide.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -1085,58 +1252,12 @@
       "source_relative_path": "index.md",
       "output": {
         ".html": {
-          "relative_path": "index.html",
-          "hash": "Deh++doiQl3kMcWx3gzewQ=="
+          "relative_path": "index.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     }
   ],
-  "incremental_info": [
-    {
-      "status": {
-        "can_incremental": false,
-        "details": "Cannot build incrementally because last build info is missing.",
-        "incrementalPhase": "build",
-        "total_file_count": 0,
-        "skipped_file_count": 0,
-        "full_build_reason_code": "NoAvailableBuildCache"
-      },
-      "processors": {
-        "ConceptualDocumentProcessor": {
-          "can_incremental": false,
-          "incrementalPhase": "build",
-          "total_file_count": 3,
-          "skipped_file_count": 0
-        },
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": false,
-          "incrementalPhase": "build",
-          "total_file_count": 86,
-          "skipped_file_count": 0
-        },
-        "TocDocumentProcessor": {
-          "can_incremental": false,
-          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
-          "incrementalPhase": "build",
-          "total_file_count": 0,
-          "skipped_file_count": 0
-        }
-      }
-    },
-    {
-      "status": {
-        "can_incremental": false,
-        "details": "Cannot support incremental post processing, the reason is: should not trace intermediate info.",
-        "incrementalPhase": "postProcessing",
-        "total_file_count": 0,
-        "skipped_file_count": 0
-      },
-      "processors": {}
-    }
-  ],
-  "version_info": {},
   "groups": [
     {
       "xrefmap": "xrefmap.yml"

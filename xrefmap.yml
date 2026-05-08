@@ -110,15 +110,15 @@ references:
   isSpec: "True"
   fullName: Chapar.Core.Abstractions.IChaparBus.PublishAsync
   nameWithType: IChaparBus.PublishAsync
-- uid: Chapar.Core.Abstractions.IChaparBus.PublishAsync``1(``0,System.Nullable{IDictionary{System.String,System.Object}},CancellationToken)
-  name: PublishAsync<TEvent>(TEvent, Nullable<IDictionary<String, Object>>, CancellationToken)
-  href: api/Chapar.Core.Abstractions.IChaparBus.html#Chapar_Core_Abstractions_IChaparBus_PublishAsync__1___0_System_Nullable_IDictionary_System_String_System_Object___CancellationToken_
-  commentId: M:Chapar.Core.Abstractions.IChaparBus.PublishAsync``1(``0,System.Nullable{IDictionary{System.String,System.Object}},CancellationToken)
-  name.vb: PublishAsync(Of TEvent)(TEvent, Nullable(Of IDictionary(Of String, Object)), CancellationToken)
-  fullName: Chapar.Core.Abstractions.IChaparBus.PublishAsync<TEvent>(TEvent, System.Nullable<IDictionary<System.String, System.Object>>, CancellationToken)
-  fullName.vb: Chapar.Core.Abstractions.IChaparBus.PublishAsync(Of TEvent)(TEvent, System.Nullable(Of IDictionary(Of System.String, System.Object)), CancellationToken)
-  nameWithType: IChaparBus.PublishAsync<TEvent>(TEvent, Nullable<IDictionary<String, Object>>, CancellationToken)
-  nameWithType.vb: IChaparBus.PublishAsync(Of TEvent)(TEvent, Nullable(Of IDictionary(Of String, Object)), CancellationToken)
+- uid: Chapar.Core.Abstractions.IChaparBus.PublishAsync``1(``0,System.Collections.Generic.IDictionary{System.String,System.Object},System.Threading.CancellationToken)
+  name: PublishAsync<TEvent>(TEvent, IDictionary<string, object>?, CancellationToken)
+  href: api/Chapar.Core.Abstractions.IChaparBus.html#Chapar_Core_Abstractions_IChaparBus_PublishAsync__1___0_System_Collections_Generic_IDictionary_System_String_System_Object__System_Threading_CancellationToken_
+  commentId: M:Chapar.Core.Abstractions.IChaparBus.PublishAsync``1(``0,System.Collections.Generic.IDictionary{System.String,System.Object},System.Threading.CancellationToken)
+  name.vb: PublishAsync(Of TEvent)(TEvent, IDictionary(Of String, Object), CancellationToken)
+  fullName: Chapar.Core.Abstractions.IChaparBus.PublishAsync<TEvent>(TEvent, System.Collections.Generic.IDictionary<string, object>?, System.Threading.CancellationToken)
+  fullName.vb: Chapar.Core.Abstractions.IChaparBus.PublishAsync(Of TEvent)(TEvent, System.Collections.Generic.IDictionary(Of String, Object), System.Threading.CancellationToken)
+  nameWithType: IChaparBus.PublishAsync<TEvent>(TEvent, IDictionary<string, object>?, CancellationToken)
+  nameWithType.vb: IChaparBus.PublishAsync(Of TEvent)(TEvent, IDictionary(Of String, Object), CancellationToken)
 - uid: Chapar.Core.Abstractions.IChaparBus.SendAsync*
   name: SendAsync
   href: api/Chapar.Core.Abstractions.IChaparBus.html#Chapar_Core_Abstractions_IChaparBus_SendAsync_
@@ -126,15 +126,15 @@ references:
   isSpec: "True"
   fullName: Chapar.Core.Abstractions.IChaparBus.SendAsync
   nameWithType: IChaparBus.SendAsync
-- uid: Chapar.Core.Abstractions.IChaparBus.SendAsync``1(``0,System.String,System.Nullable{IDictionary{System.String,System.Object}},CancellationToken)
-  name: SendAsync<TCommand>(TCommand, String, Nullable<IDictionary<String, Object>>, CancellationToken)
-  href: api/Chapar.Core.Abstractions.IChaparBus.html#Chapar_Core_Abstractions_IChaparBus_SendAsync__1___0_System_String_System_Nullable_IDictionary_System_String_System_Object___CancellationToken_
-  commentId: M:Chapar.Core.Abstractions.IChaparBus.SendAsync``1(``0,System.String,System.Nullable{IDictionary{System.String,System.Object}},CancellationToken)
-  name.vb: SendAsync(Of TCommand)(TCommand, String, Nullable(Of IDictionary(Of String, Object)), CancellationToken)
-  fullName: Chapar.Core.Abstractions.IChaparBus.SendAsync<TCommand>(TCommand, System.String, System.Nullable<IDictionary<System.String, System.Object>>, CancellationToken)
-  fullName.vb: Chapar.Core.Abstractions.IChaparBus.SendAsync(Of TCommand)(TCommand, System.String, System.Nullable(Of IDictionary(Of System.String, System.Object)), CancellationToken)
-  nameWithType: IChaparBus.SendAsync<TCommand>(TCommand, String, Nullable<IDictionary<String, Object>>, CancellationToken)
-  nameWithType.vb: IChaparBus.SendAsync(Of TCommand)(TCommand, String, Nullable(Of IDictionary(Of String, Object)), CancellationToken)
+- uid: Chapar.Core.Abstractions.IChaparBus.SendAsync``1(``0,System.String,System.Collections.Generic.IDictionary{System.String,System.Object},System.Threading.CancellationToken)
+  name: SendAsync<TCommand>(TCommand, string, IDictionary<string, object>?, CancellationToken)
+  href: api/Chapar.Core.Abstractions.IChaparBus.html#Chapar_Core_Abstractions_IChaparBus_SendAsync__1___0_System_String_System_Collections_Generic_IDictionary_System_String_System_Object__System_Threading_CancellationToken_
+  commentId: M:Chapar.Core.Abstractions.IChaparBus.SendAsync``1(``0,System.String,System.Collections.Generic.IDictionary{System.String,System.Object},System.Threading.CancellationToken)
+  name.vb: SendAsync(Of TCommand)(TCommand, String, IDictionary(Of String, Object), CancellationToken)
+  fullName: Chapar.Core.Abstractions.IChaparBus.SendAsync<TCommand>(TCommand, string, System.Collections.Generic.IDictionary<string, object>?, System.Threading.CancellationToken)
+  fullName.vb: Chapar.Core.Abstractions.IChaparBus.SendAsync(Of TCommand)(TCommand, String, System.Collections.Generic.IDictionary(Of String, Object), System.Threading.CancellationToken)
+  nameWithType: IChaparBus.SendAsync<TCommand>(TCommand, string, IDictionary<string, object>?, CancellationToken)
+  nameWithType.vb: IChaparBus.SendAsync(Of TCommand)(TCommand, String, IDictionary(Of String, Object), CancellationToken)
 - uid: Chapar.Core.Abstractions.IChaparDbContext
   name: IChaparDbContext
   href: api/Chapar.Core.Abstractions.IChaparDbContext.html
@@ -150,12 +150,12 @@ references:
   fullName.vb: Chapar.Core.Abstractions.IChaparRequestClient(Of TRequest, TResponse)
   nameWithType: IChaparRequestClient<TRequest, TResponse>
   nameWithType.vb: IChaparRequestClient(Of TRequest, TResponse)
-- uid: Chapar.Core.Abstractions.IChaparRequestClient`2.GetResponseAsync(`0,CancellationToken)
+- uid: Chapar.Core.Abstractions.IChaparRequestClient`2.GetResponseAsync(`0,System.Threading.CancellationToken)
   name: GetResponseAsync(TRequest, CancellationToken)
-  href: api/Chapar.Core.Abstractions.IChaparRequestClient-2.html#Chapar_Core_Abstractions_IChaparRequestClient_2_GetResponseAsync__0_CancellationToken_
-  commentId: M:Chapar.Core.Abstractions.IChaparRequestClient`2.GetResponseAsync(`0,CancellationToken)
-  fullName: Chapar.Core.Abstractions.IChaparRequestClient<TRequest, TResponse>.GetResponseAsync(TRequest, CancellationToken)
-  fullName.vb: Chapar.Core.Abstractions.IChaparRequestClient(Of TRequest, TResponse).GetResponseAsync(TRequest, CancellationToken)
+  href: api/Chapar.Core.Abstractions.IChaparRequestClient-2.html#Chapar_Core_Abstractions_IChaparRequestClient_2_GetResponseAsync__0_System_Threading_CancellationToken_
+  commentId: M:Chapar.Core.Abstractions.IChaparRequestClient`2.GetResponseAsync(`0,System.Threading.CancellationToken)
+  fullName: Chapar.Core.Abstractions.IChaparRequestClient<TRequest, TResponse>.GetResponseAsync(TRequest, System.Threading.CancellationToken)
+  fullName.vb: Chapar.Core.Abstractions.IChaparRequestClient(Of TRequest, TResponse).GetResponseAsync(TRequest, System.Threading.CancellationToken)
   nameWithType: IChaparRequestClient<TRequest, TResponse>.GetResponseAsync(TRequest, CancellationToken)
   nameWithType.vb: IChaparRequestClient(Of TRequest, TResponse).GetResponseAsync(TRequest, CancellationToken)
 - uid: Chapar.Core.Abstractions.IChaparRequestClient`2.GetResponseAsync*
@@ -180,11 +180,14 @@ references:
   fullName: Chapar.Core.Abstractions.IConsumeFilter
   nameWithType: IConsumeFilter
 - uid: Chapar.Core.Abstractions.IConsumeFilter.MarkAsProcessedAsync(System.String,System.String)
-  name: MarkAsProcessedAsync(String, String)
+  name: MarkAsProcessedAsync(string, string)
   href: api/Chapar.Core.Abstractions.IConsumeFilter.html#Chapar_Core_Abstractions_IConsumeFilter_MarkAsProcessedAsync_System_String_System_String_
   commentId: M:Chapar.Core.Abstractions.IConsumeFilter.MarkAsProcessedAsync(System.String,System.String)
-  fullName: Chapar.Core.Abstractions.IConsumeFilter.MarkAsProcessedAsync(System.String, System.String)
-  nameWithType: IConsumeFilter.MarkAsProcessedAsync(String, String)
+  name.vb: MarkAsProcessedAsync(String, String)
+  fullName: Chapar.Core.Abstractions.IConsumeFilter.MarkAsProcessedAsync(string, string)
+  fullName.vb: Chapar.Core.Abstractions.IConsumeFilter.MarkAsProcessedAsync(String, String)
+  nameWithType: IConsumeFilter.MarkAsProcessedAsync(string, string)
+  nameWithType.vb: IConsumeFilter.MarkAsProcessedAsync(String, String)
 - uid: Chapar.Core.Abstractions.IConsumeFilter.MarkAsProcessedAsync*
   name: MarkAsProcessedAsync
   href: api/Chapar.Core.Abstractions.IConsumeFilter.html#Chapar_Core_Abstractions_IConsumeFilter_MarkAsProcessedAsync_
@@ -193,11 +196,14 @@ references:
   fullName: Chapar.Core.Abstractions.IConsumeFilter.MarkAsProcessedAsync
   nameWithType: IConsumeFilter.MarkAsProcessedAsync
 - uid: Chapar.Core.Abstractions.IConsumeFilter.ShouldProcessAsync(System.String,System.String)
-  name: ShouldProcessAsync(String, String)
+  name: ShouldProcessAsync(string, string)
   href: api/Chapar.Core.Abstractions.IConsumeFilter.html#Chapar_Core_Abstractions_IConsumeFilter_ShouldProcessAsync_System_String_System_String_
   commentId: M:Chapar.Core.Abstractions.IConsumeFilter.ShouldProcessAsync(System.String,System.String)
-  fullName: Chapar.Core.Abstractions.IConsumeFilter.ShouldProcessAsync(System.String, System.String)
-  nameWithType: IConsumeFilter.ShouldProcessAsync(String, String)
+  name.vb: ShouldProcessAsync(String, String)
+  fullName: Chapar.Core.Abstractions.IConsumeFilter.ShouldProcessAsync(string, string)
+  fullName.vb: Chapar.Core.Abstractions.IConsumeFilter.ShouldProcessAsync(String, String)
+  nameWithType: IConsumeFilter.ShouldProcessAsync(string, string)
+  nameWithType.vb: IConsumeFilter.ShouldProcessAsync(String, String)
 - uid: Chapar.Core.Abstractions.IConsumeFilter.ShouldProcessAsync*
   name: ShouldProcessAsync
   href: api/Chapar.Core.Abstractions.IConsumeFilter.html#Chapar_Core_Abstractions_IConsumeFilter_ShouldProcessAsync_
@@ -257,12 +263,12 @@ references:
   fullName.vb: Chapar.Core.Abstractions.IMessageHandler(Of TMessage)
   nameWithType: IMessageHandler<TMessage>
   nameWithType.vb: IMessageHandler(Of TMessage)
-- uid: Chapar.Core.Abstractions.IMessageHandler`1.HandleAsync(`0,CancellationToken)
+- uid: Chapar.Core.Abstractions.IMessageHandler`1.HandleAsync(`0,System.Threading.CancellationToken)
   name: HandleAsync(TMessage, CancellationToken)
-  href: api/Chapar.Core.Abstractions.IMessageHandler-1.html#Chapar_Core_Abstractions_IMessageHandler_1_HandleAsync__0_CancellationToken_
-  commentId: M:Chapar.Core.Abstractions.IMessageHandler`1.HandleAsync(`0,CancellationToken)
-  fullName: Chapar.Core.Abstractions.IMessageHandler<TMessage>.HandleAsync(TMessage, CancellationToken)
-  fullName.vb: Chapar.Core.Abstractions.IMessageHandler(Of TMessage).HandleAsync(TMessage, CancellationToken)
+  href: api/Chapar.Core.Abstractions.IMessageHandler-1.html#Chapar_Core_Abstractions_IMessageHandler_1_HandleAsync__0_System_Threading_CancellationToken_
+  commentId: M:Chapar.Core.Abstractions.IMessageHandler`1.HandleAsync(`0,System.Threading.CancellationToken)
+  fullName: Chapar.Core.Abstractions.IMessageHandler<TMessage>.HandleAsync(TMessage, System.Threading.CancellationToken)
+  fullName.vb: Chapar.Core.Abstractions.IMessageHandler(Of TMessage).HandleAsync(TMessage, System.Threading.CancellationToken)
   nameWithType: IMessageHandler<TMessage>.HandleAsync(TMessage, CancellationToken)
   nameWithType.vb: IMessageHandler(Of TMessage).HandleAsync(TMessage, CancellationToken)
 - uid: Chapar.Core.Abstractions.IMessageHandler`1.HandleAsync*
@@ -287,18 +293,24 @@ references:
   fullName: Chapar.Core.Attributes.AllowedOriginAttribute
   nameWithType: AllowedOriginAttribute
 - uid: Chapar.Core.Attributes.AllowedOriginAttribute.#ctor(System.String)
-  name: AllowedOriginAttribute(String)
+  name: AllowedOriginAttribute(string)
   href: api/Chapar.Core.Attributes.AllowedOriginAttribute.html#Chapar_Core_Attributes_AllowedOriginAttribute__ctor_System_String_
   commentId: M:Chapar.Core.Attributes.AllowedOriginAttribute.#ctor(System.String)
-  fullName: Chapar.Core.Attributes.AllowedOriginAttribute.AllowedOriginAttribute(System.String)
-  nameWithType: AllowedOriginAttribute.AllowedOriginAttribute(String)
+  name.vb: New(String)
+  fullName: Chapar.Core.Attributes.AllowedOriginAttribute.AllowedOriginAttribute(string)
+  fullName.vb: Chapar.Core.Attributes.AllowedOriginAttribute.New(String)
+  nameWithType: AllowedOriginAttribute.AllowedOriginAttribute(string)
+  nameWithType.vb: AllowedOriginAttribute.New(String)
 - uid: Chapar.Core.Attributes.AllowedOriginAttribute.#ctor*
   name: AllowedOriginAttribute
   href: api/Chapar.Core.Attributes.AllowedOriginAttribute.html#Chapar_Core_Attributes_AllowedOriginAttribute__ctor_
   commentId: Overload:Chapar.Core.Attributes.AllowedOriginAttribute.#ctor
   isSpec: "True"
+  name.vb: New
   fullName: Chapar.Core.Attributes.AllowedOriginAttribute.AllowedOriginAttribute
+  fullName.vb: Chapar.Core.Attributes.AllowedOriginAttribute.New
   nameWithType: AllowedOriginAttribute.AllowedOriginAttribute
+  nameWithType.vb: AllowedOriginAttribute.New
 - uid: Chapar.Core.Attributes.AllowedOriginAttribute.Origin
   name: Origin
   href: api/Chapar.Core.Attributes.AllowedOriginAttribute.html#Chapar_Core_Attributes_AllowedOriginAttribute_Origin
@@ -319,18 +331,24 @@ references:
   fullName: Chapar.Core.Attributes.QueueNameAttribute
   nameWithType: QueueNameAttribute
 - uid: Chapar.Core.Attributes.QueueNameAttribute.#ctor(System.String)
-  name: QueueNameAttribute(String)
+  name: QueueNameAttribute(string)
   href: api/Chapar.Core.Attributes.QueueNameAttribute.html#Chapar_Core_Attributes_QueueNameAttribute__ctor_System_String_
   commentId: M:Chapar.Core.Attributes.QueueNameAttribute.#ctor(System.String)
-  fullName: Chapar.Core.Attributes.QueueNameAttribute.QueueNameAttribute(System.String)
-  nameWithType: QueueNameAttribute.QueueNameAttribute(String)
+  name.vb: New(String)
+  fullName: Chapar.Core.Attributes.QueueNameAttribute.QueueNameAttribute(string)
+  fullName.vb: Chapar.Core.Attributes.QueueNameAttribute.New(String)
+  nameWithType: QueueNameAttribute.QueueNameAttribute(string)
+  nameWithType.vb: QueueNameAttribute.New(String)
 - uid: Chapar.Core.Attributes.QueueNameAttribute.#ctor*
   name: QueueNameAttribute
   href: api/Chapar.Core.Attributes.QueueNameAttribute.html#Chapar_Core_Attributes_QueueNameAttribute__ctor_
   commentId: Overload:Chapar.Core.Attributes.QueueNameAttribute.#ctor
   isSpec: "True"
+  name.vb: New
   fullName: Chapar.Core.Attributes.QueueNameAttribute.QueueNameAttribute
+  fullName.vb: Chapar.Core.Attributes.QueueNameAttribute.New
   nameWithType: QueueNameAttribute.QueueNameAttribute
+  nameWithType.vb: QueueNameAttribute.New
 - uid: Chapar.Core.Attributes.QueueNameAttribute.Name
   name: Name
   href: api/Chapar.Core.Attributes.QueueNameAttribute.html#Chapar_Core_Attributes_QueueNameAttribute_Name
@@ -401,12 +419,15 @@ references:
   commentId: T:Chapar.Core.Cleanup.ICleanupStore
   fullName: Chapar.Core.Cleanup.ICleanupStore
   nameWithType: ICleanupStore
-- uid: Chapar.Core.Cleanup.ICleanupStore.DeleteProcessedAsync(DateTime,CancellationToken)
+- uid: Chapar.Core.Cleanup.ICleanupStore.DeleteProcessedAsync(System.DateTime,System.Threading.CancellationToken)
   name: DeleteProcessedAsync(DateTime, CancellationToken)
-  href: api/Chapar.Core.Cleanup.ICleanupStore.html#Chapar_Core_Cleanup_ICleanupStore_DeleteProcessedAsync_DateTime_CancellationToken_
-  commentId: M:Chapar.Core.Cleanup.ICleanupStore.DeleteProcessedAsync(DateTime,CancellationToken)
-  fullName: Chapar.Core.Cleanup.ICleanupStore.DeleteProcessedAsync(DateTime, CancellationToken)
+  href: api/Chapar.Core.Cleanup.ICleanupStore.html#Chapar_Core_Cleanup_ICleanupStore_DeleteProcessedAsync_System_DateTime_System_Threading_CancellationToken_
+  commentId: M:Chapar.Core.Cleanup.ICleanupStore.DeleteProcessedAsync(System.DateTime,System.Threading.CancellationToken)
+  name.vb: DeleteProcessedAsync(Date, CancellationToken)
+  fullName: Chapar.Core.Cleanup.ICleanupStore.DeleteProcessedAsync(System.DateTime, System.Threading.CancellationToken)
+  fullName.vb: Chapar.Core.Cleanup.ICleanupStore.DeleteProcessedAsync(Date, System.Threading.CancellationToken)
   nameWithType: ICleanupStore.DeleteProcessedAsync(DateTime, CancellationToken)
+  nameWithType.vb: ICleanupStore.DeleteProcessedAsync(Date, CancellationToken)
 - uid: Chapar.Core.Cleanup.ICleanupStore.DeleteProcessedAsync*
   name: DeleteProcessedAsync
   href: api/Chapar.Core.Cleanup.ICleanupStore.html#Chapar_Core_Cleanup_ICleanupStore_DeleteProcessedAsync_
@@ -432,22 +453,25 @@ references:
   commentId: T:Chapar.Core.Exceptions.OriginValidationException
   fullName: Chapar.Core.Exceptions.OriginValidationException
   nameWithType: OriginValidationException
-- uid: Chapar.Core.Exceptions.OriginValidationException.#ctor(System.String,System.Nullable{System.String})
-  name: OriginValidationException(String, Nullable<String>)
-  href: api/Chapar.Core.Exceptions.OriginValidationException.html#Chapar_Core_Exceptions_OriginValidationException__ctor_System_String_System_Nullable_System_String__
-  commentId: M:Chapar.Core.Exceptions.OriginValidationException.#ctor(System.String,System.Nullable{System.String})
-  name.vb: OriginValidationException(String, Nullable(Of String))
-  fullName: Chapar.Core.Exceptions.OriginValidationException.OriginValidationException(System.String, System.Nullable<System.String>)
-  fullName.vb: Chapar.Core.Exceptions.OriginValidationException.OriginValidationException(System.String, System.Nullable(Of System.String))
-  nameWithType: OriginValidationException.OriginValidationException(String, Nullable<String>)
-  nameWithType.vb: OriginValidationException.OriginValidationException(String, Nullable(Of String))
+- uid: Chapar.Core.Exceptions.OriginValidationException.#ctor(System.String,System.String)
+  name: OriginValidationException(string, string?)
+  href: api/Chapar.Core.Exceptions.OriginValidationException.html#Chapar_Core_Exceptions_OriginValidationException__ctor_System_String_System_String_
+  commentId: M:Chapar.Core.Exceptions.OriginValidationException.#ctor(System.String,System.String)
+  name.vb: New(String, String)
+  fullName: Chapar.Core.Exceptions.OriginValidationException.OriginValidationException(string, string?)
+  fullName.vb: Chapar.Core.Exceptions.OriginValidationException.New(String, String)
+  nameWithType: OriginValidationException.OriginValidationException(string, string?)
+  nameWithType.vb: OriginValidationException.New(String, String)
 - uid: Chapar.Core.Exceptions.OriginValidationException.#ctor*
   name: OriginValidationException
   href: api/Chapar.Core.Exceptions.OriginValidationException.html#Chapar_Core_Exceptions_OriginValidationException__ctor_
   commentId: Overload:Chapar.Core.Exceptions.OriginValidationException.#ctor
   isSpec: "True"
+  name.vb: New
   fullName: Chapar.Core.Exceptions.OriginValidationException.OriginValidationException
+  fullName.vb: Chapar.Core.Exceptions.OriginValidationException.New
   nameWithType: OriginValidationException.OriginValidationException
+  nameWithType.vb: OriginValidationException.New
 - uid: Chapar.Core.Exceptions.OriginValidationException.ActualOrigin
   name: ActualOrigin
   href: api/Chapar.Core.Exceptions.OriginValidationException.html#Chapar_Core_Exceptions_OriginValidationException_ActualOrigin
@@ -486,11 +510,11 @@ references:
   commentId: T:Chapar.Core.Inbox.IInboxStore
   fullName: Chapar.Core.Inbox.IInboxStore
   nameWithType: IInboxStore
-- uid: Chapar.Core.Inbox.IInboxStore.MarkAsProcessedAsync(Chapar.Core.Inbox.InboxMessage,CancellationToken)
+- uid: Chapar.Core.Inbox.IInboxStore.MarkAsProcessedAsync(Chapar.Core.Inbox.InboxMessage,System.Threading.CancellationToken)
   name: MarkAsProcessedAsync(InboxMessage, CancellationToken)
-  href: api/Chapar.Core.Inbox.IInboxStore.html#Chapar_Core_Inbox_IInboxStore_MarkAsProcessedAsync_Chapar_Core_Inbox_InboxMessage_CancellationToken_
-  commentId: M:Chapar.Core.Inbox.IInboxStore.MarkAsProcessedAsync(Chapar.Core.Inbox.InboxMessage,CancellationToken)
-  fullName: Chapar.Core.Inbox.IInboxStore.MarkAsProcessedAsync(Chapar.Core.Inbox.InboxMessage, CancellationToken)
+  href: api/Chapar.Core.Inbox.IInboxStore.html#Chapar_Core_Inbox_IInboxStore_MarkAsProcessedAsync_Chapar_Core_Inbox_InboxMessage_System_Threading_CancellationToken_
+  commentId: M:Chapar.Core.Inbox.IInboxStore.MarkAsProcessedAsync(Chapar.Core.Inbox.InboxMessage,System.Threading.CancellationToken)
+  fullName: Chapar.Core.Inbox.IInboxStore.MarkAsProcessedAsync(Chapar.Core.Inbox.InboxMessage, System.Threading.CancellationToken)
   nameWithType: IInboxStore.MarkAsProcessedAsync(InboxMessage, CancellationToken)
 - uid: Chapar.Core.Inbox.IInboxStore.MarkAsProcessedAsync*
   name: MarkAsProcessedAsync
@@ -499,12 +523,15 @@ references:
   isSpec: "True"
   fullName: Chapar.Core.Inbox.IInboxStore.MarkAsProcessedAsync
   nameWithType: IInboxStore.MarkAsProcessedAsync
-- uid: Chapar.Core.Inbox.IInboxStore.TryReserveAsync(System.String,System.String,CancellationToken)
-  name: TryReserveAsync(String, String, CancellationToken)
-  href: api/Chapar.Core.Inbox.IInboxStore.html#Chapar_Core_Inbox_IInboxStore_TryReserveAsync_System_String_System_String_CancellationToken_
-  commentId: M:Chapar.Core.Inbox.IInboxStore.TryReserveAsync(System.String,System.String,CancellationToken)
-  fullName: Chapar.Core.Inbox.IInboxStore.TryReserveAsync(System.String, System.String, CancellationToken)
-  nameWithType: IInboxStore.TryReserveAsync(String, String, CancellationToken)
+- uid: Chapar.Core.Inbox.IInboxStore.TryReserveAsync(System.String,System.String,System.Threading.CancellationToken)
+  name: TryReserveAsync(string, string, CancellationToken)
+  href: api/Chapar.Core.Inbox.IInboxStore.html#Chapar_Core_Inbox_IInboxStore_TryReserveAsync_System_String_System_String_System_Threading_CancellationToken_
+  commentId: M:Chapar.Core.Inbox.IInboxStore.TryReserveAsync(System.String,System.String,System.Threading.CancellationToken)
+  name.vb: TryReserveAsync(String, String, CancellationToken)
+  fullName: Chapar.Core.Inbox.IInboxStore.TryReserveAsync(string, string, System.Threading.CancellationToken)
+  fullName.vb: Chapar.Core.Inbox.IInboxStore.TryReserveAsync(String, String, System.Threading.CancellationToken)
+  nameWithType: IInboxStore.TryReserveAsync(string, string, CancellationToken)
+  nameWithType.vb: IInboxStore.TryReserveAsync(String, String, CancellationToken)
 - uid: Chapar.Core.Inbox.IInboxStore.TryReserveAsync*
   name: TryReserveAsync
   href: api/Chapar.Core.Inbox.IInboxStore.html#Chapar_Core_Inbox_IInboxStore_TryReserveAsync_
@@ -731,11 +758,14 @@ references:
   fullName: Chapar.Core.Metrics.IOutboxMetrics.RecordFailed
   nameWithType: IOutboxMetrics.RecordFailed
 - uid: Chapar.Core.Metrics.IOutboxMetrics.RecordPendingCount(System.Int64)
-  name: RecordPendingCount(Int64)
+  name: RecordPendingCount(long)
   href: api/Chapar.Core.Metrics.IOutboxMetrics.html#Chapar_Core_Metrics_IOutboxMetrics_RecordPendingCount_System_Int64_
   commentId: M:Chapar.Core.Metrics.IOutboxMetrics.RecordPendingCount(System.Int64)
-  fullName: Chapar.Core.Metrics.IOutboxMetrics.RecordPendingCount(System.Int64)
-  nameWithType: IOutboxMetrics.RecordPendingCount(Int64)
+  name.vb: RecordPendingCount(Long)
+  fullName: Chapar.Core.Metrics.IOutboxMetrics.RecordPendingCount(long)
+  fullName.vb: Chapar.Core.Metrics.IOutboxMetrics.RecordPendingCount(Long)
+  nameWithType: IOutboxMetrics.RecordPendingCount(long)
+  nameWithType.vb: IOutboxMetrics.RecordPendingCount(Long)
 - uid: Chapar.Core.Metrics.IOutboxMetrics.RecordPendingCount*
   name: RecordPendingCount
   href: api/Chapar.Core.Metrics.IOutboxMetrics.html#Chapar_Core_Metrics_IOutboxMetrics_RecordPendingCount_
@@ -768,11 +798,11 @@ references:
   commentId: T:Chapar.Core.Outbox.IOutboxStore
   fullName: Chapar.Core.Outbox.IOutboxStore
   nameWithType: IOutboxStore
-- uid: Chapar.Core.Outbox.IOutboxStore.GetUnprocessedMessagesAsync(CancellationToken)
+- uid: Chapar.Core.Outbox.IOutboxStore.GetUnprocessedMessagesAsync(System.Threading.CancellationToken)
   name: GetUnprocessedMessagesAsync(CancellationToken)
-  href: api/Chapar.Core.Outbox.IOutboxStore.html#Chapar_Core_Outbox_IOutboxStore_GetUnprocessedMessagesAsync_CancellationToken_
-  commentId: M:Chapar.Core.Outbox.IOutboxStore.GetUnprocessedMessagesAsync(CancellationToken)
-  fullName: Chapar.Core.Outbox.IOutboxStore.GetUnprocessedMessagesAsync(CancellationToken)
+  href: api/Chapar.Core.Outbox.IOutboxStore.html#Chapar_Core_Outbox_IOutboxStore_GetUnprocessedMessagesAsync_System_Threading_CancellationToken_
+  commentId: M:Chapar.Core.Outbox.IOutboxStore.GetUnprocessedMessagesAsync(System.Threading.CancellationToken)
+  fullName: Chapar.Core.Outbox.IOutboxStore.GetUnprocessedMessagesAsync(System.Threading.CancellationToken)
   nameWithType: IOutboxStore.GetUnprocessedMessagesAsync(CancellationToken)
 - uid: Chapar.Core.Outbox.IOutboxStore.GetUnprocessedMessagesAsync*
   name: GetUnprocessedMessagesAsync
@@ -781,11 +811,11 @@ references:
   isSpec: "True"
   fullName: Chapar.Core.Outbox.IOutboxStore.GetUnprocessedMessagesAsync
   nameWithType: IOutboxStore.GetUnprocessedMessagesAsync
-- uid: Chapar.Core.Outbox.IOutboxStore.GetUnprocessedMessagesCountAsync(CancellationToken)
+- uid: Chapar.Core.Outbox.IOutboxStore.GetUnprocessedMessagesCountAsync(System.Threading.CancellationToken)
   name: GetUnprocessedMessagesCountAsync(CancellationToken)
-  href: api/Chapar.Core.Outbox.IOutboxStore.html#Chapar_Core_Outbox_IOutboxStore_GetUnprocessedMessagesCountAsync_CancellationToken_
-  commentId: M:Chapar.Core.Outbox.IOutboxStore.GetUnprocessedMessagesCountAsync(CancellationToken)
-  fullName: Chapar.Core.Outbox.IOutboxStore.GetUnprocessedMessagesCountAsync(CancellationToken)
+  href: api/Chapar.Core.Outbox.IOutboxStore.html#Chapar_Core_Outbox_IOutboxStore_GetUnprocessedMessagesCountAsync_System_Threading_CancellationToken_
+  commentId: M:Chapar.Core.Outbox.IOutboxStore.GetUnprocessedMessagesCountAsync(System.Threading.CancellationToken)
+  fullName: Chapar.Core.Outbox.IOutboxStore.GetUnprocessedMessagesCountAsync(System.Threading.CancellationToken)
   nameWithType: IOutboxStore.GetUnprocessedMessagesCountAsync(CancellationToken)
 - uid: Chapar.Core.Outbox.IOutboxStore.GetUnprocessedMessagesCountAsync*
   name: GetUnprocessedMessagesCountAsync
@@ -794,11 +824,11 @@ references:
   isSpec: "True"
   fullName: Chapar.Core.Outbox.IOutboxStore.GetUnprocessedMessagesCountAsync
   nameWithType: IOutboxStore.GetUnprocessedMessagesCountAsync
-- uid: Chapar.Core.Outbox.IOutboxStore.MarkAsProcessedAsync(Guid,CancellationToken)
+- uid: Chapar.Core.Outbox.IOutboxStore.MarkAsProcessedAsync(System.Guid,System.Threading.CancellationToken)
   name: MarkAsProcessedAsync(Guid, CancellationToken)
-  href: api/Chapar.Core.Outbox.IOutboxStore.html#Chapar_Core_Outbox_IOutboxStore_MarkAsProcessedAsync_Guid_CancellationToken_
-  commentId: M:Chapar.Core.Outbox.IOutboxStore.MarkAsProcessedAsync(Guid,CancellationToken)
-  fullName: Chapar.Core.Outbox.IOutboxStore.MarkAsProcessedAsync(Guid, CancellationToken)
+  href: api/Chapar.Core.Outbox.IOutboxStore.html#Chapar_Core_Outbox_IOutboxStore_MarkAsProcessedAsync_System_Guid_System_Threading_CancellationToken_
+  commentId: M:Chapar.Core.Outbox.IOutboxStore.MarkAsProcessedAsync(System.Guid,System.Threading.CancellationToken)
+  fullName: Chapar.Core.Outbox.IOutboxStore.MarkAsProcessedAsync(System.Guid, System.Threading.CancellationToken)
   nameWithType: IOutboxStore.MarkAsProcessedAsync(Guid, CancellationToken)
 - uid: Chapar.Core.Outbox.IOutboxStore.MarkAsProcessedAsync*
   name: MarkAsProcessedAsync
@@ -807,11 +837,11 @@ references:
   isSpec: "True"
   fullName: Chapar.Core.Outbox.IOutboxStore.MarkAsProcessedAsync
   nameWithType: IOutboxStore.MarkAsProcessedAsync
-- uid: Chapar.Core.Outbox.IOutboxStore.SaveAsync(Chapar.Core.Outbox.OutboxMessage,CancellationToken)
+- uid: Chapar.Core.Outbox.IOutboxStore.SaveAsync(Chapar.Core.Outbox.OutboxMessage,System.Threading.CancellationToken)
   name: SaveAsync(OutboxMessage, CancellationToken)
-  href: api/Chapar.Core.Outbox.IOutboxStore.html#Chapar_Core_Outbox_IOutboxStore_SaveAsync_Chapar_Core_Outbox_OutboxMessage_CancellationToken_
-  commentId: M:Chapar.Core.Outbox.IOutboxStore.SaveAsync(Chapar.Core.Outbox.OutboxMessage,CancellationToken)
-  fullName: Chapar.Core.Outbox.IOutboxStore.SaveAsync(Chapar.Core.Outbox.OutboxMessage, CancellationToken)
+  href: api/Chapar.Core.Outbox.IOutboxStore.html#Chapar_Core_Outbox_IOutboxStore_SaveAsync_Chapar_Core_Outbox_OutboxMessage_System_Threading_CancellationToken_
+  commentId: M:Chapar.Core.Outbox.IOutboxStore.SaveAsync(Chapar.Core.Outbox.OutboxMessage,System.Threading.CancellationToken)
+  fullName: Chapar.Core.Outbox.IOutboxStore.SaveAsync(Chapar.Core.Outbox.OutboxMessage, System.Threading.CancellationToken)
   nameWithType: IOutboxStore.SaveAsync(OutboxMessage, CancellationToken)
 - uid: Chapar.Core.Outbox.IOutboxStore.SaveAsync*
   name: SaveAsync
@@ -932,13 +962,13 @@ references:
   fullName.vb: Chapar.Core.Pipeline.IPipelineBehavior(Of TMessage)
   nameWithType: IPipelineBehavior<TMessage>
   nameWithType.vb: IPipelineBehavior(Of TMessage)
-- uid: Chapar.Core.Pipeline.IPipelineBehavior`1.HandleAsync(`0,Func{Task},CancellationToken)
+- uid: Chapar.Core.Pipeline.IPipelineBehavior`1.HandleAsync(`0,System.Func{System.Threading.Tasks.Task},System.Threading.CancellationToken)
   name: HandleAsync(TMessage, Func<Task>, CancellationToken)
-  href: api/Chapar.Core.Pipeline.IPipelineBehavior-1.html#Chapar_Core_Pipeline_IPipelineBehavior_1_HandleAsync__0_Func_Task__CancellationToken_
-  commentId: M:Chapar.Core.Pipeline.IPipelineBehavior`1.HandleAsync(`0,Func{Task},CancellationToken)
+  href: api/Chapar.Core.Pipeline.IPipelineBehavior-1.html#Chapar_Core_Pipeline_IPipelineBehavior_1_HandleAsync__0_System_Func_System_Threading_Tasks_Task__System_Threading_CancellationToken_
+  commentId: M:Chapar.Core.Pipeline.IPipelineBehavior`1.HandleAsync(`0,System.Func{System.Threading.Tasks.Task},System.Threading.CancellationToken)
   name.vb: HandleAsync(TMessage, Func(Of Task), CancellationToken)
-  fullName: Chapar.Core.Pipeline.IPipelineBehavior<TMessage>.HandleAsync(TMessage, Func<Task>, CancellationToken)
-  fullName.vb: Chapar.Core.Pipeline.IPipelineBehavior(Of TMessage).HandleAsync(TMessage, Func(Of Task), CancellationToken)
+  fullName: Chapar.Core.Pipeline.IPipelineBehavior<TMessage>.HandleAsync(TMessage, System.Func<System.Threading.Tasks.Task>, System.Threading.CancellationToken)
+  fullName.vb: Chapar.Core.Pipeline.IPipelineBehavior(Of TMessage).HandleAsync(TMessage, System.Func(Of System.Threading.Tasks.Task), System.Threading.CancellationToken)
   nameWithType: IPipelineBehavior<TMessage>.HandleAsync(TMessage, Func<Task>, CancellationToken)
   nameWithType.vb: IPipelineBehavior(Of TMessage).HandleAsync(TMessage, Func(Of Task), CancellationToken)
 - uid: Chapar.Core.Pipeline.IPipelineBehavior`1.HandleAsync*
@@ -962,6 +992,19 @@ references:
   commentId: T:Chapar.Core.Utilities.ChaparVersion
   fullName: Chapar.Core.Utilities.ChaparVersion
   nameWithType: ChaparVersion
+- uid: Chapar.Core.Utilities.ChaparVersion.Current
+  name: Current
+  href: api/Chapar.Core.Utilities.ChaparVersion.html#Chapar_Core_Utilities_ChaparVersion_Current
+  commentId: P:Chapar.Core.Utilities.ChaparVersion.Current
+  fullName: Chapar.Core.Utilities.ChaparVersion.Current
+  nameWithType: ChaparVersion.Current
+- uid: Chapar.Core.Utilities.ChaparVersion.Current*
+  name: Current
+  href: api/Chapar.Core.Utilities.ChaparVersion.html#Chapar_Core_Utilities_ChaparVersion_Current_
+  commentId: Overload:Chapar.Core.Utilities.ChaparVersion.Current
+  isSpec: "True"
+  fullName: Chapar.Core.Utilities.ChaparVersion.Current
+  nameWithType: ChaparVersion.Current
 - uid: Chapar.Core.Utilities.HeaderSanitizer
   name: HeaderSanitizer
   href: api/Chapar.Core.Utilities.HeaderSanitizer.html
@@ -974,15 +1017,15 @@ references:
   commentId: F:Chapar.Core.Utilities.HeaderSanitizer.DangerousChars
   fullName: Chapar.Core.Utilities.HeaderSanitizer.DangerousChars
   nameWithType: HeaderSanitizer.DangerousChars
-- uid: Chapar.Core.Utilities.HeaderSanitizer.Sanitize(System.Nullable{IDictionary{System.String,System.Nullable{System.Object}}},System.Nullable{IEnumerable{System.String}},System.Nullable{IEnumerable{System.String}})
-  name: Sanitize(Nullable<IDictionary<String, Nullable<Object>>>, Nullable<IEnumerable<String>>, Nullable<IEnumerable<String>>)
-  href: api/Chapar.Core.Utilities.HeaderSanitizer.html#Chapar_Core_Utilities_HeaderSanitizer_Sanitize_System_Nullable_IDictionary_System_String_System_Nullable_System_Object____System_Nullable_IEnumerable_System_String___System_Nullable_IEnumerable_System_String___
-  commentId: M:Chapar.Core.Utilities.HeaderSanitizer.Sanitize(System.Nullable{IDictionary{System.String,System.Nullable{System.Object}}},System.Nullable{IEnumerable{System.String}},System.Nullable{IEnumerable{System.String}})
-  name.vb: Sanitize(Nullable(Of IDictionary(Of String, Nullable(Of Object))), Nullable(Of IEnumerable(Of String)), Nullable(Of IEnumerable(Of String)))
-  fullName: Chapar.Core.Utilities.HeaderSanitizer.Sanitize(System.Nullable<IDictionary<System.String, System.Nullable<System.Object>>>, System.Nullable<IEnumerable<System.String>>, System.Nullable<IEnumerable<System.String>>)
-  fullName.vb: Chapar.Core.Utilities.HeaderSanitizer.Sanitize(System.Nullable(Of IDictionary(Of System.String, System.Nullable(Of System.Object))), System.Nullable(Of IEnumerable(Of System.String)), System.Nullable(Of IEnumerable(Of System.String)))
-  nameWithType: HeaderSanitizer.Sanitize(Nullable<IDictionary<String, Nullable<Object>>>, Nullable<IEnumerable<String>>, Nullable<IEnumerable<String>>)
-  nameWithType.vb: HeaderSanitizer.Sanitize(Nullable(Of IDictionary(Of String, Nullable(Of Object))), Nullable(Of IEnumerable(Of String)), Nullable(Of IEnumerable(Of String)))
+- uid: Chapar.Core.Utilities.HeaderSanitizer.Sanitize(System.Collections.Generic.IDictionary{System.String,System.Object},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String})
+  name: Sanitize(IDictionary<string, object?>?, IEnumerable<string>?, IEnumerable<string>?)
+  href: api/Chapar.Core.Utilities.HeaderSanitizer.html#Chapar_Core_Utilities_HeaderSanitizer_Sanitize_System_Collections_Generic_IDictionary_System_String_System_Object__System_Collections_Generic_IEnumerable_System_String__System_Collections_Generic_IEnumerable_System_String__
+  commentId: M:Chapar.Core.Utilities.HeaderSanitizer.Sanitize(System.Collections.Generic.IDictionary{System.String,System.Object},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String})
+  name.vb: Sanitize(IDictionary(Of String, Object), IEnumerable(Of String), IEnumerable(Of String))
+  fullName: Chapar.Core.Utilities.HeaderSanitizer.Sanitize(System.Collections.Generic.IDictionary<string, object?>?, System.Collections.Generic.IEnumerable<string>?, System.Collections.Generic.IEnumerable<string>?)
+  fullName.vb: Chapar.Core.Utilities.HeaderSanitizer.Sanitize(System.Collections.Generic.IDictionary(Of String, Object), System.Collections.Generic.IEnumerable(Of String), System.Collections.Generic.IEnumerable(Of String))
+  nameWithType: HeaderSanitizer.Sanitize(IDictionary<string, object?>?, IEnumerable<string>?, IEnumerable<string>?)
+  nameWithType.vb: HeaderSanitizer.Sanitize(IDictionary(Of String, Object), IEnumerable(Of String), IEnumerable(Of String))
 - uid: Chapar.Core.Utilities.HeaderSanitizer.Sanitize*
   name: Sanitize
   href: api/Chapar.Core.Utilities.HeaderSanitizer.html#Chapar_Core_Utilities_HeaderSanitizer_Sanitize_
@@ -1002,15 +1045,15 @@ references:
   commentId: T:Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions
   fullName: Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions
   nameWithType: ChaparInboxExtensions
-- uid: Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions.AddChaparInboxEntityFramework(IServiceCollection,System.Nullable{Action{Chapar.Inbox.EntityFrameworkCore.Options.ChaparInboxOptions}},System.Nullable{Action{Chapar.Core.Cleanup.CleanupOptions}})
-  name: AddChaparInboxEntityFramework(IServiceCollection, Nullable<Action<ChaparInboxOptions>>, Nullable<Action<CleanupOptions>>)
-  href: api/Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions.html#Chapar_Inbox_EntityFrameworkCore_Extensions_ChaparInboxExtensions_AddChaparInboxEntityFramework_IServiceCollection_System_Nullable_Action_Chapar_Inbox_EntityFrameworkCore_Options_ChaparInboxOptions___System_Nullable_Action_Chapar_Core_Cleanup_CleanupOptions___
-  commentId: M:Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions.AddChaparInboxEntityFramework(IServiceCollection,System.Nullable{Action{Chapar.Inbox.EntityFrameworkCore.Options.ChaparInboxOptions}},System.Nullable{Action{Chapar.Core.Cleanup.CleanupOptions}})
-  name.vb: AddChaparInboxEntityFramework(IServiceCollection, Nullable(Of Action(Of ChaparInboxOptions)), Nullable(Of Action(Of CleanupOptions)))
-  fullName: Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions.AddChaparInboxEntityFramework(IServiceCollection, System.Nullable<Action<Chapar.Inbox.EntityFrameworkCore.Options.ChaparInboxOptions>>, System.Nullable<Action<Chapar.Core.Cleanup.CleanupOptions>>)
-  fullName.vb: Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions.AddChaparInboxEntityFramework(IServiceCollection, System.Nullable(Of Action(Of Chapar.Inbox.EntityFrameworkCore.Options.ChaparInboxOptions)), System.Nullable(Of Action(Of Chapar.Core.Cleanup.CleanupOptions)))
-  nameWithType: ChaparInboxExtensions.AddChaparInboxEntityFramework(IServiceCollection, Nullable<Action<ChaparInboxOptions>>, Nullable<Action<CleanupOptions>>)
-  nameWithType.vb: ChaparInboxExtensions.AddChaparInboxEntityFramework(IServiceCollection, Nullable(Of Action(Of ChaparInboxOptions)), Nullable(Of Action(Of CleanupOptions)))
+- uid: Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions.AddChaparInboxEntityFramework(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Chapar.Inbox.EntityFrameworkCore.Options.ChaparInboxOptions},System.Action{Chapar.Core.Cleanup.CleanupOptions})
+  name: AddChaparInboxEntityFramework(IServiceCollection, Action<ChaparInboxOptions>?, Action<CleanupOptions>?)
+  href: api/Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions.html#Chapar_Inbox_EntityFrameworkCore_Extensions_ChaparInboxExtensions_AddChaparInboxEntityFramework_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_Chapar_Inbox_EntityFrameworkCore_Options_ChaparInboxOptions__System_Action_Chapar_Core_Cleanup_CleanupOptions__
+  commentId: M:Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions.AddChaparInboxEntityFramework(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Chapar.Inbox.EntityFrameworkCore.Options.ChaparInboxOptions},System.Action{Chapar.Core.Cleanup.CleanupOptions})
+  name.vb: AddChaparInboxEntityFramework(IServiceCollection, Action(Of ChaparInboxOptions), Action(Of CleanupOptions))
+  fullName: Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions.AddChaparInboxEntityFramework(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action<Chapar.Inbox.EntityFrameworkCore.Options.ChaparInboxOptions>?, System.Action<Chapar.Core.Cleanup.CleanupOptions>?)
+  fullName.vb: Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions.AddChaparInboxEntityFramework(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action(Of Chapar.Inbox.EntityFrameworkCore.Options.ChaparInboxOptions), System.Action(Of Chapar.Core.Cleanup.CleanupOptions))
+  nameWithType: ChaparInboxExtensions.AddChaparInboxEntityFramework(IServiceCollection, Action<ChaparInboxOptions>?, Action<CleanupOptions>?)
+  nameWithType.vb: ChaparInboxExtensions.AddChaparInboxEntityFramework(IServiceCollection, Action(Of ChaparInboxOptions), Action(Of CleanupOptions))
 - uid: Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions.AddChaparInboxEntityFramework*
   name: AddChaparInboxEntityFramework
   href: api/Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions.html#Chapar_Inbox_EntityFrameworkCore_Extensions_ChaparInboxExtensions_AddChaparInboxEntityFramework_
@@ -1025,21 +1068,24 @@ references:
   isSpec: "True"
   fullName: Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions.AddInboxCleanup
   nameWithType: ChaparInboxExtensions.AddInboxCleanup
-- uid: Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions.AddInboxCleanup``1(IServiceCollection,System.Nullable{Action{Chapar.Core.Cleanup.CleanupOptions}})
-  name: AddInboxCleanup<TStore>(IServiceCollection, Nullable<Action<CleanupOptions>>)
-  href: api/Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions.html#Chapar_Inbox_EntityFrameworkCore_Extensions_ChaparInboxExtensions_AddInboxCleanup__1_IServiceCollection_System_Nullable_Action_Chapar_Core_Cleanup_CleanupOptions___
-  commentId: M:Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions.AddInboxCleanup``1(IServiceCollection,System.Nullable{Action{Chapar.Core.Cleanup.CleanupOptions}})
-  name.vb: AddInboxCleanup(Of TStore)(IServiceCollection, Nullable(Of Action(Of CleanupOptions)))
-  fullName: Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions.AddInboxCleanup<TStore>(IServiceCollection, System.Nullable<Action<Chapar.Core.Cleanup.CleanupOptions>>)
-  fullName.vb: Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions.AddInboxCleanup(Of TStore)(IServiceCollection, System.Nullable(Of Action(Of Chapar.Core.Cleanup.CleanupOptions)))
-  nameWithType: ChaparInboxExtensions.AddInboxCleanup<TStore>(IServiceCollection, Nullable<Action<CleanupOptions>>)
-  nameWithType.vb: ChaparInboxExtensions.AddInboxCleanup(Of TStore)(IServiceCollection, Nullable(Of Action(Of CleanupOptions)))
-- uid: Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions.ConfigureChaparInbox(ModelBuilder,System.String,System.String)
-  name: ConfigureChaparInbox(ModelBuilder, String, String)
-  href: api/Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions.html#Chapar_Inbox_EntityFrameworkCore_Extensions_ChaparInboxExtensions_ConfigureChaparInbox_ModelBuilder_System_String_System_String_
-  commentId: M:Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions.ConfigureChaparInbox(ModelBuilder,System.String,System.String)
-  fullName: Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions.ConfigureChaparInbox(ModelBuilder, System.String, System.String)
-  nameWithType: ChaparInboxExtensions.ConfigureChaparInbox(ModelBuilder, String, String)
+- uid: Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions.AddInboxCleanup``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Chapar.Core.Cleanup.CleanupOptions})
+  name: AddInboxCleanup<TStore>(IServiceCollection, Action<CleanupOptions>?)
+  href: api/Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions.html#Chapar_Inbox_EntityFrameworkCore_Extensions_ChaparInboxExtensions_AddInboxCleanup__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_Chapar_Core_Cleanup_CleanupOptions__
+  commentId: M:Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions.AddInboxCleanup``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Chapar.Core.Cleanup.CleanupOptions})
+  name.vb: AddInboxCleanup(Of TStore)(IServiceCollection, Action(Of CleanupOptions))
+  fullName: Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions.AddInboxCleanup<TStore>(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action<Chapar.Core.Cleanup.CleanupOptions>?)
+  fullName.vb: Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions.AddInboxCleanup(Of TStore)(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action(Of Chapar.Core.Cleanup.CleanupOptions))
+  nameWithType: ChaparInboxExtensions.AddInboxCleanup<TStore>(IServiceCollection, Action<CleanupOptions>?)
+  nameWithType.vb: ChaparInboxExtensions.AddInboxCleanup(Of TStore)(IServiceCollection, Action(Of CleanupOptions))
+- uid: Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions.ConfigureChaparInbox(Microsoft.EntityFrameworkCore.ModelBuilder,System.String,System.String)
+  name: ConfigureChaparInbox(ModelBuilder, string, string)
+  href: api/Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions.html#Chapar_Inbox_EntityFrameworkCore_Extensions_ChaparInboxExtensions_ConfigureChaparInbox_Microsoft_EntityFrameworkCore_ModelBuilder_System_String_System_String_
+  commentId: M:Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions.ConfigureChaparInbox(Microsoft.EntityFrameworkCore.ModelBuilder,System.String,System.String)
+  name.vb: ConfigureChaparInbox(ModelBuilder, String, String)
+  fullName: Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions.ConfigureChaparInbox(Microsoft.EntityFrameworkCore.ModelBuilder, string, string)
+  fullName.vb: Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions.ConfigureChaparInbox(Microsoft.EntityFrameworkCore.ModelBuilder, String, String)
+  nameWithType: ChaparInboxExtensions.ConfigureChaparInbox(ModelBuilder, string, string)
+  nameWithType.vb: ChaparInboxExtensions.ConfigureChaparInbox(ModelBuilder, String, String)
 - uid: Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions.ConfigureChaparInbox*
   name: ConfigureChaparInbox
   href: api/Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions.html#Chapar_Inbox_EntityFrameworkCore_Extensions_ChaparInboxExtensions_ConfigureChaparInbox_
@@ -1084,28 +1130,34 @@ references:
   commentId: T:Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore
   fullName: Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore
   nameWithType: EfInboxStore
-- uid: Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.#ctor(Chapar.Core.Abstractions.IChaparDbContext,System.Nullable{IOptions{Chapar.Inbox.EntityFrameworkCore.Options.ChaparInboxOptions}})
-  name: EfInboxStore(IChaparDbContext, Nullable<IOptions<ChaparInboxOptions>>)
-  href: api/Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.html#Chapar_Inbox_EntityFrameworkCore_Stores_EfInboxStore__ctor_Chapar_Core_Abstractions_IChaparDbContext_System_Nullable_IOptions_Chapar_Inbox_EntityFrameworkCore_Options_ChaparInboxOptions___
-  commentId: M:Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.#ctor(Chapar.Core.Abstractions.IChaparDbContext,System.Nullable{IOptions{Chapar.Inbox.EntityFrameworkCore.Options.ChaparInboxOptions}})
-  name.vb: EfInboxStore(IChaparDbContext, Nullable(Of IOptions(Of ChaparInboxOptions)))
-  fullName: Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.EfInboxStore(Chapar.Core.Abstractions.IChaparDbContext, System.Nullable<IOptions<Chapar.Inbox.EntityFrameworkCore.Options.ChaparInboxOptions>>)
-  fullName.vb: Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.EfInboxStore(Chapar.Core.Abstractions.IChaparDbContext, System.Nullable(Of IOptions(Of Chapar.Inbox.EntityFrameworkCore.Options.ChaparInboxOptions)))
-  nameWithType: EfInboxStore.EfInboxStore(IChaparDbContext, Nullable<IOptions<ChaparInboxOptions>>)
-  nameWithType.vb: EfInboxStore.EfInboxStore(IChaparDbContext, Nullable(Of IOptions(Of ChaparInboxOptions)))
+- uid: Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.#ctor(Chapar.Core.Abstractions.IChaparDbContext,Microsoft.Extensions.Options.IOptions{Chapar.Inbox.EntityFrameworkCore.Options.ChaparInboxOptions})
+  name: EfInboxStore(IChaparDbContext, IOptions<ChaparInboxOptions>?)
+  href: api/Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.html#Chapar_Inbox_EntityFrameworkCore_Stores_EfInboxStore__ctor_Chapar_Core_Abstractions_IChaparDbContext_Microsoft_Extensions_Options_IOptions_Chapar_Inbox_EntityFrameworkCore_Options_ChaparInboxOptions__
+  commentId: M:Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.#ctor(Chapar.Core.Abstractions.IChaparDbContext,Microsoft.Extensions.Options.IOptions{Chapar.Inbox.EntityFrameworkCore.Options.ChaparInboxOptions})
+  name.vb: New(IChaparDbContext, IOptions(Of ChaparInboxOptions))
+  fullName: Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.EfInboxStore(Chapar.Core.Abstractions.IChaparDbContext, Microsoft.Extensions.Options.IOptions<Chapar.Inbox.EntityFrameworkCore.Options.ChaparInboxOptions>?)
+  fullName.vb: Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.New(Chapar.Core.Abstractions.IChaparDbContext, Microsoft.Extensions.Options.IOptions(Of Chapar.Inbox.EntityFrameworkCore.Options.ChaparInboxOptions))
+  nameWithType: EfInboxStore.EfInboxStore(IChaparDbContext, IOptions<ChaparInboxOptions>?)
+  nameWithType.vb: EfInboxStore.New(IChaparDbContext, IOptions(Of ChaparInboxOptions))
 - uid: Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.#ctor*
   name: EfInboxStore
   href: api/Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.html#Chapar_Inbox_EntityFrameworkCore_Stores_EfInboxStore__ctor_
   commentId: Overload:Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.#ctor
   isSpec: "True"
+  name.vb: New
   fullName: Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.EfInboxStore
+  fullName.vb: Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.New
   nameWithType: EfInboxStore.EfInboxStore
-- uid: Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.DeleteProcessedAsync(DateTime,CancellationToken)
+  nameWithType.vb: EfInboxStore.New
+- uid: Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.DeleteProcessedAsync(System.DateTime,System.Threading.CancellationToken)
   name: DeleteProcessedAsync(DateTime, CancellationToken)
-  href: api/Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.html#Chapar_Inbox_EntityFrameworkCore_Stores_EfInboxStore_DeleteProcessedAsync_DateTime_CancellationToken_
-  commentId: M:Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.DeleteProcessedAsync(DateTime,CancellationToken)
-  fullName: Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.DeleteProcessedAsync(DateTime, CancellationToken)
+  href: api/Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.html#Chapar_Inbox_EntityFrameworkCore_Stores_EfInboxStore_DeleteProcessedAsync_System_DateTime_System_Threading_CancellationToken_
+  commentId: M:Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.DeleteProcessedAsync(System.DateTime,System.Threading.CancellationToken)
+  name.vb: DeleteProcessedAsync(Date, CancellationToken)
+  fullName: Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.DeleteProcessedAsync(System.DateTime, System.Threading.CancellationToken)
+  fullName.vb: Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.DeleteProcessedAsync(Date, System.Threading.CancellationToken)
   nameWithType: EfInboxStore.DeleteProcessedAsync(DateTime, CancellationToken)
+  nameWithType.vb: EfInboxStore.DeleteProcessedAsync(Date, CancellationToken)
 - uid: Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.DeleteProcessedAsync*
   name: DeleteProcessedAsync
   href: api/Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.html#Chapar_Inbox_EntityFrameworkCore_Stores_EfInboxStore_DeleteProcessedAsync_
@@ -1113,11 +1165,11 @@ references:
   isSpec: "True"
   fullName: Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.DeleteProcessedAsync
   nameWithType: EfInboxStore.DeleteProcessedAsync
-- uid: Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.MarkAsProcessedAsync(Chapar.Core.Inbox.InboxMessage,CancellationToken)
+- uid: Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.MarkAsProcessedAsync(Chapar.Core.Inbox.InboxMessage,System.Threading.CancellationToken)
   name: MarkAsProcessedAsync(InboxMessage, CancellationToken)
-  href: api/Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.html#Chapar_Inbox_EntityFrameworkCore_Stores_EfInboxStore_MarkAsProcessedAsync_Chapar_Core_Inbox_InboxMessage_CancellationToken_
-  commentId: M:Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.MarkAsProcessedAsync(Chapar.Core.Inbox.InboxMessage,CancellationToken)
-  fullName: Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.MarkAsProcessedAsync(Chapar.Core.Inbox.InboxMessage, CancellationToken)
+  href: api/Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.html#Chapar_Inbox_EntityFrameworkCore_Stores_EfInboxStore_MarkAsProcessedAsync_Chapar_Core_Inbox_InboxMessage_System_Threading_CancellationToken_
+  commentId: M:Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.MarkAsProcessedAsync(Chapar.Core.Inbox.InboxMessage,System.Threading.CancellationToken)
+  fullName: Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.MarkAsProcessedAsync(Chapar.Core.Inbox.InboxMessage, System.Threading.CancellationToken)
   nameWithType: EfInboxStore.MarkAsProcessedAsync(InboxMessage, CancellationToken)
 - uid: Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.MarkAsProcessedAsync*
   name: MarkAsProcessedAsync
@@ -1126,12 +1178,15 @@ references:
   isSpec: "True"
   fullName: Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.MarkAsProcessedAsync
   nameWithType: EfInboxStore.MarkAsProcessedAsync
-- uid: Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.TryReserveAsync(System.String,System.String,CancellationToken)
-  name: TryReserveAsync(String, String, CancellationToken)
-  href: api/Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.html#Chapar_Inbox_EntityFrameworkCore_Stores_EfInboxStore_TryReserveAsync_System_String_System_String_CancellationToken_
-  commentId: M:Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.TryReserveAsync(System.String,System.String,CancellationToken)
-  fullName: Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.TryReserveAsync(System.String, System.String, CancellationToken)
-  nameWithType: EfInboxStore.TryReserveAsync(String, String, CancellationToken)
+- uid: Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.TryReserveAsync(System.String,System.String,System.Threading.CancellationToken)
+  name: TryReserveAsync(string, string, CancellationToken)
+  href: api/Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.html#Chapar_Inbox_EntityFrameworkCore_Stores_EfInboxStore_TryReserveAsync_System_String_System_String_System_Threading_CancellationToken_
+  commentId: M:Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.TryReserveAsync(System.String,System.String,System.Threading.CancellationToken)
+  name.vb: TryReserveAsync(String, String, CancellationToken)
+  fullName: Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.TryReserveAsync(string, string, System.Threading.CancellationToken)
+  fullName.vb: Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.TryReserveAsync(String, String, System.Threading.CancellationToken)
+  nameWithType: EfInboxStore.TryReserveAsync(string, string, CancellationToken)
+  nameWithType.vb: EfInboxStore.TryReserveAsync(String, String, CancellationToken)
 - uid: Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.TryReserveAsync*
   name: TryReserveAsync
   href: api/Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.html#Chapar_Inbox_EntityFrameworkCore_Stores_EfInboxStore_TryReserveAsync_
@@ -1250,31 +1305,32 @@ references:
   fullName.vb: Chapar.MassTransit.Consumers.ChaparConsumerAdapter(Of T)
   nameWithType: ChaparConsumerAdapter<T>
   nameWithType.vb: ChaparConsumerAdapter(Of T)
-- uid: Chapar.MassTransit.Consumers.ChaparConsumerAdapter`1.#ctor(Chapar.Core.Abstractions.IMessageHandler{`0},Chapar.Core.Inbox.IInboxStore,Chapar.Core.Metrics.IInboxMetrics,Chapar.Core.Abstractions.IMessageContextAccessor,System.Nullable{ILogger{Chapar.MassTransit.Consumers.ChaparConsumerAdapter{`0}}})
-  name: ChaparConsumerAdapter(IMessageHandler<T>, IInboxStore, IInboxMetrics, IMessageContextAccessor, Nullable<ILogger<ChaparConsumerAdapter<T>>>)
-  href: api/Chapar.MassTransit.Consumers.ChaparConsumerAdapter-1.html#Chapar_MassTransit_Consumers_ChaparConsumerAdapter_1__ctor_Chapar_Core_Abstractions_IMessageHandler__0__Chapar_Core_Inbox_IInboxStore_Chapar_Core_Metrics_IInboxMetrics_Chapar_Core_Abstractions_IMessageContextAccessor_System_Nullable_ILogger_Chapar_MassTransit_Consumers_ChaparConsumerAdapter__0____
-  commentId: M:Chapar.MassTransit.Consumers.ChaparConsumerAdapter`1.#ctor(Chapar.Core.Abstractions.IMessageHandler{`0},Chapar.Core.Inbox.IInboxStore,Chapar.Core.Metrics.IInboxMetrics,Chapar.Core.Abstractions.IMessageContextAccessor,System.Nullable{ILogger{Chapar.MassTransit.Consumers.ChaparConsumerAdapter{`0}}})
-  name.vb: ChaparConsumerAdapter(IMessageHandler(Of T), IInboxStore, IInboxMetrics, IMessageContextAccessor, Nullable(Of ILogger(Of ChaparConsumerAdapter(Of T))))
-  fullName: Chapar.MassTransit.Consumers.ChaparConsumerAdapter<T>.ChaparConsumerAdapter(Chapar.Core.Abstractions.IMessageHandler<T>, Chapar.Core.Inbox.IInboxStore, Chapar.Core.Metrics.IInboxMetrics, Chapar.Core.Abstractions.IMessageContextAccessor, System.Nullable<ILogger<Chapar.MassTransit.Consumers.ChaparConsumerAdapter<T>>>)
-  fullName.vb: Chapar.MassTransit.Consumers.ChaparConsumerAdapter(Of T).ChaparConsumerAdapter(Chapar.Core.Abstractions.IMessageHandler(Of T), Chapar.Core.Inbox.IInboxStore, Chapar.Core.Metrics.IInboxMetrics, Chapar.Core.Abstractions.IMessageContextAccessor, System.Nullable(Of ILogger(Of Chapar.MassTransit.Consumers.ChaparConsumerAdapter(Of T))))
-  nameWithType: ChaparConsumerAdapter<T>.ChaparConsumerAdapter(IMessageHandler<T>, IInboxStore, IInboxMetrics, IMessageContextAccessor, Nullable<ILogger<ChaparConsumerAdapter<T>>>)
-  nameWithType.vb: ChaparConsumerAdapter(Of T).ChaparConsumerAdapter(IMessageHandler(Of T), IInboxStore, IInboxMetrics, IMessageContextAccessor, Nullable(Of ILogger(Of ChaparConsumerAdapter(Of T))))
+- uid: Chapar.MassTransit.Consumers.ChaparConsumerAdapter`1.#ctor(Chapar.Core.Abstractions.IMessageHandler{`0},Chapar.Core.Inbox.IInboxStore,Chapar.Core.Metrics.IInboxMetrics,Chapar.Core.Abstractions.IMessageContextAccessor,Microsoft.Extensions.Logging.ILogger{Chapar.MassTransit.Consumers.ChaparConsumerAdapter{`0}})
+  name: ChaparConsumerAdapter(IMessageHandler<T>, IInboxStore?, IInboxMetrics?, IMessageContextAccessor?, ILogger<ChaparConsumerAdapter<T>>?)
+  href: api/Chapar.MassTransit.Consumers.ChaparConsumerAdapter-1.html#Chapar_MassTransit_Consumers_ChaparConsumerAdapter_1__ctor_Chapar_Core_Abstractions_IMessageHandler__0__Chapar_Core_Inbox_IInboxStore_Chapar_Core_Metrics_IInboxMetrics_Chapar_Core_Abstractions_IMessageContextAccessor_Microsoft_Extensions_Logging_ILogger_Chapar_MassTransit_Consumers_ChaparConsumerAdapter__0___
+  commentId: M:Chapar.MassTransit.Consumers.ChaparConsumerAdapter`1.#ctor(Chapar.Core.Abstractions.IMessageHandler{`0},Chapar.Core.Inbox.IInboxStore,Chapar.Core.Metrics.IInboxMetrics,Chapar.Core.Abstractions.IMessageContextAccessor,Microsoft.Extensions.Logging.ILogger{Chapar.MassTransit.Consumers.ChaparConsumerAdapter{`0}})
+  name.vb: New(IMessageHandler(Of T), IInboxStore, IInboxMetrics, IMessageContextAccessor, ILogger(Of ChaparConsumerAdapter(Of T)))
+  fullName: Chapar.MassTransit.Consumers.ChaparConsumerAdapter<T>.ChaparConsumerAdapter(Chapar.Core.Abstractions.IMessageHandler<T>, Chapar.Core.Inbox.IInboxStore?, Chapar.Core.Metrics.IInboxMetrics?, Chapar.Core.Abstractions.IMessageContextAccessor?, Microsoft.Extensions.Logging.ILogger<Chapar.MassTransit.Consumers.ChaparConsumerAdapter<T>>?)
+  fullName.vb: Chapar.MassTransit.Consumers.ChaparConsumerAdapter(Of T).New(Chapar.Core.Abstractions.IMessageHandler(Of T), Chapar.Core.Inbox.IInboxStore, Chapar.Core.Metrics.IInboxMetrics, Chapar.Core.Abstractions.IMessageContextAccessor, Microsoft.Extensions.Logging.ILogger(Of Chapar.MassTransit.Consumers.ChaparConsumerAdapter(Of T)))
+  nameWithType: ChaparConsumerAdapter<T>.ChaparConsumerAdapter(IMessageHandler<T>, IInboxStore?, IInboxMetrics?, IMessageContextAccessor?, ILogger<ChaparConsumerAdapter<T>>?)
+  nameWithType.vb: ChaparConsumerAdapter(Of T).New(IMessageHandler(Of T), IInboxStore, IInboxMetrics, IMessageContextAccessor, ILogger(Of ChaparConsumerAdapter(Of T)))
 - uid: Chapar.MassTransit.Consumers.ChaparConsumerAdapter`1.#ctor*
   name: ChaparConsumerAdapter
   href: api/Chapar.MassTransit.Consumers.ChaparConsumerAdapter-1.html#Chapar_MassTransit_Consumers_ChaparConsumerAdapter_1__ctor_
   commentId: Overload:Chapar.MassTransit.Consumers.ChaparConsumerAdapter`1.#ctor
   isSpec: "True"
+  name.vb: New
   fullName: Chapar.MassTransit.Consumers.ChaparConsumerAdapter<T>.ChaparConsumerAdapter
-  fullName.vb: Chapar.MassTransit.Consumers.ChaparConsumerAdapter(Of T).ChaparConsumerAdapter
+  fullName.vb: Chapar.MassTransit.Consumers.ChaparConsumerAdapter(Of T).New
   nameWithType: ChaparConsumerAdapter<T>.ChaparConsumerAdapter
-  nameWithType.vb: ChaparConsumerAdapter(Of T).ChaparConsumerAdapter
-- uid: Chapar.MassTransit.Consumers.ChaparConsumerAdapter`1.Consume(ConsumeContext{`0})
+  nameWithType.vb: ChaparConsumerAdapter(Of T).New
+- uid: Chapar.MassTransit.Consumers.ChaparConsumerAdapter`1.Consume(MassTransit.ConsumeContext{`0})
   name: Consume(ConsumeContext<T>)
-  href: api/Chapar.MassTransit.Consumers.ChaparConsumerAdapter-1.html#Chapar_MassTransit_Consumers_ChaparConsumerAdapter_1_Consume_ConsumeContext__0__
-  commentId: M:Chapar.MassTransit.Consumers.ChaparConsumerAdapter`1.Consume(ConsumeContext{`0})
+  href: api/Chapar.MassTransit.Consumers.ChaparConsumerAdapter-1.html#Chapar_MassTransit_Consumers_ChaparConsumerAdapter_1_Consume_MassTransit_ConsumeContext__0__
+  commentId: M:Chapar.MassTransit.Consumers.ChaparConsumerAdapter`1.Consume(MassTransit.ConsumeContext{`0})
   name.vb: Consume(ConsumeContext(Of T))
-  fullName: Chapar.MassTransit.Consumers.ChaparConsumerAdapter<T>.Consume(ConsumeContext<T>)
-  fullName.vb: Chapar.MassTransit.Consumers.ChaparConsumerAdapter(Of T).Consume(ConsumeContext(Of T))
+  fullName: Chapar.MassTransit.Consumers.ChaparConsumerAdapter<T>.Consume(MassTransit.ConsumeContext<T>)
+  fullName.vb: Chapar.MassTransit.Consumers.ChaparConsumerAdapter(Of T).Consume(MassTransit.ConsumeContext(Of T))
   nameWithType: ChaparConsumerAdapter<T>.Consume(ConsumeContext<T>)
   nameWithType.vb: ChaparConsumerAdapter(Of T).Consume(ConsumeContext(Of T))
 - uid: Chapar.MassTransit.Consumers.ChaparConsumerAdapter`1.Consume*
@@ -1298,15 +1354,15 @@ references:
   commentId: T:Chapar.MassTransit.Extensions.ChaparMassTransitExtensions
   fullName: Chapar.MassTransit.Extensions.ChaparMassTransitExtensions
   nameWithType: ChaparMassTransitExtensions
-- uid: Chapar.MassTransit.Extensions.ChaparMassTransitExtensions.AddChaparMassTransit(IServiceCollection,Action{Chapar.MassTransit.Options.ChaparMassTransitOptions},Assembly[])
-  name: AddChaparMassTransit(IServiceCollection, Action<ChaparMassTransitOptions>, Assembly[])
-  href: api/Chapar.MassTransit.Extensions.ChaparMassTransitExtensions.html#Chapar_MassTransit_Extensions_ChaparMassTransitExtensions_AddChaparMassTransit_IServiceCollection_Action_Chapar_MassTransit_Options_ChaparMassTransitOptions__Assembly___
-  commentId: M:Chapar.MassTransit.Extensions.ChaparMassTransitExtensions.AddChaparMassTransit(IServiceCollection,Action{Chapar.MassTransit.Options.ChaparMassTransitOptions},Assembly[])
-  name.vb: AddChaparMassTransit(IServiceCollection, Action(Of ChaparMassTransitOptions), Assembly())
-  fullName: Chapar.MassTransit.Extensions.ChaparMassTransitExtensions.AddChaparMassTransit(IServiceCollection, Action<Chapar.MassTransit.Options.ChaparMassTransitOptions>, Assembly[])
-  fullName.vb: Chapar.MassTransit.Extensions.ChaparMassTransitExtensions.AddChaparMassTransit(IServiceCollection, Action(Of Chapar.MassTransit.Options.ChaparMassTransitOptions), Assembly())
-  nameWithType: ChaparMassTransitExtensions.AddChaparMassTransit(IServiceCollection, Action<ChaparMassTransitOptions>, Assembly[])
-  nameWithType.vb: ChaparMassTransitExtensions.AddChaparMassTransit(IServiceCollection, Action(Of ChaparMassTransitOptions), Assembly())
+- uid: Chapar.MassTransit.Extensions.ChaparMassTransitExtensions.AddChaparMassTransit(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Chapar.MassTransit.Options.ChaparMassTransitOptions},System.Reflection.Assembly[])
+  name: AddChaparMassTransit(IServiceCollection, Action<ChaparMassTransitOptions>, params Assembly[])
+  href: api/Chapar.MassTransit.Extensions.ChaparMassTransitExtensions.html#Chapar_MassTransit_Extensions_ChaparMassTransitExtensions_AddChaparMassTransit_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_Chapar_MassTransit_Options_ChaparMassTransitOptions__System_Reflection_Assembly___
+  commentId: M:Chapar.MassTransit.Extensions.ChaparMassTransitExtensions.AddChaparMassTransit(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Chapar.MassTransit.Options.ChaparMassTransitOptions},System.Reflection.Assembly[])
+  name.vb: AddChaparMassTransit(IServiceCollection, Action(Of ChaparMassTransitOptions), ParamArray Assembly())
+  fullName: Chapar.MassTransit.Extensions.ChaparMassTransitExtensions.AddChaparMassTransit(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action<Chapar.MassTransit.Options.ChaparMassTransitOptions>, params System.Reflection.Assembly[])
+  fullName.vb: Chapar.MassTransit.Extensions.ChaparMassTransitExtensions.AddChaparMassTransit(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action(Of Chapar.MassTransit.Options.ChaparMassTransitOptions), ParamArray System.Reflection.Assembly())
+  nameWithType: ChaparMassTransitExtensions.AddChaparMassTransit(IServiceCollection, Action<ChaparMassTransitOptions>, params Assembly[])
+  nameWithType.vb: ChaparMassTransitExtensions.AddChaparMassTransit(IServiceCollection, Action(Of ChaparMassTransitOptions), ParamArray Assembly())
 - uid: Chapar.MassTransit.Extensions.ChaparMassTransitExtensions.AddChaparMassTransit*
   name: AddChaparMassTransit
   href: api/Chapar.MassTransit.Extensions.ChaparMassTransitExtensions.html#Chapar_MassTransit_Extensions_ChaparMassTransitExtensions_AddChaparMassTransit_
@@ -1320,11 +1376,11 @@ references:
   commentId: T:Chapar.MassTransit.Extensions.ChaparMassTransitHealthCheckExtensions
   fullName: Chapar.MassTransit.Extensions.ChaparMassTransitHealthCheckExtensions
   nameWithType: ChaparMassTransitHealthCheckExtensions
-- uid: Chapar.MassTransit.Extensions.ChaparMassTransitHealthCheckExtensions.AddChaparMassTransitHealthCheck(IHealthChecksBuilder)
+- uid: Chapar.MassTransit.Extensions.ChaparMassTransitHealthCheckExtensions.AddChaparMassTransitHealthCheck(Microsoft.Extensions.DependencyInjection.IHealthChecksBuilder)
   name: AddChaparMassTransitHealthCheck(IHealthChecksBuilder)
-  href: api/Chapar.MassTransit.Extensions.ChaparMassTransitHealthCheckExtensions.html#Chapar_MassTransit_Extensions_ChaparMassTransitHealthCheckExtensions_AddChaparMassTransitHealthCheck_IHealthChecksBuilder_
-  commentId: M:Chapar.MassTransit.Extensions.ChaparMassTransitHealthCheckExtensions.AddChaparMassTransitHealthCheck(IHealthChecksBuilder)
-  fullName: Chapar.MassTransit.Extensions.ChaparMassTransitHealthCheckExtensions.AddChaparMassTransitHealthCheck(IHealthChecksBuilder)
+  href: api/Chapar.MassTransit.Extensions.ChaparMassTransitHealthCheckExtensions.html#Chapar_MassTransit_Extensions_ChaparMassTransitHealthCheckExtensions_AddChaparMassTransitHealthCheck_Microsoft_Extensions_DependencyInjection_IHealthChecksBuilder_
+  commentId: M:Chapar.MassTransit.Extensions.ChaparMassTransitHealthCheckExtensions.AddChaparMassTransitHealthCheck(Microsoft.Extensions.DependencyInjection.IHealthChecksBuilder)
+  fullName: Chapar.MassTransit.Extensions.ChaparMassTransitHealthCheckExtensions.AddChaparMassTransitHealthCheck(Microsoft.Extensions.DependencyInjection.IHealthChecksBuilder)
   nameWithType: ChaparMassTransitHealthCheckExtensions.AddChaparMassTransitHealthCheck(IHealthChecksBuilder)
 - uid: Chapar.MassTransit.Extensions.ChaparMassTransitHealthCheckExtensions.AddChaparMassTransitHealthCheck*
   name: AddChaparMassTransitHealthCheck
@@ -1506,15 +1562,15 @@ references:
   commentId: T:Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions
   fullName: Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions
   nameWithType: ChaparOutboxExtensions
-- uid: Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.AddChaparOutboxEntityFramework(IServiceCollection,System.Nullable{Action{Chapar.Outbox.EntityFrameworkCore.Options.ChaparOutboxOptions}},System.Nullable{Action{Chapar.Core.Cleanup.CleanupOptions}})
-  name: AddChaparOutboxEntityFramework(IServiceCollection, Nullable<Action<ChaparOutboxOptions>>, Nullable<Action<CleanupOptions>>)
-  href: api/Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.html#Chapar_Outbox_EntityFrameworkCore_Extensions_ChaparOutboxExtensions_AddChaparOutboxEntityFramework_IServiceCollection_System_Nullable_Action_Chapar_Outbox_EntityFrameworkCore_Options_ChaparOutboxOptions___System_Nullable_Action_Chapar_Core_Cleanup_CleanupOptions___
-  commentId: M:Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.AddChaparOutboxEntityFramework(IServiceCollection,System.Nullable{Action{Chapar.Outbox.EntityFrameworkCore.Options.ChaparOutboxOptions}},System.Nullable{Action{Chapar.Core.Cleanup.CleanupOptions}})
-  name.vb: AddChaparOutboxEntityFramework(IServiceCollection, Nullable(Of Action(Of ChaparOutboxOptions)), Nullable(Of Action(Of CleanupOptions)))
-  fullName: Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.AddChaparOutboxEntityFramework(IServiceCollection, System.Nullable<Action<Chapar.Outbox.EntityFrameworkCore.Options.ChaparOutboxOptions>>, System.Nullable<Action<Chapar.Core.Cleanup.CleanupOptions>>)
-  fullName.vb: Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.AddChaparOutboxEntityFramework(IServiceCollection, System.Nullable(Of Action(Of Chapar.Outbox.EntityFrameworkCore.Options.ChaparOutboxOptions)), System.Nullable(Of Action(Of Chapar.Core.Cleanup.CleanupOptions)))
-  nameWithType: ChaparOutboxExtensions.AddChaparOutboxEntityFramework(IServiceCollection, Nullable<Action<ChaparOutboxOptions>>, Nullable<Action<CleanupOptions>>)
-  nameWithType.vb: ChaparOutboxExtensions.AddChaparOutboxEntityFramework(IServiceCollection, Nullable(Of Action(Of ChaparOutboxOptions)), Nullable(Of Action(Of CleanupOptions)))
+- uid: Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.AddChaparOutboxEntityFramework(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Chapar.Outbox.EntityFrameworkCore.Options.ChaparOutboxOptions},System.Action{Chapar.Core.Cleanup.CleanupOptions})
+  name: AddChaparOutboxEntityFramework(IServiceCollection, Action<ChaparOutboxOptions>?, Action<CleanupOptions>?)
+  href: api/Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.html#Chapar_Outbox_EntityFrameworkCore_Extensions_ChaparOutboxExtensions_AddChaparOutboxEntityFramework_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_Chapar_Outbox_EntityFrameworkCore_Options_ChaparOutboxOptions__System_Action_Chapar_Core_Cleanup_CleanupOptions__
+  commentId: M:Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.AddChaparOutboxEntityFramework(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Chapar.Outbox.EntityFrameworkCore.Options.ChaparOutboxOptions},System.Action{Chapar.Core.Cleanup.CleanupOptions})
+  name.vb: AddChaparOutboxEntityFramework(IServiceCollection, Action(Of ChaparOutboxOptions), Action(Of CleanupOptions))
+  fullName: Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.AddChaparOutboxEntityFramework(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action<Chapar.Outbox.EntityFrameworkCore.Options.ChaparOutboxOptions>?, System.Action<Chapar.Core.Cleanup.CleanupOptions>?)
+  fullName.vb: Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.AddChaparOutboxEntityFramework(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action(Of Chapar.Outbox.EntityFrameworkCore.Options.ChaparOutboxOptions), System.Action(Of Chapar.Core.Cleanup.CleanupOptions))
+  nameWithType: ChaparOutboxExtensions.AddChaparOutboxEntityFramework(IServiceCollection, Action<ChaparOutboxOptions>?, Action<CleanupOptions>?)
+  nameWithType.vb: ChaparOutboxExtensions.AddChaparOutboxEntityFramework(IServiceCollection, Action(Of ChaparOutboxOptions), Action(Of CleanupOptions))
 - uid: Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.AddChaparOutboxEntityFramework*
   name: AddChaparOutboxEntityFramework
   href: api/Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.html#Chapar_Outbox_EntityFrameworkCore_Extensions_ChaparOutboxExtensions_AddChaparOutboxEntityFramework_
@@ -1529,21 +1585,24 @@ references:
   isSpec: "True"
   fullName: Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.AddOutboxCleanup
   nameWithType: ChaparOutboxExtensions.AddOutboxCleanup
-- uid: Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.AddOutboxCleanup``1(IServiceCollection,System.Nullable{Action{Chapar.Core.Cleanup.CleanupOptions}})
-  name: AddOutboxCleanup<TStore>(IServiceCollection, Nullable<Action<CleanupOptions>>)
-  href: api/Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.html#Chapar_Outbox_EntityFrameworkCore_Extensions_ChaparOutboxExtensions_AddOutboxCleanup__1_IServiceCollection_System_Nullable_Action_Chapar_Core_Cleanup_CleanupOptions___
-  commentId: M:Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.AddOutboxCleanup``1(IServiceCollection,System.Nullable{Action{Chapar.Core.Cleanup.CleanupOptions}})
-  name.vb: AddOutboxCleanup(Of TStore)(IServiceCollection, Nullable(Of Action(Of CleanupOptions)))
-  fullName: Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.AddOutboxCleanup<TStore>(IServiceCollection, System.Nullable<Action<Chapar.Core.Cleanup.CleanupOptions>>)
-  fullName.vb: Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.AddOutboxCleanup(Of TStore)(IServiceCollection, System.Nullable(Of Action(Of Chapar.Core.Cleanup.CleanupOptions)))
-  nameWithType: ChaparOutboxExtensions.AddOutboxCleanup<TStore>(IServiceCollection, Nullable<Action<CleanupOptions>>)
-  nameWithType.vb: ChaparOutboxExtensions.AddOutboxCleanup(Of TStore)(IServiceCollection, Nullable(Of Action(Of CleanupOptions)))
-- uid: Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.ConfigureChaparOutbox(ModelBuilder,System.String,System.String)
-  name: ConfigureChaparOutbox(ModelBuilder, String, String)
-  href: api/Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.html#Chapar_Outbox_EntityFrameworkCore_Extensions_ChaparOutboxExtensions_ConfigureChaparOutbox_ModelBuilder_System_String_System_String_
-  commentId: M:Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.ConfigureChaparOutbox(ModelBuilder,System.String,System.String)
-  fullName: Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.ConfigureChaparOutbox(ModelBuilder, System.String, System.String)
-  nameWithType: ChaparOutboxExtensions.ConfigureChaparOutbox(ModelBuilder, String, String)
+- uid: Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.AddOutboxCleanup``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Chapar.Core.Cleanup.CleanupOptions})
+  name: AddOutboxCleanup<TStore>(IServiceCollection, Action<CleanupOptions>?)
+  href: api/Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.html#Chapar_Outbox_EntityFrameworkCore_Extensions_ChaparOutboxExtensions_AddOutboxCleanup__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_Chapar_Core_Cleanup_CleanupOptions__
+  commentId: M:Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.AddOutboxCleanup``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Chapar.Core.Cleanup.CleanupOptions})
+  name.vb: AddOutboxCleanup(Of TStore)(IServiceCollection, Action(Of CleanupOptions))
+  fullName: Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.AddOutboxCleanup<TStore>(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action<Chapar.Core.Cleanup.CleanupOptions>?)
+  fullName.vb: Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.AddOutboxCleanup(Of TStore)(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action(Of Chapar.Core.Cleanup.CleanupOptions))
+  nameWithType: ChaparOutboxExtensions.AddOutboxCleanup<TStore>(IServiceCollection, Action<CleanupOptions>?)
+  nameWithType.vb: ChaparOutboxExtensions.AddOutboxCleanup(Of TStore)(IServiceCollection, Action(Of CleanupOptions))
+- uid: Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.ConfigureChaparOutbox(Microsoft.EntityFrameworkCore.ModelBuilder,System.String,System.String)
+  name: ConfigureChaparOutbox(ModelBuilder, string, string)
+  href: api/Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.html#Chapar_Outbox_EntityFrameworkCore_Extensions_ChaparOutboxExtensions_ConfigureChaparOutbox_Microsoft_EntityFrameworkCore_ModelBuilder_System_String_System_String_
+  commentId: M:Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.ConfigureChaparOutbox(Microsoft.EntityFrameworkCore.ModelBuilder,System.String,System.String)
+  name.vb: ConfigureChaparOutbox(ModelBuilder, String, String)
+  fullName: Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.ConfigureChaparOutbox(Microsoft.EntityFrameworkCore.ModelBuilder, string, string)
+  fullName.vb: Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.ConfigureChaparOutbox(Microsoft.EntityFrameworkCore.ModelBuilder, String, String)
+  nameWithType: ChaparOutboxExtensions.ConfigureChaparOutbox(ModelBuilder, string, string)
+  nameWithType.vb: ChaparOutboxExtensions.ConfigureChaparOutbox(ModelBuilder, String, String)
 - uid: Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.ConfigureChaparOutbox*
   name: ConfigureChaparOutbox
   href: api/Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.html#Chapar_Outbox_EntityFrameworkCore_Extensions_ChaparOutboxExtensions_ConfigureChaparOutbox_
@@ -1563,31 +1622,34 @@ references:
   commentId: T:Chapar.Outbox.EntityFrameworkCore.Interceptors.OutboxInterceptor
   fullName: Chapar.Outbox.EntityFrameworkCore.Interceptors.OutboxInterceptor
   nameWithType: OutboxInterceptor
-- uid: Chapar.Outbox.EntityFrameworkCore.Interceptors.OutboxInterceptor.#ctor(Chapar.Core.Outbox.IOutboxStore,IOptions{Chapar.Outbox.EntityFrameworkCore.Options.ChaparOutboxOptions})
+- uid: Chapar.Outbox.EntityFrameworkCore.Interceptors.OutboxInterceptor.#ctor(Chapar.Core.Outbox.IOutboxStore,Microsoft.Extensions.Options.IOptions{Chapar.Outbox.EntityFrameworkCore.Options.ChaparOutboxOptions})
   name: OutboxInterceptor(IOutboxStore, IOptions<ChaparOutboxOptions>)
-  href: api/Chapar.Outbox.EntityFrameworkCore.Interceptors.OutboxInterceptor.html#Chapar_Outbox_EntityFrameworkCore_Interceptors_OutboxInterceptor__ctor_Chapar_Core_Outbox_IOutboxStore_IOptions_Chapar_Outbox_EntityFrameworkCore_Options_ChaparOutboxOptions__
-  commentId: M:Chapar.Outbox.EntityFrameworkCore.Interceptors.OutboxInterceptor.#ctor(Chapar.Core.Outbox.IOutboxStore,IOptions{Chapar.Outbox.EntityFrameworkCore.Options.ChaparOutboxOptions})
-  name.vb: OutboxInterceptor(IOutboxStore, IOptions(Of ChaparOutboxOptions))
-  fullName: Chapar.Outbox.EntityFrameworkCore.Interceptors.OutboxInterceptor.OutboxInterceptor(Chapar.Core.Outbox.IOutboxStore, IOptions<Chapar.Outbox.EntityFrameworkCore.Options.ChaparOutboxOptions>)
-  fullName.vb: Chapar.Outbox.EntityFrameworkCore.Interceptors.OutboxInterceptor.OutboxInterceptor(Chapar.Core.Outbox.IOutboxStore, IOptions(Of Chapar.Outbox.EntityFrameworkCore.Options.ChaparOutboxOptions))
+  href: api/Chapar.Outbox.EntityFrameworkCore.Interceptors.OutboxInterceptor.html#Chapar_Outbox_EntityFrameworkCore_Interceptors_OutboxInterceptor__ctor_Chapar_Core_Outbox_IOutboxStore_Microsoft_Extensions_Options_IOptions_Chapar_Outbox_EntityFrameworkCore_Options_ChaparOutboxOptions__
+  commentId: M:Chapar.Outbox.EntityFrameworkCore.Interceptors.OutboxInterceptor.#ctor(Chapar.Core.Outbox.IOutboxStore,Microsoft.Extensions.Options.IOptions{Chapar.Outbox.EntityFrameworkCore.Options.ChaparOutboxOptions})
+  name.vb: New(IOutboxStore, IOptions(Of ChaparOutboxOptions))
+  fullName: Chapar.Outbox.EntityFrameworkCore.Interceptors.OutboxInterceptor.OutboxInterceptor(Chapar.Core.Outbox.IOutboxStore, Microsoft.Extensions.Options.IOptions<Chapar.Outbox.EntityFrameworkCore.Options.ChaparOutboxOptions>)
+  fullName.vb: Chapar.Outbox.EntityFrameworkCore.Interceptors.OutboxInterceptor.New(Chapar.Core.Outbox.IOutboxStore, Microsoft.Extensions.Options.IOptions(Of Chapar.Outbox.EntityFrameworkCore.Options.ChaparOutboxOptions))
   nameWithType: OutboxInterceptor.OutboxInterceptor(IOutboxStore, IOptions<ChaparOutboxOptions>)
-  nameWithType.vb: OutboxInterceptor.OutboxInterceptor(IOutboxStore, IOptions(Of ChaparOutboxOptions))
+  nameWithType.vb: OutboxInterceptor.New(IOutboxStore, IOptions(Of ChaparOutboxOptions))
 - uid: Chapar.Outbox.EntityFrameworkCore.Interceptors.OutboxInterceptor.#ctor*
   name: OutboxInterceptor
   href: api/Chapar.Outbox.EntityFrameworkCore.Interceptors.OutboxInterceptor.html#Chapar_Outbox_EntityFrameworkCore_Interceptors_OutboxInterceptor__ctor_
   commentId: Overload:Chapar.Outbox.EntityFrameworkCore.Interceptors.OutboxInterceptor.#ctor
   isSpec: "True"
+  name.vb: New
   fullName: Chapar.Outbox.EntityFrameworkCore.Interceptors.OutboxInterceptor.OutboxInterceptor
+  fullName.vb: Chapar.Outbox.EntityFrameworkCore.Interceptors.OutboxInterceptor.New
   nameWithType: OutboxInterceptor.OutboxInterceptor
-- uid: Chapar.Outbox.EntityFrameworkCore.Interceptors.OutboxInterceptor.SavingChangesAsync(DbContextEventData,InterceptionResult{System.Int32},CancellationToken)
-  name: SavingChangesAsync(DbContextEventData, InterceptionResult<Int32>, CancellationToken)
-  href: api/Chapar.Outbox.EntityFrameworkCore.Interceptors.OutboxInterceptor.html#Chapar_Outbox_EntityFrameworkCore_Interceptors_OutboxInterceptor_SavingChangesAsync_DbContextEventData_InterceptionResult_System_Int32__CancellationToken_
-  commentId: M:Chapar.Outbox.EntityFrameworkCore.Interceptors.OutboxInterceptor.SavingChangesAsync(DbContextEventData,InterceptionResult{System.Int32},CancellationToken)
-  name.vb: SavingChangesAsync(DbContextEventData, InterceptionResult(Of Int32), CancellationToken)
-  fullName: Chapar.Outbox.EntityFrameworkCore.Interceptors.OutboxInterceptor.SavingChangesAsync(DbContextEventData, InterceptionResult<System.Int32>, CancellationToken)
-  fullName.vb: Chapar.Outbox.EntityFrameworkCore.Interceptors.OutboxInterceptor.SavingChangesAsync(DbContextEventData, InterceptionResult(Of System.Int32), CancellationToken)
-  nameWithType: OutboxInterceptor.SavingChangesAsync(DbContextEventData, InterceptionResult<Int32>, CancellationToken)
-  nameWithType.vb: OutboxInterceptor.SavingChangesAsync(DbContextEventData, InterceptionResult(Of Int32), CancellationToken)
+  nameWithType.vb: OutboxInterceptor.New
+- uid: Chapar.Outbox.EntityFrameworkCore.Interceptors.OutboxInterceptor.SavingChangesAsync(Microsoft.EntityFrameworkCore.Diagnostics.DbContextEventData,Microsoft.EntityFrameworkCore.Diagnostics.InterceptionResult{System.Int32},System.Threading.CancellationToken)
+  name: SavingChangesAsync(DbContextEventData, InterceptionResult<int>, CancellationToken)
+  href: api/Chapar.Outbox.EntityFrameworkCore.Interceptors.OutboxInterceptor.html#Chapar_Outbox_EntityFrameworkCore_Interceptors_OutboxInterceptor_SavingChangesAsync_Microsoft_EntityFrameworkCore_Diagnostics_DbContextEventData_Microsoft_EntityFrameworkCore_Diagnostics_InterceptionResult_System_Int32__System_Threading_CancellationToken_
+  commentId: M:Chapar.Outbox.EntityFrameworkCore.Interceptors.OutboxInterceptor.SavingChangesAsync(Microsoft.EntityFrameworkCore.Diagnostics.DbContextEventData,Microsoft.EntityFrameworkCore.Diagnostics.InterceptionResult{System.Int32},System.Threading.CancellationToken)
+  name.vb: SavingChangesAsync(DbContextEventData, InterceptionResult(Of Integer), CancellationToken)
+  fullName: Chapar.Outbox.EntityFrameworkCore.Interceptors.OutboxInterceptor.SavingChangesAsync(Microsoft.EntityFrameworkCore.Diagnostics.DbContextEventData, Microsoft.EntityFrameworkCore.Diagnostics.InterceptionResult<int>, System.Threading.CancellationToken)
+  fullName.vb: Chapar.Outbox.EntityFrameworkCore.Interceptors.OutboxInterceptor.SavingChangesAsync(Microsoft.EntityFrameworkCore.Diagnostics.DbContextEventData, Microsoft.EntityFrameworkCore.Diagnostics.InterceptionResult(Of Integer), System.Threading.CancellationToken)
+  nameWithType: OutboxInterceptor.SavingChangesAsync(DbContextEventData, InterceptionResult<int>, CancellationToken)
+  nameWithType.vb: OutboxInterceptor.SavingChangesAsync(DbContextEventData, InterceptionResult(Of Integer), CancellationToken)
 - uid: Chapar.Outbox.EntityFrameworkCore.Interceptors.OutboxInterceptor.SavingChangesAsync*
   name: SavingChangesAsync
   href: api/Chapar.Outbox.EntityFrameworkCore.Interceptors.OutboxInterceptor.html#Chapar_Outbox_EntityFrameworkCore_Interceptors_OutboxInterceptor_SavingChangesAsync_
@@ -1649,21 +1711,30 @@ references:
   name: EfOutboxStore(IChaparDbContext)
   href: api/Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.html#Chapar_Outbox_EntityFrameworkCore_Stores_EfOutboxStore__ctor_Chapar_Core_Abstractions_IChaparDbContext_
   commentId: M:Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.#ctor(Chapar.Core.Abstractions.IChaparDbContext)
+  name.vb: New(IChaparDbContext)
   fullName: Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.EfOutboxStore(Chapar.Core.Abstractions.IChaparDbContext)
+  fullName.vb: Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.New(Chapar.Core.Abstractions.IChaparDbContext)
   nameWithType: EfOutboxStore.EfOutboxStore(IChaparDbContext)
+  nameWithType.vb: EfOutboxStore.New(IChaparDbContext)
 - uid: Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.#ctor*
   name: EfOutboxStore
   href: api/Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.html#Chapar_Outbox_EntityFrameworkCore_Stores_EfOutboxStore__ctor_
   commentId: Overload:Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.#ctor
   isSpec: "True"
+  name.vb: New
   fullName: Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.EfOutboxStore
+  fullName.vb: Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.New
   nameWithType: EfOutboxStore.EfOutboxStore
-- uid: Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.DeleteProcessedAsync(DateTime,CancellationToken)
+  nameWithType.vb: EfOutboxStore.New
+- uid: Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.DeleteProcessedAsync(System.DateTime,System.Threading.CancellationToken)
   name: DeleteProcessedAsync(DateTime, CancellationToken)
-  href: api/Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.html#Chapar_Outbox_EntityFrameworkCore_Stores_EfOutboxStore_DeleteProcessedAsync_DateTime_CancellationToken_
-  commentId: M:Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.DeleteProcessedAsync(DateTime,CancellationToken)
-  fullName: Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.DeleteProcessedAsync(DateTime, CancellationToken)
+  href: api/Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.html#Chapar_Outbox_EntityFrameworkCore_Stores_EfOutboxStore_DeleteProcessedAsync_System_DateTime_System_Threading_CancellationToken_
+  commentId: M:Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.DeleteProcessedAsync(System.DateTime,System.Threading.CancellationToken)
+  name.vb: DeleteProcessedAsync(Date, CancellationToken)
+  fullName: Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.DeleteProcessedAsync(System.DateTime, System.Threading.CancellationToken)
+  fullName.vb: Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.DeleteProcessedAsync(Date, System.Threading.CancellationToken)
   nameWithType: EfOutboxStore.DeleteProcessedAsync(DateTime, CancellationToken)
+  nameWithType.vb: EfOutboxStore.DeleteProcessedAsync(Date, CancellationToken)
 - uid: Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.DeleteProcessedAsync*
   name: DeleteProcessedAsync
   href: api/Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.html#Chapar_Outbox_EntityFrameworkCore_Stores_EfOutboxStore_DeleteProcessedAsync_
@@ -1671,11 +1742,11 @@ references:
   isSpec: "True"
   fullName: Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.DeleteProcessedAsync
   nameWithType: EfOutboxStore.DeleteProcessedAsync
-- uid: Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.GetUnprocessedMessagesAsync(CancellationToken)
+- uid: Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.GetUnprocessedMessagesAsync(System.Threading.CancellationToken)
   name: GetUnprocessedMessagesAsync(CancellationToken)
-  href: api/Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.html#Chapar_Outbox_EntityFrameworkCore_Stores_EfOutboxStore_GetUnprocessedMessagesAsync_CancellationToken_
-  commentId: M:Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.GetUnprocessedMessagesAsync(CancellationToken)
-  fullName: Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.GetUnprocessedMessagesAsync(CancellationToken)
+  href: api/Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.html#Chapar_Outbox_EntityFrameworkCore_Stores_EfOutboxStore_GetUnprocessedMessagesAsync_System_Threading_CancellationToken_
+  commentId: M:Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.GetUnprocessedMessagesAsync(System.Threading.CancellationToken)
+  fullName: Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.GetUnprocessedMessagesAsync(System.Threading.CancellationToken)
   nameWithType: EfOutboxStore.GetUnprocessedMessagesAsync(CancellationToken)
 - uid: Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.GetUnprocessedMessagesAsync*
   name: GetUnprocessedMessagesAsync
@@ -1684,11 +1755,11 @@ references:
   isSpec: "True"
   fullName: Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.GetUnprocessedMessagesAsync
   nameWithType: EfOutboxStore.GetUnprocessedMessagesAsync
-- uid: Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.GetUnprocessedMessagesCountAsync(CancellationToken)
+- uid: Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.GetUnprocessedMessagesCountAsync(System.Threading.CancellationToken)
   name: GetUnprocessedMessagesCountAsync(CancellationToken)
-  href: api/Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.html#Chapar_Outbox_EntityFrameworkCore_Stores_EfOutboxStore_GetUnprocessedMessagesCountAsync_CancellationToken_
-  commentId: M:Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.GetUnprocessedMessagesCountAsync(CancellationToken)
-  fullName: Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.GetUnprocessedMessagesCountAsync(CancellationToken)
+  href: api/Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.html#Chapar_Outbox_EntityFrameworkCore_Stores_EfOutboxStore_GetUnprocessedMessagesCountAsync_System_Threading_CancellationToken_
+  commentId: M:Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.GetUnprocessedMessagesCountAsync(System.Threading.CancellationToken)
+  fullName: Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.GetUnprocessedMessagesCountAsync(System.Threading.CancellationToken)
   nameWithType: EfOutboxStore.GetUnprocessedMessagesCountAsync(CancellationToken)
 - uid: Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.GetUnprocessedMessagesCountAsync*
   name: GetUnprocessedMessagesCountAsync
@@ -1697,11 +1768,11 @@ references:
   isSpec: "True"
   fullName: Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.GetUnprocessedMessagesCountAsync
   nameWithType: EfOutboxStore.GetUnprocessedMessagesCountAsync
-- uid: Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.MarkAsProcessedAsync(Guid,CancellationToken)
+- uid: Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.MarkAsProcessedAsync(System.Guid,System.Threading.CancellationToken)
   name: MarkAsProcessedAsync(Guid, CancellationToken)
-  href: api/Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.html#Chapar_Outbox_EntityFrameworkCore_Stores_EfOutboxStore_MarkAsProcessedAsync_Guid_CancellationToken_
-  commentId: M:Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.MarkAsProcessedAsync(Guid,CancellationToken)
-  fullName: Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.MarkAsProcessedAsync(Guid, CancellationToken)
+  href: api/Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.html#Chapar_Outbox_EntityFrameworkCore_Stores_EfOutboxStore_MarkAsProcessedAsync_System_Guid_System_Threading_CancellationToken_
+  commentId: M:Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.MarkAsProcessedAsync(System.Guid,System.Threading.CancellationToken)
+  fullName: Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.MarkAsProcessedAsync(System.Guid, System.Threading.CancellationToken)
   nameWithType: EfOutboxStore.MarkAsProcessedAsync(Guid, CancellationToken)
 - uid: Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.MarkAsProcessedAsync*
   name: MarkAsProcessedAsync
@@ -1710,11 +1781,11 @@ references:
   isSpec: "True"
   fullName: Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.MarkAsProcessedAsync
   nameWithType: EfOutboxStore.MarkAsProcessedAsync
-- uid: Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.SaveAsync(Chapar.Core.Outbox.OutboxMessage,CancellationToken)
+- uid: Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.SaveAsync(Chapar.Core.Outbox.OutboxMessage,System.Threading.CancellationToken)
   name: SaveAsync(OutboxMessage, CancellationToken)
-  href: api/Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.html#Chapar_Outbox_EntityFrameworkCore_Stores_EfOutboxStore_SaveAsync_Chapar_Core_Outbox_OutboxMessage_CancellationToken_
-  commentId: M:Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.SaveAsync(Chapar.Core.Outbox.OutboxMessage,CancellationToken)
-  fullName: Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.SaveAsync(Chapar.Core.Outbox.OutboxMessage, CancellationToken)
+  href: api/Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.html#Chapar_Outbox_EntityFrameworkCore_Stores_EfOutboxStore_SaveAsync_Chapar_Core_Outbox_OutboxMessage_System_Threading_CancellationToken_
+  commentId: M:Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.SaveAsync(Chapar.Core.Outbox.OutboxMessage,System.Threading.CancellationToken)
+  fullName: Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.SaveAsync(Chapar.Core.Outbox.OutboxMessage, System.Threading.CancellationToken)
   nameWithType: EfOutboxStore.SaveAsync(OutboxMessage, CancellationToken)
 - uid: Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.SaveAsync*
   name: SaveAsync
@@ -1835,31 +1906,32 @@ references:
   fullName.vb: Chapar.Pipeline.Behaviours.DiagnosticsBehaviour(Of TMessage)
   nameWithType: DiagnosticsBehaviour<TMessage>
   nameWithType.vb: DiagnosticsBehaviour(Of TMessage)
-- uid: Chapar.Pipeline.Behaviours.DiagnosticsBehaviour`1.#ctor(ILogger{Chapar.Pipeline.Behaviours.DiagnosticsBehaviour{`0}})
+- uid: Chapar.Pipeline.Behaviours.DiagnosticsBehaviour`1.#ctor(Microsoft.Extensions.Logging.ILogger{Chapar.Pipeline.Behaviours.DiagnosticsBehaviour{`0}})
   name: DiagnosticsBehaviour(ILogger<DiagnosticsBehaviour<TMessage>>)
-  href: api/Chapar.Pipeline.Behaviours.DiagnosticsBehaviour-1.html#Chapar_Pipeline_Behaviours_DiagnosticsBehaviour_1__ctor_ILogger_Chapar_Pipeline_Behaviours_DiagnosticsBehaviour__0___
-  commentId: M:Chapar.Pipeline.Behaviours.DiagnosticsBehaviour`1.#ctor(ILogger{Chapar.Pipeline.Behaviours.DiagnosticsBehaviour{`0}})
-  name.vb: DiagnosticsBehaviour(ILogger(Of DiagnosticsBehaviour(Of TMessage)))
-  fullName: Chapar.Pipeline.Behaviours.DiagnosticsBehaviour<TMessage>.DiagnosticsBehaviour(ILogger<Chapar.Pipeline.Behaviours.DiagnosticsBehaviour<TMessage>>)
-  fullName.vb: Chapar.Pipeline.Behaviours.DiagnosticsBehaviour(Of TMessage).DiagnosticsBehaviour(ILogger(Of Chapar.Pipeline.Behaviours.DiagnosticsBehaviour(Of TMessage)))
+  href: api/Chapar.Pipeline.Behaviours.DiagnosticsBehaviour-1.html#Chapar_Pipeline_Behaviours_DiagnosticsBehaviour_1__ctor_Microsoft_Extensions_Logging_ILogger_Chapar_Pipeline_Behaviours_DiagnosticsBehaviour__0___
+  commentId: M:Chapar.Pipeline.Behaviours.DiagnosticsBehaviour`1.#ctor(Microsoft.Extensions.Logging.ILogger{Chapar.Pipeline.Behaviours.DiagnosticsBehaviour{`0}})
+  name.vb: New(ILogger(Of DiagnosticsBehaviour(Of TMessage)))
+  fullName: Chapar.Pipeline.Behaviours.DiagnosticsBehaviour<TMessage>.DiagnosticsBehaviour(Microsoft.Extensions.Logging.ILogger<Chapar.Pipeline.Behaviours.DiagnosticsBehaviour<TMessage>>)
+  fullName.vb: Chapar.Pipeline.Behaviours.DiagnosticsBehaviour(Of TMessage).New(Microsoft.Extensions.Logging.ILogger(Of Chapar.Pipeline.Behaviours.DiagnosticsBehaviour(Of TMessage)))
   nameWithType: DiagnosticsBehaviour<TMessage>.DiagnosticsBehaviour(ILogger<DiagnosticsBehaviour<TMessage>>)
-  nameWithType.vb: DiagnosticsBehaviour(Of TMessage).DiagnosticsBehaviour(ILogger(Of DiagnosticsBehaviour(Of TMessage)))
+  nameWithType.vb: DiagnosticsBehaviour(Of TMessage).New(ILogger(Of DiagnosticsBehaviour(Of TMessage)))
 - uid: Chapar.Pipeline.Behaviours.DiagnosticsBehaviour`1.#ctor*
   name: DiagnosticsBehaviour
   href: api/Chapar.Pipeline.Behaviours.DiagnosticsBehaviour-1.html#Chapar_Pipeline_Behaviours_DiagnosticsBehaviour_1__ctor_
   commentId: Overload:Chapar.Pipeline.Behaviours.DiagnosticsBehaviour`1.#ctor
   isSpec: "True"
+  name.vb: New
   fullName: Chapar.Pipeline.Behaviours.DiagnosticsBehaviour<TMessage>.DiagnosticsBehaviour
-  fullName.vb: Chapar.Pipeline.Behaviours.DiagnosticsBehaviour(Of TMessage).DiagnosticsBehaviour
+  fullName.vb: Chapar.Pipeline.Behaviours.DiagnosticsBehaviour(Of TMessage).New
   nameWithType: DiagnosticsBehaviour<TMessage>.DiagnosticsBehaviour
-  nameWithType.vb: DiagnosticsBehaviour(Of TMessage).DiagnosticsBehaviour
-- uid: Chapar.Pipeline.Behaviours.DiagnosticsBehaviour`1.HandleAsync(`0,Func{Task},CancellationToken)
+  nameWithType.vb: DiagnosticsBehaviour(Of TMessage).New
+- uid: Chapar.Pipeline.Behaviours.DiagnosticsBehaviour`1.HandleAsync(`0,System.Func{System.Threading.Tasks.Task},System.Threading.CancellationToken)
   name: HandleAsync(TMessage, Func<Task>, CancellationToken)
-  href: api/Chapar.Pipeline.Behaviours.DiagnosticsBehaviour-1.html#Chapar_Pipeline_Behaviours_DiagnosticsBehaviour_1_HandleAsync__0_Func_Task__CancellationToken_
-  commentId: M:Chapar.Pipeline.Behaviours.DiagnosticsBehaviour`1.HandleAsync(`0,Func{Task},CancellationToken)
+  href: api/Chapar.Pipeline.Behaviours.DiagnosticsBehaviour-1.html#Chapar_Pipeline_Behaviours_DiagnosticsBehaviour_1_HandleAsync__0_System_Func_System_Threading_Tasks_Task__System_Threading_CancellationToken_
+  commentId: M:Chapar.Pipeline.Behaviours.DiagnosticsBehaviour`1.HandleAsync(`0,System.Func{System.Threading.Tasks.Task},System.Threading.CancellationToken)
   name.vb: HandleAsync(TMessage, Func(Of Task), CancellationToken)
-  fullName: Chapar.Pipeline.Behaviours.DiagnosticsBehaviour<TMessage>.HandleAsync(TMessage, Func<Task>, CancellationToken)
-  fullName.vb: Chapar.Pipeline.Behaviours.DiagnosticsBehaviour(Of TMessage).HandleAsync(TMessage, Func(Of Task), CancellationToken)
+  fullName: Chapar.Pipeline.Behaviours.DiagnosticsBehaviour<TMessage>.HandleAsync(TMessage, System.Func<System.Threading.Tasks.Task>, System.Threading.CancellationToken)
+  fullName.vb: Chapar.Pipeline.Behaviours.DiagnosticsBehaviour(Of TMessage).HandleAsync(TMessage, System.Func(Of System.Threading.Tasks.Task), System.Threading.CancellationToken)
   nameWithType: DiagnosticsBehaviour<TMessage>.HandleAsync(TMessage, Func<Task>, CancellationToken)
   nameWithType.vb: DiagnosticsBehaviour(Of TMessage).HandleAsync(TMessage, Func(Of Task), CancellationToken)
 - uid: Chapar.Pipeline.Behaviours.DiagnosticsBehaviour`1.HandleAsync*
@@ -1880,31 +1952,32 @@ references:
   fullName.vb: Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour(Of TMessage)
   nameWithType: DomainExceptionHandlingBehaviour<TMessage>
   nameWithType.vb: DomainExceptionHandlingBehaviour(Of TMessage)
-- uid: Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour`1.#ctor(ILogger{Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour{`0}})
+- uid: Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour`1.#ctor(Microsoft.Extensions.Logging.ILogger{Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour{`0}})
   name: DomainExceptionHandlingBehaviour(ILogger<DomainExceptionHandlingBehaviour<TMessage>>)
-  href: api/Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour-1.html#Chapar_Pipeline_Behaviours_DomainExceptionHandlingBehaviour_1__ctor_ILogger_Chapar_Pipeline_Behaviours_DomainExceptionHandlingBehaviour__0___
-  commentId: M:Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour`1.#ctor(ILogger{Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour{`0}})
-  name.vb: DomainExceptionHandlingBehaviour(ILogger(Of DomainExceptionHandlingBehaviour(Of TMessage)))
-  fullName: Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour<TMessage>.DomainExceptionHandlingBehaviour(ILogger<Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour<TMessage>>)
-  fullName.vb: Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour(Of TMessage).DomainExceptionHandlingBehaviour(ILogger(Of Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour(Of TMessage)))
+  href: api/Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour-1.html#Chapar_Pipeline_Behaviours_DomainExceptionHandlingBehaviour_1__ctor_Microsoft_Extensions_Logging_ILogger_Chapar_Pipeline_Behaviours_DomainExceptionHandlingBehaviour__0___
+  commentId: M:Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour`1.#ctor(Microsoft.Extensions.Logging.ILogger{Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour{`0}})
+  name.vb: New(ILogger(Of DomainExceptionHandlingBehaviour(Of TMessage)))
+  fullName: Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour<TMessage>.DomainExceptionHandlingBehaviour(Microsoft.Extensions.Logging.ILogger<Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour<TMessage>>)
+  fullName.vb: Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour(Of TMessage).New(Microsoft.Extensions.Logging.ILogger(Of Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour(Of TMessage)))
   nameWithType: DomainExceptionHandlingBehaviour<TMessage>.DomainExceptionHandlingBehaviour(ILogger<DomainExceptionHandlingBehaviour<TMessage>>)
-  nameWithType.vb: DomainExceptionHandlingBehaviour(Of TMessage).DomainExceptionHandlingBehaviour(ILogger(Of DomainExceptionHandlingBehaviour(Of TMessage)))
+  nameWithType.vb: DomainExceptionHandlingBehaviour(Of TMessage).New(ILogger(Of DomainExceptionHandlingBehaviour(Of TMessage)))
 - uid: Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour`1.#ctor*
   name: DomainExceptionHandlingBehaviour
   href: api/Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour-1.html#Chapar_Pipeline_Behaviours_DomainExceptionHandlingBehaviour_1__ctor_
   commentId: Overload:Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour`1.#ctor
   isSpec: "True"
+  name.vb: New
   fullName: Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour<TMessage>.DomainExceptionHandlingBehaviour
-  fullName.vb: Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour(Of TMessage).DomainExceptionHandlingBehaviour
+  fullName.vb: Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour(Of TMessage).New
   nameWithType: DomainExceptionHandlingBehaviour<TMessage>.DomainExceptionHandlingBehaviour
-  nameWithType.vb: DomainExceptionHandlingBehaviour(Of TMessage).DomainExceptionHandlingBehaviour
-- uid: Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour`1.HandleAsync(`0,Func{Task},CancellationToken)
+  nameWithType.vb: DomainExceptionHandlingBehaviour(Of TMessage).New
+- uid: Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour`1.HandleAsync(`0,System.Func{System.Threading.Tasks.Task},System.Threading.CancellationToken)
   name: HandleAsync(TMessage, Func<Task>, CancellationToken)
-  href: api/Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour-1.html#Chapar_Pipeline_Behaviours_DomainExceptionHandlingBehaviour_1_HandleAsync__0_Func_Task__CancellationToken_
-  commentId: M:Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour`1.HandleAsync(`0,Func{Task},CancellationToken)
+  href: api/Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour-1.html#Chapar_Pipeline_Behaviours_DomainExceptionHandlingBehaviour_1_HandleAsync__0_System_Func_System_Threading_Tasks_Task__System_Threading_CancellationToken_
+  commentId: M:Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour`1.HandleAsync(`0,System.Func{System.Threading.Tasks.Task},System.Threading.CancellationToken)
   name.vb: HandleAsync(TMessage, Func(Of Task), CancellationToken)
-  fullName: Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour<TMessage>.HandleAsync(TMessage, Func<Task>, CancellationToken)
-  fullName.vb: Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour(Of TMessage).HandleAsync(TMessage, Func(Of Task), CancellationToken)
+  fullName: Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour<TMessage>.HandleAsync(TMessage, System.Func<System.Threading.Tasks.Task>, System.Threading.CancellationToken)
+  fullName.vb: Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour(Of TMessage).HandleAsync(TMessage, System.Func(Of System.Threading.Tasks.Task), System.Threading.CancellationToken)
   nameWithType: DomainExceptionHandlingBehaviour<TMessage>.HandleAsync(TMessage, Func<Task>, CancellationToken)
   nameWithType.vb: DomainExceptionHandlingBehaviour(Of TMessage).HandleAsync(TMessage, Func(Of Task), CancellationToken)
 - uid: Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour`1.HandleAsync*
@@ -1925,31 +1998,32 @@ references:
   fullName.vb: Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour(Of TMessage)
   nameWithType: ErrorHandlingBehaviour<TMessage>
   nameWithType.vb: ErrorHandlingBehaviour(Of TMessage)
-- uid: Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour`1.#ctor(ILogger{Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour{`0}})
+- uid: Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour`1.#ctor(Microsoft.Extensions.Logging.ILogger{Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour{`0}})
   name: ErrorHandlingBehaviour(ILogger<ErrorHandlingBehaviour<TMessage>>)
-  href: api/Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour-1.html#Chapar_Pipeline_Behaviours_ErrorHandlingBehaviour_1__ctor_ILogger_Chapar_Pipeline_Behaviours_ErrorHandlingBehaviour__0___
-  commentId: M:Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour`1.#ctor(ILogger{Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour{`0}})
-  name.vb: ErrorHandlingBehaviour(ILogger(Of ErrorHandlingBehaviour(Of TMessage)))
-  fullName: Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour<TMessage>.ErrorHandlingBehaviour(ILogger<Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour<TMessage>>)
-  fullName.vb: Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour(Of TMessage).ErrorHandlingBehaviour(ILogger(Of Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour(Of TMessage)))
+  href: api/Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour-1.html#Chapar_Pipeline_Behaviours_ErrorHandlingBehaviour_1__ctor_Microsoft_Extensions_Logging_ILogger_Chapar_Pipeline_Behaviours_ErrorHandlingBehaviour__0___
+  commentId: M:Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour`1.#ctor(Microsoft.Extensions.Logging.ILogger{Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour{`0}})
+  name.vb: New(ILogger(Of ErrorHandlingBehaviour(Of TMessage)))
+  fullName: Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour<TMessage>.ErrorHandlingBehaviour(Microsoft.Extensions.Logging.ILogger<Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour<TMessage>>)
+  fullName.vb: Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour(Of TMessage).New(Microsoft.Extensions.Logging.ILogger(Of Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour(Of TMessage)))
   nameWithType: ErrorHandlingBehaviour<TMessage>.ErrorHandlingBehaviour(ILogger<ErrorHandlingBehaviour<TMessage>>)
-  nameWithType.vb: ErrorHandlingBehaviour(Of TMessage).ErrorHandlingBehaviour(ILogger(Of ErrorHandlingBehaviour(Of TMessage)))
+  nameWithType.vb: ErrorHandlingBehaviour(Of TMessage).New(ILogger(Of ErrorHandlingBehaviour(Of TMessage)))
 - uid: Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour`1.#ctor*
   name: ErrorHandlingBehaviour
   href: api/Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour-1.html#Chapar_Pipeline_Behaviours_ErrorHandlingBehaviour_1__ctor_
   commentId: Overload:Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour`1.#ctor
   isSpec: "True"
+  name.vb: New
   fullName: Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour<TMessage>.ErrorHandlingBehaviour
-  fullName.vb: Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour(Of TMessage).ErrorHandlingBehaviour
+  fullName.vb: Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour(Of TMessage).New
   nameWithType: ErrorHandlingBehaviour<TMessage>.ErrorHandlingBehaviour
-  nameWithType.vb: ErrorHandlingBehaviour(Of TMessage).ErrorHandlingBehaviour
-- uid: Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour`1.HandleAsync(`0,Func{Task},CancellationToken)
+  nameWithType.vb: ErrorHandlingBehaviour(Of TMessage).New
+- uid: Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour`1.HandleAsync(`0,System.Func{System.Threading.Tasks.Task},System.Threading.CancellationToken)
   name: HandleAsync(TMessage, Func<Task>, CancellationToken)
-  href: api/Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour-1.html#Chapar_Pipeline_Behaviours_ErrorHandlingBehaviour_1_HandleAsync__0_Func_Task__CancellationToken_
-  commentId: M:Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour`1.HandleAsync(`0,Func{Task},CancellationToken)
+  href: api/Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour-1.html#Chapar_Pipeline_Behaviours_ErrorHandlingBehaviour_1_HandleAsync__0_System_Func_System_Threading_Tasks_Task__System_Threading_CancellationToken_
+  commentId: M:Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour`1.HandleAsync(`0,System.Func{System.Threading.Tasks.Task},System.Threading.CancellationToken)
   name.vb: HandleAsync(TMessage, Func(Of Task), CancellationToken)
-  fullName: Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour<TMessage>.HandleAsync(TMessage, Func<Task>, CancellationToken)
-  fullName.vb: Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour(Of TMessage).HandleAsync(TMessage, Func(Of Task), CancellationToken)
+  fullName: Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour<TMessage>.HandleAsync(TMessage, System.Func<System.Threading.Tasks.Task>, System.Threading.CancellationToken)
+  fullName.vb: Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour(Of TMessage).HandleAsync(TMessage, System.Func(Of System.Threading.Tasks.Task), System.Threading.CancellationToken)
   nameWithType: ErrorHandlingBehaviour<TMessage>.HandleAsync(TMessage, Func<Task>, CancellationToken)
   nameWithType.vb: ErrorHandlingBehaviour(Of TMessage).HandleAsync(TMessage, Func(Of Task), CancellationToken)
 - uid: Chapar.Pipeline.Behaviours.ErrorHandlingBehaviour`1.HandleAsync*
@@ -1970,31 +2044,32 @@ references:
   fullName.vb: Chapar.Pipeline.Behaviours.OriginValidationBehaviour(Of TMessage)
   nameWithType: OriginValidationBehaviour<TMessage>
   nameWithType.vb: OriginValidationBehaviour(Of TMessage)
-- uid: Chapar.Pipeline.Behaviours.OriginValidationBehaviour`1.#ctor(ILogger{Chapar.Pipeline.Behaviours.OriginValidationBehaviour{`0}},Chapar.Core.Abstractions.IMessageContextAccessor,System.String)
-  name: OriginValidationBehaviour(ILogger<OriginValidationBehaviour<TMessage>>, IMessageContextAccessor, String)
-  href: api/Chapar.Pipeline.Behaviours.OriginValidationBehaviour-1.html#Chapar_Pipeline_Behaviours_OriginValidationBehaviour_1__ctor_ILogger_Chapar_Pipeline_Behaviours_OriginValidationBehaviour__0___Chapar_Core_Abstractions_IMessageContextAccessor_System_String_
-  commentId: M:Chapar.Pipeline.Behaviours.OriginValidationBehaviour`1.#ctor(ILogger{Chapar.Pipeline.Behaviours.OriginValidationBehaviour{`0}},Chapar.Core.Abstractions.IMessageContextAccessor,System.String)
-  name.vb: OriginValidationBehaviour(ILogger(Of OriginValidationBehaviour(Of TMessage)), IMessageContextAccessor, String)
-  fullName: Chapar.Pipeline.Behaviours.OriginValidationBehaviour<TMessage>.OriginValidationBehaviour(ILogger<Chapar.Pipeline.Behaviours.OriginValidationBehaviour<TMessage>>, Chapar.Core.Abstractions.IMessageContextAccessor, System.String)
-  fullName.vb: Chapar.Pipeline.Behaviours.OriginValidationBehaviour(Of TMessage).OriginValidationBehaviour(ILogger(Of Chapar.Pipeline.Behaviours.OriginValidationBehaviour(Of TMessage)), Chapar.Core.Abstractions.IMessageContextAccessor, System.String)
-  nameWithType: OriginValidationBehaviour<TMessage>.OriginValidationBehaviour(ILogger<OriginValidationBehaviour<TMessage>>, IMessageContextAccessor, String)
-  nameWithType.vb: OriginValidationBehaviour(Of TMessage).OriginValidationBehaviour(ILogger(Of OriginValidationBehaviour(Of TMessage)), IMessageContextAccessor, String)
+- uid: Chapar.Pipeline.Behaviours.OriginValidationBehaviour`1.#ctor(Microsoft.Extensions.Logging.ILogger{Chapar.Pipeline.Behaviours.OriginValidationBehaviour{`0}},Chapar.Core.Abstractions.IMessageContextAccessor,System.String)
+  name: OriginValidationBehaviour(ILogger<OriginValidationBehaviour<TMessage>>, IMessageContextAccessor?, string)
+  href: api/Chapar.Pipeline.Behaviours.OriginValidationBehaviour-1.html#Chapar_Pipeline_Behaviours_OriginValidationBehaviour_1__ctor_Microsoft_Extensions_Logging_ILogger_Chapar_Pipeline_Behaviours_OriginValidationBehaviour__0___Chapar_Core_Abstractions_IMessageContextAccessor_System_String_
+  commentId: M:Chapar.Pipeline.Behaviours.OriginValidationBehaviour`1.#ctor(Microsoft.Extensions.Logging.ILogger{Chapar.Pipeline.Behaviours.OriginValidationBehaviour{`0}},Chapar.Core.Abstractions.IMessageContextAccessor,System.String)
+  name.vb: New(ILogger(Of OriginValidationBehaviour(Of TMessage)), IMessageContextAccessor, String)
+  fullName: Chapar.Pipeline.Behaviours.OriginValidationBehaviour<TMessage>.OriginValidationBehaviour(Microsoft.Extensions.Logging.ILogger<Chapar.Pipeline.Behaviours.OriginValidationBehaviour<TMessage>>, Chapar.Core.Abstractions.IMessageContextAccessor?, string)
+  fullName.vb: Chapar.Pipeline.Behaviours.OriginValidationBehaviour(Of TMessage).New(Microsoft.Extensions.Logging.ILogger(Of Chapar.Pipeline.Behaviours.OriginValidationBehaviour(Of TMessage)), Chapar.Core.Abstractions.IMessageContextAccessor, String)
+  nameWithType: OriginValidationBehaviour<TMessage>.OriginValidationBehaviour(ILogger<OriginValidationBehaviour<TMessage>>, IMessageContextAccessor?, string)
+  nameWithType.vb: OriginValidationBehaviour(Of TMessage).New(ILogger(Of OriginValidationBehaviour(Of TMessage)), IMessageContextAccessor, String)
 - uid: Chapar.Pipeline.Behaviours.OriginValidationBehaviour`1.#ctor*
   name: OriginValidationBehaviour
   href: api/Chapar.Pipeline.Behaviours.OriginValidationBehaviour-1.html#Chapar_Pipeline_Behaviours_OriginValidationBehaviour_1__ctor_
   commentId: Overload:Chapar.Pipeline.Behaviours.OriginValidationBehaviour`1.#ctor
   isSpec: "True"
+  name.vb: New
   fullName: Chapar.Pipeline.Behaviours.OriginValidationBehaviour<TMessage>.OriginValidationBehaviour
-  fullName.vb: Chapar.Pipeline.Behaviours.OriginValidationBehaviour(Of TMessage).OriginValidationBehaviour
+  fullName.vb: Chapar.Pipeline.Behaviours.OriginValidationBehaviour(Of TMessage).New
   nameWithType: OriginValidationBehaviour<TMessage>.OriginValidationBehaviour
-  nameWithType.vb: OriginValidationBehaviour(Of TMessage).OriginValidationBehaviour
-- uid: Chapar.Pipeline.Behaviours.OriginValidationBehaviour`1.HandleAsync(`0,Func{Task},CancellationToken)
+  nameWithType.vb: OriginValidationBehaviour(Of TMessage).New
+- uid: Chapar.Pipeline.Behaviours.OriginValidationBehaviour`1.HandleAsync(`0,System.Func{System.Threading.Tasks.Task},System.Threading.CancellationToken)
   name: HandleAsync(TMessage, Func<Task>, CancellationToken)
-  href: api/Chapar.Pipeline.Behaviours.OriginValidationBehaviour-1.html#Chapar_Pipeline_Behaviours_OriginValidationBehaviour_1_HandleAsync__0_Func_Task__CancellationToken_
-  commentId: M:Chapar.Pipeline.Behaviours.OriginValidationBehaviour`1.HandleAsync(`0,Func{Task},CancellationToken)
+  href: api/Chapar.Pipeline.Behaviours.OriginValidationBehaviour-1.html#Chapar_Pipeline_Behaviours_OriginValidationBehaviour_1_HandleAsync__0_System_Func_System_Threading_Tasks_Task__System_Threading_CancellationToken_
+  commentId: M:Chapar.Pipeline.Behaviours.OriginValidationBehaviour`1.HandleAsync(`0,System.Func{System.Threading.Tasks.Task},System.Threading.CancellationToken)
   name.vb: HandleAsync(TMessage, Func(Of Task), CancellationToken)
-  fullName: Chapar.Pipeline.Behaviours.OriginValidationBehaviour<TMessage>.HandleAsync(TMessage, Func<Task>, CancellationToken)
-  fullName.vb: Chapar.Pipeline.Behaviours.OriginValidationBehaviour(Of TMessage).HandleAsync(TMessage, Func(Of Task), CancellationToken)
+  fullName: Chapar.Pipeline.Behaviours.OriginValidationBehaviour<TMessage>.HandleAsync(TMessage, System.Func<System.Threading.Tasks.Task>, System.Threading.CancellationToken)
+  fullName.vb: Chapar.Pipeline.Behaviours.OriginValidationBehaviour(Of TMessage).HandleAsync(TMessage, System.Func(Of System.Threading.Tasks.Task), System.Threading.CancellationToken)
   nameWithType: OriginValidationBehaviour<TMessage>.HandleAsync(TMessage, Func<Task>, CancellationToken)
   nameWithType.vb: OriginValidationBehaviour(Of TMessage).HandleAsync(TMessage, Func(Of Task), CancellationToken)
 - uid: Chapar.Pipeline.Behaviours.OriginValidationBehaviour`1.HandleAsync*
@@ -2018,11 +2093,11 @@ references:
   commentId: T:Chapar.Pipeline.Extensions.ChaparPipelineExtensions
   fullName: Chapar.Pipeline.Extensions.ChaparPipelineExtensions
   nameWithType: ChaparPipelineExtensions
-- uid: Chapar.Pipeline.Extensions.ChaparPipelineExtensions.AddChaparPipeline(IServiceCollection)
+- uid: Chapar.Pipeline.Extensions.ChaparPipelineExtensions.AddChaparPipeline(Microsoft.Extensions.DependencyInjection.IServiceCollection)
   name: AddChaparPipeline(IServiceCollection)
-  href: api/Chapar.Pipeline.Extensions.ChaparPipelineExtensions.html#Chapar_Pipeline_Extensions_ChaparPipelineExtensions_AddChaparPipeline_IServiceCollection_
-  commentId: M:Chapar.Pipeline.Extensions.ChaparPipelineExtensions.AddChaparPipeline(IServiceCollection)
-  fullName: Chapar.Pipeline.Extensions.ChaparPipelineExtensions.AddChaparPipeline(IServiceCollection)
+  href: api/Chapar.Pipeline.Extensions.ChaparPipelineExtensions.html#Chapar_Pipeline_Extensions_ChaparPipelineExtensions_AddChaparPipeline_Microsoft_Extensions_DependencyInjection_IServiceCollection_
+  commentId: M:Chapar.Pipeline.Extensions.ChaparPipelineExtensions.AddChaparPipeline(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  fullName: Chapar.Pipeline.Extensions.ChaparPipelineExtensions.AddChaparPipeline(Microsoft.Extensions.DependencyInjection.IServiceCollection)
   nameWithType: ChaparPipelineExtensions.AddChaparPipeline(IServiceCollection)
 - uid: Chapar.Pipeline.Extensions.ChaparPipelineExtensions.AddChaparPipeline*
   name: AddChaparPipeline
@@ -2031,11 +2106,11 @@ references:
   isSpec: "True"
   fullName: Chapar.Pipeline.Extensions.ChaparPipelineExtensions.AddChaparPipeline
   nameWithType: ChaparPipelineExtensions.AddChaparPipeline
-- uid: Chapar.Pipeline.Extensions.ChaparPipelineExtensions.AddChaparPipelineBehavior(IServiceCollection,Type)
+- uid: Chapar.Pipeline.Extensions.ChaparPipelineExtensions.AddChaparPipelineBehavior(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Type)
   name: AddChaparPipelineBehavior(IServiceCollection, Type)
-  href: api/Chapar.Pipeline.Extensions.ChaparPipelineExtensions.html#Chapar_Pipeline_Extensions_ChaparPipelineExtensions_AddChaparPipelineBehavior_IServiceCollection_Type_
-  commentId: M:Chapar.Pipeline.Extensions.ChaparPipelineExtensions.AddChaparPipelineBehavior(IServiceCollection,Type)
-  fullName: Chapar.Pipeline.Extensions.ChaparPipelineExtensions.AddChaparPipelineBehavior(IServiceCollection, Type)
+  href: api/Chapar.Pipeline.Extensions.ChaparPipelineExtensions.html#Chapar_Pipeline_Extensions_ChaparPipelineExtensions_AddChaparPipelineBehavior_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Type_
+  commentId: M:Chapar.Pipeline.Extensions.ChaparPipelineExtensions.AddChaparPipelineBehavior(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Type)
+  fullName: Chapar.Pipeline.Extensions.ChaparPipelineExtensions.AddChaparPipelineBehavior(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Type)
   nameWithType: ChaparPipelineExtensions.AddChaparPipelineBehavior(IServiceCollection, Type)
 - uid: Chapar.Pipeline.Extensions.ChaparPipelineExtensions.AddChaparPipelineBehavior*
   name: AddChaparPipelineBehavior
@@ -2056,27 +2131,30 @@ references:
   commentId: T:Chapar.Zamin.Consumer.ChaparMessageConsumer
   fullName: Chapar.Zamin.Consumer.ChaparMessageConsumer
   nameWithType: ChaparMessageConsumer
-- uid: Chapar.Zamin.Consumer.ChaparMessageConsumer.#ctor(IEventDispatcher,IMessageInboxItemRepository,IJsonSerializer,ILogger{Chapar.Zamin.Consumer.ChaparMessageConsumer})
+- uid: Chapar.Zamin.Consumer.ChaparMessageConsumer.#ctor(Zamin.Core.Contracts.ApplicationServices.Events.IEventDispatcher,Zamin.Extensions.MessageBus.Abstractions.IMessageInboxItemRepository,Zamin.Extensions.Serializers.Abstractions.IJsonSerializer,Microsoft.Extensions.Logging.ILogger{Chapar.Zamin.Consumer.ChaparMessageConsumer})
   name: ChaparMessageConsumer(IEventDispatcher, IMessageInboxItemRepository, IJsonSerializer, ILogger<ChaparMessageConsumer>)
-  href: api/Chapar.Zamin.Consumer.ChaparMessageConsumer.html#Chapar_Zamin_Consumer_ChaparMessageConsumer__ctor_IEventDispatcher_IMessageInboxItemRepository_IJsonSerializer_ILogger_Chapar_Zamin_Consumer_ChaparMessageConsumer__
-  commentId: M:Chapar.Zamin.Consumer.ChaparMessageConsumer.#ctor(IEventDispatcher,IMessageInboxItemRepository,IJsonSerializer,ILogger{Chapar.Zamin.Consumer.ChaparMessageConsumer})
-  name.vb: ChaparMessageConsumer(IEventDispatcher, IMessageInboxItemRepository, IJsonSerializer, ILogger(Of ChaparMessageConsumer))
-  fullName: Chapar.Zamin.Consumer.ChaparMessageConsumer.ChaparMessageConsumer(IEventDispatcher, IMessageInboxItemRepository, IJsonSerializer, ILogger<Chapar.Zamin.Consumer.ChaparMessageConsumer>)
-  fullName.vb: Chapar.Zamin.Consumer.ChaparMessageConsumer.ChaparMessageConsumer(IEventDispatcher, IMessageInboxItemRepository, IJsonSerializer, ILogger(Of Chapar.Zamin.Consumer.ChaparMessageConsumer))
+  href: api/Chapar.Zamin.Consumer.ChaparMessageConsumer.html#Chapar_Zamin_Consumer_ChaparMessageConsumer__ctor_Zamin_Core_Contracts_ApplicationServices_Events_IEventDispatcher_Zamin_Extensions_MessageBus_Abstractions_IMessageInboxItemRepository_Zamin_Extensions_Serializers_Abstractions_IJsonSerializer_Microsoft_Extensions_Logging_ILogger_Chapar_Zamin_Consumer_ChaparMessageConsumer__
+  commentId: M:Chapar.Zamin.Consumer.ChaparMessageConsumer.#ctor(Zamin.Core.Contracts.ApplicationServices.Events.IEventDispatcher,Zamin.Extensions.MessageBus.Abstractions.IMessageInboxItemRepository,Zamin.Extensions.Serializers.Abstractions.IJsonSerializer,Microsoft.Extensions.Logging.ILogger{Chapar.Zamin.Consumer.ChaparMessageConsumer})
+  name.vb: New(IEventDispatcher, IMessageInboxItemRepository, IJsonSerializer, ILogger(Of ChaparMessageConsumer))
+  fullName: Chapar.Zamin.Consumer.ChaparMessageConsumer.ChaparMessageConsumer(Zamin.Core.Contracts.ApplicationServices.Events.IEventDispatcher, Zamin.Extensions.MessageBus.Abstractions.IMessageInboxItemRepository, Zamin.Extensions.Serializers.Abstractions.IJsonSerializer, Microsoft.Extensions.Logging.ILogger<Chapar.Zamin.Consumer.ChaparMessageConsumer>)
+  fullName.vb: Chapar.Zamin.Consumer.ChaparMessageConsumer.New(Zamin.Core.Contracts.ApplicationServices.Events.IEventDispatcher, Zamin.Extensions.MessageBus.Abstractions.IMessageInboxItemRepository, Zamin.Extensions.Serializers.Abstractions.IJsonSerializer, Microsoft.Extensions.Logging.ILogger(Of Chapar.Zamin.Consumer.ChaparMessageConsumer))
   nameWithType: ChaparMessageConsumer.ChaparMessageConsumer(IEventDispatcher, IMessageInboxItemRepository, IJsonSerializer, ILogger<ChaparMessageConsumer>)
-  nameWithType.vb: ChaparMessageConsumer.ChaparMessageConsumer(IEventDispatcher, IMessageInboxItemRepository, IJsonSerializer, ILogger(Of ChaparMessageConsumer))
+  nameWithType.vb: ChaparMessageConsumer.New(IEventDispatcher, IMessageInboxItemRepository, IJsonSerializer, ILogger(Of ChaparMessageConsumer))
 - uid: Chapar.Zamin.Consumer.ChaparMessageConsumer.#ctor*
   name: ChaparMessageConsumer
   href: api/Chapar.Zamin.Consumer.ChaparMessageConsumer.html#Chapar_Zamin_Consumer_ChaparMessageConsumer__ctor_
   commentId: Overload:Chapar.Zamin.Consumer.ChaparMessageConsumer.#ctor
   isSpec: "True"
+  name.vb: New
   fullName: Chapar.Zamin.Consumer.ChaparMessageConsumer.ChaparMessageConsumer
+  fullName.vb: Chapar.Zamin.Consumer.ChaparMessageConsumer.New
   nameWithType: ChaparMessageConsumer.ChaparMessageConsumer
-- uid: Chapar.Zamin.Consumer.ChaparMessageConsumer.HandleAsync(Chapar.Core.Messages.ParcelMessage,CancellationToken)
+  nameWithType.vb: ChaparMessageConsumer.New
+- uid: Chapar.Zamin.Consumer.ChaparMessageConsumer.HandleAsync(Chapar.Core.Messages.ParcelMessage,System.Threading.CancellationToken)
   name: HandleAsync(ParcelMessage, CancellationToken)
-  href: api/Chapar.Zamin.Consumer.ChaparMessageConsumer.html#Chapar_Zamin_Consumer_ChaparMessageConsumer_HandleAsync_Chapar_Core_Messages_ParcelMessage_CancellationToken_
-  commentId: M:Chapar.Zamin.Consumer.ChaparMessageConsumer.HandleAsync(Chapar.Core.Messages.ParcelMessage,CancellationToken)
-  fullName: Chapar.Zamin.Consumer.ChaparMessageConsumer.HandleAsync(Chapar.Core.Messages.ParcelMessage, CancellationToken)
+  href: api/Chapar.Zamin.Consumer.ChaparMessageConsumer.html#Chapar_Zamin_Consumer_ChaparMessageConsumer_HandleAsync_Chapar_Core_Messages_ParcelMessage_System_Threading_CancellationToken_
+  commentId: M:Chapar.Zamin.Consumer.ChaparMessageConsumer.HandleAsync(Chapar.Core.Messages.ParcelMessage,System.Threading.CancellationToken)
+  fullName: Chapar.Zamin.Consumer.ChaparMessageConsumer.HandleAsync(Chapar.Core.Messages.ParcelMessage, System.Threading.CancellationToken)
   nameWithType: ChaparMessageConsumer.HandleAsync(ParcelMessage, CancellationToken)
 - uid: Chapar.Zamin.Consumer.ChaparMessageConsumer.HandleAsync*
   name: HandleAsync
@@ -2097,11 +2175,11 @@ references:
   commentId: T:Chapar.Zamin.Extensions.ChaparZaminExtensions
   fullName: Chapar.Zamin.Extensions.ChaparZaminExtensions
   nameWithType: ChaparZaminExtensions
-- uid: Chapar.Zamin.Extensions.ChaparZaminExtensions.AddChaparZamin(IServiceCollection)
+- uid: Chapar.Zamin.Extensions.ChaparZaminExtensions.AddChaparZamin(Microsoft.Extensions.DependencyInjection.IServiceCollection)
   name: AddChaparZamin(IServiceCollection)
-  href: api/Chapar.Zamin.Extensions.ChaparZaminExtensions.html#Chapar_Zamin_Extensions_ChaparZaminExtensions_AddChaparZamin_IServiceCollection_
-  commentId: M:Chapar.Zamin.Extensions.ChaparZaminExtensions.AddChaparZamin(IServiceCollection)
-  fullName: Chapar.Zamin.Extensions.ChaparZaminExtensions.AddChaparZamin(IServiceCollection)
+  href: api/Chapar.Zamin.Extensions.ChaparZaminExtensions.html#Chapar_Zamin_Extensions_ChaparZaminExtensions_AddChaparZamin_Microsoft_Extensions_DependencyInjection_IServiceCollection_
+  commentId: M:Chapar.Zamin.Extensions.ChaparZaminExtensions.AddChaparZamin(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  fullName: Chapar.Zamin.Extensions.ChaparZaminExtensions.AddChaparZamin(Microsoft.Extensions.DependencyInjection.IServiceCollection)
   nameWithType: ChaparZaminExtensions.AddChaparZamin(IServiceCollection)
 - uid: Chapar.Zamin.Extensions.ChaparZaminExtensions.AddChaparZamin*
   name: AddChaparZamin
@@ -2122,13 +2200,13 @@ references:
   commentId: T:Chapar.Zamin.MassTransit.Extensions.ChaparZaminMassTransitExtensions
   fullName: Chapar.Zamin.MassTransit.Extensions.ChaparZaminMassTransitExtensions
   nameWithType: ChaparZaminMassTransitExtensions
-- uid: Chapar.Zamin.MassTransit.Extensions.ChaparZaminMassTransitExtensions.AddChaparZaminMassTransit(IServiceCollection,Action{Chapar.MassTransit.Options.ChaparMassTransitOptions})
+- uid: Chapar.Zamin.MassTransit.Extensions.ChaparZaminMassTransitExtensions.AddChaparZaminMassTransit(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Chapar.MassTransit.Options.ChaparMassTransitOptions})
   name: AddChaparZaminMassTransit(IServiceCollection, Action<ChaparMassTransitOptions>)
-  href: api/Chapar.Zamin.MassTransit.Extensions.ChaparZaminMassTransitExtensions.html#Chapar_Zamin_MassTransit_Extensions_ChaparZaminMassTransitExtensions_AddChaparZaminMassTransit_IServiceCollection_Action_Chapar_MassTransit_Options_ChaparMassTransitOptions__
-  commentId: M:Chapar.Zamin.MassTransit.Extensions.ChaparZaminMassTransitExtensions.AddChaparZaminMassTransit(IServiceCollection,Action{Chapar.MassTransit.Options.ChaparMassTransitOptions})
+  href: api/Chapar.Zamin.MassTransit.Extensions.ChaparZaminMassTransitExtensions.html#Chapar_Zamin_MassTransit_Extensions_ChaparZaminMassTransitExtensions_AddChaparZaminMassTransit_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_Chapar_MassTransit_Options_ChaparMassTransitOptions__
+  commentId: M:Chapar.Zamin.MassTransit.Extensions.ChaparZaminMassTransitExtensions.AddChaparZaminMassTransit(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Chapar.MassTransit.Options.ChaparMassTransitOptions})
   name.vb: AddChaparZaminMassTransit(IServiceCollection, Action(Of ChaparMassTransitOptions))
-  fullName: Chapar.Zamin.MassTransit.Extensions.ChaparZaminMassTransitExtensions.AddChaparZaminMassTransit(IServiceCollection, Action<Chapar.MassTransit.Options.ChaparMassTransitOptions>)
-  fullName.vb: Chapar.Zamin.MassTransit.Extensions.ChaparZaminMassTransitExtensions.AddChaparZaminMassTransit(IServiceCollection, Action(Of Chapar.MassTransit.Options.ChaparMassTransitOptions))
+  fullName: Chapar.Zamin.MassTransit.Extensions.ChaparZaminMassTransitExtensions.AddChaparZaminMassTransit(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action<Chapar.MassTransit.Options.ChaparMassTransitOptions>)
+  fullName.vb: Chapar.Zamin.MassTransit.Extensions.ChaparZaminMassTransitExtensions.AddChaparZaminMassTransit(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action(Of Chapar.MassTransit.Options.ChaparMassTransitOptions))
   nameWithType: ChaparZaminMassTransitExtensions.AddChaparZaminMassTransit(IServiceCollection, Action<ChaparMassTransitOptions>)
   nameWithType.vb: ChaparZaminMassTransitExtensions.AddChaparZaminMassTransit(IServiceCollection, Action(Of ChaparMassTransitOptions))
 - uid: Chapar.Zamin.MassTransit.Extensions.ChaparZaminMassTransitExtensions.AddChaparZaminMassTransit*
@@ -2150,15 +2228,15 @@ references:
   commentId: T:Chapar.Zamin.Outbox.Extensions.ChaparZaminOutboxExtensions
   fullName: Chapar.Zamin.Outbox.Extensions.ChaparZaminOutboxExtensions
   nameWithType: ChaparZaminOutboxExtensions
-- uid: Chapar.Zamin.Outbox.Extensions.ChaparZaminOutboxExtensions.AddChaparZaminOutbox(IServiceCollection,System.Nullable{Action{Chapar.Core.Cleanup.CleanupOptions}})
-  name: AddChaparZaminOutbox(IServiceCollection, Nullable<Action<CleanupOptions>>)
-  href: api/Chapar.Zamin.Outbox.Extensions.ChaparZaminOutboxExtensions.html#Chapar_Zamin_Outbox_Extensions_ChaparZaminOutboxExtensions_AddChaparZaminOutbox_IServiceCollection_System_Nullable_Action_Chapar_Core_Cleanup_CleanupOptions___
-  commentId: M:Chapar.Zamin.Outbox.Extensions.ChaparZaminOutboxExtensions.AddChaparZaminOutbox(IServiceCollection,System.Nullable{Action{Chapar.Core.Cleanup.CleanupOptions}})
-  name.vb: AddChaparZaminOutbox(IServiceCollection, Nullable(Of Action(Of CleanupOptions)))
-  fullName: Chapar.Zamin.Outbox.Extensions.ChaparZaminOutboxExtensions.AddChaparZaminOutbox(IServiceCollection, System.Nullable<Action<Chapar.Core.Cleanup.CleanupOptions>>)
-  fullName.vb: Chapar.Zamin.Outbox.Extensions.ChaparZaminOutboxExtensions.AddChaparZaminOutbox(IServiceCollection, System.Nullable(Of Action(Of Chapar.Core.Cleanup.CleanupOptions)))
-  nameWithType: ChaparZaminOutboxExtensions.AddChaparZaminOutbox(IServiceCollection, Nullable<Action<CleanupOptions>>)
-  nameWithType.vb: ChaparZaminOutboxExtensions.AddChaparZaminOutbox(IServiceCollection, Nullable(Of Action(Of CleanupOptions)))
+- uid: Chapar.Zamin.Outbox.Extensions.ChaparZaminOutboxExtensions.AddChaparZaminOutbox(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Chapar.Core.Cleanup.CleanupOptions})
+  name: AddChaparZaminOutbox(IServiceCollection, Action<CleanupOptions>?)
+  href: api/Chapar.Zamin.Outbox.Extensions.ChaparZaminOutboxExtensions.html#Chapar_Zamin_Outbox_Extensions_ChaparZaminOutboxExtensions_AddChaparZaminOutbox_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_Chapar_Core_Cleanup_CleanupOptions__
+  commentId: M:Chapar.Zamin.Outbox.Extensions.ChaparZaminOutboxExtensions.AddChaparZaminOutbox(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Chapar.Core.Cleanup.CleanupOptions})
+  name.vb: AddChaparZaminOutbox(IServiceCollection, Action(Of CleanupOptions))
+  fullName: Chapar.Zamin.Outbox.Extensions.ChaparZaminOutboxExtensions.AddChaparZaminOutbox(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action<Chapar.Core.Cleanup.CleanupOptions>?)
+  fullName.vb: Chapar.Zamin.Outbox.Extensions.ChaparZaminOutboxExtensions.AddChaparZaminOutbox(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action(Of Chapar.Core.Cleanup.CleanupOptions))
+  nameWithType: ChaparZaminOutboxExtensions.AddChaparZaminOutbox(IServiceCollection, Action<CleanupOptions>?)
+  nameWithType.vb: ChaparZaminOutboxExtensions.AddChaparZaminOutbox(IServiceCollection, Action(Of CleanupOptions))
 - uid: Chapar.Zamin.Outbox.Extensions.ChaparZaminOutboxExtensions.AddChaparZaminOutbox*
   name: AddChaparZaminOutbox
   href: api/Chapar.Zamin.Outbox.Extensions.ChaparZaminOutboxExtensions.html#Chapar_Zamin_Outbox_Extensions_ChaparZaminOutboxExtensions_AddChaparZaminOutbox_
@@ -2173,15 +2251,15 @@ references:
   isSpec: "True"
   fullName: Chapar.Zamin.Outbox.Extensions.ChaparZaminOutboxExtensions.AddZaminOutboxCleanup
   nameWithType: ChaparZaminOutboxExtensions.AddZaminOutboxCleanup
-- uid: Chapar.Zamin.Outbox.Extensions.ChaparZaminOutboxExtensions.AddZaminOutboxCleanup``1(IServiceCollection,System.Nullable{Action{Chapar.Core.Cleanup.CleanupOptions}})
-  name: AddZaminOutboxCleanup<TStore>(IServiceCollection, Nullable<Action<CleanupOptions>>)
-  href: api/Chapar.Zamin.Outbox.Extensions.ChaparZaminOutboxExtensions.html#Chapar_Zamin_Outbox_Extensions_ChaparZaminOutboxExtensions_AddZaminOutboxCleanup__1_IServiceCollection_System_Nullable_Action_Chapar_Core_Cleanup_CleanupOptions___
-  commentId: M:Chapar.Zamin.Outbox.Extensions.ChaparZaminOutboxExtensions.AddZaminOutboxCleanup``1(IServiceCollection,System.Nullable{Action{Chapar.Core.Cleanup.CleanupOptions}})
-  name.vb: AddZaminOutboxCleanup(Of TStore)(IServiceCollection, Nullable(Of Action(Of CleanupOptions)))
-  fullName: Chapar.Zamin.Outbox.Extensions.ChaparZaminOutboxExtensions.AddZaminOutboxCleanup<TStore>(IServiceCollection, System.Nullable<Action<Chapar.Core.Cleanup.CleanupOptions>>)
-  fullName.vb: Chapar.Zamin.Outbox.Extensions.ChaparZaminOutboxExtensions.AddZaminOutboxCleanup(Of TStore)(IServiceCollection, System.Nullable(Of Action(Of Chapar.Core.Cleanup.CleanupOptions)))
-  nameWithType: ChaparZaminOutboxExtensions.AddZaminOutboxCleanup<TStore>(IServiceCollection, Nullable<Action<CleanupOptions>>)
-  nameWithType.vb: ChaparZaminOutboxExtensions.AddZaminOutboxCleanup(Of TStore)(IServiceCollection, Nullable(Of Action(Of CleanupOptions)))
+- uid: Chapar.Zamin.Outbox.Extensions.ChaparZaminOutboxExtensions.AddZaminOutboxCleanup``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Chapar.Core.Cleanup.CleanupOptions})
+  name: AddZaminOutboxCleanup<TStore>(IServiceCollection, Action<CleanupOptions>?)
+  href: api/Chapar.Zamin.Outbox.Extensions.ChaparZaminOutboxExtensions.html#Chapar_Zamin_Outbox_Extensions_ChaparZaminOutboxExtensions_AddZaminOutboxCleanup__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_Chapar_Core_Cleanup_CleanupOptions__
+  commentId: M:Chapar.Zamin.Outbox.Extensions.ChaparZaminOutboxExtensions.AddZaminOutboxCleanup``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Chapar.Core.Cleanup.CleanupOptions})
+  name.vb: AddZaminOutboxCleanup(Of TStore)(IServiceCollection, Action(Of CleanupOptions))
+  fullName: Chapar.Zamin.Outbox.Extensions.ChaparZaminOutboxExtensions.AddZaminOutboxCleanup<TStore>(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action<Chapar.Core.Cleanup.CleanupOptions>?)
+  fullName.vb: Chapar.Zamin.Outbox.Extensions.ChaparZaminOutboxExtensions.AddZaminOutboxCleanup(Of TStore)(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action(Of Chapar.Core.Cleanup.CleanupOptions))
+  nameWithType: ChaparZaminOutboxExtensions.AddZaminOutboxCleanup<TStore>(IServiceCollection, Action<CleanupOptions>?)
+  nameWithType.vb: ChaparZaminOutboxExtensions.AddZaminOutboxCleanup(Of TStore)(IServiceCollection, Action(Of CleanupOptions))
 - uid: Chapar.Zamin.Outbox.Inbox
   name: Chapar.Zamin.Outbox.Inbox
   href: api/Chapar.Zamin.Outbox.Inbox.html
@@ -2194,24 +2272,30 @@ references:
   commentId: T:Chapar.Zamin.Outbox.Inbox.ZaminInboxStore
   fullName: Chapar.Zamin.Outbox.Inbox.ZaminInboxStore
   nameWithType: ZaminInboxStore
-- uid: Chapar.Zamin.Outbox.Inbox.ZaminInboxStore.#ctor(BaseCommandDbContext)
+- uid: Chapar.Zamin.Outbox.Inbox.ZaminInboxStore.#ctor(Zamin.Infra.Data.Sql.Commands.BaseCommandDbContext)
   name: ZaminInboxStore(BaseCommandDbContext)
-  href: api/Chapar.Zamin.Outbox.Inbox.ZaminInboxStore.html#Chapar_Zamin_Outbox_Inbox_ZaminInboxStore__ctor_BaseCommandDbContext_
-  commentId: M:Chapar.Zamin.Outbox.Inbox.ZaminInboxStore.#ctor(BaseCommandDbContext)
-  fullName: Chapar.Zamin.Outbox.Inbox.ZaminInboxStore.ZaminInboxStore(BaseCommandDbContext)
+  href: api/Chapar.Zamin.Outbox.Inbox.ZaminInboxStore.html#Chapar_Zamin_Outbox_Inbox_ZaminInboxStore__ctor_Zamin_Infra_Data_Sql_Commands_BaseCommandDbContext_
+  commentId: M:Chapar.Zamin.Outbox.Inbox.ZaminInboxStore.#ctor(Zamin.Infra.Data.Sql.Commands.BaseCommandDbContext)
+  name.vb: New(BaseCommandDbContext)
+  fullName: Chapar.Zamin.Outbox.Inbox.ZaminInboxStore.ZaminInboxStore(Zamin.Infra.Data.Sql.Commands.BaseCommandDbContext)
+  fullName.vb: Chapar.Zamin.Outbox.Inbox.ZaminInboxStore.New(Zamin.Infra.Data.Sql.Commands.BaseCommandDbContext)
   nameWithType: ZaminInboxStore.ZaminInboxStore(BaseCommandDbContext)
+  nameWithType.vb: ZaminInboxStore.New(BaseCommandDbContext)
 - uid: Chapar.Zamin.Outbox.Inbox.ZaminInboxStore.#ctor*
   name: ZaminInboxStore
   href: api/Chapar.Zamin.Outbox.Inbox.ZaminInboxStore.html#Chapar_Zamin_Outbox_Inbox_ZaminInboxStore__ctor_
   commentId: Overload:Chapar.Zamin.Outbox.Inbox.ZaminInboxStore.#ctor
   isSpec: "True"
+  name.vb: New
   fullName: Chapar.Zamin.Outbox.Inbox.ZaminInboxStore.ZaminInboxStore
+  fullName.vb: Chapar.Zamin.Outbox.Inbox.ZaminInboxStore.New
   nameWithType: ZaminInboxStore.ZaminInboxStore
-- uid: Chapar.Zamin.Outbox.Inbox.ZaminInboxStore.MarkAsProcessedAsync(Chapar.Core.Inbox.InboxMessage,CancellationToken)
+  nameWithType.vb: ZaminInboxStore.New
+- uid: Chapar.Zamin.Outbox.Inbox.ZaminInboxStore.MarkAsProcessedAsync(Chapar.Core.Inbox.InboxMessage,System.Threading.CancellationToken)
   name: MarkAsProcessedAsync(InboxMessage, CancellationToken)
-  href: api/Chapar.Zamin.Outbox.Inbox.ZaminInboxStore.html#Chapar_Zamin_Outbox_Inbox_ZaminInboxStore_MarkAsProcessedAsync_Chapar_Core_Inbox_InboxMessage_CancellationToken_
-  commentId: M:Chapar.Zamin.Outbox.Inbox.ZaminInboxStore.MarkAsProcessedAsync(Chapar.Core.Inbox.InboxMessage,CancellationToken)
-  fullName: Chapar.Zamin.Outbox.Inbox.ZaminInboxStore.MarkAsProcessedAsync(Chapar.Core.Inbox.InboxMessage, CancellationToken)
+  href: api/Chapar.Zamin.Outbox.Inbox.ZaminInboxStore.html#Chapar_Zamin_Outbox_Inbox_ZaminInboxStore_MarkAsProcessedAsync_Chapar_Core_Inbox_InboxMessage_System_Threading_CancellationToken_
+  commentId: M:Chapar.Zamin.Outbox.Inbox.ZaminInboxStore.MarkAsProcessedAsync(Chapar.Core.Inbox.InboxMessage,System.Threading.CancellationToken)
+  fullName: Chapar.Zamin.Outbox.Inbox.ZaminInboxStore.MarkAsProcessedAsync(Chapar.Core.Inbox.InboxMessage, System.Threading.CancellationToken)
   nameWithType: ZaminInboxStore.MarkAsProcessedAsync(InboxMessage, CancellationToken)
 - uid: Chapar.Zamin.Outbox.Inbox.ZaminInboxStore.MarkAsProcessedAsync*
   name: MarkAsProcessedAsync
@@ -2220,12 +2304,15 @@ references:
   isSpec: "True"
   fullName: Chapar.Zamin.Outbox.Inbox.ZaminInboxStore.MarkAsProcessedAsync
   nameWithType: ZaminInboxStore.MarkAsProcessedAsync
-- uid: Chapar.Zamin.Outbox.Inbox.ZaminInboxStore.TryReserveAsync(System.String,System.String,CancellationToken)
-  name: TryReserveAsync(String, String, CancellationToken)
-  href: api/Chapar.Zamin.Outbox.Inbox.ZaminInboxStore.html#Chapar_Zamin_Outbox_Inbox_ZaminInboxStore_TryReserveAsync_System_String_System_String_CancellationToken_
-  commentId: M:Chapar.Zamin.Outbox.Inbox.ZaminInboxStore.TryReserveAsync(System.String,System.String,CancellationToken)
-  fullName: Chapar.Zamin.Outbox.Inbox.ZaminInboxStore.TryReserveAsync(System.String, System.String, CancellationToken)
-  nameWithType: ZaminInboxStore.TryReserveAsync(String, String, CancellationToken)
+- uid: Chapar.Zamin.Outbox.Inbox.ZaminInboxStore.TryReserveAsync(System.String,System.String,System.Threading.CancellationToken)
+  name: TryReserveAsync(string, string, CancellationToken)
+  href: api/Chapar.Zamin.Outbox.Inbox.ZaminInboxStore.html#Chapar_Zamin_Outbox_Inbox_ZaminInboxStore_TryReserveAsync_System_String_System_String_System_Threading_CancellationToken_
+  commentId: M:Chapar.Zamin.Outbox.Inbox.ZaminInboxStore.TryReserveAsync(System.String,System.String,System.Threading.CancellationToken)
+  name.vb: TryReserveAsync(String, String, CancellationToken)
+  fullName: Chapar.Zamin.Outbox.Inbox.ZaminInboxStore.TryReserveAsync(string, string, System.Threading.CancellationToken)
+  fullName.vb: Chapar.Zamin.Outbox.Inbox.ZaminInboxStore.TryReserveAsync(String, String, System.Threading.CancellationToken)
+  nameWithType: ZaminInboxStore.TryReserveAsync(string, string, CancellationToken)
+  nameWithType.vb: ZaminInboxStore.TryReserveAsync(String, String, CancellationToken)
 - uid: Chapar.Zamin.Outbox.Inbox.ZaminInboxStore.TryReserveAsync*
   name: TryReserveAsync
   href: api/Chapar.Zamin.Outbox.Inbox.ZaminInboxStore.html#Chapar_Zamin_Outbox_Inbox_ZaminInboxStore_TryReserveAsync_
@@ -2245,25 +2332,34 @@ references:
   commentId: T:Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore
   fullName: Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore
   nameWithType: ZaminOutboxStore
-- uid: Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.#ctor(BaseOutboxCommandDbContext)
+- uid: Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.#ctor(Zamin.Extensions.Events.Outbox.Dal.EF.BaseOutboxCommandDbContext)
   name: ZaminOutboxStore(BaseOutboxCommandDbContext)
-  href: api/Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.html#Chapar_Zamin_Outbox_Outbox_ZaminOutboxStore__ctor_BaseOutboxCommandDbContext_
-  commentId: M:Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.#ctor(BaseOutboxCommandDbContext)
-  fullName: Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.ZaminOutboxStore(BaseOutboxCommandDbContext)
+  href: api/Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.html#Chapar_Zamin_Outbox_Outbox_ZaminOutboxStore__ctor_Zamin_Extensions_Events_Outbox_Dal_EF_BaseOutboxCommandDbContext_
+  commentId: M:Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.#ctor(Zamin.Extensions.Events.Outbox.Dal.EF.BaseOutboxCommandDbContext)
+  name.vb: New(BaseOutboxCommandDbContext)
+  fullName: Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.ZaminOutboxStore(Zamin.Extensions.Events.Outbox.Dal.EF.BaseOutboxCommandDbContext)
+  fullName.vb: Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.New(Zamin.Extensions.Events.Outbox.Dal.EF.BaseOutboxCommandDbContext)
   nameWithType: ZaminOutboxStore.ZaminOutboxStore(BaseOutboxCommandDbContext)
+  nameWithType.vb: ZaminOutboxStore.New(BaseOutboxCommandDbContext)
 - uid: Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.#ctor*
   name: ZaminOutboxStore
   href: api/Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.html#Chapar_Zamin_Outbox_Outbox_ZaminOutboxStore__ctor_
   commentId: Overload:Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.#ctor
   isSpec: "True"
+  name.vb: New
   fullName: Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.ZaminOutboxStore
+  fullName.vb: Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.New
   nameWithType: ZaminOutboxStore.ZaminOutboxStore
-- uid: Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.DeleteProcessedAsync(DateTime,CancellationToken)
+  nameWithType.vb: ZaminOutboxStore.New
+- uid: Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.DeleteProcessedAsync(System.DateTime,System.Threading.CancellationToken)
   name: DeleteProcessedAsync(DateTime, CancellationToken)
-  href: api/Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.html#Chapar_Zamin_Outbox_Outbox_ZaminOutboxStore_DeleteProcessedAsync_DateTime_CancellationToken_
-  commentId: M:Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.DeleteProcessedAsync(DateTime,CancellationToken)
-  fullName: Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.DeleteProcessedAsync(DateTime, CancellationToken)
+  href: api/Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.html#Chapar_Zamin_Outbox_Outbox_ZaminOutboxStore_DeleteProcessedAsync_System_DateTime_System_Threading_CancellationToken_
+  commentId: M:Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.DeleteProcessedAsync(System.DateTime,System.Threading.CancellationToken)
+  name.vb: DeleteProcessedAsync(Date, CancellationToken)
+  fullName: Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.DeleteProcessedAsync(System.DateTime, System.Threading.CancellationToken)
+  fullName.vb: Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.DeleteProcessedAsync(Date, System.Threading.CancellationToken)
   nameWithType: ZaminOutboxStore.DeleteProcessedAsync(DateTime, CancellationToken)
+  nameWithType.vb: ZaminOutboxStore.DeleteProcessedAsync(Date, CancellationToken)
 - uid: Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.DeleteProcessedAsync*
   name: DeleteProcessedAsync
   href: api/Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.html#Chapar_Zamin_Outbox_Outbox_ZaminOutboxStore_DeleteProcessedAsync_
@@ -2271,11 +2367,11 @@ references:
   isSpec: "True"
   fullName: Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.DeleteProcessedAsync
   nameWithType: ZaminOutboxStore.DeleteProcessedAsync
-- uid: Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.GetUnprocessedMessagesAsync(CancellationToken)
+- uid: Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.GetUnprocessedMessagesAsync(System.Threading.CancellationToken)
   name: GetUnprocessedMessagesAsync(CancellationToken)
-  href: api/Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.html#Chapar_Zamin_Outbox_Outbox_ZaminOutboxStore_GetUnprocessedMessagesAsync_CancellationToken_
-  commentId: M:Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.GetUnprocessedMessagesAsync(CancellationToken)
-  fullName: Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.GetUnprocessedMessagesAsync(CancellationToken)
+  href: api/Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.html#Chapar_Zamin_Outbox_Outbox_ZaminOutboxStore_GetUnprocessedMessagesAsync_System_Threading_CancellationToken_
+  commentId: M:Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.GetUnprocessedMessagesAsync(System.Threading.CancellationToken)
+  fullName: Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.GetUnprocessedMessagesAsync(System.Threading.CancellationToken)
   nameWithType: ZaminOutboxStore.GetUnprocessedMessagesAsync(CancellationToken)
 - uid: Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.GetUnprocessedMessagesAsync*
   name: GetUnprocessedMessagesAsync
@@ -2284,11 +2380,11 @@ references:
   isSpec: "True"
   fullName: Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.GetUnprocessedMessagesAsync
   nameWithType: ZaminOutboxStore.GetUnprocessedMessagesAsync
-- uid: Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.GetUnprocessedMessagesCountAsync(CancellationToken)
+- uid: Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.GetUnprocessedMessagesCountAsync(System.Threading.CancellationToken)
   name: GetUnprocessedMessagesCountAsync(CancellationToken)
-  href: api/Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.html#Chapar_Zamin_Outbox_Outbox_ZaminOutboxStore_GetUnprocessedMessagesCountAsync_CancellationToken_
-  commentId: M:Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.GetUnprocessedMessagesCountAsync(CancellationToken)
-  fullName: Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.GetUnprocessedMessagesCountAsync(CancellationToken)
+  href: api/Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.html#Chapar_Zamin_Outbox_Outbox_ZaminOutboxStore_GetUnprocessedMessagesCountAsync_System_Threading_CancellationToken_
+  commentId: M:Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.GetUnprocessedMessagesCountAsync(System.Threading.CancellationToken)
+  fullName: Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.GetUnprocessedMessagesCountAsync(System.Threading.CancellationToken)
   nameWithType: ZaminOutboxStore.GetUnprocessedMessagesCountAsync(CancellationToken)
 - uid: Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.GetUnprocessedMessagesCountAsync*
   name: GetUnprocessedMessagesCountAsync
@@ -2297,11 +2393,11 @@ references:
   isSpec: "True"
   fullName: Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.GetUnprocessedMessagesCountAsync
   nameWithType: ZaminOutboxStore.GetUnprocessedMessagesCountAsync
-- uid: Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.MarkAsProcessedAsync(Guid,CancellationToken)
+- uid: Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.MarkAsProcessedAsync(System.Guid,System.Threading.CancellationToken)
   name: MarkAsProcessedAsync(Guid, CancellationToken)
-  href: api/Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.html#Chapar_Zamin_Outbox_Outbox_ZaminOutboxStore_MarkAsProcessedAsync_Guid_CancellationToken_
-  commentId: M:Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.MarkAsProcessedAsync(Guid,CancellationToken)
-  fullName: Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.MarkAsProcessedAsync(Guid, CancellationToken)
+  href: api/Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.html#Chapar_Zamin_Outbox_Outbox_ZaminOutboxStore_MarkAsProcessedAsync_System_Guid_System_Threading_CancellationToken_
+  commentId: M:Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.MarkAsProcessedAsync(System.Guid,System.Threading.CancellationToken)
+  fullName: Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.MarkAsProcessedAsync(System.Guid, System.Threading.CancellationToken)
   nameWithType: ZaminOutboxStore.MarkAsProcessedAsync(Guid, CancellationToken)
 - uid: Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.MarkAsProcessedAsync*
   name: MarkAsProcessedAsync
@@ -2310,11 +2406,11 @@ references:
   isSpec: "True"
   fullName: Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.MarkAsProcessedAsync
   nameWithType: ZaminOutboxStore.MarkAsProcessedAsync
-- uid: Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.SaveAsync(Chapar.Core.Outbox.OutboxMessage,CancellationToken)
+- uid: Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.SaveAsync(Chapar.Core.Outbox.OutboxMessage,System.Threading.CancellationToken)
   name: SaveAsync(OutboxMessage, CancellationToken)
-  href: api/Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.html#Chapar_Zamin_Outbox_Outbox_ZaminOutboxStore_SaveAsync_Chapar_Core_Outbox_OutboxMessage_CancellationToken_
-  commentId: M:Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.SaveAsync(Chapar.Core.Outbox.OutboxMessage,CancellationToken)
-  fullName: Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.SaveAsync(Chapar.Core.Outbox.OutboxMessage, CancellationToken)
+  href: api/Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.html#Chapar_Zamin_Outbox_Outbox_ZaminOutboxStore_SaveAsync_Chapar_Core_Outbox_OutboxMessage_System_Threading_CancellationToken_
+  commentId: M:Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.SaveAsync(Chapar.Core.Outbox.OutboxMessage,System.Threading.CancellationToken)
+  fullName: Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.SaveAsync(Chapar.Core.Outbox.OutboxMessage, System.Threading.CancellationToken)
   nameWithType: ZaminOutboxStore.SaveAsync(OutboxMessage, CancellationToken)
 - uid: Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.SaveAsync*
   name: SaveAsync
@@ -2335,19 +2431,25 @@ references:
   commentId: T:Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus
   fullName: Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus
   nameWithType: ZaminChaparSendMessageBus
-- uid: Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.#ctor(Chapar.Core.Abstractions.IChaparBus,IJsonSerializer)
+- uid: Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.#ctor(Chapar.Core.Abstractions.IChaparBus,Zamin.Extensions.Serializers.Abstractions.IJsonSerializer)
   name: ZaminChaparSendMessageBus(IChaparBus, IJsonSerializer)
-  href: api/Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.html#Chapar_Zamin_SendMessageBus_ZaminChaparSendMessageBus__ctor_Chapar_Core_Abstractions_IChaparBus_IJsonSerializer_
-  commentId: M:Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.#ctor(Chapar.Core.Abstractions.IChaparBus,IJsonSerializer)
-  fullName: Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.ZaminChaparSendMessageBus(Chapar.Core.Abstractions.IChaparBus, IJsonSerializer)
+  href: api/Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.html#Chapar_Zamin_SendMessageBus_ZaminChaparSendMessageBus__ctor_Chapar_Core_Abstractions_IChaparBus_Zamin_Extensions_Serializers_Abstractions_IJsonSerializer_
+  commentId: M:Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.#ctor(Chapar.Core.Abstractions.IChaparBus,Zamin.Extensions.Serializers.Abstractions.IJsonSerializer)
+  name.vb: New(IChaparBus, IJsonSerializer)
+  fullName: Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.ZaminChaparSendMessageBus(Chapar.Core.Abstractions.IChaparBus, Zamin.Extensions.Serializers.Abstractions.IJsonSerializer)
+  fullName.vb: Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.New(Chapar.Core.Abstractions.IChaparBus, Zamin.Extensions.Serializers.Abstractions.IJsonSerializer)
   nameWithType: ZaminChaparSendMessageBus.ZaminChaparSendMessageBus(IChaparBus, IJsonSerializer)
+  nameWithType.vb: ZaminChaparSendMessageBus.New(IChaparBus, IJsonSerializer)
 - uid: Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.#ctor*
   name: ZaminChaparSendMessageBus
   href: api/Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.html#Chapar_Zamin_SendMessageBus_ZaminChaparSendMessageBus__ctor_
   commentId: Overload:Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.#ctor
   isSpec: "True"
+  name.vb: New
   fullName: Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.ZaminChaparSendMessageBus
+  fullName.vb: Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.New
   nameWithType: ZaminChaparSendMessageBus.ZaminChaparSendMessageBus
+  nameWithType.vb: ZaminChaparSendMessageBus.New
 - uid: Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.Publish*
   name: Publish
   href: api/Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.html#Chapar_Zamin_SendMessageBus_ZaminChaparSendMessageBus_Publish_
@@ -2364,11 +2466,11 @@ references:
   fullName.vb: Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.Publish(Of TInput)(TInput)
   nameWithType: ZaminChaparSendMessageBus.Publish<TInput>(TInput)
   nameWithType.vb: ZaminChaparSendMessageBus.Publish(Of TInput)(TInput)
-- uid: Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.Send(Parcel)
+- uid: Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.Send(Zamin.Extensions.MessageBus.Abstractions.Parcel)
   name: Send(Parcel)
-  href: api/Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.html#Chapar_Zamin_SendMessageBus_ZaminChaparSendMessageBus_Send_Parcel_
-  commentId: M:Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.Send(Parcel)
-  fullName: Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.Send(Parcel)
+  href: api/Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.html#Chapar_Zamin_SendMessageBus_ZaminChaparSendMessageBus_Send_Zamin_Extensions_MessageBus_Abstractions_Parcel_
+  commentId: M:Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.Send(Zamin.Extensions.MessageBus.Abstractions.Parcel)
+  fullName: Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.Send(Zamin.Extensions.MessageBus.Abstractions.Parcel)
   nameWithType: ZaminChaparSendMessageBus.Send(Parcel)
 - uid: Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.Send*
   name: Send
@@ -2384,21 +2486,21 @@ references:
   isSpec: "True"
   fullName: Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.SendCommandTo
   nameWithType: ZaminChaparSendMessageBus.SendCommandTo
-- uid: Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.SendCommandTo``1(System.String,System.String,``0)
-  name: SendCommandTo<TCommandData>(String, String, TCommandData)
-  href: api/Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.html#Chapar_Zamin_SendMessageBus_ZaminChaparSendMessageBus_SendCommandTo__1_System_String_System_String___0_
-  commentId: M:Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.SendCommandTo``1(System.String,System.String,``0)
-  name.vb: SendCommandTo(Of TCommandData)(String, String, TCommandData)
-  fullName: Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.SendCommandTo<TCommandData>(System.String, System.String, TCommandData)
-  fullName.vb: Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.SendCommandTo(Of TCommandData)(System.String, System.String, TCommandData)
-  nameWithType: ZaminChaparSendMessageBus.SendCommandTo<TCommandData>(String, String, TCommandData)
-  nameWithType.vb: ZaminChaparSendMessageBus.SendCommandTo(Of TCommandData)(String, String, TCommandData)
 - uid: Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.SendCommandTo``1(System.String,System.String,System.String,``0)
-  name: SendCommandTo<TCommandData>(String, String, String, TCommandData)
+  name: SendCommandTo<TCommandData>(string, string, string, TCommandData)
   href: api/Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.html#Chapar_Zamin_SendMessageBus_ZaminChaparSendMessageBus_SendCommandTo__1_System_String_System_String_System_String___0_
   commentId: M:Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.SendCommandTo``1(System.String,System.String,System.String,``0)
   name.vb: SendCommandTo(Of TCommandData)(String, String, String, TCommandData)
-  fullName: Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.SendCommandTo<TCommandData>(System.String, System.String, System.String, TCommandData)
-  fullName.vb: Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.SendCommandTo(Of TCommandData)(System.String, System.String, System.String, TCommandData)
-  nameWithType: ZaminChaparSendMessageBus.SendCommandTo<TCommandData>(String, String, String, TCommandData)
+  fullName: Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.SendCommandTo<TCommandData>(string, string, string, TCommandData)
+  fullName.vb: Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.SendCommandTo(Of TCommandData)(String, String, String, TCommandData)
+  nameWithType: ZaminChaparSendMessageBus.SendCommandTo<TCommandData>(string, string, string, TCommandData)
   nameWithType.vb: ZaminChaparSendMessageBus.SendCommandTo(Of TCommandData)(String, String, String, TCommandData)
+- uid: Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.SendCommandTo``1(System.String,System.String,``0)
+  name: SendCommandTo<TCommandData>(string, string, TCommandData)
+  href: api/Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.html#Chapar_Zamin_SendMessageBus_ZaminChaparSendMessageBus_SendCommandTo__1_System_String_System_String___0_
+  commentId: M:Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.SendCommandTo``1(System.String,System.String,``0)
+  name.vb: SendCommandTo(Of TCommandData)(String, String, TCommandData)
+  fullName: Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.SendCommandTo<TCommandData>(string, string, TCommandData)
+  fullName.vb: Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.SendCommandTo(Of TCommandData)(String, String, TCommandData)
+  nameWithType: ZaminChaparSendMessageBus.SendCommandTo<TCommandData>(string, string, TCommandData)
+  nameWithType.vb: ZaminChaparSendMessageBus.SendCommandTo(Of TCommandData)(String, String, TCommandData)
