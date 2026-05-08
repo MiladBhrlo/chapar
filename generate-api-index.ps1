@@ -5,9 +5,11 @@ $outputFile = "index.md"
 # پیدا کردن تمام فایل‌های YAML مربوط به Namespace (به‌جز toc.yml)
 $nsFiles = Get-ChildItem -Path $apiDir -Filter "*.yml" | Where-Object { $_.Name -ne "toc.yml" } | Sort-Object Name
 
+$bt = '`'
+
 # شروع ساخت فایل index.md
 $content = @"
-```text
+
 ***
 title: Chapar – The Persian Courier for .NET Messaging
 ***
@@ -16,10 +18,10 @@ title: Chapar – The Persian Courier for .NET Messaging
 
 ### The Clean, Extensible, and Business‑Friendly Messaging Abstraction for .NET
 
-```text
+$bt$bt${bt}text
 dotnet add package Chapar
 dotnet add package Chapar.MassTransit
-```
+$bt$bt$bt
 
 ***
 
@@ -37,7 +39,7 @@ dotnet add package Chapar.MassTransit
 
 ## Quick Start
 
-```csharp
+$bt$bt${bt}csharp
 // 1. Define a message
 public record UserRegistered(Guid UserId, string Email) : IEvent;
 
@@ -54,7 +56,7 @@ public class UserRegisteredHandler : IMessageHandler`UserRegistered`
         return Task.CompletedTask;
     }
 }
-```
+$bt$bt$bt
 
 ***
 
