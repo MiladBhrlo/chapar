@@ -1,9 +1,9 @@
 namespace Chapar.Core.Attributes;
 
 /// <summary>
-/// Specifies the expected origin service name for a message handler.
-/// When applied, the <see cref="Pipeline.Behaviours.OriginValidationBehaviour{T}"/>
-/// checks that the incoming message contains an "X-Origin-Service" header with this value.
+/// Specifies the expected origin service for a message handler.
+/// When applied, the <c>OriginValidationBehaviour</c> in the pipeline checks
+/// that the incoming message contains an "Origin" header with this value.
 /// </summary>
 [AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = true)]
 public class AllowedOriginAttribute : Attribute

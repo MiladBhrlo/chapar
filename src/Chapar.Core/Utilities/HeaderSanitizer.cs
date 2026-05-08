@@ -25,7 +25,7 @@ public static class HeaderSanitizer
     /// <summary>
     /// Sanitizes a dictionary of headers by:
     /// <list type="number">
-    ///   <item>Replacing the value of any key in the <paramref name="sensitiveKeys"/> set with "[REDACTED]".</item>
+    ///   <item>Replacing the value of any key in the built‑in set of sensitive headers set with "[REDACTED]".</item>
     ///   <item>Removing carriage return, line feed, and null characters from all header values.</item>
     ///   <item>Optionally restricting headers to a pre‑defined set of allowed keys.</item>
     /// </list>

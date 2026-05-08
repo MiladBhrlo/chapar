@@ -1,0 +1,28 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "files": [
+            "src/Chapar.Core/Chapar.Core.csproj",
+            "src/Chapar.MassTransit/Chapar.MassTransit.csproj",
+            "src/Chapar.Inbox.EntityFrameworkCore/Chapar.Inbox.EntityFrameworkCore.csproj",
+            "src/Chapar.Outbox.EntityFrameworkCore/Chapar.Outbox.EntityFrameworkCore.csproj",
+            "src/Chapar.Pipeline/Chapar.Pipeline.csproj",
+            "src/Chapar.Zamin/Chapar.Zamin.csproj",
+            "src/Chapar.Zamin.MassTransit/Chapar.Zamin.MassTransit.csproj",
+            "src/Chapar.Zamin.Outbox/Chapar.Zamin.Outbox.csproj"
+          ]
+        }
+      ],
+      "dest": "api"
+    }
+  ],
+  "build": {
+    "content": [
+      { "files": ["api/*.yml", "api/*.json"] },
+      { "files": ["docs/*.md", "README.md"] }
+    ],
+    "dest": "_site"
+  }
+}

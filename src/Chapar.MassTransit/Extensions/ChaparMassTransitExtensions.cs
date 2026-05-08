@@ -4,7 +4,6 @@ using Chapar.Core.Attributes;
 using Chapar.Core.Inbox;
 using Chapar.Core.Metrics;
 using Chapar.Core.Outbox;
-using Chapar.MassTransit.Adapters;
 using Chapar.MassTransit.Bus;
 using Chapar.MassTransit.Consumers;
 using Chapar.MassTransit.Filters;

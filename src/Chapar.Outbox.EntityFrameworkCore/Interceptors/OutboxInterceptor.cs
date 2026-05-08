@@ -28,7 +28,6 @@ public sealed class OutboxInterceptor : SaveChangesInterceptor
         _options = options?.Value ?? new ChaparOutboxOptions();
     }
 
-    /// <inheritdoc />
     public override async ValueTask<InterceptionResult<int>> SavingChangesAsync(DbContextEventData eventData,
                                                                                 InterceptionResult<int> result,
                                                                                 CancellationToken cancellationToken = default)
