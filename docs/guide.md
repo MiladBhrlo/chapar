@@ -48,14 +48,14 @@ public record SendWelcomeEmail(Guid UserId) : ICommand;
 ```csharp
 public class RegistrationService
 {
-    private readonly IChaparBus _bus;
+    private readonly IChaparBus `bus`;
 
-    public RegistrationService(IChaparBus bus) => _bus = bus;
+    public RegistrationService(IChaparBus bus) => `bus` = bus;
 
     public async Task RegisterAsync(User user)
     {
         // ... save user ...
-        await _bus.PublishAsync(new UserRegistered(user.Id, user.Email));
+        await `bus`.PublishAsync(new UserRegistered(user.Id, user.Email));
     }
 }
 ```
@@ -67,13 +67,13 @@ public class UserRegisteredHandler : IMessageHandler<UserRegistered>
 {
     public Task HandleAsync(UserRegistered message, CancellationToken ct)
     {
-        Console.WriteLine($"User {message.Email} registered.");
+        Console.WriteLine(`$"User {message.Email} registered."`);
         return Task.CompletedTask;
     }
 }
 ```
 
-**No manual registration needed** – Chapar scans all assemblies automatically.
+``No manual registration needed`` – Chapar scans all assemblies automatically.
 
 ---
 
@@ -92,7 +92,7 @@ public class SendWelcomeEmailHandler : IMessageHandler<SendWelcomeEmail>
 ### 2.2 Sending
 
 ```csharp
-await _bus.SendAsync(new SendWelcomeEmail(user.Id), "email-service");
+await `bus`.SendAsync(new SendWelcomeEmail(user.Id), "email-service");
 ```
 
 ---
@@ -108,7 +108,7 @@ dotnet add package Chapar.Outbox.EntityFrameworkCore
 ### 3.2 Configure
 
 ```csharp
-services.AddChaparOutboxEntityFramework(); // Enables outbox for *all* messages
+services.AddChaparOutboxEntityFramework(); // Enables outbox for `all` messages
 
 // In your DbContext:
 protected override void OnModelCreating(ModelBuilder builder)
@@ -117,7 +117,7 @@ protected override void OnModelCreating(ModelBuilder builder)
 }
 ```
 
-After this, **every** `PublishAsync` / `SendAsync` call is stored in the outbox table
+After this, ``every`` `PublishAsync` / `SendAsync` call is stored in the outbox table
 and dispatched later by a background service.
 
 ### 3.3 Aggregate‑Root Integration (optional)
@@ -182,7 +182,7 @@ dotnet add package Chapar.Pipeline
 ### 5.2 Enable
 
 ```csharp
-services.AddChaparPipeline(); // Adds diagnostics, error handling, domain exception handling
+services.AddChaparPipeline(); // Adds diagnostics, error handling, domain exception handling, and origin validation
 ```
 
 ### 5.3 Custom Behaviours
@@ -195,9 +195,9 @@ public class LoggingBehaviour<TMessage> : IPipelineBehavior<TMessage>
 {
     public async Task HandleAsync(TMessage message, Func<Task> next, CancellationToken ct)
     {
-        Console.WriteLine($"Before {typeof(TMessage).Name}");
+        Console.WriteLine(`$"Before {typeof(TMessage).Name}"`);
         await next();
-        Console.WriteLine($"After {typeof(TMessage).Name}");
+        Console.WriteLine(`$"After {typeof(TMessage).Name}"`);
     }
 }
 ```
@@ -208,13 +208,9 @@ Register it:
 services.AddChaparPipelineBehavior(typeof(LoggingBehaviour<>));
 ```
 
-Pre‑built behaviours (just add the package):
-- **FluentValidation** (community)
-- **Origin / Authorization** (you can write your own)
-
 ---
 
-## 6. Headers & Multi‑Tenancy
+## 6. Headers, Multi‑Tenancy, and Security
 
 ### 6.1 Default Headers
 
@@ -231,12 +227,64 @@ All outgoing messages will carry this header.
 
 ```csharp
 var headers = new Dictionary<string, object> { ["Priority"] = "High" };
-await _bus.PublishAsync(new OrderPlaced(orderId), headers);
+await `bus`.PublishAsync(new OrderPlaced(orderId), headers);
+```
+
+### 6.3 Header Access in Pipeline
+
+Chapar provides an `IMessageContextAccessor` service that allows pipeline behaviors
+to both ``read`` and ``write`` message headers.
+
+```csharp
+public class TenantPropagationBehaviour<TMessage> : IPipelineBehavior<TMessage>
+    where TMessage : IMessage
+{
+    private readonly IMessageContextAccessor `accessor`;
+
+    public TenantPropagationBehaviour(IMessageContextAccessor accessor) => `accessor` = accessor;
+
+    public async Task HandleAsync(TMessage message, Func<Task> next, CancellationToken cancellationToken)
+    {
+        `accessor`.Headers ??= new Dictionary<string, object?>();
+        `accessor`.Headers["TenantId"] = "tenant-123";
+        await next();
+    }
+}
+```
+
+### 6.4 Origin Validation
+
+Apply `[AllowedOrigin("OrderService")]` on your handler, and Chapar automatically validates the `Origin` header.
+This behavior is enabled by default when you call `AddChaparPipeline()`.
+
+```csharp
+[AllowedOrigin("OrderService")]
+public class FinalizeInvoiceHandler : IMessageHandler<OrderPlaced> { ... }
+```
+
+Set the origin header when publishing:
+
+```csharp
+await `bus`.PublishAsync(new OrderPlaced(), new Dictionary<string, object>
+{
+    ["Origin"] = "OrderService"
+});
+```
+
+### 6.5 HeaderSanitizer
+
+Use `HeaderSanitizer.Sanitize()` before logging or persisting headers.
+This helper redacts sensitive keys (like `Authorization`, `Token`)
+and strips dangerous characters (CRLF, NULL) to prevent injection attacks.
+
+```csharp
+var safeHeaders = HeaderSanitizer.Sanitize(headers);
+logger.LogInformation("Headers: {@Headers}", safeHeaders);
 ```
 
 ---
 
-## 7. [Zamin](https://github.com/oroumand/Zamin) Integration
+## 7. Zamin Integration
 
 ### 7.1 Installation
 
@@ -249,7 +297,7 @@ dotnet add package Chapar.Zamin.Outbox   # For outbox on Zamin's native tables
 
 ```csharp
 services.AddChaparZaminMassTransit(opt => opt.Host = "localhost");
-services.AddChaparZaminOutbox();   // Uses Zamin's Outbox & Inbox tables
+services.AddChaparZaminOutbox();   // Uses Zamin's Outbox ``and`` Inbox tables
 ```
 
 Now every `ISendMessageBus.Send(parcel)` call goes through Chapar.
@@ -277,7 +325,7 @@ via Zamin's `IEventDispatcher`.
 | `RetryCount` | `3` | Immediate retries |
 | `RetryInterval` | `00:00:05` | Interval between retries |
 | `CircuitBreakerEnabled` | `true` | Enable / disable CB |
-| `CircuitBreakerFailureThreshold` | `20` | % failure to trip |
+| `CircuitBreakerFailureThreshold` | `20` | `%` failure to trip |
 | `CircuitBreakerResetInterval` | `00:01:00` | Reset interval |
 
 ---
@@ -292,13 +340,16 @@ via Zamin's `IEventDispatcher`.
 - Inbox (Idempotency)
 - Pipeline (Behaviours)
 - Multi‑tenancy (Headers)
+- Origin Validation
 - Zamin framework integration
 
 ---
 
 ## 10. Automated Table Cleanup
 
-Chapar automatically cleans up old processed records from Inbox, Outbox, and Zamin Outbox tables. The default retention period is 7 days, and the cleanup runs every hour. You can customize or disable this behavior.
+Chapar automatically cleans up old processed records from Inbox, Outbox, and Zamin Outbox tables.
+The default retention period is 7 days, and the cleanup runs every hour.
+You can customize or disable this behavior.
 
 ### Default Usage
 
@@ -322,10 +373,12 @@ services.AddInboxCleanup<MyCustomStore>(opt => opt.RetentionPeriod = TimeSpan.Fr
 
 ### Zamin Inbox Cleanup
 
-Chapar does `not` provide a built‑in cleanup job for Zamin Inbox.  
-The underlying `IMessageInboxItemRepository` may use different storage technologies, so a single cleanup strategy cannot be assumed.
+Chapar does ``not`` provide a built‑in cleanup job for Zamin Inbox.
+The underlying `IMessageInboxItemRepository` may use different storage technologies,
+so a single cleanup strategy cannot be assumed.
 
-If you need automatic cleanup, you can implement `ICleanupStore` yourself and register it with `AddInboxCleanup` (which adds a background hosted service):
+If you need automatic cleanup, you can implement `ICleanupStore` yourself
+and register it with `AddInboxCleanup` (which adds a background hosted service):
 
 ```csharp
 public class ZaminInboxCleanupStore : ICleanupStore
@@ -375,6 +428,7 @@ Metrics are exposed using `System.Diagnostics.Metrics` and can be collected by a
 
 ### Distributed Tracing
 
-The `DiagnosticsBehaviour` in the Chapar pipeline automatically creates an `Activity` for each handled message, with tags for message type and messaging kind. This integrates with OpenTelemetry tracing.
+The `DiagnosticsBehaviour` in the Chapar pipeline automatically creates an `Activity` for each handled message,
+with tags for message type and messaging kind. This integrates with OpenTelemetry tracing.
 
 No additional configuration is required – it works out of the box when the pipeline is enabled.

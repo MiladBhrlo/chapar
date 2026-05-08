@@ -10,7 +10,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Behaviours\" />
     <Folder Include="Dispatcher\" />
     <Folder Include="Extensions\" />
   </ItemGroup>

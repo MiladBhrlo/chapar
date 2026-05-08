@@ -17,7 +17,8 @@ public static class ChaparPipelineExtensions
         // Register all default behaviours
         services.AddScoped(typeof(IPipelineBehavior<>), typeof(DiagnosticsBehaviour<>)); // 1
         services.AddScoped(typeof(IPipelineBehavior<>), typeof(ErrorHandlingBehaviour<>)); // 2
-        services.AddScoped(typeof(IPipelineBehavior<>), typeof(DomainExceptionHandlingBehaviour<>)); // 3
+        services.AddScoped(typeof(IPipelineBehavior<>), typeof(OriginValidationBehaviour<>)); // 3
+        services.AddScoped(typeof(IPipelineBehavior<>), typeof(DomainExceptionHandlingBehaviour<>)); // 4
 
         // Decorate all IMessageHandler<T> registrations with the pipeline dispatcher
         services.TryDecorate(typeof(IMessageHandler<>), typeof(PipelineMessageHandlerDispatcher<>)); // 4
