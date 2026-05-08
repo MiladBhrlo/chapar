@@ -1,9 +1,9 @@
----
+***
 
 _layout: landing
 title: Chapar – The Persian Courier for .NET Messaging
 
----
+***
 
 # 🐎 Chapar
 
@@ -14,7 +14,7 @@ dotnet add package Chapar
 dotnet add package Chapar.MassTransit
 ```
 
----
+***
 
 ## Why Chapar?
 
@@ -26,7 +26,7 @@ dotnet add package Chapar.MassTransit
 
 > Inspired by the ancient Persian courier system – fast, reliable, and invisible to the message sender.
 
----
+***
 
 ## Quick Start
 
@@ -49,7 +49,7 @@ public class UserRegisteredHandler : IMessageHandler`UserRegistered`
 }
 ```
 
----
+***
 
 ## Explore the Documentation
 
@@ -60,7 +60,7 @@ public class UserRegisteredHandler : IMessageHandler`UserRegistered`
 
 **Full API Reference** is just a click away — use the **API Reference** tab in the top navigation bar.
 
----
+***
 
 ## Packages
 
@@ -75,7 +75,7 @@ public class UserRegisteredHandler : IMessageHandler`UserRegistered`
 | `Chapar.Zamin.MassTransit` | One‑line setup for Chapar + Zamin + MassTransit |
 | `Chapar.Zamin.Outbox` | Outbox/Inbox stores backed by Zamin's native tables |
 
----
+***
 
 ## License
 

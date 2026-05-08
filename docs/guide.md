@@ -3,7 +3,7 @@
 This guide walks through every supported scenario, from the simplest possible
 usage to the most advanced configurations.
 
----
+***
 
 ## 1. Getting Started
 
@@ -75,7 +75,7 @@ public class UserRegisteredHandler : IMessageHandler<UserRegistered>
 
 ``No manual registration needed`` – Chapar scans all assemblies automatically.
 
----
+***
 
 ## 2. Sending Commands (Point‑to‑Point)
 
@@ -95,7 +95,7 @@ public class SendWelcomeEmailHandler : IMessageHandler<SendWelcomeEmail>
 await `bus`.SendAsync(new SendWelcomeEmail(user.Id), "email-service");
 ```
 
----
+***
 
 ## 3. Outbox Pattern (Guaranteed Delivery)
 
@@ -145,7 +145,7 @@ services.Configure<ChaparOutboxOptions>(opt =>
 });
 ```
 
----
+***
 
 ## 4. Inbox Pattern (Idempotency)
 
@@ -169,7 +169,7 @@ protected override void OnModelCreating(ModelBuilder builder)
 
 No handler changes needed – the `InboxConsumeFilter` runs transparently.
 
----
+***
 
 ## 5. Pipeline (Behaviours)
 
@@ -231,7 +231,7 @@ await `bus`.PublishAsync(new OrderPlaced(), new Dictionary<string, object>
 });
 ```
 
----
+***
 
 ## 6. Headers, Multi‑Tenancy, and Security
 
@@ -305,7 +305,7 @@ var safeHeaders = HeaderSanitizer.Sanitize(headers);
 logger.LogInformation("Headers: {@Headers}", safeHeaders);
 ```
 
----
+***
 
 ## 7. Zamin Integration
 
@@ -327,7 +327,7 @@ Now every `ISendMessageBus.Send(parcel)` call goes through Chapar.
 Incoming messages are received by `ChaparMessageConsumer` and dispatched
 via Zamin's `IEventDispatcher`.
 
----
+***
 
 ## 8. Configuration Reference
 
@@ -351,7 +351,7 @@ via Zamin's `IEventDispatcher`.
 | `CircuitBreakerFailureThreshold` | `20` | `%` failure to trip |
 | `CircuitBreakerResetInterval` | `00:01:00` | Reset interval |
 
----
+***
 
 ## 9. Supported Patterns Summary
 
@@ -366,7 +366,7 @@ via Zamin's `IEventDispatcher`.
 - Origin Validation
 - Zamin framework integration
 
----
+***
 
 ## 10. Automated Table Cleanup
 
@@ -415,7 +415,7 @@ public class ZaminInboxCleanupStore : ICleanupStore
 services.AddInboxCleanup<ZaminInboxCleanupStore>(opt => opt.RetentionPeriod = TimeSpan.FromDays(14));
 ```
 
----
+***
 
 ## 11. Monitoring & Health Checks
 
