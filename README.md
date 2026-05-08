@@ -1,5 +1,7 @@
 # 🐎 Chapar
 
+[![Ask DeepWiki](https://devin.ai/assets/askdeepwiki.png)](https://deepwiki.com/MiladBhrlo/Chapar)
+
 **Chapar** is a clean, extensible, and business‑friendly messaging abstraction for .NET.
 It hides the complexity of RabbitMQ and MassTransit behind a minimal API, while providing
 out‑of‑the‑box support for the **Outbox**, **Inbox**, and **Pipeline** patterns.
