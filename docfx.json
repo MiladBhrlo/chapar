@@ -1,28 +1,54 @@
 {
-  "metadata": [
-    {
-      "src": [
+    "metadata": [
         {
-          "files": [
-            "src/Chapar.Core/Chapar.Core.csproj",
-            "src/Chapar.MassTransit/Chapar.MassTransit.csproj",
-            "src/Chapar.Inbox.EntityFrameworkCore/Chapar.Inbox.EntityFrameworkCore.csproj",
-            "src/Chapar.Outbox.EntityFrameworkCore/Chapar.Outbox.EntityFrameworkCore.csproj",
-            "src/Chapar.Pipeline/Chapar.Pipeline.csproj",
-            "src/Chapar.Zamin/Chapar.Zamin.csproj",
-            "src/Chapar.Zamin.MassTransit/Chapar.Zamin.MassTransit.csproj",
-            "src/Chapar.Zamin.Outbox/Chapar.Zamin.Outbox.csproj"
-          ]
+            "src": [
+                {
+                    "files": [
+                        "src/Chapar.Core/Chapar.Core.csproj",
+                        "src/Chapar.MassTransit/Chapar.MassTransit.csproj",
+                        "src/Chapar.Inbox.EntityFrameworkCore/Chapar.Inbox.EntityFrameworkCore.csproj",
+                        "src/Chapar.Outbox.EntityFrameworkCore/Chapar.Outbox.EntityFrameworkCore.csproj",
+                        "src/Chapar.Pipeline/Chapar.Pipeline.csproj",
+                        "src/Chapar.Zamin/Chapar.Zamin.csproj",
+                        "src/Chapar.Zamin.MassTransit/Chapar.Zamin.MassTransit.csproj",
+                        "src/Chapar.Zamin.Outbox/Chapar.Zamin.Outbox.csproj"
+                    ]
+                }
+            ],
+            "dest": "api"
         }
-      ],
-      "dest": "api"
-    }
-  ],
-  "build": {
-    "content": [
-      { "files": ["api/*.yml", "api/*.json"] },
-      { "files": ["docs/*.md", "README.md", "index.md"] }
     ],
-    "dest": "_site"
-  }
+    "build": {
+        "content": [
+            {
+                "files": [
+                    "api/*.yml",
+                    "api/*.json"
+                ]
+            },
+            {
+                "files": [
+                    "docs/*.md",
+                    "README.md",
+                    "index.md"
+                ]
+            }
+        ],
+        "resource": [
+            {
+                "files": [
+                    "images/**"
+                ]
+            }
+        ],
+        "dest": "_site",
+        "template": [
+            "default"
+        ],
+        "globalMetadata": {
+            "_appTitle": "Chapar",
+            "_appFooter": "Copyright © 2026",
+            "_enableSearch": true
+        }
+    }
 }
