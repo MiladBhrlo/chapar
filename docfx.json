@@ -21,7 +21,7 @@
   "build": {
     "content": [
       { "files": ["api/*.yml", "api/*.json"] },
-      { "files": ["docs/*.md", "README.md"] }
+      { "files": ["docs/*.md", "README.md", "index.md"] }
     ],
     "dest": "_site"
   }
