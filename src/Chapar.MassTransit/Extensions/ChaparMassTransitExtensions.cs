@@ -166,25 +166,42 @@ public static class ChaparMassTransitExtensions
 
 // ---------- Null Object Patterns ----------
 
+/// <summary>
+/// A no‑op inbox store that always succeeds without any persistence.
+/// Used as a fallback when no real inbox store is registered.
+/// </summary>
 internal class NullInboxStore : IInboxStore
 {
+    /// <inheritdoc />
     public Task<bool> TryReserveAsync(string messageId,
                                       string consumerTypeName,
                                       CancellationToken cancellationToken)
         => Task.FromResult(true);
 
+    /// <inheritdoc />
     public Task<bool> MarkAsProcessedAsync(InboxMessage message, CancellationToken cancellationToken)
         => Task.FromResult(true);
 }
 
+/// <summary>
+/// A no‑op outbox store that silently discards all messages.
+/// Used as a fallback when no real outbox store is registered.
+/// </summary>
 internal class NullOutboxStore : IOutboxStore
 {
+    /// <inheritdoc />
     public Task SaveAsync(OutboxMessage message, CancellationToken cancellationToken = default)
         => Task.CompletedTask;
 
+    /// <inheritdoc />
     public Task<IReadOnlyList<OutboxMessage>> GetUnprocessedMessagesAsync(CancellationToken cancellationToken = default)
         => Task.FromResult<IReadOnlyList<OutboxMessage>>(Array.Empty<OutboxMessage>());
 
+    /// <inheritdoc />
     public Task MarkAsProcessedAsync(Guid messageId, CancellationToken cancellationToken = default)
         => Task.CompletedTask;
+
+    /// <inheritdoc />
+    public Task<int> GetUnprocessedMessagesCountAsync(CancellationToken cancellationToken = default)
+        => Task.FromResult(0);
 }

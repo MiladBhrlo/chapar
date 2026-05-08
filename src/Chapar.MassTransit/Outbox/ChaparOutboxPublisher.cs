@@ -16,12 +16,19 @@ internal sealed class ChaparOutboxPublisher : BackgroundService
 {
     private readonly IServiceScopeFactory _scopeFactory;
     private readonly ILogger<ChaparOutboxPublisher> _logger;
-    private readonly IOutboxMetrics _outboxMetrics;
+    private readonly IOutboxMetrics? _outboxMetrics;
     private readonly TimeSpan _interval;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ChaparOutboxPublisher"/> class.
+    /// </summary>
+    /// <param name="scopeFactory">The scope factory to create scopes for resolving services.</param>
+    /// <param name="logger">The logger instance.</param>
+    /// <param name="outboxMetrics">An optional outbox metrics recorder for monitoring published/failed/pending messages.</param>
+    /// <param name="interval">An optional interval between polling cycles. Defaults to 5 seconds.</param>
     public ChaparOutboxPublisher(IServiceScopeFactory scopeFactory,
                                  ILogger<ChaparOutboxPublisher> logger,
-                                 IOutboxMetrics outboxMetrics,
+                                 IOutboxMetrics? outboxMetrics = null,
                                  TimeSpan? interval = null)
     {
         _scopeFactory = scopeFactory;
@@ -41,7 +48,7 @@ internal sealed class ChaparOutboxPublisher : BackgroundService
                 var publishEndpoint = scope.ServiceProvider.GetRequiredService<IPublishEndpoint>();
 
                 var messages = await outboxStore.GetUnprocessedMessagesAsync(stoppingToken);
-                _outboxMetrics.RecordPendingCount(messages.Count);
+                _outboxMetrics?.RecordPendingCount(messages.Count);
 
                 foreach (var outboxMsg in messages)
                 {
@@ -59,18 +66,22 @@ internal sealed class ChaparOutboxPublisher : BackgroundService
                         await publishEndpoint.Publish(message, messageType, stoppingToken);
 
                         await outboxStore.MarkAsProcessedAsync(outboxMsg.Id, stoppingToken);
-                        _outboxMetrics.RecordPublished();
+                        _outboxMetrics?.RecordPublished();
+                        var remaining = await outboxStore.GetUnprocessedMessagesCountAsync(stoppingToken);
+                        _outboxMetrics?.RecordPendingCount(remaining);
+
                         _logger.LogInformation("Outbox message {Id} published and marked processed.", outboxMsg.Id);
                     }
                     catch (Exception ex)
                     {
+                        _outboxMetrics?.RecordFailed();
                         _logger.LogError(ex, "Failed to publish outbox message {Id}. Will retry later.", outboxMsg.Id);
                     }
                 }
             }
             catch (Exception ex)
             {
-                _outboxMetrics.RecordFailed();
+                _outboxMetrics?.RecordFailed();
                 _logger.LogError(ex, "Outbox publisher cycle failed.");
             }
 

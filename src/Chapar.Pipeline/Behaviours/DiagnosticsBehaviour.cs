@@ -23,11 +23,11 @@ public class DiagnosticsBehaviour<TMessage> : IPipelineBehavior<TMessage>
         using var activity = ActivitySource.StartActivity($"Handle {messageType}", ActivityKind.Internal);
 
         activity?.SetTag("message.type", messageType);
-        if (message is IEvent e) activity?.SetTag("messaging.kind", "event");
-        if (message is ICommand c) activity?.SetTag("messaging.kind", "command");
+        if (message is IEvent) activity?.SetTag("messaging.kind", "event");
+        if (message is ICommand) activity?.SetTag("messaging.kind", "command");
 
         var sw = Stopwatch.StartNew();
-        _logger.LogInformation("Handling {MessageType} started.", typeof(TMessage).Name);
+        _logger.LogInformation("Handling {MessageType} started.", messageType);
 
         try
         {
@@ -41,6 +41,12 @@ public class DiagnosticsBehaviour<TMessage> : IPipelineBehavior<TMessage>
         catch (Exception ex)
         {
             sw.Stop();
+            activity?.AddEvent(new ActivityEvent("exception", tags: new ActivityTagsCollection
+            {
+                { "exception.type", ex.GetType().FullName },
+                { "exception.message", ex.Message },
+                { "exception.stacktrace", ex.ToString() }
+            }));
             activity?.SetStatus(ActivityStatusCode.Error, ex.Message);
             _logger.LogWarning("Handling {MessageType} failed after {ElapsedMilliseconds}ms.",
                                typeof(TMessage).Name,

@@ -350,7 +350,7 @@ Chapar provides built‑in metrics and health checks to monitor the message bus,
 You can register a health check that reports the status of the MassTransit bus and all its endpoints:
 
 ```csharp
-builder.Services.AddHealthChecks().AddChaparMassTransit();
+builder.Services.AddHealthChecks().AddChaparMassTransitHealthCheck();
 ```
 
 This health check is available at the standard `/healthz` endpoint when configured.

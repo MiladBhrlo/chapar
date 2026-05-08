@@ -1,5 +1,6 @@
 using Chapar.Core.Abstractions;
 using Chapar.Core.Inbox;
+using Chapar.Core.Metrics;
 using MassTransit;
 using Microsoft.Extensions.Logging;
 
@@ -13,6 +14,7 @@ public class ChaparConsumerAdapter<T> : IConsumer<T> where T : class, IMessage
 {
     private readonly IMessageHandler<T> _handler;
     private readonly IInboxStore? _inboxStore;
+    private readonly IInboxMetrics? _inboxMetrics;
     private readonly ILogger<ChaparConsumerAdapter<T>> _logger;
 
     /// <summary>
@@ -20,13 +22,16 @@ public class ChaparConsumerAdapter<T> : IConsumer<T> where T : class, IMessage
     /// </summary>
     /// <param name="handler">The message handler to invoke upon successful processing.</param>
     /// <param name="inboxStore">An optional inbox store for idempotent message reservation.</param>
-    /// <param name="logger">The logger instance.</param>
+    /// <param name="inboxMetrics">An optional inbox metrics recorder for monitoring processed/duplicate/failed messages.</param>
+    /// <param name="logger">An optional logger instance.</param>
     public ChaparConsumerAdapter(IMessageHandler<T> handler,
                                  IInboxStore? inboxStore = null,
+                                 IInboxMetrics? inboxMetrics = null,
                                  ILogger<ChaparConsumerAdapter<T>>? logger = null)
     {
         _handler = handler ?? throw new ArgumentNullException(nameof(handler));
         _inboxStore = inboxStore;
+        _inboxMetrics = inboxMetrics;
         _logger = logger ?? Microsoft.Extensions.Logging.Abstractions.NullLogger<ChaparConsumerAdapter<T>>.Instance;
     }
 
@@ -42,6 +47,7 @@ public class ChaparConsumerAdapter<T> : IConsumer<T> where T : class, IMessage
             var reserved = await _inboxStore.TryReserveAsync(messageId, consumerName, context.CancellationToken);
             if (!reserved)
             {
+                _inboxMetrics?.RecordDuplicate();
                 _logger.LogWarning("Message {MessageId} already reserved for consumer {ConsumerName}. Skipping.",
                                    messageId,
                                    consumerName);
@@ -52,6 +58,7 @@ public class ChaparConsumerAdapter<T> : IConsumer<T> where T : class, IMessage
         try
         {
             await _handler.HandleAsync(context.Message, context.CancellationToken);
+            _inboxMetrics?.RecordProcessed();
 
             // Mark as processed only if handler succeeds
             if (_inboxStore is not null)
@@ -84,8 +91,10 @@ public class ChaparConsumerAdapter<T> : IConsumer<T> where T : class, IMessage
                                    messageId,
                                    consumerName);
         }
-        catch
+        catch (Exception ex)
         {
+            _inboxMetrics?.RecordFailed();
+            _logger.LogError(ex, "consumer cycle failed.");
             // If processing fails, do NOT mark as processed. Let MassTransit retry/send to error queue.
             throw;
         }

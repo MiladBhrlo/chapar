@@ -12,8 +12,10 @@ public static class ChaparMassTransitHealthCheckExtensions
     /// Registers a health check that reports the status of the MassTransit bus and its endpoints.
     /// </summary>
     /// <param name="builder">The <see cref="IHealthChecksBuilder"/>.</param>
-    public static IHealthChecksBuilder AddChaparMassTransit(this IHealthChecksBuilder builder)
+    public static IHealthChecksBuilder AddChaparMassTransitHealthCheck(this IHealthChecksBuilder builder)
     {
-        return builder.AddCheck<ChaparHealthCheck>("chapar-masstransit", tags: new[] { "ready", "masstransit" });
+        return builder.AddCheck<ChaparHealthCheck>(
+             "chapar-masstransit",
+             tags: new[] { "ready", "masstransit" });
     }
 }
