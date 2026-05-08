@@ -1,4 +1,4 @@
-﻿using Chapar.Zamin.MassTransit.Extensions;
+using Chapar.Zamin.MassTransit.Extensions;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Zamin.Core.Contracts.ApplicationServices.Events;
@@ -21,7 +21,7 @@ var host = Host.CreateDefaultBuilder(args)
     })
     .Build();
 
-// 🔥 حیاتی: راه‌اندازی Host (فعال‌سازی MassTransit Bus و مصرف‌کننده‌ها)
+// Start the host to activate MassTransit bus and consumers
 await host.StartAsync();
 
 var sender = host.Services.GetRequiredService<ISendMessageBus>();

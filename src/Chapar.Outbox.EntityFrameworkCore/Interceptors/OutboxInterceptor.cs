@@ -1,9 +1,9 @@
+using System.Text.Json;
 using Chapar.Core.Abstractions;
 using Chapar.Core.Outbox;
 using Chapar.Outbox.EntityFrameworkCore.Options;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Options;
-using System.Text.Json;
 
 namespace Chapar.Outbox.EntityFrameworkCore.Interceptors;
 

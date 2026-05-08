@@ -1,9 +1,9 @@
 using Chapar.Core.Abstractions;
 using Chapar.Core.Messages;
+using Microsoft.Extensions.Logging;
 using Zamin.Core.Contracts.ApplicationServices.Events;
 using Zamin.Extensions.MessageBus.Abstractions;
 using Zamin.Extensions.Serializers.Abstractions;
-using Microsoft.Extensions.Logging;
 
 namespace Chapar.Zamin.Consumer;
 

@@ -17,7 +17,7 @@ public static class ChaparZaminMassTransitExtensions
     public static IServiceCollection AddChaparZaminMassTransit(this IServiceCollection services,
                                                                Action<ChaparMassTransitOptions> configure)
     {
-        // 1. جمع‌آوری تمام اسمبلی‌های بارگذاری‌شده برای اسکن Handlerها
+        // Collect all loaded assemblies to scan for handlers
         var assemblies = AppDomain.CurrentDomain.GetAssemblies()
             .Where(a => !a.IsDynamic)
             .ToArray();
@@ -28,10 +28,10 @@ public static class ChaparZaminMassTransitExtensions
             assemblies.Append(zaminAssembly);
         }
 
-        // 2. ثبت MassTransit با اسکن خودکار Handlerها (از جمله ChaparMessageConsumer)
+        // Register MassTransit with automatic handler scanning (including ChaparMessageConsumer)
         services.AddChaparMassTransit(configure, assemblies.ToArray());
 
-        // 3. ثبت Zamin (ISendMessageBus) بدون وابستگی به MassTransit
+        // Register Zamin (ISendMessageBus) without MassTransit dependency
         services.AddChaparZamin();
 
         return services;

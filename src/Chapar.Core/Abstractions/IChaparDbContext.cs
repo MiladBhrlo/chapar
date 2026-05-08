@@ -1,4 +1,4 @@
-﻿namespace Chapar.Core.Abstractions;
+namespace Chapar.Core.Abstractions;
 
 /// <summary>
 /// Marker interface for the DbContext used by Chapar stores.

@@ -1,5 +1,3 @@
-using Chapar.Core.Abstractions;
-using Chapar.Core.Messages;
 using Chapar.Zamin.Consumer;
 using Chapar.Zamin.SendMessageBus;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,7 +15,7 @@ public static class ChaparZaminExtensions
     {
         // Replace the default ISendMessageBus (used by Outbox polling publisher)
         services.AddScoped<ISendMessageBus, ZaminChaparSendMessageBus>();
-        
+
         return services;
     }
 }
