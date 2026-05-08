@@ -71,13 +71,14 @@
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
 
-<p>`	ext</p>
 <hr>
 <p>title: Chapar – The Persian Courier for .NET Messaging</p>
 <hr>
 <h1 id="-chapar">🐎 Chapar</h1>
 <h3 id="the-clean-extensible-and-businessfriendly-messaging-abstraction-for-net">The Clean, Extensible, and Business‑Friendly Messaging Abstraction for .NET</h3>
-<p><code>	ext dotnet add package Chapar dotnet add package Chapar.MassTransit </code></p>
+<pre><code class="lang-text">dotnet add package Chapar
+dotnet add package Chapar.MassTransit
+</code></pre>
 <hr>
 <h2 id="why-chapar">Why Chapar?</h2>
 <ul>
@@ -92,22 +93,23 @@
 </blockquote>
 <hr>
 <h2 id="quick-start">Quick Start</h2>
-<p>`csharp
-// 1. Define a message
-public record UserRegistered(Guid UserId, string Email) : IEvent;</p>
-<p>// 2. Publish
+<pre><code class="lang-csharp">// 1. Define a message
+public record UserRegistered(Guid UserId, string Email) : IEvent;
+
+// 2. Publish
 var bus = provider.GetRequiredServiceIChaparBus();
-await bus.PublishAsync(new UserRegistered(Guid.NewGuid(), &quot;user@example.com&quot;));</p>
-<p>// 3. Handle
+await bus.PublishAsync(new UserRegistered(Guid.NewGuid(), &quot;user@example.com&quot;));
+
+// 3. Handle
 public class UserRegisteredHandler : IMessageHandlerUserRegistered
 {
-public Task HandleAsync(UserRegistered message, CancellationToken ct)
-{
-Console.WriteLine($&quot;User {message.Email} registered.&quot;);
-return Task.CompletedTask;
+    public Task HandleAsync(UserRegistered message, CancellationToken ct)
+    {
+        Console.WriteLine($&quot;User {message.Email} registered.&quot;);
+        return Task.CompletedTask;
+    }
 }
-}
-`</p>
+</code></pre>
 <hr>
 <h2 id="explore-the-documentation">Explore the Documentation</h2>
 <table>
