@@ -1,4 +1,5 @@
 using Chapar.Core.Abstractions;
+using Chapar.Core.Cleanup;
 using Chapar.Core.Inbox;
 using Chapar.Inbox.EntityFrameworkCore.Options;
 using Microsoft.EntityFrameworkCore;
@@ -7,11 +8,11 @@ using Microsoft.Extensions.Options;
 namespace Chapar.Inbox.EntityFrameworkCore.Stores;
 
 /// <summary>
-/// Entity Framework Core implementation of <see cref="IInboxStore"/>.
+/// Entity Framework Core implementation of <see cref="IInboxStore"/> and <see cref="ICleanupStore"/>.
 /// Relies on a unique database constraint on (MessageId, ConsumerTypeName) to provide atomic reservations,
 /// and supports both at‑most‑once and at‑least‑once delivery via <see cref="ChaparInboxOptions"/>.
 /// </summary>
-public sealed class EfInboxStore : IInboxStore
+public sealed class EfInboxStore : IInboxStore, ICleanupStore
 {
     private readonly DbContext _dbContext;
     private readonly ChaparInboxOptions _options;
@@ -93,6 +94,13 @@ public sealed class EfInboxStore : IInboxStore
 
         return updated > 0;
     }
+
+    /// <inheritdoc />
+    public async Task<int> DeleteProcessedAsync(DateTime olderThan,
+                                                CancellationToken cancellationToken = default) 
+        => await _dbContext.Set<InboxMessageEntity>()
+            .Where(m => m.IsProcessed && m.ReceivedAt < olderThan)
+            .ExecuteDeleteAsync(cancellationToken);
 
     /// <summary>
     /// Checks whether the <see cref="DbUpdateException"/> was caused by a unique constraint violation.

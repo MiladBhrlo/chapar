@@ -1,13 +1,14 @@
 using Chapar.Core.Abstractions;
+using Chapar.Core.Cleanup;
 using Chapar.Core.Outbox;
 using Microsoft.EntityFrameworkCore;
 
 namespace Chapar.Outbox.EntityFrameworkCore.Stores;
 
 /// <summary>
-/// Implements <see cref="IOutboxStore"/> using Entity Framework Core.
+/// Entity Framework Core implementation of <see cref="IOutboxStore"/> and <see cref="ICleanupStore"/>.
 /// </summary>
-public sealed class EfOutboxStore : IOutboxStore
+public sealed class EfOutboxStore : IOutboxStore, ICleanupStore
 {
     private readonly DbContext _dbContext;
 
@@ -79,6 +80,14 @@ public sealed class EfOutboxStore : IOutboxStore
             entity.IsProcessed = true;
             await _dbContext.SaveChangesAsync(cancellationToken);
         }
+    }
+
+    /// <inheritdoc />
+    public async Task<int> DeleteProcessedAsync(DateTime olderThan, CancellationToken cancellationToken = default)
+    {
+        return await _dbContext.Set<OutboxMessageEntity>()
+            .Where(m => m.IsProcessed && m.OccurredOn < olderThan)
+            .ExecuteDeleteAsync(cancellationToken);
     }
 }
 
