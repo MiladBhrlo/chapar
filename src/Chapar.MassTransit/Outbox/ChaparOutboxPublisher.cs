@@ -1,4 +1,5 @@
 using System.Text.Json;
+using Chapar.Core.Metrics;
 using Chapar.Core.Outbox;
 using MassTransit;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,12 +16,17 @@ internal sealed class ChaparOutboxPublisher : BackgroundService
 {
     private readonly IServiceScopeFactory _scopeFactory;
     private readonly ILogger<ChaparOutboxPublisher> _logger;
+    private readonly IOutboxMetrics _outboxMetrics;
     private readonly TimeSpan _interval;
 
-    public ChaparOutboxPublisher(IServiceScopeFactory scopeFactory, ILogger<ChaparOutboxPublisher> logger, TimeSpan? interval = null)
+    public ChaparOutboxPublisher(IServiceScopeFactory scopeFactory,
+                                 ILogger<ChaparOutboxPublisher> logger,
+                                 IOutboxMetrics outboxMetrics,
+                                 TimeSpan? interval = null)
     {
         _scopeFactory = scopeFactory;
         _logger = logger;
+        _outboxMetrics = outboxMetrics;
         _interval = interval ?? TimeSpan.FromSeconds(5);
     }
 
@@ -35,6 +41,7 @@ internal sealed class ChaparOutboxPublisher : BackgroundService
                 var publishEndpoint = scope.ServiceProvider.GetRequiredService<IPublishEndpoint>();
 
                 var messages = await outboxStore.GetUnprocessedMessagesAsync(stoppingToken);
+                _outboxMetrics.RecordPendingCount(messages.Count);
 
                 foreach (var outboxMsg in messages)
                 {
@@ -52,6 +59,7 @@ internal sealed class ChaparOutboxPublisher : BackgroundService
                         await publishEndpoint.Publish(message, messageType, stoppingToken);
 
                         await outboxStore.MarkAsProcessedAsync(outboxMsg.Id, stoppingToken);
+                        _outboxMetrics.RecordPublished();
                         _logger.LogInformation("Outbox message {Id} published and marked processed.", outboxMsg.Id);
                     }
                     catch (Exception ex)
@@ -62,6 +70,7 @@ internal sealed class ChaparOutboxPublisher : BackgroundService
             }
             catch (Exception ex)
             {
+                _outboxMetrics.RecordFailed();
                 _logger.LogError(ex, "Outbox publisher cycle failed.");
             }
 

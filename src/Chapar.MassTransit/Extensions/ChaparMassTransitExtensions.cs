@@ -2,10 +2,12 @@ using System.Reflection;
 using Chapar.Core.Abstractions;
 using Chapar.Core.Attributes;
 using Chapar.Core.Inbox;
+using Chapar.Core.Metrics;
 using Chapar.Core.Outbox;
 using Chapar.MassTransit.Bus;
 using Chapar.MassTransit.Consumers;
 using Chapar.MassTransit.Filters;
+using Chapar.MassTransit.Metrics;
 using Chapar.MassTransit.Options;
 using Chapar.MassTransit.Outbox;
 using MassTransit;
@@ -91,6 +93,9 @@ public static class ChaparMassTransitExtensions
 
         services.AddScoped<IChaparBus, MassTransitChaparBus>();
         services.AddHostedService<ChaparOutboxPublisher>();
+
+        services.TryAddSingleton<IInboxMetrics, InboxMetrics>();
+        services.TryAddSingleton<IOutboxMetrics, OutboxMetrics>();
 
         return services;
     }
