@@ -3,6 +3,7 @@ using Chapar.Core.Inbox;
 using Chapar.Core.Metrics;
 using MassTransit;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 
 namespace Chapar.MassTransit.Consumers;
 
@@ -15,7 +16,7 @@ public class ChaparConsumerAdapter<T> : IConsumer<T> where T : class, IMessage
     private readonly IMessageHandler<T> _handler;
     private readonly IInboxStore? _inboxStore;
     private readonly IInboxMetrics? _inboxMetrics;
-    private readonly Adapters.MessageHeaders? _contextAccessor;
+    private readonly IMessageContextAccessor? _contextAccessor;
     private readonly ILogger<ChaparConsumerAdapter<T>> _logger;
 
     /// <summary>
@@ -29,14 +30,14 @@ public class ChaparConsumerAdapter<T> : IConsumer<T> where T : class, IMessage
     public ChaparConsumerAdapter(IMessageHandler<T> handler,
                                  IInboxStore? inboxStore = null,
                                  IInboxMetrics? inboxMetrics = null,
-                                 Adapters.MessageHeaders? contextAccessor = null,
+                                 IMessageContextAccessor? contextAccessor = null,
                                  ILogger<ChaparConsumerAdapter<T>>? logger = null)
     {
         _handler = handler ?? throw new ArgumentNullException(nameof(handler));
         _inboxStore = inboxStore;
         _inboxMetrics = inboxMetrics;
         _contextAccessor = contextAccessor;
-        _logger = logger ?? Microsoft.Extensions.Logging.Abstractions.NullLogger<ChaparConsumerAdapter<T>>.Instance;
+        _logger = logger ?? NullLogger<ChaparConsumerAdapter<T>>.Instance;
     }
 
     /// <inheritdoc />

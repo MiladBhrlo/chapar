@@ -208,6 +208,29 @@ Register it:
 services.AddChaparPipelineBehavior(typeof(LoggingBehaviour<>));
 ```
 
+### 5.4 Origin Validation
+
+Chapar provides a built‑in pipeline behavior that validates the origin of incoming messages.
+Apply `[AllowedOrigin("OrderService")]` on your handler, and add the behavior to the pipeline:
+
+```csharp
+// The handler
+[AllowedOrigin("OrderService")]
+public class FinalizeInvoiceHandler : IMessageHandler<OrderPlaced> { ... }
+
+// Registration
+services.AddChaparPipeline(); // OriginValidationBehaviour is added automatically
+```
+
+By default, the behavior reads the `Origin` header. Set the origin header when publishing:
+
+```csharp
+await `bus`.PublishAsync(new OrderPlaced(), new Dictionary<string, object>
+{
+    ["Origin"] = "OrderService"
+});
+```
+
 ---
 
 ## 6. Headers, Multi‑Tenancy, and Security

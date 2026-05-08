@@ -20,7 +20,7 @@ public static class HeaderSanitizer
     };
 
     // Characters that are commonly used in header injection attacks.
-    private static readonly char[] DangerousChars = { '\r', '\n', '\0' };
+    public static readonly char[] DangerousChars = { '\r', '\n', '\0' };
 
     /// <summary>
     /// Sanitizes a dictionary of headers by:

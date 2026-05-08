@@ -2,6 +2,7 @@ using Chapar.Core.Abstractions;
 using Chapar.Core.Attributes;
 using Chapar.Core.Exceptions;
 using Chapar.Core.Pipeline;
+using Chapar.Core.Utilities;
 using Microsoft.Extensions.Logging;
 
 namespace Chapar.Pipeline.Behaviours;
@@ -18,6 +19,10 @@ public sealed class OriginValidationBehaviour<TMessage> : IPipelineBehavior<TMes
     private readonly IMessageContextAccessor? _contextAccessor;
     private readonly ILogger<OriginValidationBehaviour<TMessage>> _logger;
     private readonly string _headerName;
+
+    // Cache the attribute per message type to avoid reflection on every invocation.
+    private static readonly AllowedOriginAttribute? _CachedAttribute =
+        Attribute.GetCustomAttribute(typeof(TMessage), typeof(AllowedOriginAttribute)) as AllowedOriginAttribute;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="OriginValidationBehaviour{TMessage}"/> class.
@@ -39,26 +44,36 @@ public sealed class OriginValidationBehaviour<TMessage> : IPipelineBehavior<TMes
                                   Func<Task> next,
                                   CancellationToken cancellationToken)
     {
-        if (_contextAccessor?.Headers is { } headers &&
-            Attribute.GetCustomAttribute(typeof(TMessage), typeof(AllowedOriginAttribute)) is AllowedOriginAttribute attr)
+        if (_CachedAttribute is null)
         {
-            var actualOrigin = headers.TryGetValue(_headerName, out var value) ? value?.ToString() : null;
-
-            if (!string.Equals(attr.Origin, actualOrigin, StringComparison.OrdinalIgnoreCase))
-            {
-                _logger.LogWarning("Origin validation failed for {MessageType}. Expected '{Expected}', got '{Actual}'.",
-                                   typeof(TMessage).Name,
-                                   attr.Origin,
-                                   actualOrigin ?? "(null)");
-
-                throw new OriginValidationException(attr.Origin, actualOrigin);
-            }
-
-            _logger.LogDebug("Origin validated for {MessageType}: {Origin}.",
-                             typeof(TMessage).Name,
-                             actualOrigin);
+            // No attribute → nothing to validate
+            await next();
+            return;
         }
 
+        // Fail closed: if attribute is present but headers are unavailable, reject the message.
+        if (_contextAccessor?.Headers is not { } headers)
+        {
+            _logger.LogError(
+                "Origin validation failed for {MessageType}. [AllowedOrigin] is present but message headers are unavailable.",
+                typeof(TMessage).Name);
+
+            throw new OriginValidationException(_CachedAttribute.Origin, null);
+        }
+
+        var rawOrigin = headers.TryGetValue(_headerName, out var value) ? value?.ToString() : null;
+        var actualOrigin = new string(rawOrigin?.Where(c => !HeaderSanitizer.DangerousChars.Contains(c)).ToArray() ?? []);
+
+        if (!string.Equals(_CachedAttribute.Origin, actualOrigin, StringComparison.OrdinalIgnoreCase))
+        {
+            _logger.LogWarning(
+                "Origin validation failed for {MessageType}. Expected '{Expected}', got '{Actual}'.",
+                typeof(TMessage).Name, _CachedAttribute.Origin, actualOrigin);
+
+            throw new OriginValidationException(_CachedAttribute.Origin, actualOrigin);
+        }
+
+        _logger.LogDebug("Origin validated for {MessageType}: {Origin}.", typeof(TMessage).Name, actualOrigin);
         await next();
     }
 }
