@@ -56,8 +56,9 @@ public class UserRegisteredHandler : IMessageHandler`UserRegistered`
 | Section | Description |
 | :--- | :--- |
 | [Complete Guide](docs/guide.md) | Walk through every scenario from publish/subscribe to advanced Outbox/Inbox, Pipeline, and Zamin integration. |
-| [API Reference](api/) | Browse the full API surface with every class, interface, and method documented. |
 | [GitHub Repository](https://github.com/MiladBhrlo/chapar) | Source code, issue tracker, and contribution guidelines. |
+
+**Full API Reference** is just a click away — use the **API Reference** tab in the top navigation bar.
 
 ---
 

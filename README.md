@@ -60,7 +60,7 @@ public class OrderPlacedHandler : IMessageHandler<OrderPlaced>
 ## Documentation
 
 - [Complete Guide](docs/guide.md) – from simple publish/subscribe to advanced Outbox/Inbox, Pipeline, and Zamin integration.
-- [API Reference](https://github.com/MiladBhrlo/chapar/wiki) (coming soon)
+- [API Reference](https://miladbhrlo.github.io/chapar/api/)
 
 ## Roadmap / Backlog
 
