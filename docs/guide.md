@@ -95,6 +95,55 @@ public class SendWelcomeEmailHandler : IMessageHandler<SendWelcomeEmail>
 await `bus`.SendAsync(new SendWelcomeEmail(user.Id), "email-service");
 ```
 
+### 2.3 Using the `[Exchange]` Attribute
+
+You can control the exchange topology directly from your message or handler classes.
+
+#### Publisher Side
+
+Apply `[Exchange]` on your message to send it to one or more exchanges:
+
+```csharp
+[Exchange("order-events", Type = ExchangeType.Direct, RoutingKey = "created")]
+public record OrderPlaced(Guid OrderId) : IEvent;
+```
+
+When Published, the message is sent to the `order-events` exchange with the specified routing key. Without `[Exchange]`, the default fanout exchange is used.
+
+#### Consumer Side
+
+Apply `[Exchange]` on your handler to bind its queue to one or more exchanges:
+
+```csharp
+[QueueName("order-service")]
+[Exchange("order-events", Type = ExchangeType.Direct, RoutingKey = "created")]
+[Exchange("notification-events", Type = ExchangeType.Fanout)]
+public class OrderPlacedHandler : IMessageHandler<OrderPlaced> { ... }
+```
+
+The handler's queue (`order-service`) is bound to both exchanges. It receives any message routed to those exchanges that matches the routing key.
+
+***
+
+### Global DefaultExchanges
+
+You can configure exchanges that are automatically bound to every consumer queue
+that does not already specify its own `[Exchange]` or `[QueueName]` attribute:
+
+```csharp
+services.AddChaparMassTransit(opt =>
+{
+    opt.DefaultExchanges.Add(new ExchangeConfig
+    {
+        Name = "global-events",
+        Type = ExchangeType.Topic,
+        RoutingKey = "events.#"
+    });
+});
+```
+
+This setting is ignored for handlers that carry an explicit `[Exchange]` or `[QueueName]`.
+
 ***
 
 ## 3. Outbox Pattern (Guaranteed Delivery)
