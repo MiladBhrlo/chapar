@@ -140,6 +140,37 @@ public class SendWelcomeEmailHandler : IMessageHandler&lt;SendWelcomeEmail&gt;
 <h3 id="22-sending">2.2 Sending</h3>
 <pre><code class="lang-csharp">await `bus`.SendAsync(new SendWelcomeEmail(user.Id), &quot;email-service&quot;);
 </code></pre>
+<h3 id="23-using-the-exchange-attribute">2.3 Using the <code>[Exchange]</code> Attribute</h3>
+<p>You can control the exchange topology directly from your message or handler classes.</p>
+<h4 id="publisher-side">Publisher Side</h4>
+<p>Apply <code>[Exchange]</code> on your message to send it to one or more exchanges:</p>
+<pre><code class="lang-csharp">[Exchange(&quot;order-events&quot;, Type = ExchangeType.Direct, RoutingKey = &quot;created&quot;)]
+public record OrderPlaced(Guid OrderId) : IEvent;
+</code></pre>
+<p>When Published, the message is sent to the <code>order-events</code> exchange with the specified routing key. Without <code>[Exchange]</code>, the default fanout exchange is used.</p>
+<h4 id="consumer-side">Consumer Side</h4>
+<p>Apply <code>[Exchange]</code> on your handler to bind its queue to one or more exchanges:</p>
+<pre><code class="lang-csharp">[QueueName(&quot;order-service&quot;)]
+[Exchange(&quot;order-events&quot;, Type = ExchangeType.Direct, RoutingKey = &quot;created&quot;)]
+[Exchange(&quot;notification-events&quot;, Type = ExchangeType.Fanout)]
+public class OrderPlacedHandler : IMessageHandler&lt;OrderPlaced&gt; { ... }
+</code></pre>
+<p>The handler's queue (<code>order-service</code>) is bound to both exchanges. It receives any message routed to those exchanges that matches the routing key.</p>
+<hr>
+<h3 id="global-defaultexchanges">Global DefaultExchanges</h3>
+<p>You can configure exchanges that are automatically bound to every consumer queue
+that does not already specify its own <code>[Exchange]</code> or <code>[QueueName]</code> attribute:</p>
+<pre><code class="lang-csharp">services.AddChaparMassTransit(opt =&gt;
+{
+    opt.DefaultExchanges.Add(new ExchangeConfig
+    {
+        Name = &quot;global-events&quot;,
+        Type = ExchangeType.Topic,
+        RoutingKey = &quot;events.#&quot;
+    });
+});
+</code></pre>
+<p>This setting is ignored for handlers that carry an explicit <code>[Exchange]</code> or <code>[QueueName]</code>.</p>
 <hr>
 <h2 id="3-outbox-pattern-guaranteed-delivery">3. Outbox Pattern (Guaranteed Delivery)</h2>
 <h3 id="31-install">3.1 Install</h3>

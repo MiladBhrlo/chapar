@@ -324,6 +324,100 @@ references:
   isSpec: "True"
   fullName: Chapar.Core.Attributes.AllowedOriginAttribute.Origin
   nameWithType: AllowedOriginAttribute.Origin
+- uid: Chapar.Core.Attributes.ExchangeAttribute
+  name: ExchangeAttribute
+  href: api/Chapar.Core.Attributes.ExchangeAttribute.html
+  commentId: T:Chapar.Core.Attributes.ExchangeAttribute
+  fullName: Chapar.Core.Attributes.ExchangeAttribute
+  nameWithType: ExchangeAttribute
+- uid: Chapar.Core.Attributes.ExchangeAttribute.#ctor(System.String)
+  name: ExchangeAttribute(string)
+  href: api/Chapar.Core.Attributes.ExchangeAttribute.html#Chapar_Core_Attributes_ExchangeAttribute__ctor_System_String_
+  commentId: M:Chapar.Core.Attributes.ExchangeAttribute.#ctor(System.String)
+  name.vb: New(String)
+  fullName: Chapar.Core.Attributes.ExchangeAttribute.ExchangeAttribute(string)
+  fullName.vb: Chapar.Core.Attributes.ExchangeAttribute.New(String)
+  nameWithType: ExchangeAttribute.ExchangeAttribute(string)
+  nameWithType.vb: ExchangeAttribute.New(String)
+- uid: Chapar.Core.Attributes.ExchangeAttribute.#ctor*
+  name: ExchangeAttribute
+  href: api/Chapar.Core.Attributes.ExchangeAttribute.html#Chapar_Core_Attributes_ExchangeAttribute__ctor_
+  commentId: Overload:Chapar.Core.Attributes.ExchangeAttribute.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: Chapar.Core.Attributes.ExchangeAttribute.ExchangeAttribute
+  fullName.vb: Chapar.Core.Attributes.ExchangeAttribute.New
+  nameWithType: ExchangeAttribute.ExchangeAttribute
+  nameWithType.vb: ExchangeAttribute.New
+- uid: Chapar.Core.Attributes.ExchangeAttribute.Name
+  name: Name
+  href: api/Chapar.Core.Attributes.ExchangeAttribute.html#Chapar_Core_Attributes_ExchangeAttribute_Name
+  commentId: P:Chapar.Core.Attributes.ExchangeAttribute.Name
+  fullName: Chapar.Core.Attributes.ExchangeAttribute.Name
+  nameWithType: ExchangeAttribute.Name
+- uid: Chapar.Core.Attributes.ExchangeAttribute.Name*
+  name: Name
+  href: api/Chapar.Core.Attributes.ExchangeAttribute.html#Chapar_Core_Attributes_ExchangeAttribute_Name_
+  commentId: Overload:Chapar.Core.Attributes.ExchangeAttribute.Name
+  isSpec: "True"
+  fullName: Chapar.Core.Attributes.ExchangeAttribute.Name
+  nameWithType: ExchangeAttribute.Name
+- uid: Chapar.Core.Attributes.ExchangeAttribute.RoutingKey
+  name: RoutingKey
+  href: api/Chapar.Core.Attributes.ExchangeAttribute.html#Chapar_Core_Attributes_ExchangeAttribute_RoutingKey
+  commentId: P:Chapar.Core.Attributes.ExchangeAttribute.RoutingKey
+  fullName: Chapar.Core.Attributes.ExchangeAttribute.RoutingKey
+  nameWithType: ExchangeAttribute.RoutingKey
+- uid: Chapar.Core.Attributes.ExchangeAttribute.RoutingKey*
+  name: RoutingKey
+  href: api/Chapar.Core.Attributes.ExchangeAttribute.html#Chapar_Core_Attributes_ExchangeAttribute_RoutingKey_
+  commentId: Overload:Chapar.Core.Attributes.ExchangeAttribute.RoutingKey
+  isSpec: "True"
+  fullName: Chapar.Core.Attributes.ExchangeAttribute.RoutingKey
+  nameWithType: ExchangeAttribute.RoutingKey
+- uid: Chapar.Core.Attributes.ExchangeAttribute.Type
+  name: Type
+  href: api/Chapar.Core.Attributes.ExchangeAttribute.html#Chapar_Core_Attributes_ExchangeAttribute_Type
+  commentId: P:Chapar.Core.Attributes.ExchangeAttribute.Type
+  fullName: Chapar.Core.Attributes.ExchangeAttribute.Type
+  nameWithType: ExchangeAttribute.Type
+- uid: Chapar.Core.Attributes.ExchangeAttribute.Type*
+  name: Type
+  href: api/Chapar.Core.Attributes.ExchangeAttribute.html#Chapar_Core_Attributes_ExchangeAttribute_Type_
+  commentId: Overload:Chapar.Core.Attributes.ExchangeAttribute.Type
+  isSpec: "True"
+  fullName: Chapar.Core.Attributes.ExchangeAttribute.Type
+  nameWithType: ExchangeAttribute.Type
+- uid: Chapar.Core.Attributes.ExchangeType
+  name: ExchangeType
+  href: api/Chapar.Core.Attributes.ExchangeType.html
+  commentId: T:Chapar.Core.Attributes.ExchangeType
+  fullName: Chapar.Core.Attributes.ExchangeType
+  nameWithType: ExchangeType
+- uid: Chapar.Core.Attributes.ExchangeType.Direct
+  name: Direct
+  href: api/Chapar.Core.Attributes.ExchangeType.html#Chapar_Core_Attributes_ExchangeType_Direct
+  commentId: F:Chapar.Core.Attributes.ExchangeType.Direct
+  fullName: Chapar.Core.Attributes.ExchangeType.Direct
+  nameWithType: ExchangeType.Direct
+- uid: Chapar.Core.Attributes.ExchangeType.Fanout
+  name: Fanout
+  href: api/Chapar.Core.Attributes.ExchangeType.html#Chapar_Core_Attributes_ExchangeType_Fanout
+  commentId: F:Chapar.Core.Attributes.ExchangeType.Fanout
+  fullName: Chapar.Core.Attributes.ExchangeType.Fanout
+  nameWithType: ExchangeType.Fanout
+- uid: Chapar.Core.Attributes.ExchangeType.Headers
+  name: Headers
+  href: api/Chapar.Core.Attributes.ExchangeType.html#Chapar_Core_Attributes_ExchangeType_Headers
+  commentId: F:Chapar.Core.Attributes.ExchangeType.Headers
+  fullName: Chapar.Core.Attributes.ExchangeType.Headers
+  nameWithType: ExchangeType.Headers
+- uid: Chapar.Core.Attributes.ExchangeType.Topic
+  name: Topic
+  href: api/Chapar.Core.Attributes.ExchangeType.html#Chapar_Core_Attributes_ExchangeType_Topic
+  commentId: F:Chapar.Core.Attributes.ExchangeType.Topic
+  fullName: Chapar.Core.Attributes.ExchangeType.Topic
+  nameWithType: ExchangeType.Topic
 - uid: Chapar.Core.Attributes.QueueNameAttribute
   name: QueueNameAttribute
   href: api/Chapar.Core.Attributes.QueueNameAttribute.html
@@ -1401,6 +1495,19 @@ references:
   commentId: T:Chapar.MassTransit.Options.ChaparMassTransitOptions
   fullName: Chapar.MassTransit.Options.ChaparMassTransitOptions
   nameWithType: ChaparMassTransitOptions
+- uid: Chapar.MassTransit.Options.ChaparMassTransitOptions.DefaultExchanges
+  name: DefaultExchanges
+  href: api/Chapar.MassTransit.Options.ChaparMassTransitOptions.html#Chapar_MassTransit_Options_ChaparMassTransitOptions_DefaultExchanges
+  commentId: P:Chapar.MassTransit.Options.ChaparMassTransitOptions.DefaultExchanges
+  fullName: Chapar.MassTransit.Options.ChaparMassTransitOptions.DefaultExchanges
+  nameWithType: ChaparMassTransitOptions.DefaultExchanges
+- uid: Chapar.MassTransit.Options.ChaparMassTransitOptions.DefaultExchanges*
+  name: DefaultExchanges
+  href: api/Chapar.MassTransit.Options.ChaparMassTransitOptions.html#Chapar_MassTransit_Options_ChaparMassTransitOptions_DefaultExchanges_
+  commentId: Overload:Chapar.MassTransit.Options.ChaparMassTransitOptions.DefaultExchanges
+  isSpec: "True"
+  fullName: Chapar.MassTransit.Options.ChaparMassTransitOptions.DefaultExchanges
+  nameWithType: ChaparMassTransitOptions.DefaultExchanges
 - uid: Chapar.MassTransit.Options.ChaparMassTransitOptions.DefaultHeaders
   name: DefaultHeaders
   href: api/Chapar.MassTransit.Options.ChaparMassTransitOptions.html#Chapar_MassTransit_Options_ChaparMassTransitOptions_DefaultHeaders
@@ -1479,6 +1586,51 @@ references:
   isSpec: "True"
   fullName: Chapar.MassTransit.Options.ChaparMassTransitOptions.VirtualHost
   nameWithType: ChaparMassTransitOptions.VirtualHost
+- uid: Chapar.MassTransit.Options.ExchangeConfig
+  name: ExchangeConfig
+  href: api/Chapar.MassTransit.Options.ExchangeConfig.html
+  commentId: T:Chapar.MassTransit.Options.ExchangeConfig
+  fullName: Chapar.MassTransit.Options.ExchangeConfig
+  nameWithType: ExchangeConfig
+- uid: Chapar.MassTransit.Options.ExchangeConfig.Name
+  name: Name
+  href: api/Chapar.MassTransit.Options.ExchangeConfig.html#Chapar_MassTransit_Options_ExchangeConfig_Name
+  commentId: P:Chapar.MassTransit.Options.ExchangeConfig.Name
+  fullName: Chapar.MassTransit.Options.ExchangeConfig.Name
+  nameWithType: ExchangeConfig.Name
+- uid: Chapar.MassTransit.Options.ExchangeConfig.Name*
+  name: Name
+  href: api/Chapar.MassTransit.Options.ExchangeConfig.html#Chapar_MassTransit_Options_ExchangeConfig_Name_
+  commentId: Overload:Chapar.MassTransit.Options.ExchangeConfig.Name
+  isSpec: "True"
+  fullName: Chapar.MassTransit.Options.ExchangeConfig.Name
+  nameWithType: ExchangeConfig.Name
+- uid: Chapar.MassTransit.Options.ExchangeConfig.RoutingKey
+  name: RoutingKey
+  href: api/Chapar.MassTransit.Options.ExchangeConfig.html#Chapar_MassTransit_Options_ExchangeConfig_RoutingKey
+  commentId: P:Chapar.MassTransit.Options.ExchangeConfig.RoutingKey
+  fullName: Chapar.MassTransit.Options.ExchangeConfig.RoutingKey
+  nameWithType: ExchangeConfig.RoutingKey
+- uid: Chapar.MassTransit.Options.ExchangeConfig.RoutingKey*
+  name: RoutingKey
+  href: api/Chapar.MassTransit.Options.ExchangeConfig.html#Chapar_MassTransit_Options_ExchangeConfig_RoutingKey_
+  commentId: Overload:Chapar.MassTransit.Options.ExchangeConfig.RoutingKey
+  isSpec: "True"
+  fullName: Chapar.MassTransit.Options.ExchangeConfig.RoutingKey
+  nameWithType: ExchangeConfig.RoutingKey
+- uid: Chapar.MassTransit.Options.ExchangeConfig.Type
+  name: Type
+  href: api/Chapar.MassTransit.Options.ExchangeConfig.html#Chapar_MassTransit_Options_ExchangeConfig_Type
+  commentId: P:Chapar.MassTransit.Options.ExchangeConfig.Type
+  fullName: Chapar.MassTransit.Options.ExchangeConfig.Type
+  nameWithType: ExchangeConfig.Type
+- uid: Chapar.MassTransit.Options.ExchangeConfig.Type*
+  name: Type
+  href: api/Chapar.MassTransit.Options.ExchangeConfig.html#Chapar_MassTransit_Options_ExchangeConfig_Type_
+  commentId: Overload:Chapar.MassTransit.Options.ExchangeConfig.Type
+  isSpec: "True"
+  fullName: Chapar.MassTransit.Options.ExchangeConfig.Type
+  nameWithType: ExchangeConfig.Type
 - uid: Chapar.MassTransit.Options.ResilienceOptions
   name: ResilienceOptions
   href: api/Chapar.MassTransit.Options.ResilienceOptions.html

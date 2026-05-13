@@ -232,6 +232,34 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Attributes.ExchangeAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Attributes.ExchangeAttribute.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Attributes.ExchangeAttribute",
+      "Summary": "<p sourcefile=\"api/Chapar.Core.Attributes.ExchangeAttribute.yml\" sourcestartlinenumber=\"1\">Specifies that a message should be published to a specific exchange,\nor that a handler should consume from a specific exchange.\nCan be applied multiple times for complex routing topologies.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Attributes.ExchangeType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Attributes.ExchangeType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Attributes.ExchangeType",
+      "Summary": "<p sourcefile=\"api/Chapar.Core.Attributes.ExchangeType.yml\" sourcestartlinenumber=\"1\">Represents the type of an exchange in RabbitMQ.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Attributes.QueueNameAttribute.yml",
       "output": {
         ".html": {
@@ -775,6 +803,20 @@
       "IsMRef": true,
       "Title": "Chapar.MassTransit.Options.ChaparMassTransitOptions",
       "Summary": "<p sourcefile=\"api/Chapar.MassTransit.Options.ChaparMassTransitOptions.yml\" sourcestartlinenumber=\"1\">Configuration options for the MassTransit‑based Chapar bus.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.MassTransit.Options.ExchangeConfig.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.MassTransit.Options.ExchangeConfig.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.MassTransit.Options.ExchangeConfig",
+      "Summary": "<p sourcefile=\"api/Chapar.MassTransit.Options.ExchangeConfig.yml\" sourcestartlinenumber=\"1\">Configuration for a default exchange binding.</p>\n"
     },
     {
       "type": "ManagedReference",
