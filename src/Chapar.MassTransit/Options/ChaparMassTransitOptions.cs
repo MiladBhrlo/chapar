@@ -27,4 +27,10 @@ public class ChaparMassTransitOptions
     /// Settings for retry and circuit breaker policies applied by MassTransit.
     /// </summary>
     public ResilienceOptions Resilience { get; set; } = new();
+
+    /// <summary>
+    /// Default exchanges that will be bound to every consumer queue
+    /// (unless the handler specifies its own [Exchange] attribute).
+    /// </summary>
+    public List<ExchangeConfig> DefaultExchanges { get; set; } = new();
 }
