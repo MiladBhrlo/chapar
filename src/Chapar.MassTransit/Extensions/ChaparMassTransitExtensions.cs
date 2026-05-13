@@ -97,7 +97,7 @@ public static class ChaparMassTransitExtensions
                         {
                             rmqEndpoint.Bind(exchangeConfig.Name, binding =>
                             {
-                                binding.ExchangeType = exchangeConfig.Type.ToString().ToLower();
+                                binding.ExchangeType = exchangeConfig.Type.ToString().ToLowerInvariant();
                                 binding.RoutingKey = exchangeConfig.RoutingKey ?? "";
                             });
                         }
@@ -105,6 +105,7 @@ public static class ChaparMassTransitExtensions
                 });
 
                 // Handlers with [QueueName] but without [Exchange] – legacy behaviour.
+                // DefaultExchanges are NOT applied here because the handler explicitly defines its queue.
                 foreach (var (messageType, queueName) in customQueueMappings)
                 {
                     var adapterType = typeof(ChaparConsumerAdapter<>).MakeGenericType(messageType);
@@ -118,15 +119,25 @@ public static class ChaparMassTransitExtensions
                 foreach (var group in customExchangeMappings.GroupBy(x => x.QueueName))
                 {
                     var queueName = group.Key;
+                    var distinctMessageTypes = group.Select(x => x.MessageType).Distinct();
+
                     cfg.ReceiveEndpoint(queueName, endpoint =>
                     {
+                        // Attach consumers for each distinct message type
+                        foreach (var messageType in distinctMessageTypes)
+                        {
+                            var adapterType = typeof(ChaparConsumerAdapter<>).MakeGenericType(messageType);
+                            endpoint.Consumer(adapterType, type => registrationContext.GetRequiredService(type));
+                        }
+
+                        // Bind to specified exchanges
                         if (endpoint is IRabbitMqReceiveEndpointConfigurator rmqEndpoint)
                         {
                             foreach (var (_, _, exchangeAttr) in group)
                             {
                                 rmqEndpoint.Bind(exchangeAttr.Name, binding =>
                                 {
-                                    binding.ExchangeType = exchangeAttr.Type.ToString().ToLower();
+                                    binding.ExchangeType = exchangeAttr.Type.ToString().ToLowerInvariant();
                                     binding.RoutingKey = exchangeAttr.RoutingKey ?? "";
                                 });
                             }

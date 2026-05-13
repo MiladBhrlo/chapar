@@ -56,6 +56,14 @@ internal sealed class MassTransitChaparBus : IChaparBus
             {
                 var endpoint = await _sendEndpointProvider.GetSendEndpoint(new Uri($"exchange:{attr.Name}"));
                 await endpoint.Send(@event, context => ApplyHeaders(context, headers), cancellationToken);
+                await endpoint.Send(@event, context =>
+                {
+                    ApplyHeaders(context, headers);
+
+                    // Set the routing key if specified
+                    if (!string.IsNullOrEmpty(attr.RoutingKey))
+                        context.SetRoutingKey(attr.RoutingKey);
+                }, cancellationToken);
             }
         }
         else

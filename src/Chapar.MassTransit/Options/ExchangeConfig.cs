@@ -11,7 +11,7 @@ public class ExchangeConfig
     public string Name { get; set; } = string.Empty;
 
     /// <summary>
-    /// The type of the exchange. Default is <see cref="ExchangeType"/>.
+    /// The type of the exchange. Default is <see cref="ExchangeType.Fanout"/>.
     /// </summary>
     public ExchangeType Type { get; init; } = ExchangeType.Fanout;
 

@@ -125,6 +125,27 @@ The handler's queue (`order-service`) is bound to both exchanges. It receives an
 
 ***
 
+### Global DefaultExchanges
+
+You can configure exchanges that are automatically bound to every consumer queue
+that does not already specify its own `[Exchange]` or `[QueueName]` attribute:
+
+```csharp
+services.AddChaparMassTransit(opt =>
+{
+    opt.DefaultExchanges.Add(new ExchangeConfig
+    {
+        Name = "global-events",
+        Type = ExchangeType.Topic,
+        RoutingKey = "events.#"
+    });
+});
+```
+
+This setting is ignored for handlers that carry an explicit `[Exchange]` or `[QueueName]`.
+
+***
+
 ## 3. Outbox Pattern (Guaranteed Delivery)
 
 ### 3.1 Install
@@ -330,7 +351,7 @@ and strips dangerous characters (CRLF, NULL) to prevent injection attacks.
 
 ```csharp
 var safeHeaders = HeaderSanitizer.Sanitize(headers);
-logger.LogInformation("Headers: {`Headers}", safeHeaders);
+logger.LogInformation("Headers: {@Headers}", safeHeaders);
 ```
 
 ***

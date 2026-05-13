@@ -29,8 +29,10 @@ public class ChaparMassTransitOptions
     public ResilienceOptions Resilience { get; set; } = new();
 
     /// <summary>
-    /// Default exchanges that will be bound to every consumer queue
-    /// (unless the handler specifies its own [Exchange] attribute).
+    /// Default exchanges that will be bound to every consumer queue that does
+    /// <b>not</b> carry an explicit <see cref="Chapar.Core.Attributes.ExchangeAttribute"/>
+    /// or <see cref="Chapar.Core.Attributes.QueueNameAttribute"/>.
+    /// Handlers decorated with those attributes are responsible for their own bindings.
     /// </summary>
     public List<ExchangeConfig> DefaultExchanges { get; set; } = new();
 }
