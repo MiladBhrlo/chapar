@@ -23,6 +23,13 @@ namespace Chapar.MassTransit.Extensions;
 public static class ChaparMassTransitExtensions
 {
     /// <summary>
+    /// Static callback that additional packages (e.g., Chapar.MassTransit.Outbox) can set
+    /// to inject configuration into <c>AddChaparMassTransit</c> without calling
+    /// <c>AddMassTransit</c> a second time.
+    /// </summary>
+    public static Action<ChaparMassTransitOptions>? ConfigureBusRegistrationCallback { get; set; }
+
+    /// <summary>
     /// Registers Chapar using MassTransit with RabbitMQ.
     /// </summary>
     /// <param name="services">The service collection.</param>
@@ -34,6 +41,9 @@ public static class ChaparMassTransitExtensions
     {
         var options = new ChaparMassTransitOptions();
         configure?.Invoke(options);
+
+        // Merge any configuration injected via the static callback
+        ConfigureBusRegistrationCallback?.Invoke(options);
 
         // If no assemblies are provided, scan all non‑dynamic loaded assemblies for handlers.
         if (handlerAssemblies.Length == 0)

@@ -203,12 +203,11 @@ instead of Chapar's custom ones, you can swap the packages without changing any 
 
 ```bash
 dotnet add package Chapar.MassTransit.Outbox
-dotnet add package Chapar.MassTransit.Inbox  # optional – only if you need inbox separately
 ```
 
 #### Outbox
 
-Replace `AddChaparOutboxEntityFramework()` with `AddChaparMassTransitOutboxLTICKTDbContextGTICK()`.
+Replace `AddChaparOutboxEntityFramework()` with `AddChaparMassTransitOutbox<TDbContext>()`.
 This method must be called ``before`` `AddChaparMassTransit`:
 
 ```csharp
@@ -232,16 +231,8 @@ to publish messages. Your calls to `IChaparBus.PublishAsync` remain unchanged.
 
 #### Inbox
 
-To let MassTransit handle idempotency, add `AddChaparMassTransitInbox()`:
-
-```csharp
-services.AddChaparMassTransitInbox();
-```
-
-> **Note:** If you already call `AddChaparMassTransitOutboxLTICKTDbContextGTICK()`,
-> the inbox is automatically enabled on the consumer side. You only need
-> `AddChaparMassTransitInbox()` when you want MassTransit inbox without the
-> MassTransit outbox.
+> **Note:** If you already call `AddChaparMassTransitOutbox<TDbContext>()`,
+> the inbox is automatically enabled on the consumer side.
 
 #### Configure the Database Tables
 
@@ -263,12 +254,12 @@ Chapar supports three persistence backends for inbox/outbox:
 | :--- | :--- | :--- |
 | Chapar custom tables | `Chapar.Outbox.EntityFrameworkCore` | `AddChaparOutboxEntityFramework()` |
 | Zamin native tables | `Chapar.Zamin.Outbox` | `AddChaparZaminOutbox()` |
-| MassTransit native tables | `Chapar.MassTransit.Outbox` | `AddChaparMassTransitOutboxLTICKTDbContextGTICK()` |
+| MassTransit native tables | `Chapar.MassTransit.Outbox` | `AddChaparMassTransitOutbox<TDbContext>()` |
 
 To migrate from one backend to another:
 1. Swap the NuGet package and the registration method in `Program.cs`.
 2. Run the new EF Core migrations to create the new tables.
-3. Your application code (`IChaparBus`, `IMessageHandlerLTICKTGTICK`) stays exactly the same.
+3. Your application code (`IChaparBus`, `IMessageHandler<T>`) stays exactly the same.
 
 ***
 

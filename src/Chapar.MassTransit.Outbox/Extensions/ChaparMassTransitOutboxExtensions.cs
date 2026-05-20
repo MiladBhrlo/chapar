@@ -1,5 +1,6 @@
 using Chapar.Core.Abstractions;
 using Chapar.Core.Outbox;
+using Chapar.MassTransit.Extensions;
 using Chapar.MassTransit.Outbox.Options;
 using MassTransit;
 using Microsoft.EntityFrameworkCore;
@@ -36,22 +37,9 @@ public static class ChaparMassTransitOutboxExtensions
         var options = new MassTransitOutboxOptions();
         configure?.Invoke(options);
 
-        // Remove any previous Chapar‑specific outbox registrations (if they exist)
-        services.RemoveAll<IOutboxStore>();
-
-        // Store options so they can be read later
-        services.Configure<MassTransitOutboxOptions>(opt =>
-        {
-            opt.DuplicateDetectionWindow = options.DuplicateDetectionWindow;
-            opt.MessageDeliveryLimit = options.MessageDeliveryLimit;
-            opt.MessageDeliveryTimeout = options.MessageDeliveryTimeout;
-            opt.QueryDelay = options.QueryDelay;
-            opt.QueryTimeout = options.QueryTimeout;
-        });
-
-        // Set the callback on ChaparMassTransitOptions so the outbox is configured
-        // during the existing AddMassTransit call (no duplicate AddMassTransit)
-        services.Configure<Chapar.MassTransit.Options.ChaparMassTransitOptions>(opt =>
+        // Register the callback that will be invoked by AddChaparMassTransit.
+        // No service removal happens here – MassTransit replaces IPublishEndpoint directly.
+        ChaparMassTransitExtensions.ConfigureBusRegistrationCallback = opt =>
         {
             opt.ConfigureBusRegistration = busCfg =>
             {
@@ -60,6 +48,7 @@ public static class ChaparMassTransitOutboxExtensions
                     outboxCfg.DuplicateDetectionWindow = options.DuplicateDetectionWindow;
                     outboxCfg.QueryDelay = options.QueryDelay;
                     outboxCfg.QueryTimeout = options.QueryTimeout;
+
                     outboxCfg.UseBusOutbox(busOutboxCfg =>
                     {
                         busOutboxCfg.MessageDeliveryLimit = options.MessageDeliveryLimit;
@@ -67,7 +56,7 @@ public static class ChaparMassTransitOutboxExtensions
                     });
                 });
             };
-        });
+        };
 
         return services;
     }

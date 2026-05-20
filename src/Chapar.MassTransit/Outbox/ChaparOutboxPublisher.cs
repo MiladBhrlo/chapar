@@ -1,6 +1,7 @@
 using System.Text.Json;
 using Chapar.Core.Metrics;
 using Chapar.Core.Outbox;
+using Chapar.MassTransit.Extensions;
 using MassTransit;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -45,6 +46,10 @@ internal sealed class ChaparOutboxPublisher : BackgroundService
             {
                 await using var scope = _scopeFactory.CreateAsyncScope();
                 var outboxStore = scope.ServiceProvider.GetRequiredService<IOutboxStore>();
+                if (outboxStore is NullOutboxStore)
+                    // MassTransit or another provider is handling the outbox; nothing to do.
+                    return;
+
                 var publishEndpoint = scope.ServiceProvider.GetRequiredService<IPublishEndpoint>();
 
                 var messages = await outboxStore.GetUnprocessedMessagesAsync(stoppingToken);
