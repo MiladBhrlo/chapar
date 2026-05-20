@@ -196,6 +196,73 @@ services.Configure<ChaparOutboxOptions>(opt =>
 
 ***
 
+### 3.4 MassTransit Native Outbox / Inbox
+
+If you prefer to rely on MassTransit's own battle‑tested outbox and inbox tables
+instead of Chapar's custom ones, you can swap the packages without changing any business code.
+
+```bash
+dotnet add package Chapar.MassTransit.Outbox
+```
+
+#### Outbox
+
+Replace `AddChaparOutboxEntityFramework()` with `AddChaparMassTransitOutbox<TDbContext>()`.
+This method must be called ``before`` `AddChaparMassTransit`:
+
+```csharp
+// 1. Register the MassTransit outbox
+services.AddChaparMassTransitOutbox<AppDbContext>(options =>
+{
+    options.DuplicateDetectionWindow = TimeSpan.FromMinutes(15);
+    options.MessageDeliveryLimit = 200;
+    options.MessageDeliveryTimeout = TimeSpan.FromSeconds(45);
+    options.QueryDelay = TimeSpan.FromSeconds(30);
+    options.QueryTimeout = TimeSpan.FromSeconds(30);
+});
+
+// 2. Then register Chapar (the outbox callback is invoked during bus configuration)
+services.AddChaparMassTransit(opt => opt.Host = "localhost");
+```
+
+This configures MassTransit's standard `OutboxMessage`, `OutboxState`,
+and `InboxState` tables and uses its built‑in `BusOutboxDeliveryService`
+to publish messages. Your calls to `IChaparBus.PublishAsync` remain unchanged.
+
+#### Inbox
+
+> **Note:** If you already call `AddChaparMassTransitOutbox<TDbContext>()`,
+> the inbox is automatically enabled on the consumer side.
+
+#### Configure the Database Tables
+
+In your `DbContext`, add the MassTransit outbox entities:
+
+```csharp
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    base.OnModelCreating(modelBuilder);
+    modelBuilder.AddMassTransitOutboxEntities();
+}
+```
+
+#### Migration Between Persistence Options
+
+Chapar supports three persistence backends for inbox/outbox:
+
+| Backend | Package | Registration Method |
+| :--- | :--- | :--- |
+| Chapar custom tables | `Chapar.Outbox.EntityFrameworkCore` | `AddChaparOutboxEntityFramework()` |
+| Zamin native tables | `Chapar.Zamin.Outbox` | `AddChaparZaminOutbox()` |
+| MassTransit native tables | `Chapar.MassTransit.Outbox` | `AddChaparMassTransitOutbox<TDbContext>()` |
+
+To migrate from one backend to another:
+1. Swap the NuGet package and the registration method in `Program.cs`.
+2. Run the new EF Core migrations to create the new tables.
+3. Your application code (`IChaparBus`, `IMessageHandler<T>`) stays exactly the same.
+
+***
+
 ## 4. Inbox Pattern (Idempotency)
 
 ### 4.1 Install
