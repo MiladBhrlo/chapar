@@ -22,6 +22,8 @@ out‑of‑the‑box support for the **Outbox**, **Inbox**, and **Pipeline** pat
 | :--- | :--- |
 | `Chapar` (`Chapar.Core`) | Core abstractions: `IChaparBus`, `IMessageHandler<T>`, `Outbox`/`Inbox` contracts |
 | `Chapar.MassTransit` | MassTransit + RabbitMQ implementation |
+| `Chapar.MassTransit.Inbox` | MassTransit Inbox + RabbitMQ integration |
+| `Chapar.MassTransit.Outbox` | MassTransit + EF Outbox + RabbitMQ integration |
 | `Chapar.Pipeline` | Extensible message handling pipeline |
 | `Chapar.Outbox.EntityFrameworkCore` | EF Core‑based Outbox (transparent decorator) |
 | `Chapar.Inbox.EntityFrameworkCore` | EF Core‑based Inbox (idempotency filter) |
@@ -72,6 +74,8 @@ We welcome contributions! If you are interested in any of the items below, feel 
 | :--- | :--- |
 | `Chapar.Core` | Core abstractions and contracts |
 | `Chapar.MassTransit` | MassTransit v8 integration |
+| `Chapar.MassTransit.Inbox` | MassTransit v8 Inbox integration |
+| `Chapar.MassTransit.Outbox` | MassTransit v8 EF Outbox integration |
 | `Chapar.Pipeline` | Pipeline behaviour infrastructure (diagnostics, error handling, etc.) |
 | `Chapar.Outbox.EntityFrameworkCore` | Outbox store backed by EF Core |
 | `Chapar.Inbox.EntityFrameworkCore` | Inbox store backed by EF Core |
