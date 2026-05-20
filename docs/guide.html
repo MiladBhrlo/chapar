@@ -206,6 +206,78 @@ extracts events during <code>SaveChangesAsync</code> and persists them.</p>
 });
 </code></pre>
 <hr>
+<h3 id="34-masstransit-native-outbox--inbox">3.4 MassTransit Native Outbox / Inbox</h3>
+<p>If you prefer to rely on MassTransit's own battle‑tested outbox and inbox tables
+instead of Chapar's custom ones, you can swap the packages without changing any business code.</p>
+<pre><code class="lang-bash">dotnet add package Chapar.MassTransit.Outbox
+</code></pre>
+<h4 id="outbox">Outbox</h4>
+<p>Replace <code>AddChaparOutboxEntityFramework()</code> with <code>AddChaparMassTransitOutbox&lt;TDbContext&gt;()</code>.
+This method must be called <code>before</code> <code>AddChaparMassTransit</code>:</p>
+<pre><code class="lang-csharp">// 1. Register the MassTransit outbox
+services.AddChaparMassTransitOutbox&lt;AppDbContext&gt;(options =&gt;
+{
+    options.DuplicateDetectionWindow = TimeSpan.FromMinutes(15);
+    options.MessageDeliveryLimit = 200;
+    options.MessageDeliveryTimeout = TimeSpan.FromSeconds(45);
+    options.QueryDelay = TimeSpan.FromSeconds(30);
+    options.QueryTimeout = TimeSpan.FromSeconds(30);
+});
+
+// 2. Then register Chapar (the outbox callback is invoked during bus configuration)
+services.AddChaparMassTransit(opt =&gt; opt.Host = &quot;localhost&quot;);
+</code></pre>
+<p>This configures MassTransit's standard <code>OutboxMessage</code>, <code>OutboxState</code>,
+and <code>InboxState</code> tables and uses its built‑in <code>BusOutboxDeliveryService</code>
+to publish messages. Your calls to <code>IChaparBus.PublishAsync</code> remain unchanged.</p>
+<h4 id="inbox">Inbox</h4>
+<blockquote>
+<p><strong>Note:</strong> If you already call <code>AddChaparMassTransitOutbox&lt;TDbContext&gt;()</code>,
+the inbox is automatically enabled on the consumer side.</p>
+</blockquote>
+<h4 id="configure-the-database-tables">Configure the Database Tables</h4>
+<p>In your <code>DbContext</code>, add the MassTransit outbox entities:</p>
+<pre><code class="lang-csharp">protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    base.OnModelCreating(modelBuilder);
+    modelBuilder.AddMassTransitOutboxEntities();
+}
+</code></pre>
+<h4 id="migration-between-persistence-options">Migration Between Persistence Options</h4>
+<p>Chapar supports three persistence backends for inbox/outbox:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Backend</th>
+<th style="text-align: left;">Package</th>
+<th style="text-align: left;">Registration Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Chapar custom tables</td>
+<td style="text-align: left;"><code>Chapar.Outbox.EntityFrameworkCore</code></td>
+<td style="text-align: left;"><code>AddChaparOutboxEntityFramework()</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">Zamin native tables</td>
+<td style="text-align: left;"><code>Chapar.Zamin.Outbox</code></td>
+<td style="text-align: left;"><code>AddChaparZaminOutbox()</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">MassTransit native tables</td>
+<td style="text-align: left;"><code>Chapar.MassTransit.Outbox</code></td>
+<td style="text-align: left;"><code>AddChaparMassTransitOutbox&lt;TDbContext&gt;()</code></td>
+</tr>
+</tbody>
+</table>
+<p>To migrate from one backend to another:</p>
+<ol>
+<li>Swap the NuGet package and the registration method in <code>Program.cs</code>.</li>
+<li>Run the new EF Core migrations to create the new tables.</li>
+<li>Your application code (<code>IChaparBus</code>, <code>IMessageHandler&lt;T&gt;</code>) stays exactly the same.</li>
+</ol>
+<hr>
 <h2 id="4-inbox-pattern-idempotency">4. Inbox Pattern (Idempotency)</h2>
 <h3 id="41-install">4.1 Install</h3>
 <pre><code class="lang-bash">dotnet add package Chapar.Inbox.EntityFrameworkCore

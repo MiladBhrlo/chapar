@@ -123,10 +123,76 @@
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/MiladBhrlo/chapar/new/main/apiSpec/new?filename=Chapar_MassTransit_Options_ChaparMassTransitOptions_ConfigureBusRegistration.md&amp;value=---%0Auid%3A%20Chapar.MassTransit.Options.ChaparMassTransitOptions.ConfigureBusRegistration%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MiladBhrlo/chapar/blob/main/src/Chapar.MassTransit/Options/ChaparMassTransitOptions.cs/#L46">View Source</a>
+  </span>
+  <a id="Chapar_MassTransit_Options_ChaparMassTransitOptions_ConfigureBusRegistration_" data-uid="Chapar.MassTransit.Options.ChaparMassTransitOptions.ConfigureBusRegistration*"></a>
+  <h4 id="Chapar_MassTransit_Options_ChaparMassTransitOptions_ConfigureBusRegistration" data-uid="Chapar.MassTransit.Options.ChaparMassTransitOptions.ConfigureBusRegistration">ConfigureBusRegistration</h4>
+  <div class="markdown level1 summary"><p>An optional callback that allows additional MassTransit configuration
+at the bus registration level (e.g., adding Entity Framework outbox).
+This is invoked <b>before</b> the RabbitMQ transport is configured.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Action&lt;IBusRegistrationConfigurator&gt;? ConfigureBusRegistration { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<span class="xref">IBusRegistrationConfigurator</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MiladBhrlo/chapar/new/main/apiSpec/new?filename=Chapar_MassTransit_Options_ChaparMassTransitOptions_ConfigureRabbitMq.md&amp;value=---%0Auid%3A%20Chapar.MassTransit.Options.ChaparMassTransitOptions.ConfigureRabbitMq%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MiladBhrlo/chapar/blob/main/src/Chapar.MassTransit/Options/ChaparMassTransitOptions.cs/#L53">View Source</a>
+  </span>
+  <a id="Chapar_MassTransit_Options_ChaparMassTransitOptions_ConfigureRabbitMq_" data-uid="Chapar.MassTransit.Options.ChaparMassTransitOptions.ConfigureRabbitMq*"></a>
+  <h4 id="Chapar_MassTransit_Options_ChaparMassTransitOptions_ConfigureRabbitMq" data-uid="Chapar.MassTransit.Options.ChaparMassTransitOptions.ConfigureRabbitMq">ConfigureRabbitMq</h4>
+  <div class="markdown level1 summary"><p>An optional callback that allows additional MassTransit configuration
+at the RabbitMQ transport level.
+This is invoked <b>after</b> the standard Chapar configuration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Action&lt;IBusRegistrationContext, IRabbitMqBusFactoryConfigurator&gt;? ConfigureRabbitMq { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;<span class="xref">IBusRegistrationContext</span>, <span class="xref">IRabbitMqBusFactoryConfigurator</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/MiladBhrlo/chapar/new/main/apiSpec/new?filename=Chapar_MassTransit_Options_ChaparMassTransitOptions_DefaultExchanges.md&amp;value=---%0Auid%3A%20Chapar.MassTransit.Options.ChaparMassTransitOptions.DefaultExchanges%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MiladBhrlo/chapar/blob/main/src/Chapar.MassTransit/Options/ChaparMassTransitOptions.cs/#L37">View Source</a>
+    <a href="https://github.com/MiladBhrlo/chapar/blob/main/src/Chapar.MassTransit/Options/ChaparMassTransitOptions.cs/#L39">View Source</a>
   </span>
   <a id="Chapar_MassTransit_Options_ChaparMassTransitOptions_DefaultExchanges_" data-uid="Chapar.MassTransit.Options.ChaparMassTransitOptions.DefaultExchanges*"></a>
   <h4 id="Chapar_MassTransit_Options_ChaparMassTransitOptions_DefaultExchanges" data-uid="Chapar.MassTransit.Options.ChaparMassTransitOptions.DefaultExchanges">DefaultExchanges</h4>
@@ -160,7 +226,7 @@ Handlers decorated with those attributes are responsible for their own bindings.
     <a href="https://github.com/MiladBhrlo/chapar/new/main/apiSpec/new?filename=Chapar_MassTransit_Options_ChaparMassTransitOptions_DefaultHeaders.md&amp;value=---%0Auid%3A%20Chapar.MassTransit.Options.ChaparMassTransitOptions.DefaultHeaders%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MiladBhrlo/chapar/blob/main/src/Chapar.MassTransit/Options/ChaparMassTransitOptions.cs/#L24">View Source</a>
+    <a href="https://github.com/MiladBhrlo/chapar/blob/main/src/Chapar.MassTransit/Options/ChaparMassTransitOptions.cs/#L26">View Source</a>
   </span>
   <a id="Chapar_MassTransit_Options_ChaparMassTransitOptions_DefaultHeaders_" data-uid="Chapar.MassTransit.Options.ChaparMassTransitOptions.DefaultHeaders*"></a>
   <h4 id="Chapar_MassTransit_Options_ChaparMassTransitOptions_DefaultHeaders" data-uid="Chapar.MassTransit.Options.ChaparMassTransitOptions.DefaultHeaders">DefaultHeaders</h4>
@@ -192,7 +258,7 @@ Useful for multi‑tenancy, tracing, etc.</p>
     <a href="https://github.com/MiladBhrlo/chapar/new/main/apiSpec/new?filename=Chapar_MassTransit_Options_ChaparMassTransitOptions_Host.md&amp;value=---%0Auid%3A%20Chapar.MassTransit.Options.ChaparMassTransitOptions.Host%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MiladBhrlo/chapar/blob/main/src/Chapar.MassTransit/Options/ChaparMassTransitOptions.cs/#L9">View Source</a>
+    <a href="https://github.com/MiladBhrlo/chapar/blob/main/src/Chapar.MassTransit/Options/ChaparMassTransitOptions.cs/#L11">View Source</a>
   </span>
   <a id="Chapar_MassTransit_Options_ChaparMassTransitOptions_Host_" data-uid="Chapar.MassTransit.Options.ChaparMassTransitOptions.Host*"></a>
   <h4 id="Chapar_MassTransit_Options_ChaparMassTransitOptions_Host" data-uid="Chapar.MassTransit.Options.ChaparMassTransitOptions.Host">Host</h4>
@@ -223,7 +289,7 @@ Useful for multi‑tenancy, tracing, etc.</p>
     <a href="https://github.com/MiladBhrlo/chapar/new/main/apiSpec/new?filename=Chapar_MassTransit_Options_ChaparMassTransitOptions_Password.md&amp;value=---%0Auid%3A%20Chapar.MassTransit.Options.ChaparMassTransitOptions.Password%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MiladBhrlo/chapar/blob/main/src/Chapar.MassTransit/Options/ChaparMassTransitOptions.cs/#L18">View Source</a>
+    <a href="https://github.com/MiladBhrlo/chapar/blob/main/src/Chapar.MassTransit/Options/ChaparMassTransitOptions.cs/#L20">View Source</a>
   </span>
   <a id="Chapar_MassTransit_Options_ChaparMassTransitOptions_Password_" data-uid="Chapar.MassTransit.Options.ChaparMassTransitOptions.Password*"></a>
   <h4 id="Chapar_MassTransit_Options_ChaparMassTransitOptions_Password" data-uid="Chapar.MassTransit.Options.ChaparMassTransitOptions.Password">Password</h4>
@@ -254,7 +320,7 @@ Useful for multi‑tenancy, tracing, etc.</p>
     <a href="https://github.com/MiladBhrlo/chapar/new/main/apiSpec/new?filename=Chapar_MassTransit_Options_ChaparMassTransitOptions_Resilience.md&amp;value=---%0Auid%3A%20Chapar.MassTransit.Options.ChaparMassTransitOptions.Resilience%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MiladBhrlo/chapar/blob/main/src/Chapar.MassTransit/Options/ChaparMassTransitOptions.cs/#L29">View Source</a>
+    <a href="https://github.com/MiladBhrlo/chapar/blob/main/src/Chapar.MassTransit/Options/ChaparMassTransitOptions.cs/#L31">View Source</a>
   </span>
   <a id="Chapar_MassTransit_Options_ChaparMassTransitOptions_Resilience_" data-uid="Chapar.MassTransit.Options.ChaparMassTransitOptions.Resilience*"></a>
   <h4 id="Chapar_MassTransit_Options_ChaparMassTransitOptions_Resilience" data-uid="Chapar.MassTransit.Options.ChaparMassTransitOptions.Resilience">Resilience</h4>
@@ -285,7 +351,7 @@ Useful for multi‑tenancy, tracing, etc.</p>
     <a href="https://github.com/MiladBhrlo/chapar/new/main/apiSpec/new?filename=Chapar_MassTransit_Options_ChaparMassTransitOptions_Username.md&amp;value=---%0Auid%3A%20Chapar.MassTransit.Options.ChaparMassTransitOptions.Username%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MiladBhrlo/chapar/blob/main/src/Chapar.MassTransit/Options/ChaparMassTransitOptions.cs/#L15">View Source</a>
+    <a href="https://github.com/MiladBhrlo/chapar/blob/main/src/Chapar.MassTransit/Options/ChaparMassTransitOptions.cs/#L17">View Source</a>
   </span>
   <a id="Chapar_MassTransit_Options_ChaparMassTransitOptions_Username_" data-uid="Chapar.MassTransit.Options.ChaparMassTransitOptions.Username*"></a>
   <h4 id="Chapar_MassTransit_Options_ChaparMassTransitOptions_Username" data-uid="Chapar.MassTransit.Options.ChaparMassTransitOptions.Username">Username</h4>
@@ -316,7 +382,7 @@ Useful for multi‑tenancy, tracing, etc.</p>
     <a href="https://github.com/MiladBhrlo/chapar/new/main/apiSpec/new?filename=Chapar_MassTransit_Options_ChaparMassTransitOptions_VirtualHost.md&amp;value=---%0Auid%3A%20Chapar.MassTransit.Options.ChaparMassTransitOptions.VirtualHost%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MiladBhrlo/chapar/blob/main/src/Chapar.MassTransit/Options/ChaparMassTransitOptions.cs/#L12">View Source</a>
+    <a href="https://github.com/MiladBhrlo/chapar/blob/main/src/Chapar.MassTransit/Options/ChaparMassTransitOptions.cs/#L14">View Source</a>
   </span>
   <a id="Chapar_MassTransit_Options_ChaparMassTransitOptions_VirtualHost_" data-uid="Chapar.MassTransit.Options.ChaparMassTransitOptions.VirtualHost*"></a>
   <h4 id="Chapar_MassTransit_Options_ChaparMassTransitOptions_VirtualHost" data-uid="Chapar.MassTransit.Options.ChaparMassTransitOptions.VirtualHost">VirtualHost</h4>
@@ -354,7 +420,7 @@ Useful for multi‑tenancy, tracing, etc.</p>
                     <a href="https://github.com/MiladBhrlo/chapar/new/main/apiSpec/new?filename=Chapar_MassTransit_Options_ChaparMassTransitOptions.md&amp;value=---%0Auid%3A%20Chapar.MassTransit.Options.ChaparMassTransitOptions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
-                    <a href="https://github.com/MiladBhrlo/chapar/blob/main/src/Chapar.MassTransit/Options/ChaparMassTransitOptions.cs/#L6" class="contribution-link">View Source</a>
+                    <a href="https://github.com/MiladBhrlo/chapar/blob/main/src/Chapar.MassTransit/Options/ChaparMassTransitOptions.cs/#L8" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

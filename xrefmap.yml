@@ -1464,6 +1464,19 @@ references:
   isSpec: "True"
   fullName: Chapar.MassTransit.Extensions.ChaparMassTransitExtensions.AddChaparMassTransit
   nameWithType: ChaparMassTransitExtensions.AddChaparMassTransit
+- uid: Chapar.MassTransit.Extensions.ChaparMassTransitExtensions.ConfigureBusRegistrationCallback
+  name: ConfigureBusRegistrationCallback
+  href: api/Chapar.MassTransit.Extensions.ChaparMassTransitExtensions.html#Chapar_MassTransit_Extensions_ChaparMassTransitExtensions_ConfigureBusRegistrationCallback
+  commentId: P:Chapar.MassTransit.Extensions.ChaparMassTransitExtensions.ConfigureBusRegistrationCallback
+  fullName: Chapar.MassTransit.Extensions.ChaparMassTransitExtensions.ConfigureBusRegistrationCallback
+  nameWithType: ChaparMassTransitExtensions.ConfigureBusRegistrationCallback
+- uid: Chapar.MassTransit.Extensions.ChaparMassTransitExtensions.ConfigureBusRegistrationCallback*
+  name: ConfigureBusRegistrationCallback
+  href: api/Chapar.MassTransit.Extensions.ChaparMassTransitExtensions.html#Chapar_MassTransit_Extensions_ChaparMassTransitExtensions_ConfigureBusRegistrationCallback_
+  commentId: Overload:Chapar.MassTransit.Extensions.ChaparMassTransitExtensions.ConfigureBusRegistrationCallback
+  isSpec: "True"
+  fullName: Chapar.MassTransit.Extensions.ChaparMassTransitExtensions.ConfigureBusRegistrationCallback
+  nameWithType: ChaparMassTransitExtensions.ConfigureBusRegistrationCallback
 - uid: Chapar.MassTransit.Extensions.ChaparMassTransitHealthCheckExtensions
   name: ChaparMassTransitHealthCheckExtensions
   href: api/Chapar.MassTransit.Extensions.ChaparMassTransitHealthCheckExtensions.html
@@ -1495,6 +1508,32 @@ references:
   commentId: T:Chapar.MassTransit.Options.ChaparMassTransitOptions
   fullName: Chapar.MassTransit.Options.ChaparMassTransitOptions
   nameWithType: ChaparMassTransitOptions
+- uid: Chapar.MassTransit.Options.ChaparMassTransitOptions.ConfigureBusRegistration
+  name: ConfigureBusRegistration
+  href: api/Chapar.MassTransit.Options.ChaparMassTransitOptions.html#Chapar_MassTransit_Options_ChaparMassTransitOptions_ConfigureBusRegistration
+  commentId: P:Chapar.MassTransit.Options.ChaparMassTransitOptions.ConfigureBusRegistration
+  fullName: Chapar.MassTransit.Options.ChaparMassTransitOptions.ConfigureBusRegistration
+  nameWithType: ChaparMassTransitOptions.ConfigureBusRegistration
+- uid: Chapar.MassTransit.Options.ChaparMassTransitOptions.ConfigureBusRegistration*
+  name: ConfigureBusRegistration
+  href: api/Chapar.MassTransit.Options.ChaparMassTransitOptions.html#Chapar_MassTransit_Options_ChaparMassTransitOptions_ConfigureBusRegistration_
+  commentId: Overload:Chapar.MassTransit.Options.ChaparMassTransitOptions.ConfigureBusRegistration
+  isSpec: "True"
+  fullName: Chapar.MassTransit.Options.ChaparMassTransitOptions.ConfigureBusRegistration
+  nameWithType: ChaparMassTransitOptions.ConfigureBusRegistration
+- uid: Chapar.MassTransit.Options.ChaparMassTransitOptions.ConfigureRabbitMq
+  name: ConfigureRabbitMq
+  href: api/Chapar.MassTransit.Options.ChaparMassTransitOptions.html#Chapar_MassTransit_Options_ChaparMassTransitOptions_ConfigureRabbitMq
+  commentId: P:Chapar.MassTransit.Options.ChaparMassTransitOptions.ConfigureRabbitMq
+  fullName: Chapar.MassTransit.Options.ChaparMassTransitOptions.ConfigureRabbitMq
+  nameWithType: ChaparMassTransitOptions.ConfigureRabbitMq
+- uid: Chapar.MassTransit.Options.ChaparMassTransitOptions.ConfigureRabbitMq*
+  name: ConfigureRabbitMq
+  href: api/Chapar.MassTransit.Options.ChaparMassTransitOptions.html#Chapar_MassTransit_Options_ChaparMassTransitOptions_ConfigureRabbitMq_
+  commentId: Overload:Chapar.MassTransit.Options.ChaparMassTransitOptions.ConfigureRabbitMq
+  isSpec: "True"
+  fullName: Chapar.MassTransit.Options.ChaparMassTransitOptions.ConfigureRabbitMq
+  nameWithType: ChaparMassTransitOptions.ConfigureRabbitMq
 - uid: Chapar.MassTransit.Options.ChaparMassTransitOptions.DefaultExchanges
   name: DefaultExchanges
   href: api/Chapar.MassTransit.Options.ChaparMassTransitOptions.html#Chapar_MassTransit_Options_ChaparMassTransitOptions_DefaultExchanges
