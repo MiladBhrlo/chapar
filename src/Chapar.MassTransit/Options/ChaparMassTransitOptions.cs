@@ -1,3 +1,5 @@
+using MassTransit;
+
 namespace Chapar.MassTransit.Options;
 
 /// <summary>
@@ -35,4 +37,18 @@ public class ChaparMassTransitOptions
     /// Handlers decorated with those attributes are responsible for their own bindings.
     /// </summary>
     public List<ExchangeConfig> DefaultExchanges { get; set; } = new();
+
+    /// <summary>
+    /// An optional callback that allows additional MassTransit configuration
+    /// at the bus registration level (e.g., adding Entity Framework outbox).
+    /// This is invoked <b>before</b> the RabbitMQ transport is configured.
+    /// </summary>
+    public Action<IBusRegistrationConfigurator>? ConfigureBusRegistration { get; set; }
+
+    /// <summary>
+    /// An optional callback that allows additional MassTransit configuration
+    /// at the RabbitMQ transport level.
+    /// This is invoked <b>after</b> the standard Chapar configuration.
+    /// </summary>
+    public Action<IBusRegistrationContext, IRabbitMqBusFactoryConfigurator>? ConfigureRabbitMq { get; set; }
 }

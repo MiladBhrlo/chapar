@@ -2,6 +2,8 @@
   <Folder Name="/src/">
     <Project Path="src/Chapar.Core/Chapar.Core.csproj" />
     <Project Path="src/Chapar.Inbox.EntityFrameworkCore/Chapar.Inbox.EntityFrameworkCore.csproj" />
+    <Project Path="src/Chapar.MassTransit.Inbox/Chapar.MassTransit.Inbox.csproj" Id="ee7b488d-f729-4c97-8096-55d6e8b59deb" />
+    <Project Path="src/Chapar.MassTransit.Outbox/Chapar.MassTransit.Outbox.csproj" Id="496d7103-2da4-4128-b4e4-5c4eb215bfff" />
     <Project Path="src/Chapar.MassTransit/Chapar.MassTransit.csproj" />
     <Project Path="src/Chapar.Outbox.EntityFrameworkCore/Chapar.Outbox.EntityFrameworkCore.csproj" />
     <Project Path="src/Chapar.Pipeline/Chapar.Pipeline.csproj" />

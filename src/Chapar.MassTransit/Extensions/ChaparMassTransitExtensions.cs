@@ -48,6 +48,9 @@ public static class ChaparMassTransitExtensions
 
         services.AddMassTransit(mt =>
         {
+            // Invoke the callback for additional bus configuration if provided by the package user.
+            options.ConfigureBusRegistration?.Invoke(mt);
+
             // Register each standard consumer adapter so MassTransit knows about them.
             foreach (var messageType in standardTypes)
             {
@@ -145,6 +148,8 @@ public static class ChaparMassTransitExtensions
                     });
                 }
 
+                // Invoke the callback for additional RabbitMQ configuration if provided by the package user.
+                options.ConfigureRabbitMq?.Invoke(registrationContext, cfg);
             });
         });
 

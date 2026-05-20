@@ -14,8 +14,7 @@ public static class ChaparMassTransitHealthCheckExtensions
     /// <param name="builder">The <see cref="IHealthChecksBuilder"/>.</param>
     public static IHealthChecksBuilder AddChaparMassTransitHealthCheck(this IHealthChecksBuilder builder)
     {
-        return builder.AddCheck<ChaparHealthCheck>(
-             "chapar-masstransit",
-             tags: new[] { "ready", "masstransit" });
+        return builder.AddCheck<ChaparHealthCheck>("chapar-masstransit",
+                                                   tags: new[] { "ready", "masstransit" });
     }
 }
