@@ -395,6 +395,44 @@ references:
   isSpec: "True"
   fullName: Chapar.Core.Attributes.AllowedOriginAttribute.Origin
   nameWithType: AllowedOriginAttribute.Origin
+- uid: Chapar.Core.Attributes.ConsumeMessageTypesAttribute
+  name: ConsumeMessageTypesAttribute
+  href: api/Chapar.Core.Attributes.ConsumeMessageTypesAttribute.html
+  commentId: T:Chapar.Core.Attributes.ConsumeMessageTypesAttribute
+  fullName: Chapar.Core.Attributes.ConsumeMessageTypesAttribute
+  nameWithType: ConsumeMessageTypesAttribute
+- uid: Chapar.Core.Attributes.ConsumeMessageTypesAttribute.#ctor(System.String[])
+  name: ConsumeMessageTypesAttribute(params string[])
+  href: api/Chapar.Core.Attributes.ConsumeMessageTypesAttribute.html#Chapar_Core_Attributes_ConsumeMessageTypesAttribute__ctor_System_String___
+  commentId: M:Chapar.Core.Attributes.ConsumeMessageTypesAttribute.#ctor(System.String[])
+  name.vb: New(ParamArray String())
+  fullName: Chapar.Core.Attributes.ConsumeMessageTypesAttribute.ConsumeMessageTypesAttribute(params string[])
+  fullName.vb: Chapar.Core.Attributes.ConsumeMessageTypesAttribute.New(ParamArray String())
+  nameWithType: ConsumeMessageTypesAttribute.ConsumeMessageTypesAttribute(params string[])
+  nameWithType.vb: ConsumeMessageTypesAttribute.New(ParamArray String())
+- uid: Chapar.Core.Attributes.ConsumeMessageTypesAttribute.#ctor*
+  name: ConsumeMessageTypesAttribute
+  href: api/Chapar.Core.Attributes.ConsumeMessageTypesAttribute.html#Chapar_Core_Attributes_ConsumeMessageTypesAttribute__ctor_
+  commentId: Overload:Chapar.Core.Attributes.ConsumeMessageTypesAttribute.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: Chapar.Core.Attributes.ConsumeMessageTypesAttribute.ConsumeMessageTypesAttribute
+  fullName.vb: Chapar.Core.Attributes.ConsumeMessageTypesAttribute.New
+  nameWithType: ConsumeMessageTypesAttribute.ConsumeMessageTypesAttribute
+  nameWithType.vb: ConsumeMessageTypesAttribute.New
+- uid: Chapar.Core.Attributes.ConsumeMessageTypesAttribute.MessageTypes
+  name: MessageTypes
+  href: api/Chapar.Core.Attributes.ConsumeMessageTypesAttribute.html#Chapar_Core_Attributes_ConsumeMessageTypesAttribute_MessageTypes
+  commentId: P:Chapar.Core.Attributes.ConsumeMessageTypesAttribute.MessageTypes
+  fullName: Chapar.Core.Attributes.ConsumeMessageTypesAttribute.MessageTypes
+  nameWithType: ConsumeMessageTypesAttribute.MessageTypes
+- uid: Chapar.Core.Attributes.ConsumeMessageTypesAttribute.MessageTypes*
+  name: MessageTypes
+  href: api/Chapar.Core.Attributes.ConsumeMessageTypesAttribute.html#Chapar_Core_Attributes_ConsumeMessageTypesAttribute_MessageTypes_
+  commentId: Overload:Chapar.Core.Attributes.ConsumeMessageTypesAttribute.MessageTypes
+  isSpec: "True"
+  fullName: Chapar.Core.Attributes.ConsumeMessageTypesAttribute.MessageTypes
+  nameWithType: ConsumeMessageTypesAttribute.MessageTypes
 - uid: Chapar.Core.Attributes.ExchangeAttribute
   name: ExchangeAttribute
   href: api/Chapar.Core.Attributes.ExchangeAttribute.html
@@ -489,6 +527,44 @@ references:
   commentId: F:Chapar.Core.Attributes.ExchangeType.Topic
   fullName: Chapar.Core.Attributes.ExchangeType.Topic
   nameWithType: ExchangeType.Topic
+- uid: Chapar.Core.Attributes.MessageNameAttribute
+  name: MessageNameAttribute
+  href: api/Chapar.Core.Attributes.MessageNameAttribute.html
+  commentId: T:Chapar.Core.Attributes.MessageNameAttribute
+  fullName: Chapar.Core.Attributes.MessageNameAttribute
+  nameWithType: MessageNameAttribute
+- uid: Chapar.Core.Attributes.MessageNameAttribute.#ctor(System.String)
+  name: MessageNameAttribute(string)
+  href: api/Chapar.Core.Attributes.MessageNameAttribute.html#Chapar_Core_Attributes_MessageNameAttribute__ctor_System_String_
+  commentId: M:Chapar.Core.Attributes.MessageNameAttribute.#ctor(System.String)
+  name.vb: New(String)
+  fullName: Chapar.Core.Attributes.MessageNameAttribute.MessageNameAttribute(string)
+  fullName.vb: Chapar.Core.Attributes.MessageNameAttribute.New(String)
+  nameWithType: MessageNameAttribute.MessageNameAttribute(string)
+  nameWithType.vb: MessageNameAttribute.New(String)
+- uid: Chapar.Core.Attributes.MessageNameAttribute.#ctor*
+  name: MessageNameAttribute
+  href: api/Chapar.Core.Attributes.MessageNameAttribute.html#Chapar_Core_Attributes_MessageNameAttribute__ctor_
+  commentId: Overload:Chapar.Core.Attributes.MessageNameAttribute.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: Chapar.Core.Attributes.MessageNameAttribute.MessageNameAttribute
+  fullName.vb: Chapar.Core.Attributes.MessageNameAttribute.New
+  nameWithType: MessageNameAttribute.MessageNameAttribute
+  nameWithType.vb: MessageNameAttribute.New
+- uid: Chapar.Core.Attributes.MessageNameAttribute.Name
+  name: Name
+  href: api/Chapar.Core.Attributes.MessageNameAttribute.html#Chapar_Core_Attributes_MessageNameAttribute_Name
+  commentId: P:Chapar.Core.Attributes.MessageNameAttribute.Name
+  fullName: Chapar.Core.Attributes.MessageNameAttribute.Name
+  nameWithType: MessageNameAttribute.Name
+- uid: Chapar.Core.Attributes.MessageNameAttribute.Name*
+  name: Name
+  href: api/Chapar.Core.Attributes.MessageNameAttribute.html#Chapar_Core_Attributes_MessageNameAttribute_Name_
+  commentId: Overload:Chapar.Core.Attributes.MessageNameAttribute.Name
+  isSpec: "True"
+  fullName: Chapar.Core.Attributes.MessageNameAttribute.Name
+  nameWithType: MessageNameAttribute.Name
 - uid: Chapar.Core.Attributes.QueueNameAttribute
   name: QueueNameAttribute
   href: api/Chapar.Core.Attributes.QueueNameAttribute.html
@@ -1675,6 +1751,32 @@ references:
   isSpec: "True"
   fullName: Chapar.MassTransit.Options.ChaparMassTransitOptions.DefaultHeaders
   nameWithType: ChaparMassTransitOptions.DefaultHeaders
+- uid: Chapar.MassTransit.Options.ChaparMassTransitOptions.ExchangeNamePrefix
+  name: ExchangeNamePrefix
+  href: api/Chapar.MassTransit.Options.ChaparMassTransitOptions.html#Chapar_MassTransit_Options_ChaparMassTransitOptions_ExchangeNamePrefix
+  commentId: P:Chapar.MassTransit.Options.ChaparMassTransitOptions.ExchangeNamePrefix
+  fullName: Chapar.MassTransit.Options.ChaparMassTransitOptions.ExchangeNamePrefix
+  nameWithType: ChaparMassTransitOptions.ExchangeNamePrefix
+- uid: Chapar.MassTransit.Options.ChaparMassTransitOptions.ExchangeNamePrefix*
+  name: ExchangeNamePrefix
+  href: api/Chapar.MassTransit.Options.ChaparMassTransitOptions.html#Chapar_MassTransit_Options_ChaparMassTransitOptions_ExchangeNamePrefix_
+  commentId: Overload:Chapar.MassTransit.Options.ChaparMassTransitOptions.ExchangeNamePrefix
+  isSpec: "True"
+  fullName: Chapar.MassTransit.Options.ChaparMassTransitOptions.ExchangeNamePrefix
+  nameWithType: ChaparMassTransitOptions.ExchangeNamePrefix
+- uid: Chapar.MassTransit.Options.ChaparMassTransitOptions.ExchangeNameSuffix
+  name: ExchangeNameSuffix
+  href: api/Chapar.MassTransit.Options.ChaparMassTransitOptions.html#Chapar_MassTransit_Options_ChaparMassTransitOptions_ExchangeNameSuffix
+  commentId: P:Chapar.MassTransit.Options.ChaparMassTransitOptions.ExchangeNameSuffix
+  fullName: Chapar.MassTransit.Options.ChaparMassTransitOptions.ExchangeNameSuffix
+  nameWithType: ChaparMassTransitOptions.ExchangeNameSuffix
+- uid: Chapar.MassTransit.Options.ChaparMassTransitOptions.ExchangeNameSuffix*
+  name: ExchangeNameSuffix
+  href: api/Chapar.MassTransit.Options.ChaparMassTransitOptions.html#Chapar_MassTransit_Options_ChaparMassTransitOptions_ExchangeNameSuffix_
+  commentId: Overload:Chapar.MassTransit.Options.ChaparMassTransitOptions.ExchangeNameSuffix
+  isSpec: "True"
+  fullName: Chapar.MassTransit.Options.ChaparMassTransitOptions.ExchangeNameSuffix
+  nameWithType: ChaparMassTransitOptions.ExchangeNameSuffix
 - uid: Chapar.MassTransit.Options.ChaparMassTransitOptions.Host
   name: Host
   href: api/Chapar.MassTransit.Options.ChaparMassTransitOptions.html#Chapar_MassTransit_Options_ChaparMassTransitOptions_Host
@@ -1688,6 +1790,19 @@ references:
   isSpec: "True"
   fullName: Chapar.MassTransit.Options.ChaparMassTransitOptions.Host
   nameWithType: ChaparMassTransitOptions.Host
+- uid: Chapar.MassTransit.Options.ChaparMassTransitOptions.MessageTypeMappings
+  name: MessageTypeMappings
+  href: api/Chapar.MassTransit.Options.ChaparMassTransitOptions.html#Chapar_MassTransit_Options_ChaparMassTransitOptions_MessageTypeMappings
+  commentId: P:Chapar.MassTransit.Options.ChaparMassTransitOptions.MessageTypeMappings
+  fullName: Chapar.MassTransit.Options.ChaparMassTransitOptions.MessageTypeMappings
+  nameWithType: ChaparMassTransitOptions.MessageTypeMappings
+- uid: Chapar.MassTransit.Options.ChaparMassTransitOptions.MessageTypeMappings*
+  name: MessageTypeMappings
+  href: api/Chapar.MassTransit.Options.ChaparMassTransitOptions.html#Chapar_MassTransit_Options_ChaparMassTransitOptions_MessageTypeMappings_
+  commentId: Overload:Chapar.MassTransit.Options.ChaparMassTransitOptions.MessageTypeMappings
+  isSpec: "True"
+  fullName: Chapar.MassTransit.Options.ChaparMassTransitOptions.MessageTypeMappings
+  nameWithType: ChaparMassTransitOptions.MessageTypeMappings
 - uid: Chapar.MassTransit.Options.ChaparMassTransitOptions.Password
   name: Password
   href: api/Chapar.MassTransit.Options.ChaparMassTransitOptions.html#Chapar_MassTransit_Options_ChaparMassTransitOptions_Password
@@ -1701,6 +1816,32 @@ references:
   isSpec: "True"
   fullName: Chapar.MassTransit.Options.ChaparMassTransitOptions.Password
   nameWithType: ChaparMassTransitOptions.Password
+- uid: Chapar.MassTransit.Options.ChaparMassTransitOptions.QueueNamePrefix
+  name: QueueNamePrefix
+  href: api/Chapar.MassTransit.Options.ChaparMassTransitOptions.html#Chapar_MassTransit_Options_ChaparMassTransitOptions_QueueNamePrefix
+  commentId: P:Chapar.MassTransit.Options.ChaparMassTransitOptions.QueueNamePrefix
+  fullName: Chapar.MassTransit.Options.ChaparMassTransitOptions.QueueNamePrefix
+  nameWithType: ChaparMassTransitOptions.QueueNamePrefix
+- uid: Chapar.MassTransit.Options.ChaparMassTransitOptions.QueueNamePrefix*
+  name: QueueNamePrefix
+  href: api/Chapar.MassTransit.Options.ChaparMassTransitOptions.html#Chapar_MassTransit_Options_ChaparMassTransitOptions_QueueNamePrefix_
+  commentId: Overload:Chapar.MassTransit.Options.ChaparMassTransitOptions.QueueNamePrefix
+  isSpec: "True"
+  fullName: Chapar.MassTransit.Options.ChaparMassTransitOptions.QueueNamePrefix
+  nameWithType: ChaparMassTransitOptions.QueueNamePrefix
+- uid: Chapar.MassTransit.Options.ChaparMassTransitOptions.QueueNameSuffix
+  name: QueueNameSuffix
+  href: api/Chapar.MassTransit.Options.ChaparMassTransitOptions.html#Chapar_MassTransit_Options_ChaparMassTransitOptions_QueueNameSuffix
+  commentId: P:Chapar.MassTransit.Options.ChaparMassTransitOptions.QueueNameSuffix
+  fullName: Chapar.MassTransit.Options.ChaparMassTransitOptions.QueueNameSuffix
+  nameWithType: ChaparMassTransitOptions.QueueNameSuffix
+- uid: Chapar.MassTransit.Options.ChaparMassTransitOptions.QueueNameSuffix*
+  name: QueueNameSuffix
+  href: api/Chapar.MassTransit.Options.ChaparMassTransitOptions.html#Chapar_MassTransit_Options_ChaparMassTransitOptions_QueueNameSuffix_
+  commentId: Overload:Chapar.MassTransit.Options.ChaparMassTransitOptions.QueueNameSuffix
+  isSpec: "True"
+  fullName: Chapar.MassTransit.Options.ChaparMassTransitOptions.QueueNameSuffix
+  nameWithType: ChaparMassTransitOptions.QueueNameSuffix
 - uid: Chapar.MassTransit.Options.ChaparMassTransitOptions.Resilience
   name: Resilience
   href: api/Chapar.MassTransit.Options.ChaparMassTransitOptions.html#Chapar_MassTransit_Options_ChaparMassTransitOptions_Resilience

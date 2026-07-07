@@ -90,10 +90,16 @@ Classes
 When applied, the <code>OriginValidationBehaviour</code> in the pipeline checks
 that the incoming message contains an &quot;Origin&quot; header with this value.</p>
 </section>
+      <h4><a class="xref" href="Chapar.Core.Attributes.ConsumeMessageTypesAttribute.html">ConsumeMessageTypesAttribute</a></h4>
+      <section><p>Specifies additional broker-level message names that a handler should consume.</p>
+</section>
       <h4><a class="xref" href="Chapar.Core.Attributes.ExchangeAttribute.html">ExchangeAttribute</a></h4>
       <section><p>Specifies that a message should be published to a specific exchange,
 or that a handler should consume from a specific exchange.
 Can be applied multiple times for complex routing topologies.</p>
+</section>
+      <h4><a class="xref" href="Chapar.Core.Attributes.MessageNameAttribute.html">MessageNameAttribute</a></h4>
+      <section><p>Overrides the logical message name used for broker-level contract identification.</p>
 </section>
       <h4><a class="xref" href="Chapar.Core.Attributes.QueueNameAttribute.html">QueueNameAttribute</a></h4>
       <section><p>Specifies the queue name that a consumer should bind to when processing commands.
