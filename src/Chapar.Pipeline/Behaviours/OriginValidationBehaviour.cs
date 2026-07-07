@@ -52,7 +52,7 @@ public sealed class OriginValidationBehaviour<TMessage> : IPipelineBehavior<TMes
         }
 
         // Fail closed: if attribute is present but headers are unavailable, reject the message.
-        if (_contextAccessor?.Headers is not { } headers)
+        if (_contextAccessor?.Context?.Headers is not { } headers)
         {
             _logger.LogError(
                 "Origin validation failed for {MessageType}. [AllowedOrigin] is present but message headers are unavailable.",
