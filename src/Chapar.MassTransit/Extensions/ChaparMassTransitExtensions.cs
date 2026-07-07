@@ -8,6 +8,7 @@ using Chapar.MassTransit.Adapters;
 using Chapar.MassTransit.Bus;
 using Chapar.MassTransit.Consumers;
 using Chapar.MassTransit.Filters;
+using Chapar.MassTransit.Formatters;
 using Chapar.MassTransit.Metrics;
 using Chapar.MassTransit.Options;
 using Chapar.MassTransit.Outbox;
@@ -55,7 +56,9 @@ public static class ChaparMassTransitExtensions
         services.TryAddScoped<IOutboxStore, NullOutboxStore>();
 
         // Discover all IMessageHandler<T> implementations and separate handlers with custom attributes.
-        var (standardTypes, customQueueMappings, customExchangeMappings) = DiscoverAndRegisterHandlers(services, handlerAssemblies);
+        var (standardTypes, customQueueMappings, customExchangeMappings) = DiscoverAndRegisterHandlers(services,
+                                                                                                       handlerAssemblies,
+                                                                                                       options);
 
         services.AddMassTransit(mt =>
         {
@@ -68,6 +71,9 @@ public static class ChaparMassTransitExtensions
                 var adapterType = typeof(ChaparConsumerAdapter<>).MakeGenericType(messageType);
                 mt.AddConsumer(adapterType);
             }
+
+            mt.SetEndpointNameFormatter(new ChaparEndpointNameFormatter(options.QueueNamePrefix,
+                                                                        options.QueueNameSuffix));
 
             mt.UsingRabbitMq((registrationContext, cfg) =>
             {
@@ -92,6 +98,8 @@ public static class ChaparMassTransitExtensions
                         cb.ResetInterval = options.Resilience.CircuitBreakerResetInterval;
                     });
                 }
+
+                cfg.MessageTopology.SetEntityNameFormatter(new ChaparMessageNameFormatter(options));
 
                 // Populate the ambient message context before downstream consumer code runs.
                 cfg.UseConsumeFilter(typeof(ChaparConsumeFilter<>), registrationContext);
@@ -195,6 +203,7 @@ public static class ChaparMassTransitExtensions
     /// </summary>
     /// <param name="services">The <see cref="IServiceCollection"/> to register the handlers in.</param>
     /// <param name="assemblies">The assemblies to scan.</param>
+    /// <param name="options">The MassTransit options used for topology naming.</param>
     /// <returns>
     /// A tuple containing:
     /// <list type="bullet">
@@ -207,7 +216,8 @@ public static class ChaparMassTransitExtensions
         Dictionary<Type, string> customQueueMappings,
         List<(Type MessageType, string QueueName, ExchangeAttribute Exchange)> customExchangeMappings)
         DiscoverAndRegisterHandlers(IServiceCollection services,
-                                    Assembly[] assemblies)
+                                    Assembly[] assemblies,
+                                    ChaparMassTransitOptions options)
     {
         var standardTypes = new List<Type>();
         var customQueueMappings = new Dictionary<Type, string>();
@@ -246,22 +256,40 @@ public static class ChaparMassTransitExtensions
 
             // Determine the endpoint configuration based on the handler's attributes.
             var exchangeAttrs = entry.HandlerType.GetCustomAttributes<ExchangeAttribute>().ToList();
-            if (exchangeAttrs.Count > 0)
+            var consumeTypesAttribute = entry.HandlerType.GetCustomAttribute<ConsumeMessageTypesAttribute>();
+
+            if (exchangeAttrs.Count > 0 || consumeTypesAttribute is not null)
             {
-                // Handler has [Exchange] – add to custom exchange mappings.
-                // Queue name comes from [QueueName] if present, otherwise use the message type name.
-                var queueName = entry.HandlerType.GetCustomAttribute<QueueNameAttribute>()?.Name
-                                ?? entry.MessageType.FullName!;
+                // Handler has [Exchange] or message aliases; generate a stable queue name.
+                var queueName = ChaparQueueNameFormatter.Format(entry.HandlerType,
+                                                                options.QueueNamePrefix,
+                                                                options.QueueNameSuffix);
+
+                if (consumeTypesAttribute is not null)
+                {
+                    foreach (var messageTypeName in consumeTypesAttribute.MessageTypes)
+                    {
+                        customExchangeMappings.Add((entry.MessageType,
+                                                    queueName,
+                                                    new ExchangeAttribute(messageTypeName)
+                                                    {
+                                                        Type = ExchangeType.Fanout,
+                                                        RoutingKey = string.Empty
+                                                    }));
+                    }
+                }
 
                 foreach (var attr in exchangeAttrs)
                 {
                     customExchangeMappings.Add((entry.MessageType, queueName, attr));
                 }
             }
-            else if (entry.HandlerType.GetCustomAttribute<QueueNameAttribute>() is { } queueAttr)
+            else if (entry.HandlerType.GetCustomAttribute<QueueNameAttribute>() is not null)
             {
                 // Handler has only [QueueName] – legacy behaviour.
-                customQueueMappings[entry.MessageType] = queueAttr.Name;
+                customQueueMappings[entry.MessageType] = ChaparQueueNameFormatter.Format(entry.HandlerType,
+                                                                                         options.QueueNamePrefix,
+                                                                                         options.QueueNameSuffix);
             }
             else
             {
