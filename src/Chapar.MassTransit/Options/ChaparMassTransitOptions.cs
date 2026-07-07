@@ -20,10 +20,35 @@ public class ChaparMassTransitOptions
     public string Password { get; set; } = "guest";
 
     /// <summary>
+    /// Optional prefix added to generated queue names.
+    /// </summary>
+    public string? QueueNamePrefix { get; set; }
+
+    /// <summary>
+    /// Optional suffix added to generated queue names.
+    /// </summary>
+    public string? QueueNameSuffix { get; set; }
+
+    /// <summary>
+    /// Optional prefix added to generated exchange/entity names.
+    /// </summary>
+    public string? ExchangeNamePrefix { get; set; }
+
+    /// <summary>
+    /// Optional suffix added to generated exchange/entity names.
+    /// </summary>
+    public string? ExchangeNameSuffix { get; set; }
+
+    /// <summary>
     /// Headers that will be added to every outgoing message unless overridden per message.
     /// Useful for multi‑tenancy, tracing, etc.
     /// </summary>
     public Dictionary<string, object> DefaultHeaders { get; set; } = new();
+
+    /// <summary>
+    /// Explicit broker-level message name mappings keyed by message CLR full name.
+    /// </summary>
+    public IDictionary<string, string> MessageTypeMappings { get; } = new Dictionary<string, string>();
 
     /// <summary>
     /// Settings for retry and circuit breaker policies applied by MassTransit.
