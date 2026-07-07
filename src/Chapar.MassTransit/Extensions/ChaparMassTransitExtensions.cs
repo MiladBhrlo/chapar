@@ -4,6 +4,7 @@ using Chapar.Core.Attributes;
 using Chapar.Core.Inbox;
 using Chapar.Core.Metrics;
 using Chapar.Core.Outbox;
+using Chapar.MassTransit.Adapters;
 using Chapar.MassTransit.Bus;
 using Chapar.MassTransit.Consumers;
 using Chapar.MassTransit.Filters;
@@ -92,6 +93,9 @@ public static class ChaparMassTransitExtensions
                     });
                 }
 
+                // Populate the ambient message context before downstream consumer code runs.
+                cfg.UseConsumeFilter(typeof(ChaparConsumeFilter<>), registrationContext);
+
                 // Apply all registered IConsumeFilter implementations (e.g., Inbox filter).
                 var consumeFilters = registrationContext.GetServices<IConsumeFilter>();
                 if (consumeFilters.Any())
@@ -170,8 +174,7 @@ public static class ChaparMassTransitExtensions
         services.AddHostedService<ChaparOutboxPublisher>();
 
         // Register message context accessor for pipeline behaviors.
-        services.AddScoped<Adapters.MessageHeaders>();
-        services.TryAddScoped<IMessageContextAccessor>(sp => sp.GetRequiredService<Adapters.MessageHeaders>());
+        services.TryAddSingleton<IMessageContextAccessor, MessageContextAccessor>();
 
         // Register metrics for inbox and outbox monitoring.
         services.TryAddSingleton<IInboxMetrics, InboxMetrics>();
