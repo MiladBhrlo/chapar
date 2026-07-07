@@ -130,10 +130,11 @@ on the message bus (Integration Events).</p>
       <section><p>Marker interface for all messages flowing through the Chapar bus.
 There is no constraint on the structure; it exists to enable compile‑time dispatch.</p>
 </section>
+      <h4><a class="xref" href="Chapar.Core.Abstractions.IMessageContext.html">IMessageContext</a></h4>
+      <section><p>Represents the full context of a message that is currently being processed by the bus.</p>
+</section>
       <h4><a class="xref" href="Chapar.Core.Abstractions.IMessageContextAccessor.html">IMessageContextAccessor</a></h4>
-      <section><p>Provides access to the current message headers for both reading and writing.
-This allows pipeline behaviors to inspect and enrich message metadata
-without coupling to a specific transport.</p>
+      <section><p>Provides access to the current <a class="xref" href="Chapar.Core.Abstractions.IMessageContext.html">IMessageContext</a>.</p>
 </section>
       <h4><a class="xref" href="Chapar.Core.Abstractions.IMessageHandler-1.html">IMessageHandler&lt;TMessage&gt;</a></h4>
       <section><p>Defines a handler for a specific message type.

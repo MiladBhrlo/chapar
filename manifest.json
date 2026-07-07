@@ -176,6 +176,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Abstractions.IMessageContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Abstractions.IMessageContext.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Abstractions.IMessageContext",
+      "Summary": "<p sourcefile=\"api/Chapar.Core.Abstractions.IMessageContext.yml\" sourcestartlinenumber=\"1\">Represents the full context of a message that is currently being processed by the bus.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Abstractions.IMessageContextAccessor.yml",
       "output": {
         ".html": {
@@ -186,7 +200,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Chapar.Core.Abstractions.IMessageContextAccessor",
-      "Summary": "<p sourcefile=\"api/Chapar.Core.Abstractions.IMessageContextAccessor.yml\" sourcestartlinenumber=\"1\">Provides access to the current message headers for both reading and writing.\nThis allows pipeline behaviors to inspect and enrich message metadata\nwithout coupling to a specific transport.</p>\n"
+      "Summary": "<p sourcefile=\"api/Chapar.Core.Abstractions.IMessageContextAccessor.yml\" sourcestartlinenumber=\"1\">Provides access to the current <xref href=\"Chapar.Core.Abstractions.IMessageContext\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -694,34 +708,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Chapar.MassTransit.Adapters.MessageHeaders.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Chapar.MassTransit.Adapters.MessageHeaders.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "Chapar.MassTransit.Adapters.MessageHeaders",
-      "Summary": "<p sourcefile=\"api/Chapar.MassTransit.Adapters.MessageHeaders.yml\" sourcestartlinenumber=\"1\">A settable implementation of <xref href=\"Chapar.Core.Abstractions.IMessageContextAccessor\" data-throw-if-not-resolved=\"false\"></xref>.\nThe headers are populated by <xref href=\"Chapar.MassTransit.Consumers.ChaparConsumerAdapter%601\" data-throw-if-not-resolved=\"false\"></xref>\nduring message consumption and can be read/modified by pipeline behaviors.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Chapar.MassTransit.Adapters.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Chapar.MassTransit.Adapters.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "Chapar.MassTransit.Adapters",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/Chapar.MassTransit.Consumers.ChaparConsumerAdapter-1.yml",
       "output": {
         ".html": {
@@ -788,6 +774,34 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Chapar.MassTransit.Extensions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.MassTransit.Filters.ChaparConsumeFilter-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.MassTransit.Filters.ChaparConsumeFilter-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.MassTransit.Filters.ChaparConsumeFilter<T>",
+      "Summary": "<p sourcefile=\"api/Chapar.MassTransit.Filters.ChaparConsumeFilter-1.yml\" sourcestartlinenumber=\"1\">Populates the ambient <xref href=\"Chapar.Core.Abstractions.IMessageContext\" data-throw-if-not-resolved=\"false\"></xref> for the current consumed message.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.MassTransit.Filters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.MassTransit.Filters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.MassTransit.Filters",
       "Summary": null
     },
     {
@@ -1270,11 +1284,11 @@
       "type": "Toc",
       "source_relative_path": "api/toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "api/toc.json"
-        },
         ".html": {
           "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
         }
       },
       "version": ""

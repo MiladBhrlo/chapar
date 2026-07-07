@@ -235,25 +235,96 @@ references:
   commentId: T:Chapar.Core.Abstractions.IMessage
   fullName: Chapar.Core.Abstractions.IMessage
   nameWithType: IMessage
+- uid: Chapar.Core.Abstractions.IMessageContext
+  name: IMessageContext
+  href: api/Chapar.Core.Abstractions.IMessageContext.html
+  commentId: T:Chapar.Core.Abstractions.IMessageContext
+  fullName: Chapar.Core.Abstractions.IMessageContext
+  nameWithType: IMessageContext
+- uid: Chapar.Core.Abstractions.IMessageContext.Headers
+  name: Headers
+  href: api/Chapar.Core.Abstractions.IMessageContext.html#Chapar_Core_Abstractions_IMessageContext_Headers
+  commentId: P:Chapar.Core.Abstractions.IMessageContext.Headers
+  fullName: Chapar.Core.Abstractions.IMessageContext.Headers
+  nameWithType: IMessageContext.Headers
+- uid: Chapar.Core.Abstractions.IMessageContext.Headers*
+  name: Headers
+  href: api/Chapar.Core.Abstractions.IMessageContext.html#Chapar_Core_Abstractions_IMessageContext_Headers_
+  commentId: Overload:Chapar.Core.Abstractions.IMessageContext.Headers
+  isSpec: "True"
+  fullName: Chapar.Core.Abstractions.IMessageContext.Headers
+  nameWithType: IMessageContext.Headers
+- uid: Chapar.Core.Abstractions.IMessageContext.Items
+  name: Items
+  href: api/Chapar.Core.Abstractions.IMessageContext.html#Chapar_Core_Abstractions_IMessageContext_Items
+  commentId: P:Chapar.Core.Abstractions.IMessageContext.Items
+  fullName: Chapar.Core.Abstractions.IMessageContext.Items
+  nameWithType: IMessageContext.Items
+- uid: Chapar.Core.Abstractions.IMessageContext.Items*
+  name: Items
+  href: api/Chapar.Core.Abstractions.IMessageContext.html#Chapar_Core_Abstractions_IMessageContext_Items_
+  commentId: Overload:Chapar.Core.Abstractions.IMessageContext.Items
+  isSpec: "True"
+  fullName: Chapar.Core.Abstractions.IMessageContext.Items
+  nameWithType: IMessageContext.Items
+- uid: Chapar.Core.Abstractions.IMessageContext.Message
+  name: Message
+  href: api/Chapar.Core.Abstractions.IMessageContext.html#Chapar_Core_Abstractions_IMessageContext_Message
+  commentId: P:Chapar.Core.Abstractions.IMessageContext.Message
+  fullName: Chapar.Core.Abstractions.IMessageContext.Message
+  nameWithType: IMessageContext.Message
+- uid: Chapar.Core.Abstractions.IMessageContext.Message*
+  name: Message
+  href: api/Chapar.Core.Abstractions.IMessageContext.html#Chapar_Core_Abstractions_IMessageContext_Message_
+  commentId: Overload:Chapar.Core.Abstractions.IMessageContext.Message
+  isSpec: "True"
+  fullName: Chapar.Core.Abstractions.IMessageContext.Message
+  nameWithType: IMessageContext.Message
+- uid: Chapar.Core.Abstractions.IMessageContext.MessageId
+  name: MessageId
+  href: api/Chapar.Core.Abstractions.IMessageContext.html#Chapar_Core_Abstractions_IMessageContext_MessageId
+  commentId: P:Chapar.Core.Abstractions.IMessageContext.MessageId
+  fullName: Chapar.Core.Abstractions.IMessageContext.MessageId
+  nameWithType: IMessageContext.MessageId
+- uid: Chapar.Core.Abstractions.IMessageContext.MessageId*
+  name: MessageId
+  href: api/Chapar.Core.Abstractions.IMessageContext.html#Chapar_Core_Abstractions_IMessageContext_MessageId_
+  commentId: Overload:Chapar.Core.Abstractions.IMessageContext.MessageId
+  isSpec: "True"
+  fullName: Chapar.Core.Abstractions.IMessageContext.MessageId
+  nameWithType: IMessageContext.MessageId
+- uid: Chapar.Core.Abstractions.IMessageContext.MessageType
+  name: MessageType
+  href: api/Chapar.Core.Abstractions.IMessageContext.html#Chapar_Core_Abstractions_IMessageContext_MessageType
+  commentId: P:Chapar.Core.Abstractions.IMessageContext.MessageType
+  fullName: Chapar.Core.Abstractions.IMessageContext.MessageType
+  nameWithType: IMessageContext.MessageType
+- uid: Chapar.Core.Abstractions.IMessageContext.MessageType*
+  name: MessageType
+  href: api/Chapar.Core.Abstractions.IMessageContext.html#Chapar_Core_Abstractions_IMessageContext_MessageType_
+  commentId: Overload:Chapar.Core.Abstractions.IMessageContext.MessageType
+  isSpec: "True"
+  fullName: Chapar.Core.Abstractions.IMessageContext.MessageType
+  nameWithType: IMessageContext.MessageType
 - uid: Chapar.Core.Abstractions.IMessageContextAccessor
   name: IMessageContextAccessor
   href: api/Chapar.Core.Abstractions.IMessageContextAccessor.html
   commentId: T:Chapar.Core.Abstractions.IMessageContextAccessor
   fullName: Chapar.Core.Abstractions.IMessageContextAccessor
   nameWithType: IMessageContextAccessor
-- uid: Chapar.Core.Abstractions.IMessageContextAccessor.Headers
-  name: Headers
-  href: api/Chapar.Core.Abstractions.IMessageContextAccessor.html#Chapar_Core_Abstractions_IMessageContextAccessor_Headers
-  commentId: P:Chapar.Core.Abstractions.IMessageContextAccessor.Headers
-  fullName: Chapar.Core.Abstractions.IMessageContextAccessor.Headers
-  nameWithType: IMessageContextAccessor.Headers
-- uid: Chapar.Core.Abstractions.IMessageContextAccessor.Headers*
-  name: Headers
-  href: api/Chapar.Core.Abstractions.IMessageContextAccessor.html#Chapar_Core_Abstractions_IMessageContextAccessor_Headers_
-  commentId: Overload:Chapar.Core.Abstractions.IMessageContextAccessor.Headers
+- uid: Chapar.Core.Abstractions.IMessageContextAccessor.Context
+  name: Context
+  href: api/Chapar.Core.Abstractions.IMessageContextAccessor.html#Chapar_Core_Abstractions_IMessageContextAccessor_Context
+  commentId: P:Chapar.Core.Abstractions.IMessageContextAccessor.Context
+  fullName: Chapar.Core.Abstractions.IMessageContextAccessor.Context
+  nameWithType: IMessageContextAccessor.Context
+- uid: Chapar.Core.Abstractions.IMessageContextAccessor.Context*
+  name: Context
+  href: api/Chapar.Core.Abstractions.IMessageContextAccessor.html#Chapar_Core_Abstractions_IMessageContextAccessor_Context_
+  commentId: Overload:Chapar.Core.Abstractions.IMessageContextAccessor.Context
   isSpec: "True"
-  fullName: Chapar.Core.Abstractions.IMessageContextAccessor.Headers
-  nameWithType: IMessageContextAccessor.Headers
+  fullName: Chapar.Core.Abstractions.IMessageContextAccessor.Context
+  nameWithType: IMessageContextAccessor.Context
 - uid: Chapar.Core.Abstractions.IMessageHandler`1
   name: IMessageHandler<TMessage>
   href: api/Chapar.Core.Abstractions.IMessageHandler-1.html
@@ -1359,31 +1430,6 @@ references:
   isSpec: "True"
   fullName: Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.ReceivedAt
   nameWithType: InboxMessageEntity.ReceivedAt
-- uid: Chapar.MassTransit.Adapters
-  name: Chapar.MassTransit.Adapters
-  href: api/Chapar.MassTransit.Adapters.html
-  commentId: N:Chapar.MassTransit.Adapters
-  fullName: Chapar.MassTransit.Adapters
-  nameWithType: Chapar.MassTransit.Adapters
-- uid: Chapar.MassTransit.Adapters.MessageHeaders
-  name: MessageHeaders
-  href: api/Chapar.MassTransit.Adapters.MessageHeaders.html
-  commentId: T:Chapar.MassTransit.Adapters.MessageHeaders
-  fullName: Chapar.MassTransit.Adapters.MessageHeaders
-  nameWithType: MessageHeaders
-- uid: Chapar.MassTransit.Adapters.MessageHeaders.Headers
-  name: Headers
-  href: api/Chapar.MassTransit.Adapters.MessageHeaders.html#Chapar_MassTransit_Adapters_MessageHeaders_Headers
-  commentId: P:Chapar.MassTransit.Adapters.MessageHeaders.Headers
-  fullName: Chapar.MassTransit.Adapters.MessageHeaders.Headers
-  nameWithType: MessageHeaders.Headers
-- uid: Chapar.MassTransit.Adapters.MessageHeaders.Headers*
-  name: Headers
-  href: api/Chapar.MassTransit.Adapters.MessageHeaders.html#Chapar_MassTransit_Adapters_MessageHeaders_Headers_
-  commentId: Overload:Chapar.MassTransit.Adapters.MessageHeaders.Headers
-  isSpec: "True"
-  fullName: Chapar.MassTransit.Adapters.MessageHeaders.Headers
-  nameWithType: MessageHeaders.Headers
 - uid: Chapar.MassTransit.Consumers
   name: Chapar.MassTransit.Consumers
   href: api/Chapar.MassTransit.Consumers.html
@@ -1399,15 +1445,15 @@ references:
   fullName.vb: Chapar.MassTransit.Consumers.ChaparConsumerAdapter(Of T)
   nameWithType: ChaparConsumerAdapter<T>
   nameWithType.vb: ChaparConsumerAdapter(Of T)
-- uid: Chapar.MassTransit.Consumers.ChaparConsumerAdapter`1.#ctor(Chapar.Core.Abstractions.IMessageHandler{`0},Chapar.Core.Inbox.IInboxStore,Chapar.Core.Metrics.IInboxMetrics,Chapar.Core.Abstractions.IMessageContextAccessor,Microsoft.Extensions.Logging.ILogger{Chapar.MassTransit.Consumers.ChaparConsumerAdapter{`0}})
-  name: ChaparConsumerAdapter(IMessageHandler<T>, IInboxStore?, IInboxMetrics?, IMessageContextAccessor?, ILogger<ChaparConsumerAdapter<T>>?)
-  href: api/Chapar.MassTransit.Consumers.ChaparConsumerAdapter-1.html#Chapar_MassTransit_Consumers_ChaparConsumerAdapter_1__ctor_Chapar_Core_Abstractions_IMessageHandler__0__Chapar_Core_Inbox_IInboxStore_Chapar_Core_Metrics_IInboxMetrics_Chapar_Core_Abstractions_IMessageContextAccessor_Microsoft_Extensions_Logging_ILogger_Chapar_MassTransit_Consumers_ChaparConsumerAdapter__0___
-  commentId: M:Chapar.MassTransit.Consumers.ChaparConsumerAdapter`1.#ctor(Chapar.Core.Abstractions.IMessageHandler{`0},Chapar.Core.Inbox.IInboxStore,Chapar.Core.Metrics.IInboxMetrics,Chapar.Core.Abstractions.IMessageContextAccessor,Microsoft.Extensions.Logging.ILogger{Chapar.MassTransit.Consumers.ChaparConsumerAdapter{`0}})
-  name.vb: New(IMessageHandler(Of T), IInboxStore, IInboxMetrics, IMessageContextAccessor, ILogger(Of ChaparConsumerAdapter(Of T)))
-  fullName: Chapar.MassTransit.Consumers.ChaparConsumerAdapter<T>.ChaparConsumerAdapter(Chapar.Core.Abstractions.IMessageHandler<T>, Chapar.Core.Inbox.IInboxStore?, Chapar.Core.Metrics.IInboxMetrics?, Chapar.Core.Abstractions.IMessageContextAccessor?, Microsoft.Extensions.Logging.ILogger<Chapar.MassTransit.Consumers.ChaparConsumerAdapter<T>>?)
-  fullName.vb: Chapar.MassTransit.Consumers.ChaparConsumerAdapter(Of T).New(Chapar.Core.Abstractions.IMessageHandler(Of T), Chapar.Core.Inbox.IInboxStore, Chapar.Core.Metrics.IInboxMetrics, Chapar.Core.Abstractions.IMessageContextAccessor, Microsoft.Extensions.Logging.ILogger(Of Chapar.MassTransit.Consumers.ChaparConsumerAdapter(Of T)))
-  nameWithType: ChaparConsumerAdapter<T>.ChaparConsumerAdapter(IMessageHandler<T>, IInboxStore?, IInboxMetrics?, IMessageContextAccessor?, ILogger<ChaparConsumerAdapter<T>>?)
-  nameWithType.vb: ChaparConsumerAdapter(Of T).New(IMessageHandler(Of T), IInboxStore, IInboxMetrics, IMessageContextAccessor, ILogger(Of ChaparConsumerAdapter(Of T)))
+- uid: Chapar.MassTransit.Consumers.ChaparConsumerAdapter`1.#ctor(Chapar.Core.Abstractions.IMessageHandler{`0},Chapar.Core.Inbox.IInboxStore,Chapar.Core.Metrics.IInboxMetrics,Microsoft.Extensions.Logging.ILogger{Chapar.MassTransit.Consumers.ChaparConsumerAdapter{`0}})
+  name: ChaparConsumerAdapter(IMessageHandler<T>, IInboxStore?, IInboxMetrics?, ILogger<ChaparConsumerAdapter<T>>?)
+  href: api/Chapar.MassTransit.Consumers.ChaparConsumerAdapter-1.html#Chapar_MassTransit_Consumers_ChaparConsumerAdapter_1__ctor_Chapar_Core_Abstractions_IMessageHandler__0__Chapar_Core_Inbox_IInboxStore_Chapar_Core_Metrics_IInboxMetrics_Microsoft_Extensions_Logging_ILogger_Chapar_MassTransit_Consumers_ChaparConsumerAdapter__0___
+  commentId: M:Chapar.MassTransit.Consumers.ChaparConsumerAdapter`1.#ctor(Chapar.Core.Abstractions.IMessageHandler{`0},Chapar.Core.Inbox.IInboxStore,Chapar.Core.Metrics.IInboxMetrics,Microsoft.Extensions.Logging.ILogger{Chapar.MassTransit.Consumers.ChaparConsumerAdapter{`0}})
+  name.vb: New(IMessageHandler(Of T), IInboxStore, IInboxMetrics, ILogger(Of ChaparConsumerAdapter(Of T)))
+  fullName: Chapar.MassTransit.Consumers.ChaparConsumerAdapter<T>.ChaparConsumerAdapter(Chapar.Core.Abstractions.IMessageHandler<T>, Chapar.Core.Inbox.IInboxStore?, Chapar.Core.Metrics.IInboxMetrics?, Microsoft.Extensions.Logging.ILogger<Chapar.MassTransit.Consumers.ChaparConsumerAdapter<T>>?)
+  fullName.vb: Chapar.MassTransit.Consumers.ChaparConsumerAdapter(Of T).New(Chapar.Core.Abstractions.IMessageHandler(Of T), Chapar.Core.Inbox.IInboxStore, Chapar.Core.Metrics.IInboxMetrics, Microsoft.Extensions.Logging.ILogger(Of Chapar.MassTransit.Consumers.ChaparConsumerAdapter(Of T)))
+  nameWithType: ChaparConsumerAdapter<T>.ChaparConsumerAdapter(IMessageHandler<T>, IInboxStore?, IInboxMetrics?, ILogger<ChaparConsumerAdapter<T>>?)
+  nameWithType.vb: ChaparConsumerAdapter(Of T).New(IMessageHandler(Of T), IInboxStore, IInboxMetrics, ILogger(Of ChaparConsumerAdapter(Of T)))
 - uid: Chapar.MassTransit.Consumers.ChaparConsumerAdapter`1.#ctor*
   name: ChaparConsumerAdapter
   href: api/Chapar.MassTransit.Consumers.ChaparConsumerAdapter-1.html#Chapar_MassTransit_Consumers_ChaparConsumerAdapter_1__ctor_
@@ -1496,6 +1542,75 @@ references:
   isSpec: "True"
   fullName: Chapar.MassTransit.Extensions.ChaparMassTransitHealthCheckExtensions.AddChaparMassTransitHealthCheck
   nameWithType: ChaparMassTransitHealthCheckExtensions.AddChaparMassTransitHealthCheck
+- uid: Chapar.MassTransit.Filters
+  name: Chapar.MassTransit.Filters
+  href: api/Chapar.MassTransit.Filters.html
+  commentId: N:Chapar.MassTransit.Filters
+  fullName: Chapar.MassTransit.Filters
+  nameWithType: Chapar.MassTransit.Filters
+- uid: Chapar.MassTransit.Filters.ChaparConsumeFilter`1
+  name: ChaparConsumeFilter<T>
+  href: api/Chapar.MassTransit.Filters.ChaparConsumeFilter-1.html
+  commentId: T:Chapar.MassTransit.Filters.ChaparConsumeFilter`1
+  name.vb: ChaparConsumeFilter(Of T)
+  fullName: Chapar.MassTransit.Filters.ChaparConsumeFilter<T>
+  fullName.vb: Chapar.MassTransit.Filters.ChaparConsumeFilter(Of T)
+  nameWithType: ChaparConsumeFilter<T>
+  nameWithType.vb: ChaparConsumeFilter(Of T)
+- uid: Chapar.MassTransit.Filters.ChaparConsumeFilter`1.#ctor(Chapar.Core.Abstractions.IMessageContextAccessor)
+  name: ChaparConsumeFilter(IMessageContextAccessor)
+  href: api/Chapar.MassTransit.Filters.ChaparConsumeFilter-1.html#Chapar_MassTransit_Filters_ChaparConsumeFilter_1__ctor_Chapar_Core_Abstractions_IMessageContextAccessor_
+  commentId: M:Chapar.MassTransit.Filters.ChaparConsumeFilter`1.#ctor(Chapar.Core.Abstractions.IMessageContextAccessor)
+  name.vb: New(IMessageContextAccessor)
+  fullName: Chapar.MassTransit.Filters.ChaparConsumeFilter<T>.ChaparConsumeFilter(Chapar.Core.Abstractions.IMessageContextAccessor)
+  fullName.vb: Chapar.MassTransit.Filters.ChaparConsumeFilter(Of T).New(Chapar.Core.Abstractions.IMessageContextAccessor)
+  nameWithType: ChaparConsumeFilter<T>.ChaparConsumeFilter(IMessageContextAccessor)
+  nameWithType.vb: ChaparConsumeFilter(Of T).New(IMessageContextAccessor)
+- uid: Chapar.MassTransit.Filters.ChaparConsumeFilter`1.#ctor*
+  name: ChaparConsumeFilter
+  href: api/Chapar.MassTransit.Filters.ChaparConsumeFilter-1.html#Chapar_MassTransit_Filters_ChaparConsumeFilter_1__ctor_
+  commentId: Overload:Chapar.MassTransit.Filters.ChaparConsumeFilter`1.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: Chapar.MassTransit.Filters.ChaparConsumeFilter<T>.ChaparConsumeFilter
+  fullName.vb: Chapar.MassTransit.Filters.ChaparConsumeFilter(Of T).New
+  nameWithType: ChaparConsumeFilter<T>.ChaparConsumeFilter
+  nameWithType.vb: ChaparConsumeFilter(Of T).New
+- uid: Chapar.MassTransit.Filters.ChaparConsumeFilter`1.Probe(MassTransit.ProbeContext)
+  name: Probe(ProbeContext)
+  href: api/Chapar.MassTransit.Filters.ChaparConsumeFilter-1.html#Chapar_MassTransit_Filters_ChaparConsumeFilter_1_Probe_MassTransit_ProbeContext_
+  commentId: M:Chapar.MassTransit.Filters.ChaparConsumeFilter`1.Probe(MassTransit.ProbeContext)
+  fullName: Chapar.MassTransit.Filters.ChaparConsumeFilter<T>.Probe(MassTransit.ProbeContext)
+  fullName.vb: Chapar.MassTransit.Filters.ChaparConsumeFilter(Of T).Probe(MassTransit.ProbeContext)
+  nameWithType: ChaparConsumeFilter<T>.Probe(ProbeContext)
+  nameWithType.vb: ChaparConsumeFilter(Of T).Probe(ProbeContext)
+- uid: Chapar.MassTransit.Filters.ChaparConsumeFilter`1.Probe*
+  name: Probe
+  href: api/Chapar.MassTransit.Filters.ChaparConsumeFilter-1.html#Chapar_MassTransit_Filters_ChaparConsumeFilter_1_Probe_
+  commentId: Overload:Chapar.MassTransit.Filters.ChaparConsumeFilter`1.Probe
+  isSpec: "True"
+  fullName: Chapar.MassTransit.Filters.ChaparConsumeFilter<T>.Probe
+  fullName.vb: Chapar.MassTransit.Filters.ChaparConsumeFilter(Of T).Probe
+  nameWithType: ChaparConsumeFilter<T>.Probe
+  nameWithType.vb: ChaparConsumeFilter(Of T).Probe
+- uid: Chapar.MassTransit.Filters.ChaparConsumeFilter`1.Send(MassTransit.ConsumeContext{`0},MassTransit.IPipe{MassTransit.ConsumeContext{`0}})
+  name: Send(ConsumeContext<T>, IPipe<ConsumeContext<T>>)
+  href: api/Chapar.MassTransit.Filters.ChaparConsumeFilter-1.html#Chapar_MassTransit_Filters_ChaparConsumeFilter_1_Send_MassTransit_ConsumeContext__0__MassTransit_IPipe_MassTransit_ConsumeContext__0___
+  commentId: M:Chapar.MassTransit.Filters.ChaparConsumeFilter`1.Send(MassTransit.ConsumeContext{`0},MassTransit.IPipe{MassTransit.ConsumeContext{`0}})
+  name.vb: Send(ConsumeContext(Of T), IPipe(Of ConsumeContext(Of T)))
+  fullName: Chapar.MassTransit.Filters.ChaparConsumeFilter<T>.Send(MassTransit.ConsumeContext<T>, MassTransit.IPipe<MassTransit.ConsumeContext<T>>)
+  fullName.vb: Chapar.MassTransit.Filters.ChaparConsumeFilter(Of T).Send(MassTransit.ConsumeContext(Of T), MassTransit.IPipe(Of MassTransit.ConsumeContext(Of T)))
+  nameWithType: ChaparConsumeFilter<T>.Send(ConsumeContext<T>, IPipe<ConsumeContext<T>>)
+  nameWithType.vb: ChaparConsumeFilter(Of T).Send(ConsumeContext(Of T), IPipe(Of ConsumeContext(Of T)))
+- uid: Chapar.MassTransit.Filters.ChaparConsumeFilter`1.Send*
+  name: Send
+  href: api/Chapar.MassTransit.Filters.ChaparConsumeFilter-1.html#Chapar_MassTransit_Filters_ChaparConsumeFilter_1_Send_
+  commentId: Overload:Chapar.MassTransit.Filters.ChaparConsumeFilter`1.Send
+  isSpec: "True"
+  fullName: Chapar.MassTransit.Filters.ChaparConsumeFilter<T>.Send
+  fullName.vb: Chapar.MassTransit.Filters.ChaparConsumeFilter(Of T).Send
+  nameWithType: ChaparConsumeFilter<T>.Send
+  nameWithType.vb: ChaparConsumeFilter(Of T).Send
 - uid: Chapar.MassTransit.Options
   name: Chapar.MassTransit.Options
   href: api/Chapar.MassTransit.Options.html
