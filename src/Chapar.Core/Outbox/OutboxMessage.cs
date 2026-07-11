@@ -10,20 +10,23 @@ public class OutboxMessage
     public Guid Id { get; init; } = Guid.NewGuid();
 
     /// <summary>The fully qualified assembly name of the message type.</summary>
-    public string MessageType { get; init; } = default!;
+    public string MessageType { get; set; } = default!;
 
     /// <summary>The serialized message body (JSON, XML, etc.).</summary>
-    public string Payload { get; init; } = default!;
+    public string Payload { get; set; } = default!;
 
     /// <summary>Timestamp when the message was created.</summary>
     public DateTime OccurredOn { get; init; } = DateTime.UtcNow;
 
     /// <summary>Whether the message has been successfully published to the broker.</summary>
-    public bool IsProcessed { get; init; }
+    public bool IsProcessed { get; set; }
 
     /// <summary>The serialized headers (JSON).</summary>
     public string? Headers { get; init; }
 
-    /// <summary>If set, the message is a command and must be sent to this exact queue.</summary>
+    /// <summary>
+    /// Optional destination queue used for point-to-point commands.
+    /// When null, the message is treated as a publish/fan-out event.
+    /// </summary>
     public string? DestinationQueue { get; init; }
 }

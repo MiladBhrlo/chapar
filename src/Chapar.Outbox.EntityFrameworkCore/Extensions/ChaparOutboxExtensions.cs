@@ -36,10 +36,12 @@ public static class ChaparOutboxExtensions
         {
             opt.PublishDomainEvents = options.PublishDomainEvents;
             opt.PublishIntegrationEvents = options.PublishIntegrationEvents;
+            opt.DefaultSaveMode = options.DefaultSaveMode;
         });
 
         services.TryAddScoped<EfOutboxStore>();
         services.AddScoped<IOutboxStore>(sp => sp.GetRequiredService<EfOutboxStore>());
+        services.AddScoped<IOutboxCommitter>(sp => sp.GetRequiredService<EfOutboxStore>());
         services.AddScoped<OutboxInterceptor>();
 
         services.Replace(ServiceDescriptor.Scoped<IChaparBus, OutboxChaparBus>());
@@ -60,7 +62,7 @@ public static class ChaparOutboxExtensions
         string tableName = "OutboxMessages",
         string schema = "chapar")
     {
-        builder.Entity<OutboxMessageEntity>(entity =>
+        builder.Entity<OutboxMessage>(entity =>
         {
             entity.ToTable(tableName, schema);
             entity.HasKey(e => e.Id);

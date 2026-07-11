@@ -18,4 +18,10 @@ public sealed class ChaparOutboxOptions
     /// Default is <c>true</c>.
     /// </summary>
     public bool PublishIntegrationEvents { get; set; } = true;
+
+    /// <summary>
+    /// Default save behavior for messages published through the outbox bus.
+    /// The default keeps outbox messages in the caller's transaction.
+    /// </summary>
+    public OutboxSaveMode DefaultSaveMode { get; set; } = OutboxSaveMode.Transactional;
 }

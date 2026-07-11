@@ -1,6 +1,8 @@
 using System.Text.Json;
 using Chapar.Core.Abstractions;
 using Chapar.Core.Outbox;
+using Chapar.Outbox.EntityFrameworkCore.Options;
+using Microsoft.Extensions.Options;
 
 namespace Chapar.Outbox.EntityFrameworkCore.Publishers;
 
@@ -8,21 +10,39 @@ namespace Chapar.Outbox.EntityFrameworkCore.Publishers;
 /// A decorator for <see cref="IChaparBus"/> that stores all outgoing messages
 /// in the outbox table instead of sending them directly to the broker.
 /// </summary>
-internal sealed class OutboxChaparBus : IChaparBus
+internal sealed class OutboxChaparBus : IOutboxModeAwareChaparBus
 {
     private readonly IOutboxStore _outboxStore;
+    private readonly IOutboxCommitter? _outboxCommitter;
+    private readonly ChaparOutboxOptions _options;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="OutboxChaparBus"/> class.
     /// </summary>
     /// <param name="outboxStore">The outbox store used to persist messages.</param>
-    public OutboxChaparBus(IOutboxStore outboxStore)
+    /// <param name="options">The outbox options.</param>
+    /// <param name="outboxCommitter">Optional outbox committer used for immediate save mode.</param>
+    public OutboxChaparBus(IOutboxStore outboxStore,
+                           IOptions<ChaparOutboxOptions> options,
+                           IOutboxCommitter? outboxCommitter = null)
     {
         _outboxStore = outboxStore ?? throw new ArgumentNullException(nameof(outboxStore));
+        _outboxCommitter = outboxCommitter;
+        _options = options?.Value ?? new ChaparOutboxOptions();
     }
 
     /// <inheritdoc />
     public async Task PublishAsync<TEvent>(TEvent @event, IDictionary<string, object>? headers = null, CancellationToken cancellationToken = default)
+        where TEvent : class, IEvent
+    {
+        await PublishAsync(@event, _options.DefaultSaveMode, headers, cancellationToken);
+    }
+
+    /// <inheritdoc />
+    public async Task PublishAsync<TEvent>(TEvent @event,
+                                           OutboxSaveMode saveMode,
+                                           IDictionary<string, object>? headers = null,
+                                           CancellationToken cancellationToken = default)
         where TEvent : class, IEvent
     {
         var outboxMessage = new OutboxMessage
@@ -36,10 +56,22 @@ internal sealed class OutboxChaparBus : IChaparBus
         };
 
         await _outboxStore.SaveAsync(outboxMessage, cancellationToken);
+        await CommitIfImmediateAsync(saveMode, cancellationToken);
     }
 
     /// <inheritdoc />
     public async Task SendAsync<TCommand>(TCommand command, string queueName, IDictionary<string, object>? headers = null, CancellationToken cancellationToken = default)
+        where TCommand : class, ICommand
+    {
+        await SendAsync(command, queueName, _options.DefaultSaveMode, headers, cancellationToken);
+    }
+
+    /// <inheritdoc />
+    public async Task SendAsync<TCommand>(TCommand command,
+                                          string queueName,
+                                          OutboxSaveMode saveMode,
+                                          IDictionary<string, object>? headers = null,
+                                          CancellationToken cancellationToken = default)
         where TCommand : class, ICommand
     {
         var outboxMessage = new OutboxMessage
@@ -53,5 +85,18 @@ internal sealed class OutboxChaparBus : IChaparBus
         };
 
         await _outboxStore.SaveAsync(outboxMessage, cancellationToken);
+        await CommitIfImmediateAsync(saveMode, cancellationToken);
+    }
+
+    private async Task CommitIfImmediateAsync(OutboxSaveMode saveMode, CancellationToken cancellationToken)
+    {
+        if (saveMode != OutboxSaveMode.Immediate)
+            return;
+
+        if (_outboxCommitter is null)
+            throw new InvalidOperationException(
+                $"The configured outbox store does not support {nameof(OutboxSaveMode.Immediate)}.");
+
+        await _outboxCommitter.CommitAsync(cancellationToken);
     }
 }
