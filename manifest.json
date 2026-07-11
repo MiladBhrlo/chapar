@@ -540,6 +540,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Outbox.IOutboxCommitter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Outbox.IOutboxCommitter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Outbox.IOutboxCommitter",
+      "Summary": "<p sourcefile=\"api/Chapar.Core.Outbox.IOutboxCommitter.yml\" sourcestartlinenumber=\"1\">Optional capability for outbox stores that can commit staged outbox messages immediately.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Outbox.IOutboxStore.yml",
       "output": {
         ".html": {
@@ -890,6 +904,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparBusOutboxExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparBusOutboxExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparBusOutboxExtensions",
+      "Summary": "<p sourcefile=\"api/Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparBusOutboxExtensions.yml\" sourcestartlinenumber=\"1\">Extension overloads for controlling EF outbox save behavior per outgoing message.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.yml",
       "output": {
         ".html": {
@@ -974,6 +1002,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Outbox.EntityFrameworkCore.OutboxSaveMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Outbox.EntityFrameworkCore.OutboxSaveMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Outbox.EntityFrameworkCore.OutboxSaveMode",
+      "Summary": "<p sourcefile=\"api/Chapar.Outbox.EntityFrameworkCore.OutboxSaveMode.yml\" sourcestartlinenumber=\"1\">Controls when an outbox message is committed.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.yml",
       "output": {
         ".html": {
@@ -988,20 +1030,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity",
-      "Summary": "<p sourcefile=\"api/Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.yml\" sourcestartlinenumber=\"1\">Entity that maps to the outbox table.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Outbox.EntityFrameworkCore.Stores.yml",
       "output": {
         ".html": {
@@ -1012,6 +1040,20 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Chapar.Outbox.EntityFrameworkCore.Stores",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Outbox.EntityFrameworkCore.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Outbox.EntityFrameworkCore.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Outbox.EntityFrameworkCore",
       "Summary": null
     },
     {

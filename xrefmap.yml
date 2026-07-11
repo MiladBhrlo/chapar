@@ -1115,6 +1115,25 @@ references:
   commentId: N:Chapar.Core.Outbox
   fullName: Chapar.Core.Outbox
   nameWithType: Chapar.Core.Outbox
+- uid: Chapar.Core.Outbox.IOutboxCommitter
+  name: IOutboxCommitter
+  href: api/Chapar.Core.Outbox.IOutboxCommitter.html
+  commentId: T:Chapar.Core.Outbox.IOutboxCommitter
+  fullName: Chapar.Core.Outbox.IOutboxCommitter
+  nameWithType: IOutboxCommitter
+- uid: Chapar.Core.Outbox.IOutboxCommitter.CommitAsync(System.Threading.CancellationToken)
+  name: CommitAsync(CancellationToken)
+  href: api/Chapar.Core.Outbox.IOutboxCommitter.html#Chapar_Core_Outbox_IOutboxCommitter_CommitAsync_System_Threading_CancellationToken_
+  commentId: M:Chapar.Core.Outbox.IOutboxCommitter.CommitAsync(System.Threading.CancellationToken)
+  fullName: Chapar.Core.Outbox.IOutboxCommitter.CommitAsync(System.Threading.CancellationToken)
+  nameWithType: IOutboxCommitter.CommitAsync(CancellationToken)
+- uid: Chapar.Core.Outbox.IOutboxCommitter.CommitAsync*
+  name: CommitAsync
+  href: api/Chapar.Core.Outbox.IOutboxCommitter.html#Chapar_Core_Outbox_IOutboxCommitter_CommitAsync_
+  commentId: Overload:Chapar.Core.Outbox.IOutboxCommitter.CommitAsync
+  isSpec: "True"
+  fullName: Chapar.Core.Outbox.IOutboxCommitter.CommitAsync
+  nameWithType: IOutboxCommitter.CommitAsync
 - uid: Chapar.Core.Outbox.IOutboxStore
   name: IOutboxStore
   href: api/Chapar.Core.Outbox.IOutboxStore.html
@@ -2008,12 +2027,56 @@ references:
   isSpec: "True"
   fullName: Chapar.MassTransit.Options.ResilienceOptions.RetryInterval
   nameWithType: ResilienceOptions.RetryInterval
+- uid: Chapar.Outbox.EntityFrameworkCore
+  name: Chapar.Outbox.EntityFrameworkCore
+  href: api/Chapar.Outbox.EntityFrameworkCore.html
+  commentId: N:Chapar.Outbox.EntityFrameworkCore
+  fullName: Chapar.Outbox.EntityFrameworkCore
+  nameWithType: Chapar.Outbox.EntityFrameworkCore
 - uid: Chapar.Outbox.EntityFrameworkCore.Extensions
   name: Chapar.Outbox.EntityFrameworkCore.Extensions
   href: api/Chapar.Outbox.EntityFrameworkCore.Extensions.html
   commentId: N:Chapar.Outbox.EntityFrameworkCore.Extensions
   fullName: Chapar.Outbox.EntityFrameworkCore.Extensions
   nameWithType: Chapar.Outbox.EntityFrameworkCore.Extensions
+- uid: Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparBusOutboxExtensions
+  name: ChaparBusOutboxExtensions
+  href: api/Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparBusOutboxExtensions.html
+  commentId: T:Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparBusOutboxExtensions
+  fullName: Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparBusOutboxExtensions
+  nameWithType: ChaparBusOutboxExtensions
+- uid: Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparBusOutboxExtensions.PublishAsync*
+  name: PublishAsync
+  href: api/Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparBusOutboxExtensions.html#Chapar_Outbox_EntityFrameworkCore_Extensions_ChaparBusOutboxExtensions_PublishAsync_
+  commentId: Overload:Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparBusOutboxExtensions.PublishAsync
+  isSpec: "True"
+  fullName: Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparBusOutboxExtensions.PublishAsync
+  nameWithType: ChaparBusOutboxExtensions.PublishAsync
+- uid: Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparBusOutboxExtensions.PublishAsync``1(Chapar.Core.Abstractions.IChaparBus,``0,Chapar.Outbox.EntityFrameworkCore.OutboxSaveMode,System.Collections.Generic.IDictionary{System.String,System.Object},System.Threading.CancellationToken)
+  name: PublishAsync<TEvent>(IChaparBus, TEvent, OutboxSaveMode, IDictionary<string, object>?, CancellationToken)
+  href: api/Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparBusOutboxExtensions.html#Chapar_Outbox_EntityFrameworkCore_Extensions_ChaparBusOutboxExtensions_PublishAsync__1_Chapar_Core_Abstractions_IChaparBus___0_Chapar_Outbox_EntityFrameworkCore_OutboxSaveMode_System_Collections_Generic_IDictionary_System_String_System_Object__System_Threading_CancellationToken_
+  commentId: M:Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparBusOutboxExtensions.PublishAsync``1(Chapar.Core.Abstractions.IChaparBus,``0,Chapar.Outbox.EntityFrameworkCore.OutboxSaveMode,System.Collections.Generic.IDictionary{System.String,System.Object},System.Threading.CancellationToken)
+  name.vb: PublishAsync(Of TEvent)(IChaparBus, TEvent, OutboxSaveMode, IDictionary(Of String, Object), CancellationToken)
+  fullName: Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparBusOutboxExtensions.PublishAsync<TEvent>(Chapar.Core.Abstractions.IChaparBus, TEvent, Chapar.Outbox.EntityFrameworkCore.OutboxSaveMode, System.Collections.Generic.IDictionary<string, object>?, System.Threading.CancellationToken)
+  fullName.vb: Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparBusOutboxExtensions.PublishAsync(Of TEvent)(Chapar.Core.Abstractions.IChaparBus, TEvent, Chapar.Outbox.EntityFrameworkCore.OutboxSaveMode, System.Collections.Generic.IDictionary(Of String, Object), System.Threading.CancellationToken)
+  nameWithType: ChaparBusOutboxExtensions.PublishAsync<TEvent>(IChaparBus, TEvent, OutboxSaveMode, IDictionary<string, object>?, CancellationToken)
+  nameWithType.vb: ChaparBusOutboxExtensions.PublishAsync(Of TEvent)(IChaparBus, TEvent, OutboxSaveMode, IDictionary(Of String, Object), CancellationToken)
+- uid: Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparBusOutboxExtensions.SendAsync*
+  name: SendAsync
+  href: api/Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparBusOutboxExtensions.html#Chapar_Outbox_EntityFrameworkCore_Extensions_ChaparBusOutboxExtensions_SendAsync_
+  commentId: Overload:Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparBusOutboxExtensions.SendAsync
+  isSpec: "True"
+  fullName: Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparBusOutboxExtensions.SendAsync
+  nameWithType: ChaparBusOutboxExtensions.SendAsync
+- uid: Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparBusOutboxExtensions.SendAsync``1(Chapar.Core.Abstractions.IChaparBus,``0,System.String,Chapar.Outbox.EntityFrameworkCore.OutboxSaveMode,System.Collections.Generic.IDictionary{System.String,System.Object},System.Threading.CancellationToken)
+  name: SendAsync<TCommand>(IChaparBus, TCommand, string, OutboxSaveMode, IDictionary<string, object>?, CancellationToken)
+  href: api/Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparBusOutboxExtensions.html#Chapar_Outbox_EntityFrameworkCore_Extensions_ChaparBusOutboxExtensions_SendAsync__1_Chapar_Core_Abstractions_IChaparBus___0_System_String_Chapar_Outbox_EntityFrameworkCore_OutboxSaveMode_System_Collections_Generic_IDictionary_System_String_System_Object__System_Threading_CancellationToken_
+  commentId: M:Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparBusOutboxExtensions.SendAsync``1(Chapar.Core.Abstractions.IChaparBus,``0,System.String,Chapar.Outbox.EntityFrameworkCore.OutboxSaveMode,System.Collections.Generic.IDictionary{System.String,System.Object},System.Threading.CancellationToken)
+  name.vb: SendAsync(Of TCommand)(IChaparBus, TCommand, String, OutboxSaveMode, IDictionary(Of String, Object), CancellationToken)
+  fullName: Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparBusOutboxExtensions.SendAsync<TCommand>(Chapar.Core.Abstractions.IChaparBus, TCommand, string, Chapar.Outbox.EntityFrameworkCore.OutboxSaveMode, System.Collections.Generic.IDictionary<string, object>?, System.Threading.CancellationToken)
+  fullName.vb: Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparBusOutboxExtensions.SendAsync(Of TCommand)(Chapar.Core.Abstractions.IChaparBus, TCommand, String, Chapar.Outbox.EntityFrameworkCore.OutboxSaveMode, System.Collections.Generic.IDictionary(Of String, Object), System.Threading.CancellationToken)
+  nameWithType: ChaparBusOutboxExtensions.SendAsync<TCommand>(IChaparBus, TCommand, string, OutboxSaveMode, IDictionary<string, object>?, CancellationToken)
+  nameWithType.vb: ChaparBusOutboxExtensions.SendAsync(Of TCommand)(IChaparBus, TCommand, String, OutboxSaveMode, IDictionary(Of String, Object), CancellationToken)
 - uid: Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions
   name: ChaparOutboxExtensions
   href: api/Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.html
@@ -2127,6 +2190,19 @@ references:
   commentId: T:Chapar.Outbox.EntityFrameworkCore.Options.ChaparOutboxOptions
   fullName: Chapar.Outbox.EntityFrameworkCore.Options.ChaparOutboxOptions
   nameWithType: ChaparOutboxOptions
+- uid: Chapar.Outbox.EntityFrameworkCore.Options.ChaparOutboxOptions.DefaultSaveMode
+  name: DefaultSaveMode
+  href: api/Chapar.Outbox.EntityFrameworkCore.Options.ChaparOutboxOptions.html#Chapar_Outbox_EntityFrameworkCore_Options_ChaparOutboxOptions_DefaultSaveMode
+  commentId: P:Chapar.Outbox.EntityFrameworkCore.Options.ChaparOutboxOptions.DefaultSaveMode
+  fullName: Chapar.Outbox.EntityFrameworkCore.Options.ChaparOutboxOptions.DefaultSaveMode
+  nameWithType: ChaparOutboxOptions.DefaultSaveMode
+- uid: Chapar.Outbox.EntityFrameworkCore.Options.ChaparOutboxOptions.DefaultSaveMode*
+  name: DefaultSaveMode
+  href: api/Chapar.Outbox.EntityFrameworkCore.Options.ChaparOutboxOptions.html#Chapar_Outbox_EntityFrameworkCore_Options_ChaparOutboxOptions_DefaultSaveMode_
+  commentId: Overload:Chapar.Outbox.EntityFrameworkCore.Options.ChaparOutboxOptions.DefaultSaveMode
+  isSpec: "True"
+  fullName: Chapar.Outbox.EntityFrameworkCore.Options.ChaparOutboxOptions.DefaultSaveMode
+  nameWithType: ChaparOutboxOptions.DefaultSaveMode
 - uid: Chapar.Outbox.EntityFrameworkCore.Options.ChaparOutboxOptions.PublishDomainEvents
   name: PublishDomainEvents
   href: api/Chapar.Outbox.EntityFrameworkCore.Options.ChaparOutboxOptions.html#Chapar_Outbox_EntityFrameworkCore_Options_ChaparOutboxOptions_PublishDomainEvents
@@ -2153,6 +2229,24 @@ references:
   isSpec: "True"
   fullName: Chapar.Outbox.EntityFrameworkCore.Options.ChaparOutboxOptions.PublishIntegrationEvents
   nameWithType: ChaparOutboxOptions.PublishIntegrationEvents
+- uid: Chapar.Outbox.EntityFrameworkCore.OutboxSaveMode
+  name: OutboxSaveMode
+  href: api/Chapar.Outbox.EntityFrameworkCore.OutboxSaveMode.html
+  commentId: T:Chapar.Outbox.EntityFrameworkCore.OutboxSaveMode
+  fullName: Chapar.Outbox.EntityFrameworkCore.OutboxSaveMode
+  nameWithType: OutboxSaveMode
+- uid: Chapar.Outbox.EntityFrameworkCore.OutboxSaveMode.Immediate
+  name: Immediate
+  href: api/Chapar.Outbox.EntityFrameworkCore.OutboxSaveMode.html#Chapar_Outbox_EntityFrameworkCore_OutboxSaveMode_Immediate
+  commentId: F:Chapar.Outbox.EntityFrameworkCore.OutboxSaveMode.Immediate
+  fullName: Chapar.Outbox.EntityFrameworkCore.OutboxSaveMode.Immediate
+  nameWithType: OutboxSaveMode.Immediate
+- uid: Chapar.Outbox.EntityFrameworkCore.OutboxSaveMode.Transactional
+  name: Transactional
+  href: api/Chapar.Outbox.EntityFrameworkCore.OutboxSaveMode.html#Chapar_Outbox_EntityFrameworkCore_OutboxSaveMode_Transactional
+  commentId: F:Chapar.Outbox.EntityFrameworkCore.OutboxSaveMode.Transactional
+  fullName: Chapar.Outbox.EntityFrameworkCore.OutboxSaveMode.Transactional
+  nameWithType: OutboxSaveMode.Transactional
 - uid: Chapar.Outbox.EntityFrameworkCore.Stores
   name: Chapar.Outbox.EntityFrameworkCore.Stores
   href: api/Chapar.Outbox.EntityFrameworkCore.Stores.html
@@ -2184,6 +2278,19 @@ references:
   fullName.vb: Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.New
   nameWithType: EfOutboxStore.EfOutboxStore
   nameWithType.vb: EfOutboxStore.New
+- uid: Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.CommitAsync(System.Threading.CancellationToken)
+  name: CommitAsync(CancellationToken)
+  href: api/Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.html#Chapar_Outbox_EntityFrameworkCore_Stores_EfOutboxStore_CommitAsync_System_Threading_CancellationToken_
+  commentId: M:Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.CommitAsync(System.Threading.CancellationToken)
+  fullName: Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.CommitAsync(System.Threading.CancellationToken)
+  nameWithType: EfOutboxStore.CommitAsync(CancellationToken)
+- uid: Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.CommitAsync*
+  name: CommitAsync
+  href: api/Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.html#Chapar_Outbox_EntityFrameworkCore_Stores_EfOutboxStore_CommitAsync_
+  commentId: Overload:Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.CommitAsync
+  isSpec: "True"
+  fullName: Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.CommitAsync
+  nameWithType: EfOutboxStore.CommitAsync
 - uid: Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.DeleteProcessedAsync(System.DateTime,System.Threading.CancellationToken)
   name: DeleteProcessedAsync(DateTime, CancellationToken)
   href: api/Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.html#Chapar_Outbox_EntityFrameworkCore_Stores_EfOutboxStore_DeleteProcessedAsync_System_DateTime_System_Threading_CancellationToken_
@@ -2252,103 +2359,6 @@ references:
   isSpec: "True"
   fullName: Chapar.Outbox.EntityFrameworkCore.Stores.EfOutboxStore.SaveAsync
   nameWithType: EfOutboxStore.SaveAsync
-- uid: Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity
-  name: OutboxMessageEntity
-  href: api/Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.html
-  commentId: T:Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity
-  fullName: Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity
-  nameWithType: OutboxMessageEntity
-- uid: Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.DestinationQueue
-  name: DestinationQueue
-  href: api/Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.html#Chapar_Outbox_EntityFrameworkCore_Stores_OutboxMessageEntity_DestinationQueue
-  commentId: P:Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.DestinationQueue
-  fullName: Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.DestinationQueue
-  nameWithType: OutboxMessageEntity.DestinationQueue
-- uid: Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.DestinationQueue*
-  name: DestinationQueue
-  href: api/Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.html#Chapar_Outbox_EntityFrameworkCore_Stores_OutboxMessageEntity_DestinationQueue_
-  commentId: Overload:Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.DestinationQueue
-  isSpec: "True"
-  fullName: Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.DestinationQueue
-  nameWithType: OutboxMessageEntity.DestinationQueue
-- uid: Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.Headers
-  name: Headers
-  href: api/Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.html#Chapar_Outbox_EntityFrameworkCore_Stores_OutboxMessageEntity_Headers
-  commentId: P:Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.Headers
-  fullName: Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.Headers
-  nameWithType: OutboxMessageEntity.Headers
-- uid: Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.Headers*
-  name: Headers
-  href: api/Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.html#Chapar_Outbox_EntityFrameworkCore_Stores_OutboxMessageEntity_Headers_
-  commentId: Overload:Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.Headers
-  isSpec: "True"
-  fullName: Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.Headers
-  nameWithType: OutboxMessageEntity.Headers
-- uid: Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.Id
-  name: Id
-  href: api/Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.html#Chapar_Outbox_EntityFrameworkCore_Stores_OutboxMessageEntity_Id
-  commentId: P:Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.Id
-  fullName: Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.Id
-  nameWithType: OutboxMessageEntity.Id
-- uid: Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.Id*
-  name: Id
-  href: api/Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.html#Chapar_Outbox_EntityFrameworkCore_Stores_OutboxMessageEntity_Id_
-  commentId: Overload:Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.Id
-  isSpec: "True"
-  fullName: Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.Id
-  nameWithType: OutboxMessageEntity.Id
-- uid: Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.IsProcessed
-  name: IsProcessed
-  href: api/Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.html#Chapar_Outbox_EntityFrameworkCore_Stores_OutboxMessageEntity_IsProcessed
-  commentId: P:Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.IsProcessed
-  fullName: Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.IsProcessed
-  nameWithType: OutboxMessageEntity.IsProcessed
-- uid: Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.IsProcessed*
-  name: IsProcessed
-  href: api/Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.html#Chapar_Outbox_EntityFrameworkCore_Stores_OutboxMessageEntity_IsProcessed_
-  commentId: Overload:Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.IsProcessed
-  isSpec: "True"
-  fullName: Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.IsProcessed
-  nameWithType: OutboxMessageEntity.IsProcessed
-- uid: Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.MessageType
-  name: MessageType
-  href: api/Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.html#Chapar_Outbox_EntityFrameworkCore_Stores_OutboxMessageEntity_MessageType
-  commentId: P:Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.MessageType
-  fullName: Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.MessageType
-  nameWithType: OutboxMessageEntity.MessageType
-- uid: Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.MessageType*
-  name: MessageType
-  href: api/Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.html#Chapar_Outbox_EntityFrameworkCore_Stores_OutboxMessageEntity_MessageType_
-  commentId: Overload:Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.MessageType
-  isSpec: "True"
-  fullName: Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.MessageType
-  nameWithType: OutboxMessageEntity.MessageType
-- uid: Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.OccurredOn
-  name: OccurredOn
-  href: api/Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.html#Chapar_Outbox_EntityFrameworkCore_Stores_OutboxMessageEntity_OccurredOn
-  commentId: P:Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.OccurredOn
-  fullName: Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.OccurredOn
-  nameWithType: OutboxMessageEntity.OccurredOn
-- uid: Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.OccurredOn*
-  name: OccurredOn
-  href: api/Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.html#Chapar_Outbox_EntityFrameworkCore_Stores_OutboxMessageEntity_OccurredOn_
-  commentId: Overload:Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.OccurredOn
-  isSpec: "True"
-  fullName: Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.OccurredOn
-  nameWithType: OutboxMessageEntity.OccurredOn
-- uid: Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.Payload
-  name: Payload
-  href: api/Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.html#Chapar_Outbox_EntityFrameworkCore_Stores_OutboxMessageEntity_Payload
-  commentId: P:Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.Payload
-  fullName: Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.Payload
-  nameWithType: OutboxMessageEntity.Payload
-- uid: Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.Payload*
-  name: Payload
-  href: api/Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.html#Chapar_Outbox_EntityFrameworkCore_Stores_OutboxMessageEntity_Payload_
-  commentId: Overload:Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.Payload
-  isSpec: "True"
-  fullName: Chapar.Outbox.EntityFrameworkCore.Stores.OutboxMessageEntity.Payload
-  nameWithType: OutboxMessageEntity.Payload
 - uid: Chapar.Pipeline.Behaviours
   name: Chapar.Pipeline.Behaviours
   href: api/Chapar.Pipeline.Behaviours.html

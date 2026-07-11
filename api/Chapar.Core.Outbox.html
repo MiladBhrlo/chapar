@@ -92,6 +92,9 @@ and is waiting to be dispatched to the real message broker.</p>
     <h3 id="interfaces">
 Interfaces
 </h3>
+      <h4><a class="xref" href="Chapar.Core.Outbox.IOutboxCommitter.html">IOutboxCommitter</a></h4>
+      <section><p>Optional capability for outbox stores that can commit staged outbox messages immediately.</p>
+</section>
       <h4><a class="xref" href="Chapar.Core.Outbox.IOutboxStore.html">IOutboxStore</a></h4>
       <section><p>Contract for persisting outgoing messages before they are sent to the broker.
 Each provider (e.g. MassTransit, Zamin) will supply its own implementation.</p>
