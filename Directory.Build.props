@@ -4,7 +4,7 @@
     <LangVersion>latest</LangVersion>
     <Version>0.1.0</Version>
     <Authors>MiladBhrlo</Authors>
-    <Company>DIP</Company>
+    <Company>BORNWISH</Company>
     <Description>clean, extensible, and business-friendly messaging abstraction for .NET</Description>
     <PackageTags>rabbitmq; messaging; event; event-driven; event-bus; masstransit; chapar; zamin</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
