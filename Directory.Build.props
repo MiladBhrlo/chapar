@@ -1,7 +1,19 @@
 <!-- Directory.Build.props -->
 <Project>
   <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <Version>0.1.0</Version>
+    <Authors>MiladBhrlo</Authors>
+    <Company>BORNWISH</Company>
+    <Description>clean, extensible, and business-friendly messaging abstraction for .NET</Description>
+    <PackageTags>rabbitmq; messaging; event; event-driven; event-bus; masstransit; chapar; zamin</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/MiladBhrlo/chapar</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);CS1591</NoWarn>
   </PropertyGroup>
+  <ItemGroup Condition="'$(IsPackable)' != 'false'">
+    <None Include="$(MSBuildThisFileDirectory)README.md" Pack="true" PackagePath="\" Visible="false" />
+  </ItemGroup>
 </Project>

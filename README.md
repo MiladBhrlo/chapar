@@ -22,7 +22,6 @@ out‑of‑the‑box support for the **Outbox**, **Inbox**, and **Pipeline** pat
 | :--- | :--- |
 | `Chapar` (`Chapar.Core`) | Core abstractions: `IChaparBus`, `IMessageHandler<T>`, `Outbox`/`Inbox` contracts |
 | `Chapar.MassTransit` | MassTransit + RabbitMQ implementation |
-| `Chapar.MassTransit.Outbox` | MassTransit + EF Outbox + RabbitMQ integration |
 | `Chapar.Pipeline` | Extensible message handling pipeline |
 | `Chapar.Outbox.EntityFrameworkCore` | EF Core‑based Outbox (transparent decorator) |
 | `Chapar.Inbox.EntityFrameworkCore` | EF Core‑based Inbox (idempotency filter) |
@@ -58,6 +57,43 @@ public class OrderPlacedHandler : IMessageHandler<OrderPlaced>
 }
 ```
 
+## EF Core Outbox
+
+`Chapar.Outbox.EntityFrameworkCore` stores outgoing messages in the application's
+EF Core context before they are delivered by the background publisher.
+
+By default, outbox messages are staged and committed with the caller's unit of work:
+
+```csharp
+services.AddChaparOutboxEntityFramework(options =>
+{
+    options.DefaultSaveMode = OutboxSaveMode.Transactional;
+});
+
+await bus.PublishAsync(new OrderPlaced(orderId));
+await dbContext.SaveChangesAsync(ct);
+```
+
+This keeps the business data and the outbox row in the same database transaction.
+
+For messages that should be persisted after the business transaction has already
+completed, use the EF outbox extension overloads:
+
+```csharp
+using Chapar.Outbox.EntityFrameworkCore;
+using Chapar.Outbox.EntityFrameworkCore.Extensions;
+
+await dbContext.SaveChangesAsync(ct);
+
+await bus.PublishAsync(
+    new WelcomeSmsRequested(userId),
+    OutboxSaveMode.Immediate,
+    cancellationToken: ct);
+```
+
+`Immediate` performs a separate `SaveChangesAsync` through the outbox store. Use it
+after committing any business changes that must not be part of the outbox transaction.
+
 ## Documentation
 
 - [Complete Guide](docs/guide.md) – from simple publish/subscribe to advanced Outbox/Inbox, Pipeline, and Zamin integration.
@@ -73,7 +109,6 @@ We welcome contributions! If you are interested in any of the items below, feel 
 | :--- | :--- |
 | `Chapar.Core` | Core abstractions and contracts |
 | `Chapar.MassTransit` | MassTransit v8 integration |
-| `Chapar.MassTransit.Outbox` | MassTransit v8 EF Outbox integration |
 | `Chapar.Pipeline` | Pipeline behaviour infrastructure (diagnostics, error handling, etc.) |
 | `Chapar.Outbox.EntityFrameworkCore` | Outbox store backed by EF Core |
 | `Chapar.Inbox.EntityFrameworkCore` | Inbox store backed by EF Core |
