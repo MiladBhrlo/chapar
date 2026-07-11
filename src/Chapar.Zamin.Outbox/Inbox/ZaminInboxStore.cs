@@ -30,7 +30,10 @@ public sealed class ZaminInboxStore : IInboxStore
         {
             MessageId = messageId,
             ConsumerTypeName = consumerTypeName,
-            ReceivedAt = DateTime.UtcNow
+            Status = InboxMessageStatus.Reserved,
+            RetryCount = 0,
+            ReceivedAt = DateTime.UtcNow,
+            LastAttemptAt = DateTime.UtcNow
         };
 
         await _dbContext.Set<InboxMessage>().AddAsync(entity, cancellationToken);
@@ -58,8 +61,12 @@ public sealed class ZaminInboxStore : IInboxStore
         if (entity is null)
             return false;
 
-        if (!entity.TryMarkAsProcessed())
+        if (entity.Status == InboxMessageStatus.Processed)
             return false;
+
+        entity.Status = InboxMessageStatus.Processed;
+        entity.ProcessedAt = DateTime.UtcNow;
+        entity.LastError = null;
 
         await _dbContext.SaveChangesAsync(cancellationToken);
         return true;

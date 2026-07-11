@@ -9,8 +9,9 @@ public sealed class ChaparInboxOptions
     /// If <c>true</c>, a message that has already been seen (duplicate) is immediately treated as
     /// processed and will not be reservable again. This effectively disables retries and provides
     /// at‑most‑once delivery semantics.
-    /// If <c>false</c> (the default), an orphaned reservation (where <c>IsProcessed</c> is still
-    /// <c>false</c>) can be reclaimed atomically, allowing MassTransit to retry the message and
+    /// If <c>false</c> (the default), a reservation whose status is not
+    /// <see cref="Chapar.Core.Inbox.InboxMessageStatus.Processed"/> can be reclaimed atomically,
+    /// allowing MassTransit to retry the message and
     /// expecting an idempotent handler.
     /// </summary>
     public bool MarkProcessedAfterFirstAttempt { get; set; } = false;
