@@ -56,19 +56,28 @@ public static class ChaparMassTransitExtensions
         services.TryAddScoped<IOutboxStore, NullOutboxStore>();
 
         // Discover all IMessageHandler<T> implementations and separate handlers with custom attributes.
-        var (standardTypes, customQueueMappings, customExchangeMappings) = DiscoverAndRegisterHandlers(services,
-                                                                                                       handlerAssemblies,
-                                                                                                       options);
+        var (standardConsumers, customQueueConsumers, customExchangeMappings) = DiscoverAndRegisterHandlers(services,
+                                                                                                           handlerAssemblies,
+                                                                                                           options);
+
+        var allConsumers = standardConsumers
+            .Select(x => (x.MessageType, x.HandlerType))
+            .Concat(customQueueConsumers.Select(x => (x.MessageType, x.HandlerType)))
+            .Concat(customExchangeMappings.Select(x => (x.MessageType, x.HandlerType)))
+            .Distinct()
+            .ToList();
 
         services.AddMassTransit(mt =>
         {
             // Invoke the callback for additional bus configuration if provided by the package user.
             options.ConfigureBusRegistration?.Invoke(mt);
 
-            // Register each standard consumer adapter so MassTransit knows about them.
-            foreach (var messageType in standardTypes)
+            // Register each consumer adapter so MassTransit knows about them.
+            foreach (var consumer in allConsumers)
             {
-                var adapterType = typeof(ChaparConsumerAdapter<>).MakeGenericType(messageType);
+                var adapterType = typeof(ChaparConsumerAdapter<,>)
+                    .MakeGenericType(consumer.MessageType, consumer.HandlerType);
+
                 mt.AddConsumer(adapterType);
             }
 
@@ -131,12 +140,15 @@ public static class ChaparMassTransitExtensions
 
                 // Handlers with [QueueName] but without [Exchange] – legacy behaviour.
                 // DefaultExchanges are NOT applied here because the handler explicitly defines its queue.
-                foreach (var (messageType, queueName) in customQueueMappings)
+                foreach (var consumer in customQueueConsumers)
                 {
-                    var adapterType = typeof(ChaparConsumerAdapter<>).MakeGenericType(messageType);
-                    cfg.ReceiveEndpoint(queueName, endpoint =>
+                    var adapterType = typeof(ChaparConsumerAdapter<,>)
+                        .MakeGenericType(consumer.MessageType, consumer.HandlerType);
+
+                    cfg.ReceiveEndpoint(consumer.QueueName, endpoint =>
                     {
-                        endpoint.Consumer(adapterType, type => registrationContext.GetRequiredService(type));
+                        endpoint.Consumer(adapterType,
+                                          type => registrationContext.GetRequiredService(type));
                     });
                 }
 
@@ -144,26 +156,30 @@ public static class ChaparMassTransitExtensions
                 foreach (var group in customExchangeMappings.GroupBy(x => x.QueueName))
                 {
                     var queueName = group.Key;
-                    var distinctMessageTypes = group.Select(x => x.MessageType).Distinct();
 
                     cfg.ReceiveEndpoint(queueName, endpoint =>
                     {
-                        // Attach consumers for each distinct message type
-                        foreach (var messageType in distinctMessageTypes)
+                        // Attach all distinct consumers to the same queue.
+                        foreach (var consumer in group
+                                                 .Select(x => new { x.MessageType, x.HandlerType })
+                                                 .Distinct())
                         {
-                            var adapterType = typeof(ChaparConsumerAdapter<>).MakeGenericType(messageType);
-                            endpoint.Consumer(adapterType, type => registrationContext.GetRequiredService(type));
+                            var adapterType = typeof(ChaparConsumerAdapter<,>)
+                                .MakeGenericType(consumer.MessageType, consumer.HandlerType);
+
+                            endpoint.Consumer(adapterType,
+                                              type => registrationContext.GetRequiredService(type));
                         }
 
                         // Bind to specified exchanges
                         if (endpoint is IRabbitMqReceiveEndpointConfigurator rmqEndpoint)
                         {
-                            foreach (var (_, _, exchangeAttr) in group)
+                            foreach (var binding in group)
                             {
-                                rmqEndpoint.Bind(exchangeAttr.Name, binding =>
+                                rmqEndpoint.Bind(binding.ExchangeName, x =>
                                 {
-                                    binding.ExchangeType = exchangeAttr.Type.ToString().ToLowerInvariant();
-                                    binding.RoutingKey = exchangeAttr.RoutingKey ?? "";
+                                    x.ExchangeType = binding.ExchangeType.ToString().ToLowerInvariant();
+                                    x.RoutingKey = binding.RoutingKey;
                                 });
                             }
                         }
@@ -193,7 +209,7 @@ public static class ChaparMassTransitExtensions
 
     /// <summary>
     /// Scans the provided assemblies for implementations of <see cref="IMessageHandler{T}"/>,
-    /// registers them in the DI container along with <see cref="ChaparConsumerAdapter{T}"/>,
+    /// registers them in the DI container along with <see cref="ChaparConsumerAdapter{T,THandler}"/>,
     /// and separates them into three categories:
     /// <list type="bullet">
     ///   <item>Standard handlers (no attributes)</item>
@@ -212,19 +228,19 @@ public static class ChaparMassTransitExtensions
     ///   <item>List of custom exchange mappings (message type, queue name, exchange attribute)</item>
     /// </list>
     /// </returns>
-    private static (List<Type> standardTypes,
-        Dictionary<Type, string> customQueueMappings,
-        List<(Type MessageType, string QueueName, ExchangeAttribute Exchange)> customExchangeMappings)
+    private static (List<ConsumerDefinition> standardConsumers,
+        List<ConsumerQueueDefinition> customQueueConsumers,
+        List<ExchangeBindingDefinition> customExchangeMappings)
         DiscoverAndRegisterHandlers(IServiceCollection services,
                                     Assembly[] assemblies,
                                     ChaparMassTransitOptions options)
     {
-        var standardTypes = new List<Type>();
-        var customQueueMappings = new Dictionary<Type, string>();
-        var customExchangeMappings = new List<(Type, string, ExchangeAttribute)>();
+        var standardConsumers = new List<ConsumerDefinition>();
+        var customQueueConsumers = new List<ConsumerQueueDefinition>();
+        var customExchangeMappings = new List<ExchangeBindingDefinition>();
 
         if (assemblies.Length == 0)
-            return (standardTypes, customQueueMappings, customExchangeMappings);
+            return (standardConsumers, customQueueConsumers, customExchangeMappings);
 
         // Flatten all closed IMessageHandler<T> implementations from the given assemblies.
         var handlerEntries = assemblies
@@ -246,7 +262,7 @@ public static class ChaparMassTransitExtensions
                 entry.HandlerType);
 
             // Build the adapter type that bridges IMessageHandler<T> to MassTransit's IConsumer<T>.
-            var adapterType = typeof(ChaparConsumerAdapter<>).MakeGenericType(entry.MessageType);
+            var adapterType = typeof(ChaparConsumerAdapter<,>).MakeGenericType(entry.MessageType, entry.HandlerType);
 
             // Register the adapter as IConsumer<T> (required for MassTransit to discover the consumer).
             services.AddScoped(typeof(IConsumer<>).MakeGenericType(entry.MessageType), adapterType);
@@ -269,36 +285,55 @@ public static class ChaparMassTransitExtensions
                 {
                     foreach (var messageTypeName in consumeTypesAttribute.MessageTypes)
                     {
-                        customExchangeMappings.Add((entry.MessageType,
-                                                    queueName,
-                                                    new ExchangeAttribute(messageTypeName)
-                                                    {
-                                                        Type = ExchangeType.Fanout,
-                                                        RoutingKey = string.Empty
-                                                    }));
+                        customExchangeMappings.Add(new ExchangeBindingDefinition
+                        {
+                            MessageType = entry.MessageType,
+                            HandlerType = entry.HandlerType,
+                            QueueName = queueName,
+                            ExchangeName = messageTypeName,
+                            ExchangeType = ExchangeType.Fanout,
+                            RoutingKey = string.Empty
+                        });
                     }
                 }
 
                 foreach (var attr in exchangeAttrs)
                 {
-                    customExchangeMappings.Add((entry.MessageType, queueName, attr));
+                    customExchangeMappings.Add(new ExchangeBindingDefinition
+                    {
+                        MessageType = entry.MessageType,
+                        HandlerType = entry.HandlerType,
+                        QueueName = queueName,
+                        ExchangeName = attr.Name,
+                        ExchangeType = attr.Type,
+                        RoutingKey = attr.RoutingKey ?? string.Empty
+                    });
                 }
             }
             else if (entry.HandlerType.GetCustomAttribute<QueueNameAttribute>() is not null)
             {
                 // Handler has only [QueueName] – legacy behaviour.
-                customQueueMappings[entry.MessageType] = ChaparQueueNameFormatter.Format(entry.HandlerType,
-                                                                                         options.QueueNamePrefix,
-                                                                                         options.QueueNameSuffix);
+                customQueueConsumers.Add(new ConsumerQueueDefinition
+                {
+                    MessageType = entry.MessageType,
+                    HandlerType = entry.HandlerType,
+                    QueueName = ChaparQueueNameFormatter.Format(entry.HandlerType,
+                                                                options.QueueNamePrefix,
+                                                                options.QueueNameSuffix)
+                });
             }
             else
             {
                 // No attributes – standard MassTransit auto‑configure.
-                standardTypes.Add(entry.MessageType);
+                standardConsumers.Add(new ConsumerDefinition
+                {
+                    MessageType = entry.MessageType,
+                    HandlerType = entry.HandlerType
+                });
             }
         }
 
-        return (standardTypes, customQueueMappings, customExchangeMappings);
+        return (standardConsumers, customQueueConsumers, customExchangeMappings);
     }
 }
 
@@ -342,4 +377,77 @@ internal class NullOutboxStore : IOutboxStore
     /// <inheritdoc />
     public Task<int> GetUnprocessedMessagesCountAsync(CancellationToken cancellationToken = default)
         => Task.FromResult(0);
+}
+
+/// <summary>
+/// Represents a consumer queue binding to a RabbitMQ exchange.
+/// </summary>
+internal sealed class ExchangeBindingDefinition
+{
+    /// <summary>
+    /// Gets the handled message CLR type.
+    /// </summary>
+    public required Type MessageType { get; init; }
+
+    /// <summary>
+    /// Gets the concrete handler type.
+    /// </summary>
+    public required Type HandlerType { get; init; }
+
+    /// <summary>
+    /// Gets the target queue name.
+    /// </summary>
+    public required string QueueName { get; init; }
+
+    /// <summary>
+    /// Gets the exchange name.
+    /// </summary>
+    public required string ExchangeName { get; init; }
+
+    /// <summary>
+    /// Gets the exchange type.
+    /// </summary>
+    public required ExchangeType ExchangeType { get; init; }
+
+    /// <summary>
+    /// Gets the routing key.
+    /// </summary>
+    public string RoutingKey { get; init; } = string.Empty;
+}
+
+/// <summary>
+/// Represents a standard consumer registration using MassTransit automatic endpoint configuration.
+/// </summary>
+internal sealed class ConsumerDefinition
+{
+    /// <summary>
+    /// Gets the handled message type.
+    /// </summary>
+    public required Type MessageType { get; init; }
+
+    /// <summary>
+    /// Gets the concrete handler type.
+    /// </summary>
+    public required Type HandlerType { get; init; }
+}
+
+/// <summary>
+/// Represents a consumer registration with an explicitly configured queue name.
+/// </summary>
+internal sealed class ConsumerQueueDefinition
+{
+    /// <summary>
+    /// Gets the handled message type.
+    /// </summary>
+    public required Type MessageType { get; init; }
+
+    /// <summary>
+    /// Gets the concrete handler type.
+    /// </summary>
+    public required Type HandlerType { get; init; }
+
+    /// <summary>
+    /// Gets the queue name.
+    /// </summary>
+    public required string QueueName { get; init; }
 }
