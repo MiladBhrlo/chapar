@@ -42,14 +42,19 @@ public sealed class EfInboxStore : IInboxStore, ICleanupStore
                                             string consumerTypeName,
                                             CancellationToken cancellationToken = default)
     {
-        var entity = new InboxMessageEntity
+        var utcNow = DateTime.UtcNow;
+
+        var entity = new InboxMessage
         {
             MessageId = messageId,
             ConsumerTypeName = consumerTypeName,
-            ReceivedAt = DateTime.UtcNow
+            Status = InboxMessageStatus.Reserved,
+            RetryCount = 0,
+            ReceivedAt = utcNow,
+            LastAttemptAt = utcNow
         };
 
-        await _dbContext.Set<InboxMessageEntity>().AddAsync(entity, cancellationToken);
+        await _dbContext.Set<InboxMessage>().AddAsync(entity, cancellationToken);
 
         try
         {
@@ -58,6 +63,8 @@ public sealed class EfInboxStore : IInboxStore, ICleanupStore
         }
         catch (DbUpdateException ex) when (IsUniqueConstraintViolation(ex))
         {
+            _dbContext.Entry(entity).State = EntityState.Detached;
+
             // Record already exists – decide based on delivery semantics.
             if (_options.MarkProcessedAfterFirstAttempt)
             {
@@ -69,10 +76,15 @@ public sealed class EfInboxStore : IInboxStore, ICleanupStore
             // NOTE: In MassTransit, retries for the same message are never concurrent with the original
             // consumer. The previous consumer must have failed and stopped before redelivery occurs.
             // Therefore, reclaiming the record is safe without a lock token.   
-            var updated = await _dbContext.Set<InboxMessageEntity>()
-                .Where(e => e.MessageId == messageId && e.ConsumerTypeName == consumerTypeName && !e.IsProcessed)
-                .ExecuteUpdateAsync(
-                    setters => setters.SetProperty(e => e.ReceivedAt, DateTime.UtcNow),
+            var updated = await _dbContext.Set<InboxMessage>()
+                .Where(e =>
+                    e.MessageId == messageId &&
+                    e.ConsumerTypeName == consumerTypeName &&
+                    e.Status != InboxMessageStatus.Processed)
+                .ExecuteUpdateAsync(setters => setters
+                        .SetProperty(e => e.Status, InboxMessageStatus.Reserved)
+                        .SetProperty(e => e.LastAttemptAt, utcNow)
+                        .SetProperty(e => e.RetryCount, e => e.RetryCount + 1),
                     cancellationToken);
 
             return updated > 0;
@@ -83,13 +95,17 @@ public sealed class EfInboxStore : IInboxStore, ICleanupStore
     public async Task<bool> MarkAsProcessedAsync(InboxMessage message,
                                                  CancellationToken cancellationToken = default)
     {
+        var utcNow = DateTime.UtcNow;
+
         // Atomic conditional update: only mark if not already processed.
-        var updated = await _dbContext.Set<InboxMessageEntity>()
+        var updated = await _dbContext.Set<InboxMessage>()
             .Where(e => e.MessageId == message.MessageId &&
                          e.ConsumerTypeName == message.ConsumerTypeName &&
-                         !e.IsProcessed)
-            .ExecuteUpdateAsync(
-                setters => setters.SetProperty(e => e.IsProcessed, true),
+                         e.Status != InboxMessageStatus.Processed)
+            .ExecuteUpdateAsync(setters => setters
+                    .SetProperty(e => e.Status, InboxMessageStatus.Processed)
+                    .SetProperty(e => e.ProcessedAt, utcNow)
+                    .SetProperty(e => e.LastError, (string?)null),
                 cancellationToken);
 
         return updated > 0;
@@ -98,8 +114,11 @@ public sealed class EfInboxStore : IInboxStore, ICleanupStore
     /// <inheritdoc />
     public async Task<int> DeleteProcessedAsync(DateTime olderThan,
                                                 CancellationToken cancellationToken = default)
-        => await _dbContext.Set<InboxMessageEntity>()
-            .Where(m => m.IsProcessed && m.ReceivedAt < olderThan)
+        => await _dbContext.Set<InboxMessage>()
+            .Where(m =>
+                m.Status == InboxMessageStatus.Processed &&
+                m.ProcessedAt != null &&
+                m.ProcessedAt < olderThan)
             .ExecuteDeleteAsync(cancellationToken);
 
     /// <summary>
@@ -110,36 +129,16 @@ public sealed class EfInboxStore : IInboxStore, ICleanupStore
     /// error codes (e.g. SQL Server 2601/2627, PostgreSQL 23505).
     /// </remarks>
     private static bool IsUniqueConstraintViolation(DbUpdateException ex)
-        => ex.InnerException?.Message?.Contains("UNIQUE", StringComparison.OrdinalIgnoreCase) == true;
+        => IsSqlServerUniqueConstraintViolation(ex.InnerException)
+           || ex.InnerException?.Message?.Contains("UNIQUE", StringComparison.OrdinalIgnoreCase) == true;
+
+    private static bool IsSqlServerUniqueConstraintViolation(Exception? exception)
+    {
+        var numberProperty = exception?.GetType().GetProperty("Number");
+        if (numberProperty?.GetValue(exception) is not int number)
+            return false;
+
+        return number is 2601 or 2627;
+    }
 }
 
-/// <summary>
-/// Entity that maps to the inbox table.
-/// </summary>
-public class InboxMessageEntity
-{
-    /// <summary>
-    /// Auto‑incremented primary key.
-    /// </summary>
-    public long Id { get; set; }
-
-    /// <summary>
-    /// The unique identifier of the consumed message.
-    /// </summary>
-    public string MessageId { get; set; } = string.Empty;
-
-    /// <summary>
-    /// The fully‑qualified type name of the consumer that processed the message.
-    /// </summary>
-    public string ConsumerTypeName { get; set; } = string.Empty;
-
-    /// <summary>
-    /// The timestamp when the message was first received.
-    /// </summary>
-    public DateTime ReceivedAt { get; set; }
-
-    /// <summary>
-    /// Indicates if the message has already been fully processed.
-    /// </summary>
-    public bool IsProcessed { get; set; }
-}

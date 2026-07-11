@@ -59,16 +59,22 @@ public static class ChaparInboxExtensions
                                                     string tableName = "InboxMessages",
                                                     string schema = "chapar")
     {
-        builder.Entity<InboxMessageEntity>(entity =>
+        builder.Entity<InboxMessage>(entity =>
         {
             entity.ToTable(tableName, schema);
             entity.HasKey(e => e.Id);
-            entity.Property(e => e.MessageId).HasMaxLength(50).IsRequired();
-            entity.Property(e => e.ConsumerTypeName).HasMaxLength(200).IsRequired();
+            entity.Property(e => e.MessageId).HasMaxLength(100).IsRequired();
+            entity.Property(e => e.ConsumerTypeName).HasMaxLength(500).IsRequired();
+            entity.Property(e => e.Status).IsRequired();
+            entity.Property(e => e.RetryCount).IsRequired();
             entity.Property(e => e.ReceivedAt).IsRequired();
+            entity.Property(e => e.LastError).HasMaxLength(4000);
 
             // Unique constraint for atomic reservation
             entity.HasIndex(e => new { e.MessageId, e.ConsumerTypeName }).IsUnique();
+            entity.HasIndex(e => e.Status);
+            entity.HasIndex(e => e.ReceivedAt);
+            entity.HasIndex(e => e.ProcessedAt);
         });
 
         return builder;

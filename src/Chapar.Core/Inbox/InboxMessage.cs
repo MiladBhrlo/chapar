@@ -6,28 +6,77 @@ namespace Chapar.Core.Inbox;
 /// </summary>
 public class InboxMessage
 {
-    /// <summary>The unique identifier of the incoming message (usually the MessageId header).</summary>
-    public string MessageId { get; init; } = default!;
-
-    /// <summary>The name of the consumer that processed the message.</summary>
-    public string ConsumerTypeName { get; init; } = default!;
-
-    /// <summary>Timestamp when the message was first received.</summary>
-    public DateTime ReceivedAt { get; init; } = DateTime.UtcNow;
-
-    /// <summary>Indicates if the message has already been fully processed.</summary>
-    public bool IsProcessed { get; private set; }
+    /// <summary>
+    /// Database primary key.
+    /// </summary>
+    public long Id { get; set; }
 
     /// <summary>
-    /// Attempts to mark the message as processed.
+    /// Transport-level unique message identifier.
+    /// Usually corresponds to MassTransit MessageId.
     /// </summary>
-    /// <returns><c>true</c> if the message was just marked; <c>false</c> if it was already processed.</returns>
-    public bool TryMarkAsProcessed()
-    {
-        if (IsProcessed)
-            return false;
+    public string MessageId { get; set; } = string.Empty;
 
-        IsProcessed = true;
-        return true;
-    }
+    /// <summary>
+    /// Fully-qualified consumer handler type name.
+    /// </summary>
+    public string ConsumerTypeName { get; set; } = string.Empty;
+
+    /// <summary>
+    /// Current processing state of the inbox message.
+    /// </summary>
+    public InboxMessageStatus Status { get; set; }
+
+    /// <summary>
+    /// Number of processing attempts performed for this message.
+    /// </summary>
+    public int RetryCount { get; set; }
+
+    /// <summary>
+    /// Timestamp when the message was first reserved.
+    /// </summary>
+    public DateTime ReceivedAt { get; set; }
+
+    /// <summary>
+    /// Timestamp of the latest processing attempt.
+    /// </summary>
+    public DateTime? LastAttemptAt { get; set; }
+
+    /// <summary>
+    /// Timestamp when processing completed successfully.
+    /// </summary>
+    public DateTime? ProcessedAt { get; set; }
+
+    /// <summary>
+    /// Last captured processing error.
+    /// Intended for diagnostics and operational visibility.
+    /// </summary>
+    public string? LastError { get; set; }
+}
+
+/// <summary>
+/// Represents the lifecycle state of a persisted inbox message.
+/// </summary>
+public enum InboxMessageStatus
+{
+    /// <summary>
+    /// Message has been reserved by a consumer and processing is currently in progress.
+    /// </summary>
+    Reserved = 0,
+
+    /// <summary>
+    /// Message has been processed successfully.
+    /// No further retries should occur.
+    /// </summary>
+    Processed = 1,
+
+    /// <summary>
+    /// Message processing failed, but the message is still eligible for retry.
+    /// </summary>
+    Failed = 2,
+
+    /// <summary>
+    /// Message permanently failed after all retry attempts were exhausted.
+    /// </summary>
+    Poisoned = 3
 }
