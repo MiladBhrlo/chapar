@@ -442,6 +442,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Inbox.InboxMessageStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Inbox.InboxMessageStatus.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Inbox.InboxMessageStatus",
+      "Summary": "<p sourcefile=\"api/Chapar.Core.Inbox.InboxMessageStatus.yml\" sourcestartlinenumber=\"1\">Represents the lifecycle state of a persisted inbox message.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Inbox.yml",
       "output": {
         ".html": {
@@ -705,20 +719,6 @@
       "IsMRef": true,
       "Title": "Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore",
       "Summary": "<p sourcefile=\"api/Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.yml\" sourcestartlinenumber=\"1\">Entity Framework Core implementation of <xref href=\"Chapar.Core.Inbox.IInboxStore\" data-throw-if-not-resolved=\"false\"></xref> and <xref href=\"Chapar.Core.Cleanup.ICleanupStore\" data-throw-if-not-resolved=\"false\"></xref>.\nRelies on a unique database constraint on (MessageId, ConsumerTypeName) to provide atomic reservations,\nand supports both at‑most‑once and at‑least‑once delivery via <xref href=\"Chapar.Inbox.EntityFrameworkCore.Options.ChaparInboxOptions\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity",
-      "Summary": "<p sourcefile=\"api/Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.yml\" sourcestartlinenumber=\"1\">Entity that maps to the inbox table.</p>\n"
     },
     {
       "type": "ManagedReference",

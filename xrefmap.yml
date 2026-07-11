@@ -799,19 +799,45 @@ references:
   isSpec: "True"
   fullName: Chapar.Core.Inbox.InboxMessage.ConsumerTypeName
   nameWithType: InboxMessage.ConsumerTypeName
-- uid: Chapar.Core.Inbox.InboxMessage.IsProcessed
-  name: IsProcessed
-  href: api/Chapar.Core.Inbox.InboxMessage.html#Chapar_Core_Inbox_InboxMessage_IsProcessed
-  commentId: P:Chapar.Core.Inbox.InboxMessage.IsProcessed
-  fullName: Chapar.Core.Inbox.InboxMessage.IsProcessed
-  nameWithType: InboxMessage.IsProcessed
-- uid: Chapar.Core.Inbox.InboxMessage.IsProcessed*
-  name: IsProcessed
-  href: api/Chapar.Core.Inbox.InboxMessage.html#Chapar_Core_Inbox_InboxMessage_IsProcessed_
-  commentId: Overload:Chapar.Core.Inbox.InboxMessage.IsProcessed
+- uid: Chapar.Core.Inbox.InboxMessage.Id
+  name: Id
+  href: api/Chapar.Core.Inbox.InboxMessage.html#Chapar_Core_Inbox_InboxMessage_Id
+  commentId: P:Chapar.Core.Inbox.InboxMessage.Id
+  fullName: Chapar.Core.Inbox.InboxMessage.Id
+  nameWithType: InboxMessage.Id
+- uid: Chapar.Core.Inbox.InboxMessage.Id*
+  name: Id
+  href: api/Chapar.Core.Inbox.InboxMessage.html#Chapar_Core_Inbox_InboxMessage_Id_
+  commentId: Overload:Chapar.Core.Inbox.InboxMessage.Id
   isSpec: "True"
-  fullName: Chapar.Core.Inbox.InboxMessage.IsProcessed
-  nameWithType: InboxMessage.IsProcessed
+  fullName: Chapar.Core.Inbox.InboxMessage.Id
+  nameWithType: InboxMessage.Id
+- uid: Chapar.Core.Inbox.InboxMessage.LastAttemptAt
+  name: LastAttemptAt
+  href: api/Chapar.Core.Inbox.InboxMessage.html#Chapar_Core_Inbox_InboxMessage_LastAttemptAt
+  commentId: P:Chapar.Core.Inbox.InboxMessage.LastAttemptAt
+  fullName: Chapar.Core.Inbox.InboxMessage.LastAttemptAt
+  nameWithType: InboxMessage.LastAttemptAt
+- uid: Chapar.Core.Inbox.InboxMessage.LastAttemptAt*
+  name: LastAttemptAt
+  href: api/Chapar.Core.Inbox.InboxMessage.html#Chapar_Core_Inbox_InboxMessage_LastAttemptAt_
+  commentId: Overload:Chapar.Core.Inbox.InboxMessage.LastAttemptAt
+  isSpec: "True"
+  fullName: Chapar.Core.Inbox.InboxMessage.LastAttemptAt
+  nameWithType: InboxMessage.LastAttemptAt
+- uid: Chapar.Core.Inbox.InboxMessage.LastError
+  name: LastError
+  href: api/Chapar.Core.Inbox.InboxMessage.html#Chapar_Core_Inbox_InboxMessage_LastError
+  commentId: P:Chapar.Core.Inbox.InboxMessage.LastError
+  fullName: Chapar.Core.Inbox.InboxMessage.LastError
+  nameWithType: InboxMessage.LastError
+- uid: Chapar.Core.Inbox.InboxMessage.LastError*
+  name: LastError
+  href: api/Chapar.Core.Inbox.InboxMessage.html#Chapar_Core_Inbox_InboxMessage_LastError_
+  commentId: Overload:Chapar.Core.Inbox.InboxMessage.LastError
+  isSpec: "True"
+  fullName: Chapar.Core.Inbox.InboxMessage.LastError
+  nameWithType: InboxMessage.LastError
 - uid: Chapar.Core.Inbox.InboxMessage.MessageId
   name: MessageId
   href: api/Chapar.Core.Inbox.InboxMessage.html#Chapar_Core_Inbox_InboxMessage_MessageId
@@ -825,6 +851,19 @@ references:
   isSpec: "True"
   fullName: Chapar.Core.Inbox.InboxMessage.MessageId
   nameWithType: InboxMessage.MessageId
+- uid: Chapar.Core.Inbox.InboxMessage.ProcessedAt
+  name: ProcessedAt
+  href: api/Chapar.Core.Inbox.InboxMessage.html#Chapar_Core_Inbox_InboxMessage_ProcessedAt
+  commentId: P:Chapar.Core.Inbox.InboxMessage.ProcessedAt
+  fullName: Chapar.Core.Inbox.InboxMessage.ProcessedAt
+  nameWithType: InboxMessage.ProcessedAt
+- uid: Chapar.Core.Inbox.InboxMessage.ProcessedAt*
+  name: ProcessedAt
+  href: api/Chapar.Core.Inbox.InboxMessage.html#Chapar_Core_Inbox_InboxMessage_ProcessedAt_
+  commentId: Overload:Chapar.Core.Inbox.InboxMessage.ProcessedAt
+  isSpec: "True"
+  fullName: Chapar.Core.Inbox.InboxMessage.ProcessedAt
+  nameWithType: InboxMessage.ProcessedAt
 - uid: Chapar.Core.Inbox.InboxMessage.ReceivedAt
   name: ReceivedAt
   href: api/Chapar.Core.Inbox.InboxMessage.html#Chapar_Core_Inbox_InboxMessage_ReceivedAt
@@ -838,19 +877,62 @@ references:
   isSpec: "True"
   fullName: Chapar.Core.Inbox.InboxMessage.ReceivedAt
   nameWithType: InboxMessage.ReceivedAt
-- uid: Chapar.Core.Inbox.InboxMessage.TryMarkAsProcessed
-  name: TryMarkAsProcessed()
-  href: api/Chapar.Core.Inbox.InboxMessage.html#Chapar_Core_Inbox_InboxMessage_TryMarkAsProcessed
-  commentId: M:Chapar.Core.Inbox.InboxMessage.TryMarkAsProcessed
-  fullName: Chapar.Core.Inbox.InboxMessage.TryMarkAsProcessed()
-  nameWithType: InboxMessage.TryMarkAsProcessed()
-- uid: Chapar.Core.Inbox.InboxMessage.TryMarkAsProcessed*
-  name: TryMarkAsProcessed
-  href: api/Chapar.Core.Inbox.InboxMessage.html#Chapar_Core_Inbox_InboxMessage_TryMarkAsProcessed_
-  commentId: Overload:Chapar.Core.Inbox.InboxMessage.TryMarkAsProcessed
+- uid: Chapar.Core.Inbox.InboxMessage.RetryCount
+  name: RetryCount
+  href: api/Chapar.Core.Inbox.InboxMessage.html#Chapar_Core_Inbox_InboxMessage_RetryCount
+  commentId: P:Chapar.Core.Inbox.InboxMessage.RetryCount
+  fullName: Chapar.Core.Inbox.InboxMessage.RetryCount
+  nameWithType: InboxMessage.RetryCount
+- uid: Chapar.Core.Inbox.InboxMessage.RetryCount*
+  name: RetryCount
+  href: api/Chapar.Core.Inbox.InboxMessage.html#Chapar_Core_Inbox_InboxMessage_RetryCount_
+  commentId: Overload:Chapar.Core.Inbox.InboxMessage.RetryCount
   isSpec: "True"
-  fullName: Chapar.Core.Inbox.InboxMessage.TryMarkAsProcessed
-  nameWithType: InboxMessage.TryMarkAsProcessed
+  fullName: Chapar.Core.Inbox.InboxMessage.RetryCount
+  nameWithType: InboxMessage.RetryCount
+- uid: Chapar.Core.Inbox.InboxMessage.Status
+  name: Status
+  href: api/Chapar.Core.Inbox.InboxMessage.html#Chapar_Core_Inbox_InboxMessage_Status
+  commentId: P:Chapar.Core.Inbox.InboxMessage.Status
+  fullName: Chapar.Core.Inbox.InboxMessage.Status
+  nameWithType: InboxMessage.Status
+- uid: Chapar.Core.Inbox.InboxMessage.Status*
+  name: Status
+  href: api/Chapar.Core.Inbox.InboxMessage.html#Chapar_Core_Inbox_InboxMessage_Status_
+  commentId: Overload:Chapar.Core.Inbox.InboxMessage.Status
+  isSpec: "True"
+  fullName: Chapar.Core.Inbox.InboxMessage.Status
+  nameWithType: InboxMessage.Status
+- uid: Chapar.Core.Inbox.InboxMessageStatus
+  name: InboxMessageStatus
+  href: api/Chapar.Core.Inbox.InboxMessageStatus.html
+  commentId: T:Chapar.Core.Inbox.InboxMessageStatus
+  fullName: Chapar.Core.Inbox.InboxMessageStatus
+  nameWithType: InboxMessageStatus
+- uid: Chapar.Core.Inbox.InboxMessageStatus.Failed
+  name: Failed
+  href: api/Chapar.Core.Inbox.InboxMessageStatus.html#Chapar_Core_Inbox_InboxMessageStatus_Failed
+  commentId: F:Chapar.Core.Inbox.InboxMessageStatus.Failed
+  fullName: Chapar.Core.Inbox.InboxMessageStatus.Failed
+  nameWithType: InboxMessageStatus.Failed
+- uid: Chapar.Core.Inbox.InboxMessageStatus.Poisoned
+  name: Poisoned
+  href: api/Chapar.Core.Inbox.InboxMessageStatus.html#Chapar_Core_Inbox_InboxMessageStatus_Poisoned
+  commentId: F:Chapar.Core.Inbox.InboxMessageStatus.Poisoned
+  fullName: Chapar.Core.Inbox.InboxMessageStatus.Poisoned
+  nameWithType: InboxMessageStatus.Poisoned
+- uid: Chapar.Core.Inbox.InboxMessageStatus.Processed
+  name: Processed
+  href: api/Chapar.Core.Inbox.InboxMessageStatus.html#Chapar_Core_Inbox_InboxMessageStatus_Processed
+  commentId: F:Chapar.Core.Inbox.InboxMessageStatus.Processed
+  fullName: Chapar.Core.Inbox.InboxMessageStatus.Processed
+  nameWithType: InboxMessageStatus.Processed
+- uid: Chapar.Core.Inbox.InboxMessageStatus.Reserved
+  name: Reserved
+  href: api/Chapar.Core.Inbox.InboxMessageStatus.html#Chapar_Core_Inbox_InboxMessageStatus_Reserved
+  commentId: F:Chapar.Core.Inbox.InboxMessageStatus.Reserved
+  fullName: Chapar.Core.Inbox.InboxMessageStatus.Reserved
+  nameWithType: InboxMessageStatus.Reserved
 - uid: Chapar.Core.Messages
   name: Chapar.Core.Messages
   href: api/Chapar.Core.Messages.html
@@ -1435,77 +1517,6 @@ references:
   isSpec: "True"
   fullName: Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.TryReserveAsync
   nameWithType: EfInboxStore.TryReserveAsync
-- uid: Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity
-  name: InboxMessageEntity
-  href: api/Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.html
-  commentId: T:Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity
-  fullName: Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity
-  nameWithType: InboxMessageEntity
-- uid: Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.ConsumerTypeName
-  name: ConsumerTypeName
-  href: api/Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.html#Chapar_Inbox_EntityFrameworkCore_Stores_InboxMessageEntity_ConsumerTypeName
-  commentId: P:Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.ConsumerTypeName
-  fullName: Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.ConsumerTypeName
-  nameWithType: InboxMessageEntity.ConsumerTypeName
-- uid: Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.ConsumerTypeName*
-  name: ConsumerTypeName
-  href: api/Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.html#Chapar_Inbox_EntityFrameworkCore_Stores_InboxMessageEntity_ConsumerTypeName_
-  commentId: Overload:Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.ConsumerTypeName
-  isSpec: "True"
-  fullName: Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.ConsumerTypeName
-  nameWithType: InboxMessageEntity.ConsumerTypeName
-- uid: Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.Id
-  name: Id
-  href: api/Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.html#Chapar_Inbox_EntityFrameworkCore_Stores_InboxMessageEntity_Id
-  commentId: P:Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.Id
-  fullName: Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.Id
-  nameWithType: InboxMessageEntity.Id
-- uid: Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.Id*
-  name: Id
-  href: api/Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.html#Chapar_Inbox_EntityFrameworkCore_Stores_InboxMessageEntity_Id_
-  commentId: Overload:Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.Id
-  isSpec: "True"
-  fullName: Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.Id
-  nameWithType: InboxMessageEntity.Id
-- uid: Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.IsProcessed
-  name: IsProcessed
-  href: api/Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.html#Chapar_Inbox_EntityFrameworkCore_Stores_InboxMessageEntity_IsProcessed
-  commentId: P:Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.IsProcessed
-  fullName: Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.IsProcessed
-  nameWithType: InboxMessageEntity.IsProcessed
-- uid: Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.IsProcessed*
-  name: IsProcessed
-  href: api/Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.html#Chapar_Inbox_EntityFrameworkCore_Stores_InboxMessageEntity_IsProcessed_
-  commentId: Overload:Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.IsProcessed
-  isSpec: "True"
-  fullName: Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.IsProcessed
-  nameWithType: InboxMessageEntity.IsProcessed
-- uid: Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.MessageId
-  name: MessageId
-  href: api/Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.html#Chapar_Inbox_EntityFrameworkCore_Stores_InboxMessageEntity_MessageId
-  commentId: P:Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.MessageId
-  fullName: Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.MessageId
-  nameWithType: InboxMessageEntity.MessageId
-- uid: Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.MessageId*
-  name: MessageId
-  href: api/Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.html#Chapar_Inbox_EntityFrameworkCore_Stores_InboxMessageEntity_MessageId_
-  commentId: Overload:Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.MessageId
-  isSpec: "True"
-  fullName: Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.MessageId
-  nameWithType: InboxMessageEntity.MessageId
-- uid: Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.ReceivedAt
-  name: ReceivedAt
-  href: api/Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.html#Chapar_Inbox_EntityFrameworkCore_Stores_InboxMessageEntity_ReceivedAt
-  commentId: P:Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.ReceivedAt
-  fullName: Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.ReceivedAt
-  nameWithType: InboxMessageEntity.ReceivedAt
-- uid: Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.ReceivedAt*
-  name: ReceivedAt
-  href: api/Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.html#Chapar_Inbox_EntityFrameworkCore_Stores_InboxMessageEntity_ReceivedAt_
-  commentId: Overload:Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.ReceivedAt
-  isSpec: "True"
-  fullName: Chapar.Inbox.EntityFrameworkCore.Stores.InboxMessageEntity.ReceivedAt
-  nameWithType: InboxMessageEntity.ReceivedAt
 - uid: Chapar.MassTransit.Consumers
   name: Chapar.MassTransit.Consumers
   href: api/Chapar.MassTransit.Consumers.html

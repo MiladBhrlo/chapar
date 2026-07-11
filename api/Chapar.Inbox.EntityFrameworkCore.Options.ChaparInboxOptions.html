@@ -123,15 +123,16 @@
     <a href="https://github.com/MiladBhrlo/chapar/new/main/apiSpec/new?filename=Chapar_Inbox_EntityFrameworkCore_Options_ChaparInboxOptions_MarkProcessedAfterFirstAttempt.md&amp;value=---%0Auid%3A%20Chapar.Inbox.EntityFrameworkCore.Options.ChaparInboxOptions.MarkProcessedAfterFirstAttempt%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MiladBhrlo/chapar/blob/main/src/Chapar.Inbox.EntityFrameworkCore/Options/ChaparInboxOptions.cs/#L16">View Source</a>
+    <a href="https://github.com/MiladBhrlo/chapar/blob/main/src/Chapar.Inbox.EntityFrameworkCore/Options/ChaparInboxOptions.cs/#L17">View Source</a>
   </span>
   <a id="Chapar_Inbox_EntityFrameworkCore_Options_ChaparInboxOptions_MarkProcessedAfterFirstAttempt_" data-uid="Chapar.Inbox.EntityFrameworkCore.Options.ChaparInboxOptions.MarkProcessedAfterFirstAttempt*"></a>
   <h4 id="Chapar_Inbox_EntityFrameworkCore_Options_ChaparInboxOptions_MarkProcessedAfterFirstAttempt" data-uid="Chapar.Inbox.EntityFrameworkCore.Options.ChaparInboxOptions.MarkProcessedAfterFirstAttempt">MarkProcessedAfterFirstAttempt</h4>
   <div class="markdown level1 summary"><p>If <code>true</code>, a message that has already been seen (duplicate) is immediately treated as
 processed and will not be reservable again. This effectively disables retries and provides
 at‑most‑once delivery semantics.
-If <code>false</code> (the default), an orphaned reservation (where <code>IsProcessed</code> is still
-<code>false</code>) can be reclaimed atomically, allowing MassTransit to retry the message and
+If <code>false</code> (the default), a reservation whose status is not
+<a class="xref" href="Chapar.Core.Inbox.InboxMessageStatus.html#Chapar_Core_Inbox_InboxMessageStatus_Processed">Processed</a> can be reclaimed atomically,
+allowing MassTransit to retry the message and
 expecting an idempotent handler.</p>
 </div>
   <div class="markdown level1 conceptual"></div>

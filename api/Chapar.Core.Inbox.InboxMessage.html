@@ -127,16 +127,16 @@ Used by the Inbox pattern to guarantee exactly‑once processing semantics.</p>
     <a href="https://github.com/MiladBhrlo/chapar/new/main/apiSpec/new?filename=Chapar_Core_Inbox_InboxMessage_ConsumerTypeName.md&amp;value=---%0Auid%3A%20Chapar.Core.Inbox.InboxMessage.ConsumerTypeName%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MiladBhrlo/chapar/blob/main/src/Chapar.Core/Inbox/InboxMessage.cs/#L13">View Source</a>
+    <a href="https://github.com/MiladBhrlo/chapar/blob/main/src/Chapar.Core/Inbox/InboxMessage.cs/#L23">View Source</a>
   </span>
   <a id="Chapar_Core_Inbox_InboxMessage_ConsumerTypeName_" data-uid="Chapar.Core.Inbox.InboxMessage.ConsumerTypeName*"></a>
   <h4 id="Chapar_Core_Inbox_InboxMessage_ConsumerTypeName" data-uid="Chapar.Core.Inbox.InboxMessage.ConsumerTypeName">ConsumerTypeName</h4>
-  <div class="markdown level1 summary"><p>The name of the consumer that processed the message.</p>
+  <div class="markdown level1 summary"><p>Fully-qualified consumer handler type name.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string ConsumerTypeName { get; init; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string ConsumerTypeName { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -155,19 +155,19 @@ Used by the Inbox pattern to guarantee exactly‑once processing semantics.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MiladBhrlo/chapar/new/main/apiSpec/new?filename=Chapar_Core_Inbox_InboxMessage_IsProcessed.md&amp;value=---%0Auid%3A%20Chapar.Core.Inbox.InboxMessage.IsProcessed%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/MiladBhrlo/chapar/new/main/apiSpec/new?filename=Chapar_Core_Inbox_InboxMessage_Id.md&amp;value=---%0Auid%3A%20Chapar.Core.Inbox.InboxMessage.Id%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MiladBhrlo/chapar/blob/main/src/Chapar.Core/Inbox/InboxMessage.cs/#L19">View Source</a>
+    <a href="https://github.com/MiladBhrlo/chapar/blob/main/src/Chapar.Core/Inbox/InboxMessage.cs/#L12">View Source</a>
   </span>
-  <a id="Chapar_Core_Inbox_InboxMessage_IsProcessed_" data-uid="Chapar.Core.Inbox.InboxMessage.IsProcessed*"></a>
-  <h4 id="Chapar_Core_Inbox_InboxMessage_IsProcessed" data-uid="Chapar.Core.Inbox.InboxMessage.IsProcessed">IsProcessed</h4>
-  <div class="markdown level1 summary"><p>Indicates if the message has already been fully processed.</p>
+  <a id="Chapar_Core_Inbox_InboxMessage_Id_" data-uid="Chapar.Core.Inbox.InboxMessage.Id*"></a>
+  <h4 id="Chapar_Core_Inbox_InboxMessage_Id" data-uid="Chapar.Core.Inbox.InboxMessage.Id">Id</h4>
+  <div class="markdown level1 summary"><p>Database primary key.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsProcessed { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public long Id { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -179,7 +179,70 @@ Used by the Inbox pattern to guarantee exactly‑once processing semantics.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MiladBhrlo/chapar/new/main/apiSpec/new?filename=Chapar_Core_Inbox_InboxMessage_LastAttemptAt.md&amp;value=---%0Auid%3A%20Chapar.Core.Inbox.InboxMessage.LastAttemptAt%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MiladBhrlo/chapar/blob/main/src/Chapar.Core/Inbox/InboxMessage.cs/#L43">View Source</a>
+  </span>
+  <a id="Chapar_Core_Inbox_InboxMessage_LastAttemptAt_" data-uid="Chapar.Core.Inbox.InboxMessage.LastAttemptAt*"></a>
+  <h4 id="Chapar_Core_Inbox_InboxMessage_LastAttemptAt" data-uid="Chapar.Core.Inbox.InboxMessage.LastAttemptAt">LastAttemptAt</h4>
+  <div class="markdown level1 summary"><p>Timestamp of the latest processing attempt.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime? LastAttemptAt { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MiladBhrlo/chapar/new/main/apiSpec/new?filename=Chapar_Core_Inbox_InboxMessage_LastError.md&amp;value=---%0Auid%3A%20Chapar.Core.Inbox.InboxMessage.LastError%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MiladBhrlo/chapar/blob/main/src/Chapar.Core/Inbox/InboxMessage.cs/#L54">View Source</a>
+  </span>
+  <a id="Chapar_Core_Inbox_InboxMessage_LastError_" data-uid="Chapar.Core.Inbox.InboxMessage.LastError*"></a>
+  <h4 id="Chapar_Core_Inbox_InboxMessage_LastError" data-uid="Chapar.Core.Inbox.InboxMessage.LastError">LastError</h4>
+  <div class="markdown level1 summary"><p>Last captured processing error.
+Intended for diagnostics and operational visibility.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? LastError { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -189,16 +252,17 @@ Used by the Inbox pattern to guarantee exactly‑once processing semantics.</p>
     <a href="https://github.com/MiladBhrlo/chapar/new/main/apiSpec/new?filename=Chapar_Core_Inbox_InboxMessage_MessageId.md&amp;value=---%0Auid%3A%20Chapar.Core.Inbox.InboxMessage.MessageId%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MiladBhrlo/chapar/blob/main/src/Chapar.Core/Inbox/InboxMessage.cs/#L10">View Source</a>
+    <a href="https://github.com/MiladBhrlo/chapar/blob/main/src/Chapar.Core/Inbox/InboxMessage.cs/#L18">View Source</a>
   </span>
   <a id="Chapar_Core_Inbox_InboxMessage_MessageId_" data-uid="Chapar.Core.Inbox.InboxMessage.MessageId*"></a>
   <h4 id="Chapar_Core_Inbox_InboxMessage_MessageId" data-uid="Chapar.Core.Inbox.InboxMessage.MessageId">MessageId</h4>
-  <div class="markdown level1 summary"><p>The unique identifier of the incoming message (usually the MessageId header).</p>
+  <div class="markdown level1 summary"><p>Transport-level unique message identifier.
+Usually corresponds to MassTransit MessageId.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string MessageId { get; init; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string MessageId { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -217,19 +281,50 @@ Used by the Inbox pattern to guarantee exactly‑once processing semantics.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MiladBhrlo/chapar/new/main/apiSpec/new?filename=Chapar_Core_Inbox_InboxMessage_ReceivedAt.md&amp;value=---%0Auid%3A%20Chapar.Core.Inbox.InboxMessage.ReceivedAt%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/MiladBhrlo/chapar/new/main/apiSpec/new?filename=Chapar_Core_Inbox_InboxMessage_ProcessedAt.md&amp;value=---%0Auid%3A%20Chapar.Core.Inbox.InboxMessage.ProcessedAt%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MiladBhrlo/chapar/blob/main/src/Chapar.Core/Inbox/InboxMessage.cs/#L16">View Source</a>
+    <a href="https://github.com/MiladBhrlo/chapar/blob/main/src/Chapar.Core/Inbox/InboxMessage.cs/#L48">View Source</a>
   </span>
-  <a id="Chapar_Core_Inbox_InboxMessage_ReceivedAt_" data-uid="Chapar.Core.Inbox.InboxMessage.ReceivedAt*"></a>
-  <h4 id="Chapar_Core_Inbox_InboxMessage_ReceivedAt" data-uid="Chapar.Core.Inbox.InboxMessage.ReceivedAt">ReceivedAt</h4>
-  <div class="markdown level1 summary"><p>Timestamp when the message was first received.</p>
+  <a id="Chapar_Core_Inbox_InboxMessage_ProcessedAt_" data-uid="Chapar.Core.Inbox.InboxMessage.ProcessedAt*"></a>
+  <h4 id="Chapar_Core_Inbox_InboxMessage_ProcessedAt" data-uid="Chapar.Core.Inbox.InboxMessage.ProcessedAt">ProcessedAt</h4>
+  <div class="markdown level1 summary"><p>Timestamp when processing completed successfully.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DateTime ReceivedAt { get; init; }</code></pre>
+    <pre><code class="lang-csharp hljs">public DateTime? ProcessedAt { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MiladBhrlo/chapar/new/main/apiSpec/new?filename=Chapar_Core_Inbox_InboxMessage_ReceivedAt.md&amp;value=---%0Auid%3A%20Chapar.Core.Inbox.InboxMessage.ReceivedAt%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MiladBhrlo/chapar/blob/main/src/Chapar.Core/Inbox/InboxMessage.cs/#L38">View Source</a>
+  </span>
+  <a id="Chapar_Core_Inbox_InboxMessage_ReceivedAt_" data-uid="Chapar.Core.Inbox.InboxMessage.ReceivedAt*"></a>
+  <h4 id="Chapar_Core_Inbox_InboxMessage_ReceivedAt" data-uid="Chapar.Core.Inbox.InboxMessage.ReceivedAt">ReceivedAt</h4>
+  <div class="markdown level1 summary"><p>Timestamp when the message was first reserved.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime ReceivedAt { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -246,25 +341,23 @@ Used by the Inbox pattern to guarantee exactly‑once processing semantics.</p>
       </tr>
     </tbody>
   </table>
-  <h3 id="methods">Methods
-</h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MiladBhrlo/chapar/new/main/apiSpec/new?filename=Chapar_Core_Inbox_InboxMessage_TryMarkAsProcessed.md&amp;value=---%0Auid%3A%20Chapar.Core.Inbox.InboxMessage.TryMarkAsProcessed%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/MiladBhrlo/chapar/new/main/apiSpec/new?filename=Chapar_Core_Inbox_InboxMessage_RetryCount.md&amp;value=---%0Auid%3A%20Chapar.Core.Inbox.InboxMessage.RetryCount%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MiladBhrlo/chapar/blob/main/src/Chapar.Core/Inbox/InboxMessage.cs/#L25">View Source</a>
+    <a href="https://github.com/MiladBhrlo/chapar/blob/main/src/Chapar.Core/Inbox/InboxMessage.cs/#L33">View Source</a>
   </span>
-  <a id="Chapar_Core_Inbox_InboxMessage_TryMarkAsProcessed_" data-uid="Chapar.Core.Inbox.InboxMessage.TryMarkAsProcessed*"></a>
-  <h4 id="Chapar_Core_Inbox_InboxMessage_TryMarkAsProcessed" data-uid="Chapar.Core.Inbox.InboxMessage.TryMarkAsProcessed">TryMarkAsProcessed()</h4>
-  <div class="markdown level1 summary"><p>Attempts to mark the message as processed.</p>
+  <a id="Chapar_Core_Inbox_InboxMessage_RetryCount_" data-uid="Chapar.Core.Inbox.InboxMessage.RetryCount*"></a>
+  <h4 id="Chapar_Core_Inbox_InboxMessage_RetryCount" data-uid="Chapar.Core.Inbox.InboxMessage.RetryCount">RetryCount</h4>
+  <div class="markdown level1 summary"><p>Number of processing attempts performed for this message.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool TryMarkAsProcessed()</code></pre>
+    <pre><code class="lang-csharp hljs">public int RetryCount { get; set; }</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
+  <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
     <thead>
       <tr>
@@ -274,9 +367,39 @@ Used by the Inbox pattern to guarantee exactly‑once processing semantics.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td><p><code>true</code> if the message was just marked; <code>false</code> if it was already processed.</p>
-</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MiladBhrlo/chapar/new/main/apiSpec/new?filename=Chapar_Core_Inbox_InboxMessage_Status.md&amp;value=---%0Auid%3A%20Chapar.Core.Inbox.InboxMessage.Status%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MiladBhrlo/chapar/blob/main/src/Chapar.Core/Inbox/InboxMessage.cs/#L28">View Source</a>
+  </span>
+  <a id="Chapar_Core_Inbox_InboxMessage_Status_" data-uid="Chapar.Core.Inbox.InboxMessage.Status*"></a>
+  <h4 id="Chapar_Core_Inbox_InboxMessage_Status" data-uid="Chapar.Core.Inbox.InboxMessage.Status">Status</h4>
+  <div class="markdown level1 summary"><p>Current processing state of the inbox message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public InboxMessageStatus Status { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Chapar.Core.Inbox.InboxMessageStatus.html">InboxMessageStatus</a></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
