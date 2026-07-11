@@ -17,6 +17,7 @@ internal sealed class ChaparOutboxPublisher : BackgroundService
 {
     private readonly IServiceScopeFactory _scopeFactory;
     private readonly ILogger<ChaparOutboxPublisher> _logger;
+    private readonly IBusControl _busControl;
     private readonly IOutboxMetrics? _outboxMetrics;
     private readonly TimeSpan _interval;
 
@@ -25,21 +26,27 @@ internal sealed class ChaparOutboxPublisher : BackgroundService
     /// </summary>
     /// <param name="scopeFactory">The scope factory to create scopes for resolving services.</param>
     /// <param name="logger">The logger instance.</param>
+    /// <param name="busControl">The MassTransit bus control instance.</param>
     /// <param name="outboxMetrics">An optional outbox metrics recorder for monitoring published/failed/pending messages.</param>
     /// <param name="interval">An optional interval between polling cycles. Defaults to 5 seconds.</param>
     public ChaparOutboxPublisher(IServiceScopeFactory scopeFactory,
                                  ILogger<ChaparOutboxPublisher> logger,
+                                 IBusControl busControl,
                                  IOutboxMetrics? outboxMetrics = null,
                                  TimeSpan? interval = null)
     {
         _scopeFactory = scopeFactory;
         _logger = logger;
+        _busControl = busControl;
         _outboxMetrics = outboxMetrics;
         _interval = interval ?? TimeSpan.FromSeconds(5);
     }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
+        await _busControl.WaitForHealthStatus(BusHealthStatus.Healthy, stoppingToken);
+        _logger.LogInformation("Chapar outbox publisher started.");
+
         while (!stoppingToken.IsCancellationRequested)
         {
             try
@@ -67,8 +74,21 @@ internal sealed class ChaparOutboxPublisher : BackgroundService
                             continue;
                         }
 
+                        var headers = outboxMsg.Headers is not null
+                            ? JsonSerializer.Deserialize<Dictionary<string, object>>(outboxMsg.Headers)
+                            : null;
+
                         // Publish with the actual message type
-                        await publishEndpoint.Publish(message, messageType, stoppingToken);
+                        await publishEndpoint.Publish(message, messageType, context =>
+                        {
+                            if (headers is null)
+                                return;
+
+                            foreach (var kv in headers)
+                            {
+                                context.Headers.Set(kv.Key, kv.Value);
+                            }
+                        }, stoppingToken);
 
                         await outboxStore.MarkAsProcessedAsync(outboxMsg.Id, stoppingToken);
                         _outboxMetrics?.RecordPublished();
