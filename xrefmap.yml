@@ -1512,52 +1512,52 @@ references:
   commentId: N:Chapar.MassTransit.Consumers
   fullName: Chapar.MassTransit.Consumers
   nameWithType: Chapar.MassTransit.Consumers
-- uid: Chapar.MassTransit.Consumers.ChaparConsumerAdapter`1
-  name: ChaparConsumerAdapter<T>
-  href: api/Chapar.MassTransit.Consumers.ChaparConsumerAdapter-1.html
-  commentId: T:Chapar.MassTransit.Consumers.ChaparConsumerAdapter`1
-  name.vb: ChaparConsumerAdapter(Of T)
-  fullName: Chapar.MassTransit.Consumers.ChaparConsumerAdapter<T>
-  fullName.vb: Chapar.MassTransit.Consumers.ChaparConsumerAdapter(Of T)
-  nameWithType: ChaparConsumerAdapter<T>
-  nameWithType.vb: ChaparConsumerAdapter(Of T)
-- uid: Chapar.MassTransit.Consumers.ChaparConsumerAdapter`1.#ctor(Chapar.Core.Abstractions.IMessageHandler{`0},Chapar.Core.Inbox.IInboxStore,Chapar.Core.Metrics.IInboxMetrics,Microsoft.Extensions.Logging.ILogger{Chapar.MassTransit.Consumers.ChaparConsumerAdapter{`0}})
-  name: ChaparConsumerAdapter(IMessageHandler<T>, IInboxStore?, IInboxMetrics?, ILogger<ChaparConsumerAdapter<T>>?)
-  href: api/Chapar.MassTransit.Consumers.ChaparConsumerAdapter-1.html#Chapar_MassTransit_Consumers_ChaparConsumerAdapter_1__ctor_Chapar_Core_Abstractions_IMessageHandler__0__Chapar_Core_Inbox_IInboxStore_Chapar_Core_Metrics_IInboxMetrics_Microsoft_Extensions_Logging_ILogger_Chapar_MassTransit_Consumers_ChaparConsumerAdapter__0___
-  commentId: M:Chapar.MassTransit.Consumers.ChaparConsumerAdapter`1.#ctor(Chapar.Core.Abstractions.IMessageHandler{`0},Chapar.Core.Inbox.IInboxStore,Chapar.Core.Metrics.IInboxMetrics,Microsoft.Extensions.Logging.ILogger{Chapar.MassTransit.Consumers.ChaparConsumerAdapter{`0}})
-  name.vb: New(IMessageHandler(Of T), IInboxStore, IInboxMetrics, ILogger(Of ChaparConsumerAdapter(Of T)))
-  fullName: Chapar.MassTransit.Consumers.ChaparConsumerAdapter<T>.ChaparConsumerAdapter(Chapar.Core.Abstractions.IMessageHandler<T>, Chapar.Core.Inbox.IInboxStore?, Chapar.Core.Metrics.IInboxMetrics?, Microsoft.Extensions.Logging.ILogger<Chapar.MassTransit.Consumers.ChaparConsumerAdapter<T>>?)
-  fullName.vb: Chapar.MassTransit.Consumers.ChaparConsumerAdapter(Of T).New(Chapar.Core.Abstractions.IMessageHandler(Of T), Chapar.Core.Inbox.IInboxStore, Chapar.Core.Metrics.IInboxMetrics, Microsoft.Extensions.Logging.ILogger(Of Chapar.MassTransit.Consumers.ChaparConsumerAdapter(Of T)))
-  nameWithType: ChaparConsumerAdapter<T>.ChaparConsumerAdapter(IMessageHandler<T>, IInboxStore?, IInboxMetrics?, ILogger<ChaparConsumerAdapter<T>>?)
-  nameWithType.vb: ChaparConsumerAdapter(Of T).New(IMessageHandler(Of T), IInboxStore, IInboxMetrics, ILogger(Of ChaparConsumerAdapter(Of T)))
-- uid: Chapar.MassTransit.Consumers.ChaparConsumerAdapter`1.#ctor*
+- uid: Chapar.MassTransit.Consumers.ChaparConsumerAdapter`2
+  name: ChaparConsumerAdapter<T, THandler>
+  href: api/Chapar.MassTransit.Consumers.ChaparConsumerAdapter-2.html
+  commentId: T:Chapar.MassTransit.Consumers.ChaparConsumerAdapter`2
+  name.vb: ChaparConsumerAdapter(Of T, THandler)
+  fullName: Chapar.MassTransit.Consumers.ChaparConsumerAdapter<T, THandler>
+  fullName.vb: Chapar.MassTransit.Consumers.ChaparConsumerAdapter(Of T, THandler)
+  nameWithType: ChaparConsumerAdapter<T, THandler>
+  nameWithType.vb: ChaparConsumerAdapter(Of T, THandler)
+- uid: Chapar.MassTransit.Consumers.ChaparConsumerAdapter`2.#ctor(`1,Chapar.Core.Inbox.IInboxStore,Chapar.Core.Metrics.IInboxMetrics,Microsoft.Extensions.Logging.ILogger{Chapar.MassTransit.Consumers.ChaparConsumerAdapter{`0,`1}})
+  name: ChaparConsumerAdapter(THandler, IInboxStore?, IInboxMetrics?, ILogger<ChaparConsumerAdapter<T, THandler>>?)
+  href: api/Chapar.MassTransit.Consumers.ChaparConsumerAdapter-2.html#Chapar_MassTransit_Consumers_ChaparConsumerAdapter_2__ctor__1_Chapar_Core_Inbox_IInboxStore_Chapar_Core_Metrics_IInboxMetrics_Microsoft_Extensions_Logging_ILogger_Chapar_MassTransit_Consumers_ChaparConsumerAdapter__0__1___
+  commentId: M:Chapar.MassTransit.Consumers.ChaparConsumerAdapter`2.#ctor(`1,Chapar.Core.Inbox.IInboxStore,Chapar.Core.Metrics.IInboxMetrics,Microsoft.Extensions.Logging.ILogger{Chapar.MassTransit.Consumers.ChaparConsumerAdapter{`0,`1}})
+  name.vb: New(THandler, IInboxStore, IInboxMetrics, ILogger(Of ChaparConsumerAdapter(Of T, THandler)))
+  fullName: Chapar.MassTransit.Consumers.ChaparConsumerAdapter<T, THandler>.ChaparConsumerAdapter(THandler, Chapar.Core.Inbox.IInboxStore?, Chapar.Core.Metrics.IInboxMetrics?, Microsoft.Extensions.Logging.ILogger<Chapar.MassTransit.Consumers.ChaparConsumerAdapter<T, THandler>>?)
+  fullName.vb: Chapar.MassTransit.Consumers.ChaparConsumerAdapter(Of T, THandler).New(THandler, Chapar.Core.Inbox.IInboxStore, Chapar.Core.Metrics.IInboxMetrics, Microsoft.Extensions.Logging.ILogger(Of Chapar.MassTransit.Consumers.ChaparConsumerAdapter(Of T, THandler)))
+  nameWithType: ChaparConsumerAdapter<T, THandler>.ChaparConsumerAdapter(THandler, IInboxStore?, IInboxMetrics?, ILogger<ChaparConsumerAdapter<T, THandler>>?)
+  nameWithType.vb: ChaparConsumerAdapter(Of T, THandler).New(THandler, IInboxStore, IInboxMetrics, ILogger(Of ChaparConsumerAdapter(Of T, THandler)))
+- uid: Chapar.MassTransit.Consumers.ChaparConsumerAdapter`2.#ctor*
   name: ChaparConsumerAdapter
-  href: api/Chapar.MassTransit.Consumers.ChaparConsumerAdapter-1.html#Chapar_MassTransit_Consumers_ChaparConsumerAdapter_1__ctor_
-  commentId: Overload:Chapar.MassTransit.Consumers.ChaparConsumerAdapter`1.#ctor
+  href: api/Chapar.MassTransit.Consumers.ChaparConsumerAdapter-2.html#Chapar_MassTransit_Consumers_ChaparConsumerAdapter_2__ctor_
+  commentId: Overload:Chapar.MassTransit.Consumers.ChaparConsumerAdapter`2.#ctor
   isSpec: "True"
   name.vb: New
-  fullName: Chapar.MassTransit.Consumers.ChaparConsumerAdapter<T>.ChaparConsumerAdapter
-  fullName.vb: Chapar.MassTransit.Consumers.ChaparConsumerAdapter(Of T).New
-  nameWithType: ChaparConsumerAdapter<T>.ChaparConsumerAdapter
-  nameWithType.vb: ChaparConsumerAdapter(Of T).New
-- uid: Chapar.MassTransit.Consumers.ChaparConsumerAdapter`1.Consume(MassTransit.ConsumeContext{`0})
+  fullName: Chapar.MassTransit.Consumers.ChaparConsumerAdapter<T, THandler>.ChaparConsumerAdapter
+  fullName.vb: Chapar.MassTransit.Consumers.ChaparConsumerAdapter(Of T, THandler).New
+  nameWithType: ChaparConsumerAdapter<T, THandler>.ChaparConsumerAdapter
+  nameWithType.vb: ChaparConsumerAdapter(Of T, THandler).New
+- uid: Chapar.MassTransit.Consumers.ChaparConsumerAdapter`2.Consume(MassTransit.ConsumeContext{`0})
   name: Consume(ConsumeContext<T>)
-  href: api/Chapar.MassTransit.Consumers.ChaparConsumerAdapter-1.html#Chapar_MassTransit_Consumers_ChaparConsumerAdapter_1_Consume_MassTransit_ConsumeContext__0__
-  commentId: M:Chapar.MassTransit.Consumers.ChaparConsumerAdapter`1.Consume(MassTransit.ConsumeContext{`0})
+  href: api/Chapar.MassTransit.Consumers.ChaparConsumerAdapter-2.html#Chapar_MassTransit_Consumers_ChaparConsumerAdapter_2_Consume_MassTransit_ConsumeContext__0__
+  commentId: M:Chapar.MassTransit.Consumers.ChaparConsumerAdapter`2.Consume(MassTransit.ConsumeContext{`0})
   name.vb: Consume(ConsumeContext(Of T))
-  fullName: Chapar.MassTransit.Consumers.ChaparConsumerAdapter<T>.Consume(MassTransit.ConsumeContext<T>)
-  fullName.vb: Chapar.MassTransit.Consumers.ChaparConsumerAdapter(Of T).Consume(MassTransit.ConsumeContext(Of T))
-  nameWithType: ChaparConsumerAdapter<T>.Consume(ConsumeContext<T>)
-  nameWithType.vb: ChaparConsumerAdapter(Of T).Consume(ConsumeContext(Of T))
-- uid: Chapar.MassTransit.Consumers.ChaparConsumerAdapter`1.Consume*
+  fullName: Chapar.MassTransit.Consumers.ChaparConsumerAdapter<T, THandler>.Consume(MassTransit.ConsumeContext<T>)
+  fullName.vb: Chapar.MassTransit.Consumers.ChaparConsumerAdapter(Of T, THandler).Consume(MassTransit.ConsumeContext(Of T))
+  nameWithType: ChaparConsumerAdapter<T, THandler>.Consume(ConsumeContext<T>)
+  nameWithType.vb: ChaparConsumerAdapter(Of T, THandler).Consume(ConsumeContext(Of T))
+- uid: Chapar.MassTransit.Consumers.ChaparConsumerAdapter`2.Consume*
   name: Consume
-  href: api/Chapar.MassTransit.Consumers.ChaparConsumerAdapter-1.html#Chapar_MassTransit_Consumers_ChaparConsumerAdapter_1_Consume_
-  commentId: Overload:Chapar.MassTransit.Consumers.ChaparConsumerAdapter`1.Consume
+  href: api/Chapar.MassTransit.Consumers.ChaparConsumerAdapter-2.html#Chapar_MassTransit_Consumers_ChaparConsumerAdapter_2_Consume_
+  commentId: Overload:Chapar.MassTransit.Consumers.ChaparConsumerAdapter`2.Consume
   isSpec: "True"
-  fullName: Chapar.MassTransit.Consumers.ChaparConsumerAdapter<T>.Consume
-  fullName.vb: Chapar.MassTransit.Consumers.ChaparConsumerAdapter(Of T).Consume
-  nameWithType: ChaparConsumerAdapter<T>.Consume
-  nameWithType.vb: ChaparConsumerAdapter(Of T).Consume
+  fullName: Chapar.MassTransit.Consumers.ChaparConsumerAdapter<T, THandler>.Consume
+  fullName.vb: Chapar.MassTransit.Consumers.ChaparConsumerAdapter(Of T, THandler).Consume
+  nameWithType: ChaparConsumerAdapter<T, THandler>.Consume
+  nameWithType.vb: ChaparConsumerAdapter(Of T, THandler).Consume
 - uid: Chapar.MassTransit.Extensions
   name: Chapar.MassTransit.Extensions
   href: api/Chapar.MassTransit.Extensions.html

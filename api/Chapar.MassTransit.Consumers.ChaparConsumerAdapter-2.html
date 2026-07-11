@@ -5,11 +5,11 @@
   <head>
     <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>Class ChaparConsumerAdapter&lt;T&gt; | Chapar </title>
+      <title>Class ChaparConsumerAdapter&lt;T, THandler&gt; | Chapar </title>
       <meta name="viewport" content="width=device-width">
-      <meta name="title" content="Class ChaparConsumerAdapter&lt;T&gt; | Chapar ">
+      <meta name="title" content="Class ChaparConsumerAdapter&lt;T, THandler&gt; | Chapar ">
     
-    <meta name="description" content="Bridges the generic  to MassTransit&#39;s , and applies the Inbox pattern for idempotent processing.">
+    <meta name="description" content="Bridges  implementations to MassTransit&#39;s  pipeline, applies Inbox-based idempotent processing, and records inbox processing metrics.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -76,19 +76,19 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Chapar.MassTransit.Consumers.ChaparConsumerAdapter`1">
+            <article class="content wrap" id="_content" data-uid="Chapar.MassTransit.Consumers.ChaparConsumerAdapter`2">
 
 
 
-  <h1 id="Chapar_MassTransit_Consumers_ChaparConsumerAdapter_1" data-uid="Chapar.MassTransit.Consumers.ChaparConsumerAdapter`1" class="text-break">Class ChaparConsumerAdapter&lt;T&gt;</h1>
-  <div class="markdown level0 summary"><p>Bridges the generic <a class="xref" href="Chapar.Core.Abstractions.IMessageHandler-1.html">IMessageHandler&lt;TMessage&gt;</a> to MassTransit's <span class="xref">MassTransit.IConsumer&lt;TMessage&gt;</span>,
-and applies the Inbox pattern for idempotent processing.</p>
+  <h1 id="Chapar_MassTransit_Consumers_ChaparConsumerAdapter_2" data-uid="Chapar.MassTransit.Consumers.ChaparConsumerAdapter`2" class="text-break">Class ChaparConsumerAdapter&lt;T, THandler&gt;</h1>
+  <div class="markdown level0 summary"><p>Bridges <a class="xref" href="Chapar.Core.Abstractions.IMessageHandler-1.html">IMessageHandler&lt;TMessage&gt;</a> implementations to MassTransit's <span class="xref">MassTransit.IConsumer&lt;TMessage&gt;</span> pipeline,
+applies Inbox-based idempotent processing, and records inbox processing metrics.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-    <div class="level1"><span class="xref">ChaparConsumerAdapter&lt;T&gt;</span></div>
+    <div class="level1"><span class="xref">ChaparConsumerAdapter&lt;T, THandler&gt;</span></div>
   </div>
   <div class="implements">
     <h5>Implements</h5>
@@ -121,9 +121,9 @@ and applies the Inbox pattern for idempotent processing.</p>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Chapar.html">Chapar</a>.<a class="xref" href="Chapar.MassTransit.html">MassTransit</a>.<a class="xref" href="Chapar.MassTransit.Consumers.html">Consumers</a></h6>
   <h6><strong>Assembly</strong>: Chapar.MassTransit.dll</h6>
-  <h5 id="Chapar_MassTransit_Consumers_ChaparConsumerAdapter_1_syntax">Syntax</h5>
+  <h5 id="Chapar_MassTransit_Consumers_ChaparConsumerAdapter_2_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class ChaparConsumerAdapter&lt;T&gt; : IConsumer&lt;T&gt;, IConsumer where T : class, IMessage</code></pre>
+    <pre><code class="lang-csharp hljs">public class ChaparConsumerAdapter&lt;T, THandler&gt; : IConsumer&lt;T&gt;, IConsumer where T : class, IMessage where THandler : IMessageHandler&lt;T&gt;</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -138,25 +138,29 @@ and applies the Inbox pattern for idempotent processing.</p>
         <td><span class="parametername">T</span></td>
         <td></td>
       </tr>
+      <tr>
+        <td><span class="parametername">THandler</span></td>
+        <td></td>
+      </tr>
     </tbody>
   </table>
   <h3 id="constructors">Constructors
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MiladBhrlo/chapar/new/main/apiSpec/new?filename=Chapar_MassTransit_Consumers_ChaparConsumerAdapter_1__ctor_Chapar_Core_Abstractions_IMessageHandler__0__Chapar_Core_Inbox_IInboxStore_Chapar_Core_Metrics_IInboxMetrics_Microsoft_Extensions_Logging_ILogger_Chapar_MassTransit_Consumers_ChaparConsumerAdapter__0___.md&amp;value=---%0Auid%3A%20Chapar.MassTransit.Consumers.ChaparConsumerAdapter%601.%23ctor(Chapar.Core.Abstractions.IMessageHandler%7B%600%7D%2CChapar.Core.Inbox.IInboxStore%2CChapar.Core.Metrics.IInboxMetrics%2CMicrosoft.Extensions.Logging.ILogger%7BChapar.MassTransit.Consumers.ChaparConsumerAdapter%7B%600%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/MiladBhrlo/chapar/new/main/apiSpec/new?filename=Chapar_MassTransit_Consumers_ChaparConsumerAdapter_2__ctor__1_Chapar_Core_Inbox_IInboxStore_Chapar_Core_Metrics_IInboxMetrics_Microsoft_Extensions_Logging_ILogger_Chapar_MassTransit_Consumers_ChaparConsumerAdapter__0__1___.md&amp;value=---%0Auid%3A%20Chapar.MassTransit.Consumers.ChaparConsumerAdapter%602.%23ctor(%601%2CChapar.Core.Inbox.IInboxStore%2CChapar.Core.Metrics.IInboxMetrics%2CMicrosoft.Extensions.Logging.ILogger%7BChapar.MassTransit.Consumers.ChaparConsumerAdapter%7B%600%2C%601%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MiladBhrlo/chapar/blob/main/src/Chapar.MassTransit/Consumers/ChaparConsumerAdapter.cs/#L28">View Source</a>
+    <a href="https://github.com/MiladBhrlo/chapar/blob/main/src/Chapar.MassTransit/Consumers/ChaparConsumerAdapter.cs/#L30">View Source</a>
   </span>
-  <a id="Chapar_MassTransit_Consumers_ChaparConsumerAdapter_1__ctor_" data-uid="Chapar.MassTransit.Consumers.ChaparConsumerAdapter`1.#ctor*"></a>
-  <h4 id="Chapar_MassTransit_Consumers_ChaparConsumerAdapter_1__ctor_Chapar_Core_Abstractions_IMessageHandler__0__Chapar_Core_Inbox_IInboxStore_Chapar_Core_Metrics_IInboxMetrics_Microsoft_Extensions_Logging_ILogger_Chapar_MassTransit_Consumers_ChaparConsumerAdapter__0___" data-uid="Chapar.MassTransit.Consumers.ChaparConsumerAdapter`1.#ctor(Chapar.Core.Abstractions.IMessageHandler{`0},Chapar.Core.Inbox.IInboxStore,Chapar.Core.Metrics.IInboxMetrics,Microsoft.Extensions.Logging.ILogger{Chapar.MassTransit.Consumers.ChaparConsumerAdapter{`0}})">ChaparConsumerAdapter(IMessageHandler&lt;T&gt;, IInboxStore?, IInboxMetrics?, ILogger&lt;ChaparConsumerAdapter&lt;T&gt;&gt;?)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Chapar.MassTransit.Consumers.ChaparConsumerAdapter-1.html">ChaparConsumerAdapter&lt;T&gt;</a> class.</p>
+  <a id="Chapar_MassTransit_Consumers_ChaparConsumerAdapter_2__ctor_" data-uid="Chapar.MassTransit.Consumers.ChaparConsumerAdapter`2.#ctor*"></a>
+  <h4 id="Chapar_MassTransit_Consumers_ChaparConsumerAdapter_2__ctor__1_Chapar_Core_Inbox_IInboxStore_Chapar_Core_Metrics_IInboxMetrics_Microsoft_Extensions_Logging_ILogger_Chapar_MassTransit_Consumers_ChaparConsumerAdapter__0__1___" data-uid="Chapar.MassTransit.Consumers.ChaparConsumerAdapter`2.#ctor(`1,Chapar.Core.Inbox.IInboxStore,Chapar.Core.Metrics.IInboxMetrics,Microsoft.Extensions.Logging.ILogger{Chapar.MassTransit.Consumers.ChaparConsumerAdapter{`0,`1}})">ChaparConsumerAdapter(THandler, IInboxStore?, IInboxMetrics?, ILogger&lt;ChaparConsumerAdapter&lt;T, THandler&gt;&gt;?)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Chapar.MassTransit.Consumers.ChaparConsumerAdapter-2.html">ChaparConsumerAdapter&lt;T, THandler&gt;</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ChaparConsumerAdapter(IMessageHandler&lt;T&gt; handler, IInboxStore? inboxStore = null, IInboxMetrics? inboxMetrics = null, ILogger&lt;ChaparConsumerAdapter&lt;T&gt;&gt;? logger = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public ChaparConsumerAdapter(THandler handler, IInboxStore? inboxStore = null, IInboxMetrics? inboxMetrics = null, ILogger&lt;ChaparConsumerAdapter&lt;T, THandler&gt;&gt;? logger = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -169,7 +173,7 @@ and applies the Inbox pattern for idempotent processing.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Chapar.Core.Abstractions.IMessageHandler-1.html">IMessageHandler</a>&lt;T&gt;</td>
+        <td><span class="xref">THandler</span></td>
         <td><span class="parametername">handler</span></td>
         <td><p>The message handler to invoke upon successful processing.</p>
 </td>
@@ -187,7 +191,7 @@ and applies the Inbox pattern for idempotent processing.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1">ILogger</a>&lt;<a class="xref" href="Chapar.MassTransit.Consumers.ChaparConsumerAdapter-1.html">ChaparConsumerAdapter</a>&lt;T&gt;&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1">ILogger</a>&lt;<a class="xref" href="Chapar.MassTransit.Consumers.ChaparConsumerAdapter-2.html">ChaparConsumerAdapter</a>&lt;T, THandler&gt;&gt;</td>
         <td><span class="parametername">logger</span></td>
         <td><p>An optional logger instance.</p>
 </td>
@@ -198,13 +202,13 @@ and applies the Inbox pattern for idempotent processing.</p>
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MiladBhrlo/chapar/new/main/apiSpec/new?filename=Chapar_MassTransit_Consumers_ChaparConsumerAdapter_1_Consume_MassTransit_ConsumeContext__0__.md&amp;value=---%0Auid%3A%20Chapar.MassTransit.Consumers.ChaparConsumerAdapter%601.Consume(MassTransit.ConsumeContext%7B%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/MiladBhrlo/chapar/new/main/apiSpec/new?filename=Chapar_MassTransit_Consumers_ChaparConsumerAdapter_2_Consume_MassTransit_ConsumeContext__0__.md&amp;value=---%0Auid%3A%20Chapar.MassTransit.Consumers.ChaparConsumerAdapter%602.Consume(MassTransit.ConsumeContext%7B%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MiladBhrlo/chapar/blob/main/src/Chapar.MassTransit/Consumers/ChaparConsumerAdapter.cs/#L40">View Source</a>
+    <a href="https://github.com/MiladBhrlo/chapar/blob/main/src/Chapar.MassTransit/Consumers/ChaparConsumerAdapter.cs/#L42">View Source</a>
   </span>
-  <a id="Chapar_MassTransit_Consumers_ChaparConsumerAdapter_1_Consume_" data-uid="Chapar.MassTransit.Consumers.ChaparConsumerAdapter`1.Consume*"></a>
-  <h4 id="Chapar_MassTransit_Consumers_ChaparConsumerAdapter_1_Consume_MassTransit_ConsumeContext__0__" data-uid="Chapar.MassTransit.Consumers.ChaparConsumerAdapter`1.Consume(MassTransit.ConsumeContext{`0})">Consume(ConsumeContext&lt;T&gt;)</h4>
+  <a id="Chapar_MassTransit_Consumers_ChaparConsumerAdapter_2_Consume_" data-uid="Chapar.MassTransit.Consumers.ChaparConsumerAdapter`2.Consume*"></a>
+  <h4 id="Chapar_MassTransit_Consumers_ChaparConsumerAdapter_2_Consume_MassTransit_ConsumeContext__0__" data-uid="Chapar.MassTransit.Consumers.ChaparConsumerAdapter`2.Consume(MassTransit.ConsumeContext{`0})">Consume(ConsumeContext&lt;T&gt;)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -259,7 +263,7 @@ and applies the Inbox pattern for idempotent processing.</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MiladBhrlo/chapar/new/main/apiSpec/new?filename=Chapar_MassTransit_Consumers_ChaparConsumerAdapter_1.md&amp;value=---%0Auid%3A%20Chapar.MassTransit.Consumers.ChaparConsumerAdapter%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
+                    <a href="https://github.com/MiladBhrlo/chapar/new/main/apiSpec/new?filename=Chapar_MassTransit_Consumers_ChaparConsumerAdapter_2.md&amp;value=---%0Auid%3A%20Chapar.MassTransit.Consumers.ChaparConsumerAdapter%602%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
                     <a href="https://github.com/MiladBhrlo/chapar/blob/main/src/Chapar.MassTransit/Consumers/ChaparConsumerAdapter.cs/#L14" class="contribution-link">View Source</a>

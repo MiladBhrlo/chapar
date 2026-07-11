@@ -736,17 +736,17 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Chapar.MassTransit.Consumers.ChaparConsumerAdapter-1.yml",
+      "source_relative_path": "api/Chapar.MassTransit.Consumers.ChaparConsumerAdapter-2.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Chapar.MassTransit.Consumers.ChaparConsumerAdapter-1.html"
+          "relative_path": "api/Chapar.MassTransit.Consumers.ChaparConsumerAdapter-2.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "Chapar.MassTransit.Consumers.ChaparConsumerAdapter<T>",
-      "Summary": "<p sourcefile=\"api/Chapar.MassTransit.Consumers.ChaparConsumerAdapter-1.yml\" sourcestartlinenumber=\"1\">Bridges the generic <xref href=\"Chapar.Core.Abstractions.IMessageHandler%601\" data-throw-if-not-resolved=\"false\"></xref> to MassTransit's <xref href=\"MassTransit.IConsumer%601\" data-throw-if-not-resolved=\"false\"></xref>,\nand applies the Inbox pattern for idempotent processing.</p>\n"
+      "Title": "Chapar.MassTransit.Consumers.ChaparConsumerAdapter<T, THandler>",
+      "Summary": "<p sourcefile=\"api/Chapar.MassTransit.Consumers.ChaparConsumerAdapter-2.yml\" sourcestartlinenumber=\"1\">Bridges <xref href=\"Chapar.Core.Abstractions.IMessageHandler%601\" data-throw-if-not-resolved=\"false\"></xref> implementations to MassTransit's <xref href=\"MassTransit.IConsumer%601\" data-throw-if-not-resolved=\"false\"></xref> pipeline,\napplies Inbox-based idempotent processing, and records inbox processing metrics.</p>\n"
     },
     {
       "type": "ManagedReference",
