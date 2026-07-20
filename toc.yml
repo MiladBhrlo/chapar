@@ -1,0 +1,6 @@
+- name: Home
+  href: index.md
+- name: Guide
+  href: docs/guide.md
+- name: API
+  href: api/

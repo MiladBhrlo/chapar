@@ -1,0 +1,190 @@
+name: Publish NuGet Packages
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'Directory.Build.props'
+      - 'README.md'
+      - 'src/**/*.cs'
+      - 'src/**/*.csproj'
+      - '.github/workflows/nuget.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: nuget-publish-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: Pack and publish changed versions
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Restore
+        run: dotnet restore Chapar.slnx
+
+      - name: Build
+        run: dotnet build Chapar.slnx -c Release --no-restore
+
+      - name: Test
+        run: dotnet test tests/Chapar.Core.Tests/Chapar.Core.Tests.csproj -c Release --no-build --logger "console;verbosity=minimal"
+
+      - name: Select packages with newer versions
+        id: select
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+
+          function Get-XmlValue($xml, [string] $name) {
+            foreach ($group in @($xml.Project.PropertyGroup)) {
+              $value = $group.$name
+              if (-not [string]::IsNullOrWhiteSpace($value)) {
+                return [string] $value
+              }
+            }
+            return $null
+          }
+
+          function ConvertTo-SemVer([string] $version) {
+            $withoutBuild = $version.Split('+', 2)[0]
+            $split = $withoutBuild.Split('-', 2)
+            $main = $split[0]
+            $pre = if ($split.Count -gt 1) { $split[1] } else { $null }
+            $parts = @($main.Split('.') | ForEach-Object { [int] $_ })
+            while ($parts.Count -lt 3) {
+              $parts += 0
+            }
+            [pscustomobject]@{
+              Major = $parts[0]
+              Minor = $parts[1]
+              Patch = $parts[2]
+              Revision = if ($parts.Count -gt 3) { $parts[3] } else { 0 }
+              Prerelease = $pre
+            }
+          }
+
+          function Compare-SemVer([string] $left, [string] $right) {
+            $a = ConvertTo-SemVer $left
+            $b = ConvertTo-SemVer $right
+
+            foreach ($part in @("Major", "Minor", "Patch", "Revision")) {
+              if ($a.$part -gt $b.$part) { return 1 }
+              if ($a.$part -lt $b.$part) { return -1 }
+            }
+
+            if ([string]::IsNullOrWhiteSpace($a.Prerelease) -and -not [string]::IsNullOrWhiteSpace($b.Prerelease)) { return 1 }
+            if (-not [string]::IsNullOrWhiteSpace($a.Prerelease) -and [string]::IsNullOrWhiteSpace($b.Prerelease)) { return -1 }
+            return [string]::Compare($a.Prerelease, $b.Prerelease, [System.StringComparison]::OrdinalIgnoreCase)
+          }
+
+          [xml] $commonProps = Get-Content "Directory.Build.props"
+          $defaultVersion = Get-XmlValue $commonProps "Version"
+          if ([string]::IsNullOrWhiteSpace($defaultVersion)) {
+            throw "Directory.Build.props must define Version."
+          }
+
+          $selected = @()
+          $projects = Get-ChildItem -Path "src" -Recurse -Filter "*.csproj"
+
+          foreach ($project in $projects) {
+            [xml] $projectXml = Get-Content $project.FullName
+            $isPackable = Get-XmlValue $projectXml "IsPackable"
+            $packageId = Get-XmlValue $projectXml "PackageId"
+
+            if ($isPackable -eq "false" -or [string]::IsNullOrWhiteSpace($packageId)) {
+              continue
+            }
+
+            $version = Get-XmlValue $projectXml "PackageVersion"
+            if ([string]::IsNullOrWhiteSpace($version)) {
+              $version = Get-XmlValue $projectXml "Version"
+            }
+            if ([string]::IsNullOrWhiteSpace($version)) {
+              $version = $defaultVersion
+            }
+
+            $lowerId = $packageId.ToLowerInvariant()
+            $indexUrl = "https://api.nuget.org/v3-flatcontainer/$lowerId/index.json"
+            $latest = $null
+
+            try {
+              $response = Invoke-RestMethod -Uri $indexUrl -ErrorAction Stop
+              foreach ($publishedVersion in @($response.versions)) {
+                if ($null -eq $latest -or (Compare-SemVer $publishedVersion $latest) -gt 0) {
+                  $latest = $publishedVersion
+                }
+              }
+            }
+            catch {
+              Write-Host "$packageId has no published versions on NuGet.org yet."
+            }
+
+            if ($null -eq $latest -or (Compare-SemVer $version $latest) -gt 0) {
+              Write-Host "Will publish $packageId $version. Latest on NuGet.org: $latest"
+              $selected += [pscustomobject]@{
+                Project = $project.FullName
+                PackageId = $packageId
+                Version = $version
+              }
+            }
+            else {
+              Write-Host "Skipping $packageId $version. Latest on NuGet.org is $latest."
+            }
+          }
+
+          New-Item -ItemType Directory -Force -Path "artifacts/packages" | Out-Null
+          $selected | ConvertTo-Json -Depth 4 | Set-Content "artifacts/packages-to-publish.json"
+
+          if ($selected.Count -gt 0) {
+            "has_packages=true" >> $env:GITHUB_OUTPUT
+          }
+          else {
+            "has_packages=false" >> $env:GITHUB_OUTPUT
+          }
+
+      - name: Pack selected packages
+        if: steps.select.outputs.has_packages == 'true'
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+          $packages = Get-Content "artifacts/packages-to-publish.json" | ConvertFrom-Json
+          foreach ($package in @($packages)) {
+            dotnet pack $package.Project -c Release --no-build -o "artifacts/packages"
+          }
+
+      - name: Upload package artifacts
+        if: steps.select.outputs.has_packages == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: nuget-packages
+          path: artifacts/packages/*.nupkg
+
+      - name: Publish to NuGet.org
+        if: steps.select.outputs.has_packages == 'true'
+        shell: pwsh
+        env:
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+        run: |
+          $ErrorActionPreference = "Stop"
+          if ([string]::IsNullOrWhiteSpace($env:NUGET_API_KEY)) {
+            throw "NUGET_API_KEY secret is not configured."
+          }
+
+          foreach ($package in Get-ChildItem "artifacts/packages" -Filter "*.nupkg") {
+            dotnet nuget push $package.FullName `
+              --api-key $env:NUGET_API_KEY `
+              --source "https://api.nuget.org/v3/index.json" `
+              --skip-duplicate
+          }

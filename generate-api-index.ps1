@@ -1,4 +1,4 @@
-# generate-api-index.ps1
+# Generates the DocFX landing page from generated API metadata.
 $apiDir = "api"
 $outputFile = "index.md"
 
@@ -10,9 +10,9 @@ $bt = '`'
 # شروع ساخت فایل index.md
 $content = @"
 
-***
+---
 title: Chapar – The Persian Courier for .NET Messaging
-***
+---
 
 # 🐎 Chapar
 
@@ -23,7 +23,7 @@ dotnet add package Chapar
 dotnet add package Chapar.MassTransit
 $bt$bt$bt
 
-***
+---
 
 ## Why Chapar?
 
@@ -35,7 +35,7 @@ $bt$bt$bt
 
 > Inspired by the ancient Persian courier system – fast, reliable, and invisible to the message sender.
 
-***
+---
 
 ## Quick Start
 
@@ -58,7 +58,7 @@ public class UserRegisteredHandler : IMessageHandler`UserRegistered`
 }
 $bt$bt$bt
 
-***
+---
 
 ## Explore the Documentation
 
@@ -67,7 +67,7 @@ $bt$bt$bt
 | [Complete Guide](docs/guide.html) | Walk through every scenario from publish/subscribe to advanced Outbox/Inbox, Pipeline, and Zamin integration. |
 | [GitHub Repository](https://github.com/MiladBhrlo/chapar) | Source code, issue tracker, and contribution guidelines. |
 
-***
+---
 
 ## API Reference (Generated Automatically)
 
@@ -79,7 +79,7 @@ Below you can find every namespace documented in the library.
 - [Home (README)](README.html)
 - [Complete Guide](docs/guide.html)
 
-***
+---
 
 "@
 

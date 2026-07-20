@@ -6,6 +6,7 @@
                     "files": [
                         "src/Chapar.Core/Chapar.Core.csproj",
                         "src/Chapar.MassTransit/Chapar.MassTransit.csproj",
+                        "src/Chapar.MassTransit.Outbox/Chapar.MassTransit.Outbox.csproj",
                         "src/Chapar.Inbox.EntityFrameworkCore/Chapar.Inbox.EntityFrameworkCore.csproj",
                         "src/Chapar.Outbox.EntityFrameworkCore/Chapar.Outbox.EntityFrameworkCore.csproj",
                         "src/Chapar.Pipeline/Chapar.Pipeline.csproj",
@@ -30,7 +31,8 @@
                 "files": [
                     "docs/*.md",
                     "README.md",
-                    "index.md"
+                    "index.md",
+                    "toc.yml"
                 ]
             }
         ],

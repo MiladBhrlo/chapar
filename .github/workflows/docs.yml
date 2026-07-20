@@ -31,7 +31,7 @@ jobs:
 
       - name: Generate API index
         shell: pwsh
-        run: ./generate-api-index.ps1
+        run: ./generate-docfx-index.ps1
 
       - name: Build documentation site
         run: docfx build docfx.json
