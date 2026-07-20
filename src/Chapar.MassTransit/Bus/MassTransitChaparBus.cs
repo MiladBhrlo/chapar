@@ -55,7 +55,6 @@ internal sealed class MassTransitChaparBus : IChaparBus
             foreach (var attr in exchangeAttributes)
             {
                 var endpoint = await _sendEndpointProvider.GetSendEndpoint(new Uri($"exchange:{attr.Name}"));
-                await endpoint.Send(@event, context => ApplyHeaders(context, headers), cancellationToken);
                 await endpoint.Send(@event, context =>
                 {
                     ApplyHeaders(context, headers);

@@ -144,6 +144,32 @@ services.AddChaparMassTransit(opt =>
 
 This setting is ignored for handlers that carry an explicit `[Exchange]` or `[QueueName]`.
 
+### Stable Broker Message Names
+
+By default, Chapar uses the CLR message type name for broker entity names. For
+long-lived public contracts, use `[MessageName]` or `MessageTypeMappings` to keep
+the broker contract stable while refactoring namespaces or assemblies:
+
+```csharp
+[MessageName("ordering.order-placed.v1")]
+public record OrderPlaced(Guid OrderId) : IEvent;
+
+services.AddChaparMassTransit(opt =>
+{
+    opt.MessageTypeMappings[typeof(OrderPlaced).FullName!] = "ordering.order-placed.v1";
+});
+```
+
+Consumers can also bind to additional broker-level aliases during migrations:
+
+```csharp
+[ConsumeMessageTypes("ordering.order-placed", "ordering.order-placed.v1")]
+public class OrderPlacedHandler : IMessageHandler<OrderPlaced>
+{
+    public Task HandleAsync(OrderPlaced message, CancellationToken ct) => Task.CompletedTask;
+}
+```
+
 ***
 
 ## 3. Outbox Pattern (Guaranteed Delivery)
@@ -372,20 +398,27 @@ await `bus`.PublishAsync(new OrderPlaced(orderId), headers);
 ### 6.3 Header Access in Pipeline
 
 Chapar provides an `IMessageContextAccessor` service that allows pipeline behaviors
-to both ``read`` and ``write`` message headers.
+to read message metadata and headers for the message currently being consumed.
 
 ```csharp
+using Chapar.Core.Utilities;
+
 public class TenantPropagationBehaviour<TMessage> : IPipelineBehavior<TMessage>
     where TMessage : IMessage
 {
-    private readonly IMessageContextAccessor `accessor`;
+    private readonly IMessageContextAccessor _accessor;
 
-    public TenantPropagationBehaviour(IMessageContextAccessor accessor) => `accessor` = accessor;
+    public TenantPropagationBehaviour(IMessageContextAccessor accessor) => _accessor = accessor;
 
     public async Task HandleAsync(TMessage message, Func<Task> next, CancellationToken cancellationToken)
     {
-        `accessor`.Headers ??= new Dictionary<string, object?>();
-        `accessor`.Headers["TenantId"] = "tenant-123";
+        var tenantId = _accessor.Context?.GetHeader("X-Tenant");
+
+        if (tenantId is not null)
+        {
+            _accessor.Context!.Items["TenantId"] = tenantId;
+        }
+
         await next();
     }
 }
@@ -456,6 +489,11 @@ via Zamin's `IEventDispatcher`.
 | `Password` | `guest` | Login password |
 | `VirtualHost` | `/` | RabbitMQ vhost |
 | `DefaultHeaders` | `{}` | Headers added to every message |
+| `QueueNamePrefix` | `null` | Prefix for generated queue names |
+| `QueueNameSuffix` | `null` | Suffix for generated queue names |
+| `ExchangeNamePrefix` | `null` | Prefix for generated exchange/entity names |
+| `ExchangeNameSuffix` | `null` | Suffix for generated exchange/entity names |
+| `MessageTypeMappings` | `{}` | Explicit broker names keyed by CLR full name |
 
 ### `ResilienceOptions`
 
@@ -466,6 +504,8 @@ via Zamin's `IEventDispatcher`.
 | `CircuitBreakerEnabled` | `true` | Enable / disable CB |
 | `CircuitBreakerFailureThreshold` | `20` | `%` failure to trip |
 | `CircuitBreakerResetInterval` | `00:01:00` | Reset interval |
+| `UseDeadLetter` | `true` | Enable delayed redelivery before the error queue |
+| `MaxRedelivery` | `5` | Number of delayed redelivery attempts |
 
 ***
 

@@ -7,9 +7,10 @@ using Zamin.Extensions.Events.Outbox.Dal.EF;
 namespace Chapar.Zamin.Outbox.Outbox;
 
 /// <summary>
-/// Implements <see cref="IOutboxStore"/> and <see cref="ICleanupStore"/> using Zamin's native OutBoxEventItem table.
+/// Implements <see cref="IOutboxStore"/>, <see cref="IOutboxCommitter"/>, and <see cref="ICleanupStore"/>
+/// using Zamin's native OutBoxEventItem table.
 /// </summary>
-public sealed class ZaminOutboxStore : IOutboxStore, ICleanupStore
+public sealed class ZaminOutboxStore : IOutboxStore, IOutboxCommitter, ICleanupStore
 {
     private readonly BaseOutboxCommandDbContext _dbContext;
 
@@ -27,7 +28,12 @@ public sealed class ZaminOutboxStore : IOutboxStore, ICleanupStore
             IsProcessed = false
         };
         await _dbContext.Set<OutBoxEventItem>().AddAsync(entity, cancellationToken);
-        await _dbContext.SaveChangesAsync(cancellationToken);
+    }
+
+    /// <inheritdoc />
+    public Task CommitAsync(CancellationToken cancellationToken = default)
+    {
+        return _dbContext.SaveChangesAsync(cancellationToken);
     }
 
     /// <inheritdoc />

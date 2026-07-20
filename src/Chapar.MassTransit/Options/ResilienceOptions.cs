@@ -20,4 +20,14 @@ public sealed class ResilienceOptions
 
     /// <summary>Period after which the circuit breaker attempts to reset.</summary>
     public TimeSpan CircuitBreakerResetInterval { get; set; } = TimeSpan.FromMinutes(1);
+
+    /// <summary>
+    /// Whether messages should use delayed redelivery before MassTransit moves them to the error queue.
+    /// </summary>
+    public bool UseDeadLetter { get; set; } = true;
+
+    /// <summary>
+    /// Maximum number of delayed redelivery attempts before the message is moved to the error queue.
+    /// </summary>
+    public int MaxRedelivery { get; set; } = 5;
 }

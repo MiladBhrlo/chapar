@@ -97,7 +97,13 @@ public static class ChaparMassTransitExtensions
                 cfg.UseMessageRetry(r => r.Interval(options.Resilience.RetryCount,
                                                     options.Resilience.RetryInterval));
 
-                    // --- Resilience: circuit breaker ---
+                if (options.Resilience.UseDeadLetter)
+                {
+                    cfg.UseDelayedRedelivery(r => r.Intervals(
+                        Enumerable.Repeat(TimeSpan.FromSeconds(10), options.Resilience.MaxRedelivery).ToArray()));
+                }
+
+                // --- Resilience: circuit breaker ---
                 if (options.Resilience.CircuitBreakerEnabled)
                 {
                     cfg.UseCircuitBreaker(cb =>
@@ -273,13 +279,15 @@ public static class ChaparMassTransitExtensions
             // Determine the endpoint configuration based on the handler's attributes.
             var exchangeAttrs = entry.HandlerType.GetCustomAttributes<ExchangeAttribute>().ToList();
             var consumeTypesAttribute = entry.HandlerType.GetCustomAttribute<ConsumeMessageTypesAttribute>();
+            var queueNameAttribute = entry.HandlerType.GetCustomAttribute<QueueNameAttribute>();
 
             if (exchangeAttrs.Count > 0 || consumeTypesAttribute is not null)
             {
-                // Handler has [Exchange] or message aliases; generate a stable queue name.
-                var queueName = ChaparQueueNameFormatter.Format(entry.HandlerType,
-                                                                options.QueueNamePrefix,
-                                                                options.QueueNameSuffix);
+                // Handler has [Exchange] or message aliases; use explicit queue name when supplied.
+                var queueName = queueNameAttribute?.Name
+                    ?? ChaparQueueNameFormatter.Format(entry.HandlerType,
+                                                       options.QueueNamePrefix,
+                                                       options.QueueNameSuffix);
 
                 if (consumeTypesAttribute is not null)
                 {
@@ -310,16 +318,14 @@ public static class ChaparMassTransitExtensions
                     });
                 }
             }
-            else if (entry.HandlerType.GetCustomAttribute<QueueNameAttribute>() is not null)
+            else if (queueNameAttribute is not null)
             {
                 // Handler has only [QueueName] – legacy behaviour.
                 customQueueConsumers.Add(new ConsumerQueueDefinition
                 {
                     MessageType = entry.MessageType,
                     HandlerType = entry.HandlerType,
-                    QueueName = ChaparQueueNameFormatter.Format(entry.HandlerType,
-                                                                options.QueueNamePrefix,
-                                                                options.QueueNameSuffix)
+                    QueueName = queueNameAttribute.Name
                 });
             }
             else

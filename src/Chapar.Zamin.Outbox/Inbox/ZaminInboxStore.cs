@@ -26,14 +26,16 @@ public sealed class ZaminInboxStore : IInboxStore
                                             string consumerTypeName,
                                             CancellationToken cancellationToken = default)
     {
+        var utcNow = DateTime.UtcNow;
+
         var entity = new InboxMessage
         {
             MessageId = messageId,
             ConsumerTypeName = consumerTypeName,
             Status = InboxMessageStatus.Reserved,
             RetryCount = 0,
-            ReceivedAt = DateTime.UtcNow,
-            LastAttemptAt = DateTime.UtcNow
+            ReceivedAt = utcNow,
+            LastAttemptAt = utcNow
         };
 
         await _dbContext.Set<InboxMessage>().AddAsync(entity, cancellationToken);
@@ -45,33 +47,50 @@ public sealed class ZaminInboxStore : IInboxStore
         }
         catch (DbUpdateException ex) when (IsUniqueConstraintViolation(ex))
         {
-            return false;
+            _dbContext.Entry(entity).State = EntityState.Detached;
+
+            var updated = await _dbContext.Set<InboxMessage>()
+                .Where(m =>
+                    m.MessageId == messageId &&
+                    m.ConsumerTypeName == consumerTypeName &&
+                    m.Status != InboxMessageStatus.Processed)
+                .ExecuteUpdateAsync(setters => setters
+                        .SetProperty(x => x.Status, InboxMessageStatus.Reserved)
+                        .SetProperty(x => x.LastAttemptAt, utcNow)
+                        .SetProperty(x => x.RetryCount, x => x.RetryCount + 1),
+                    cancellationToken);
+
+            return updated > 0;
         }
     }
 
     /// <inheritdoc />
     public async Task<bool> MarkAsProcessedAsync(InboxMessage message, CancellationToken cancellationToken = default)
     {
-        var entity = await _dbContext.Set<InboxMessage>()
-            .FirstOrDefaultAsync(
-                m => m.MessageId == message.MessageId &&
-                     m.ConsumerTypeName == message.ConsumerTypeName,
+        var updated = await _dbContext.Set<InboxMessage>()
+            .Where(m =>
+                m.MessageId == message.MessageId &&
+                m.ConsumerTypeName == message.ConsumerTypeName &&
+                m.Status != InboxMessageStatus.Processed)
+            .ExecuteUpdateAsync(setters => setters
+                    .SetProperty(x => x.Status, InboxMessageStatus.Processed)
+                    .SetProperty(x => x.ProcessedAt, DateTime.UtcNow)
+                    .SetProperty(x => x.LastError, (string?)null),
                 cancellationToken);
 
-        if (entity is null)
-            return false;
-
-        if (entity.Status == InboxMessageStatus.Processed)
-            return false;
-
-        entity.Status = InboxMessageStatus.Processed;
-        entity.ProcessedAt = DateTime.UtcNow;
-        entity.LastError = null;
-
-        await _dbContext.SaveChangesAsync(cancellationToken);
-        return true;
+        return updated > 0;
     }
 
     private static bool IsUniqueConstraintViolation(DbUpdateException ex)
-        => ex.InnerException?.Message?.Contains("UNIQUE", StringComparison.OrdinalIgnoreCase) == true;
+        => IsSqlServerUniqueConstraintViolation(ex.InnerException)
+           || ex.InnerException?.Message?.Contains("UNIQUE", StringComparison.OrdinalIgnoreCase) == true;
+
+    private static bool IsSqlServerUniqueConstraintViolation(Exception? exception)
+    {
+        var numberProperty = exception?.GetType().GetProperty("Number");
+        if (numberProperty?.GetValue(exception) is not int number)
+            return false;
+
+        return number is 2601 or 2627;
+    }
 }

@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 namespace Chapar.Sample;
 
 // Messages
+[MessageName("sample.order-placed.v1")]
 public record OrderPlaced(Guid OrderId) : IEvent;
 public record SendSms(string PhoneNumber, string Text) : ICommand;
 
@@ -43,6 +44,9 @@ class Program
                     opt.Host = "localhost";
                     opt.Username = "guest";
                     opt.Password = "guest";
+                    opt.DefaultHeaders["X-Service"] = "chapar-sample";
+                    opt.Resilience.UseDeadLetter = true;
+                    opt.Resilience.MaxRedelivery = 5;
                 });
             })
             .Build();
@@ -52,7 +56,9 @@ class Program
         var bus = host.Services.GetRequiredService<IChaparBus>();
 
         // Publish an event
-        await bus.PublishAsync(new OrderPlaced(Guid.NewGuid()));
+        await bus.PublishAsync(
+            new OrderPlaced(Guid.NewGuid()),
+            new Dictionary<string, object> { ["Origin"] = "Chapar.Sample" });
 
         // Send a command to a specific queue (an imaginary sms-service)
         await bus.SendAsync(new SendSms("09121234567", "Your order has been placed."), "sms-service");

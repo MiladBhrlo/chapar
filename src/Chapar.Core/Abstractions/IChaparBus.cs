@@ -27,10 +27,9 @@ public interface IChaparBus
         where TCommand : class, ICommand;
 }
 
-// TODO: When adding a new transport package (e.g., Chapar.Wolverine),
-// ensure that the following transport‑level behaviors are configured:
+// When adding a new transport package (e.g., Chapar.Wolverine),
+// ensure that the following transport-level behaviors are configured:
 // - Message redelivery after consumer crash (timeout / dead consumer detection)
 // - Retry policy
 // - Circuit breaker
 // These are currently provided by MassTransit (UseMessageRetry, UseCircuitBreaker).
-// See also: https://github.com/your-org/chapar/issues/11

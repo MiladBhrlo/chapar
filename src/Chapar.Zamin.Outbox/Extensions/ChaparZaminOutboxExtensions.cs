@@ -28,6 +28,7 @@ public static class ChaparZaminOutboxExtensions
 
         services.TryAddScoped<ZaminOutboxStore>();
         services.AddScoped<IOutboxStore>(sp => sp.GetRequiredService<ZaminOutboxStore>());
+        services.AddScoped<IOutboxCommitter>(sp => sp.GetRequiredService<ZaminOutboxStore>());
 
         services.AddZaminOutboxCleanup<ZaminOutboxStore>(configureCleanup);
 

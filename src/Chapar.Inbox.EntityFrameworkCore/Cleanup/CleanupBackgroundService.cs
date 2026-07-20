@@ -16,20 +16,20 @@ internal sealed class CleanupBackgroundService<TStore> : BackgroundService
 {
     private readonly IServiceScopeFactory _scopeFactory;
     private readonly ILogger<CleanupBackgroundService<TStore>> _logger;
-    private readonly IOptionsSnapshot<CleanupOptions> _optionsSnapshot;
+    private readonly IOptionsMonitor<CleanupOptions> _optionsMonitor;
 
     public CleanupBackgroundService(IServiceScopeFactory scopeFactory,
                                     ILogger<CleanupBackgroundService<TStore>> logger,
-                                    IOptionsSnapshot<CleanupOptions> optionsSnapshot)
+                                    IOptionsMonitor<CleanupOptions> optionsMonitor)
     {
         _scopeFactory = scopeFactory;
         _logger = logger;
-        _optionsSnapshot = optionsSnapshot;
+        _optionsMonitor = optionsMonitor;
     }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        var options = _optionsSnapshot.Get(typeof(TStore).FullName!);
+        var options = _optionsMonitor.Get(typeof(TStore).FullName!);
         if (!options.Enabled)
         {
             _logger.LogInformation("Cleanup for {StoreType} is disabled.", typeof(TStore).Name);
