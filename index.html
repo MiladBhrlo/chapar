@@ -5,17 +5,17 @@
   <head>
     <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>&#128014; Chapar | Chapar </title>
+      <title>Chapar - The Persian Courier for .NET Messaging | Chapar </title>
       <meta name="viewport" content="width=device-width">
-      <meta name="title" content="&#128014; Chapar | Chapar ">
+      <meta name="title" content="Chapar - The Persian Courier for .NET Messaging | Chapar ">
     
     
       <link rel="shortcut icon" href="favicon.ico">
       <link rel="stylesheet" href="styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="styles/docfx.css">
       <link rel="stylesheet" href="styles/main.css">
-      <meta property="docfx:navrel" content="">
-      <meta property="docfx:tocrel" content="">
+      <meta property="docfx:navrel" content="toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
     
     <meta property="docfx:rel" content="">
     
@@ -70,77 +70,26 @@
         <div class="article row grid">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
+<h1 id="chapar">Chapar</h1>
 
-<hr>
-<p>title: Chapar – The Persian Courier for .NET Messaging</p>
-<hr>
-<h1 id="-chapar">🐎 Chapar</h1>
-<h3 id="the-clean-extensible-and-businessfriendly-messaging-abstraction-for-net">The Clean, Extensible, and Business‑Friendly Messaging Abstraction for .NET</h3>
-<pre><code class="lang-text">dotnet add package Chapar
-dotnet add package Chapar.MassTransit
-</code></pre>
-<hr>
+<p>The clean, extensible, and business-friendly messaging abstraction for .NET.</p>
+<p><code>	ext dotnet add package Chapar dotnet add package Chapar.MassTransit </code></p>
 <h2 id="why-chapar">Why Chapar?</h2>
 <ul>
-<li><strong>Zero ceremony</strong> — PublishAsync and SendAsync are all you need.</li>
-<li><strong>Transparent Outbox / Inbox</strong> — Add one NuGet package and every message is automatically stored in the database before delivery. No code changes.</li>
-<li><strong>Pipeline</strong> — A chain of configurable behaviours (diagnostics, error handling, origin validation, …) that wrap every handler.</li>
-<li><strong>Framework agnostic</strong> — Works standalone or on top of <strong>Zamin</strong>.</li>
-<li><strong>Transport agnostic</strong> — Currently uses <strong>MassTransit v8</strong> (free &amp; community‑supported), with <strong>Wolverine</strong> coming soon.</li>
+<li>Zero ceremony: PublishAsync and SendAsync are all you need.</li>
+<li>Transparent Outbox and Inbox support for reliable delivery and idempotent consumers.</li>
+<li>A configurable pipeline for diagnostics, error handling, validation, and origin checks.</li>
+<li>Standalone usage and Zamin integration.</li>
+<li>MassTransit and RabbitMQ transport support.</li>
 </ul>
-<blockquote>
-<p>Inspired by the ancient Persian courier system – fast, reliable, and invisible to the message sender.</p>
-</blockquote>
-<hr>
-<h2 id="quick-start">Quick Start</h2>
-<pre><code class="lang-csharp">// 1. Define a message
-public record UserRegistered(Guid UserId, string Email) : IEvent;
-
-// 2. Publish
-var bus = provider.GetRequiredServiceIChaparBus();
-await bus.PublishAsync(new UserRegistered(Guid.NewGuid(), &quot;user@example.com&quot;));
-
-// 3. Handle
-public class UserRegisteredHandler : IMessageHandlerUserRegistered
-{
-    public Task HandleAsync(UserRegistered message, CancellationToken ct)
-    {
-        Console.WriteLine($&quot;User {message.Email} registered.&quot;);
-        return Task.CompletedTask;
-    }
-}
-</code></pre>
-<hr>
-<h2 id="explore-the-documentation">Explore the Documentation</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Section</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><a href="docs/guide.html">Complete Guide</a></td>
-<td style="text-align: left;">Walk through every scenario from publish/subscribe to advanced Outbox/Inbox, Pipeline, and Zamin integration.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="https://github.com/MiladBhrlo/chapar">GitHub Repository</a></td>
-<td style="text-align: left;">Source code, issue tracker, and contribution guidelines.</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h2 id="api-reference-generated-automatically">API Reference (Generated Automatically)</h2>
-<p>Welcome to the complete API reference for Chapar.<br>
-Below you can find every namespace documented in the library.</p>
 <h2 id="documentation">Documentation</h2>
 <ul>
-<li><a href="README.html">Home (README)</a></li>
 <li><a href="docs/guide.html">Complete Guide</a></li>
+<li><a href="api/toc.html">API Reference</a></li>
+<li><a href="https://github.com/MiladBhrlo/chapar">GitHub Repository</a></li>
 </ul>
-<hr>
-<h2 id="chaparcore">Chapar.Core</h2>
+<h2 id="api-reference">API Reference</h2>
+<h3 id="chaparcore">Chapar.Core</h3>
 <ul>
 <li><a href="api/Chapar.Core.Abstractions.AggregateRoot.html">Chapar.Core.Abstractions.AggregateRoot</a></li>
 <li><a href="api/Chapar.Core.Abstractions.IAggregateRoot.html">Chapar.Core.Abstractions.IAggregateRoot</a></li>
@@ -187,9 +136,10 @@ Below you can find every namespace documented in the library.</p>
 <li><a href="api/Chapar.Core.Pipeline.html">Chapar.Core.Pipeline</a></li>
 <li><a href="api/Chapar.Core.Utilities.ChaparVersion.html">Chapar.Core.Utilities.ChaparVersion</a></li>
 <li><a href="api/Chapar.Core.Utilities.HeaderSanitizer.html">Chapar.Core.Utilities.HeaderSanitizer</a></li>
+<li><a href="api/Chapar.Core.Utilities.MessageContextExtensions.html">Chapar.Core.Utilities.MessageContextExtensions</a></li>
 <li><a href="api/Chapar.Core.Utilities.html">Chapar.Core.Utilities</a></li>
 </ul>
-<h2 id="chaparinbox">Chapar.Inbox</h2>
+<h3 id="chaparinbox">Chapar.Inbox</h3>
 <ul>
 <li><a href="api/Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions.html">Chapar.Inbox.EntityFrameworkCore.Extensions.ChaparInboxExtensions</a></li>
 <li><a href="api/Chapar.Inbox.EntityFrameworkCore.Extensions.html">Chapar.Inbox.EntityFrameworkCore.Extensions</a></li>
@@ -198,7 +148,7 @@ Below you can find every namespace documented in the library.</p>
 <li><a href="api/Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore.html">Chapar.Inbox.EntityFrameworkCore.Stores.EfInboxStore</a></li>
 <li><a href="api/Chapar.Inbox.EntityFrameworkCore.Stores.html">Chapar.Inbox.EntityFrameworkCore.Stores</a></li>
 </ul>
-<h2 id="chaparmasstransit">Chapar.MassTransit</h2>
+<h3 id="chaparmasstransit">Chapar.MassTransit</h3>
 <ul>
 <li><a href="api/Chapar.MassTransit.Consumers.ChaparConsumerAdapter-2.html">Chapar.MassTransit.Consumers.ChaparConsumerAdapter-2</a></li>
 <li><a href="api/Chapar.MassTransit.Consumers.html">Chapar.MassTransit.Consumers</a></li>
@@ -211,8 +161,12 @@ Below you can find every namespace documented in the library.</p>
 <li><a href="api/Chapar.MassTransit.Options.ExchangeConfig.html">Chapar.MassTransit.Options.ExchangeConfig</a></li>
 <li><a href="api/Chapar.MassTransit.Options.ResilienceOptions.html">Chapar.MassTransit.Options.ResilienceOptions</a></li>
 <li><a href="api/Chapar.MassTransit.Options.html">Chapar.MassTransit.Options</a></li>
+<li><a href="api/Chapar.MassTransit.Outbox.Extensions.ChaparMassTransitOutboxExtensions.html">Chapar.MassTransit.Outbox.Extensions.ChaparMassTransitOutboxExtensions</a></li>
+<li><a href="api/Chapar.MassTransit.Outbox.Extensions.html">Chapar.MassTransit.Outbox.Extensions</a></li>
+<li><a href="api/Chapar.MassTransit.Outbox.Options.MassTransitOutboxOptions.html">Chapar.MassTransit.Outbox.Options.MassTransitOutboxOptions</a></li>
+<li><a href="api/Chapar.MassTransit.Outbox.Options.html">Chapar.MassTransit.Outbox.Options</a></li>
 </ul>
-<h2 id="chaparoutbox">Chapar.Outbox</h2>
+<h3 id="chaparoutbox">Chapar.Outbox</h3>
 <ul>
 <li><a href="api/Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparBusOutboxExtensions.html">Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparBusOutboxExtensions</a></li>
 <li><a href="api/Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions.html">Chapar.Outbox.EntityFrameworkCore.Extensions.ChaparOutboxExtensions</a></li>
@@ -226,7 +180,7 @@ Below you can find every namespace documented in the library.</p>
 <li><a href="api/Chapar.Outbox.EntityFrameworkCore.Stores.html">Chapar.Outbox.EntityFrameworkCore.Stores</a></li>
 <li><a href="api/Chapar.Outbox.EntityFrameworkCore.html">Chapar.Outbox.EntityFrameworkCore</a></li>
 </ul>
-<h2 id="chaparpipeline">Chapar.Pipeline</h2>
+<h3 id="chaparpipeline">Chapar.Pipeline</h3>
 <ul>
 <li><a href="api/Chapar.Pipeline.Behaviours.DiagnosticsBehaviour-1.html">Chapar.Pipeline.Behaviours.DiagnosticsBehaviour-1</a></li>
 <li><a href="api/Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour-1.html">Chapar.Pipeline.Behaviours.DomainExceptionHandlingBehaviour-1</a></li>
@@ -236,7 +190,7 @@ Below you can find every namespace documented in the library.</p>
 <li><a href="api/Chapar.Pipeline.Extensions.ChaparPipelineExtensions.html">Chapar.Pipeline.Extensions.ChaparPipelineExtensions</a></li>
 <li><a href="api/Chapar.Pipeline.Extensions.html">Chapar.Pipeline.Extensions</a></li>
 </ul>
-<h2 id="chaparzamin">Chapar.Zamin</h2>
+<h3 id="chaparzamin">Chapar.Zamin</h3>
 <ul>
 <li><a href="api/Chapar.Zamin.Consumer.ChaparMessageConsumer.html">Chapar.Zamin.Consumer.ChaparMessageConsumer</a></li>
 <li><a href="api/Chapar.Zamin.Consumer.html">Chapar.Zamin.Consumer</a></li>
@@ -253,7 +207,6 @@ Below you can find every namespace documented in the library.</p>
 <li><a href="api/Chapar.Zamin.SendMessageBus.html">Chapar.Zamin.SendMessageBus</a></li>
 <li><a href="api/Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus.html">Chapar.Zamin.SendMessageBus.ZaminChaparSendMessageBus</a></li>
 </ul>
-<hr>
 <h2 id="license">License</h2>
 <p>MIT</p>
 

@@ -14,8 +14,8 @@
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="">
-      <meta property="docfx:tocrel" content="">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
     
     <meta property="docfx:rel" content="../">
     
@@ -171,6 +171,25 @@ that does not already specify its own <code>[Exchange]</code> or <code>[QueueNam
 });
 </code></pre>
 <p>This setting is ignored for handlers that carry an explicit <code>[Exchange]</code> or <code>[QueueName]</code>.</p>
+<h3 id="stable-broker-message-names">Stable Broker Message Names</h3>
+<p>By default, Chapar uses the CLR message type name for broker entity names. For
+long-lived public contracts, use <code>[MessageName]</code> or <code>MessageTypeMappings</code> to keep
+the broker contract stable while refactoring namespaces or assemblies:</p>
+<pre><code class="lang-csharp">[MessageName(&quot;ordering.order-placed.v1&quot;)]
+public record OrderPlaced(Guid OrderId) : IEvent;
+
+services.AddChaparMassTransit(opt =&gt;
+{
+    opt.MessageTypeMappings[typeof(OrderPlaced).FullName!] = &quot;ordering.order-placed.v1&quot;;
+});
+</code></pre>
+<p>Consumers can also bind to additional broker-level aliases during migrations:</p>
+<pre><code class="lang-csharp">[ConsumeMessageTypes(&quot;ordering.order-placed&quot;, &quot;ordering.order-placed.v1&quot;)]
+public class OrderPlacedHandler : IMessageHandler&lt;OrderPlaced&gt;
+{
+    public Task HandleAsync(OrderPlaced message, CancellationToken ct) =&gt; Task.CompletedTask;
+}
+</code></pre>
 <hr>
 <h2 id="3-outbox-pattern-guaranteed-delivery">3. Outbox Pattern (Guaranteed Delivery)</h2>
 <h3 id="31-install">3.1 Install</h3>
@@ -347,18 +366,25 @@ await `bus`.PublishAsync(new OrderPlaced(orderId), headers);
 </code></pre>
 <h3 id="63-header-access-in-pipeline">6.3 Header Access in Pipeline</h3>
 <p>Chapar provides an <code>IMessageContextAccessor</code> service that allows pipeline behaviors
-to both <code>read</code> and <code>write</code> message headers.</p>
-<pre><code class="lang-csharp">public class TenantPropagationBehaviour&lt;TMessage&gt; : IPipelineBehavior&lt;TMessage&gt;
+to read message metadata and headers for the message currently being consumed.</p>
+<pre><code class="lang-csharp">using Chapar.Core.Utilities;
+
+public class TenantPropagationBehaviour&lt;TMessage&gt; : IPipelineBehavior&lt;TMessage&gt;
     where TMessage : IMessage
 {
-    private readonly IMessageContextAccessor `accessor`;
+    private readonly IMessageContextAccessor _accessor;
 
-    public TenantPropagationBehaviour(IMessageContextAccessor accessor) =&gt; `accessor` = accessor;
+    public TenantPropagationBehaviour(IMessageContextAccessor accessor) =&gt; _accessor = accessor;
 
     public async Task HandleAsync(TMessage message, Func&lt;Task&gt; next, CancellationToken cancellationToken)
     {
-        `accessor`.Headers ??= new Dictionary&lt;string, object?&gt;();
-        `accessor`.Headers[&quot;TenantId&quot;] = &quot;tenant-123&quot;;
+        var tenantId = _accessor.Context?.GetHeader(&quot;X-Tenant&quot;);
+
+        if (tenantId is not null)
+        {
+            _accessor.Context!.Items[&quot;TenantId&quot;] = tenantId;
+        }
+
         await next();
     }
 }
@@ -432,6 +458,31 @@ via Zamin's <code>IEventDispatcher</code>.</p>
 <td style="text-align: left;"><code>{}</code></td>
 <td style="text-align: left;">Headers added to every message</td>
 </tr>
+<tr>
+<td style="text-align: left;"><code>QueueNamePrefix</code></td>
+<td style="text-align: left;"><code>null</code></td>
+<td style="text-align: left;">Prefix for generated queue names</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>QueueNameSuffix</code></td>
+<td style="text-align: left;"><code>null</code></td>
+<td style="text-align: left;">Suffix for generated queue names</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ExchangeNamePrefix</code></td>
+<td style="text-align: left;"><code>null</code></td>
+<td style="text-align: left;">Prefix for generated exchange/entity names</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ExchangeNameSuffix</code></td>
+<td style="text-align: left;"><code>null</code></td>
+<td style="text-align: left;">Suffix for generated exchange/entity names</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>MessageTypeMappings</code></td>
+<td style="text-align: left;"><code>{}</code></td>
+<td style="text-align: left;">Explicit broker names keyed by CLR full name</td>
+</tr>
 </tbody>
 </table>
 <h3 id="resilienceoptions"><code>ResilienceOptions</code></h3>
@@ -468,6 +519,16 @@ via Zamin's <code>IEventDispatcher</code>.</p>
 <td style="text-align: left;"><code>CircuitBreakerResetInterval</code></td>
 <td style="text-align: left;"><code>00:01:00</code></td>
 <td style="text-align: left;">Reset interval</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>UseDeadLetter</code></td>
+<td style="text-align: left;"><code>true</code></td>
+<td style="text-align: left;">Enable delayed redelivery before the error queue</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>MaxRedelivery</code></td>
+<td style="text-align: left;"><code>5</code></td>
+<td style="text-align: left;">Number of delayed redelivery attempts</td>
 </tr>
 </tbody>
 </table>

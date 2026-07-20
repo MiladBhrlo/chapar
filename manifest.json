@@ -652,6 +652,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.Core.Utilities.MessageContextExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.Core.Utilities.MessageContextExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.Core.Utilities.MessageContextExtensions",
+      "Summary": "<p sourcefile=\"api/Chapar.Core.Utilities.MessageContextExtensions.yml\" sourcestartlinenumber=\"1\">Provides strongly typed helper methods for reading values from message context headers.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Chapar.Core.Utilities.yml",
       "output": {
         ".html": {
@@ -900,6 +914,62 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Chapar.MassTransit.Options",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.MassTransit.Outbox.Extensions.ChaparMassTransitOutboxExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.MassTransit.Outbox.Extensions.ChaparMassTransitOutboxExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.MassTransit.Outbox.Extensions.ChaparMassTransitOutboxExtensions",
+      "Summary": "<p sourcefile=\"api/Chapar.MassTransit.Outbox.Extensions.ChaparMassTransitOutboxExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for configuring Chapar to use the native MassTransit outbox\ninstead of Chapar's custom outbox tables.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.MassTransit.Outbox.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.MassTransit.Outbox.Extensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.MassTransit.Outbox.Extensions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.MassTransit.Outbox.Options.MassTransitOutboxOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.MassTransit.Outbox.Options.MassTransitOutboxOptions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.MassTransit.Outbox.Options.MassTransitOutboxOptions",
+      "Summary": "<p sourcefile=\"api/Chapar.MassTransit.Outbox.Options.MassTransitOutboxOptions.yml\" sourcestartlinenumber=\"1\">Configuration options for the MassTransit transactional outbox.\nMirrors MassTransit's native options to provide full control when replacing\nChapar's custom outbox implementation.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Chapar.MassTransit.Outbox.Options.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Chapar.MassTransit.Outbox.Options.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Chapar.MassTransit.Outbox.Options",
       "Summary": null
     },
     {
@@ -1306,7 +1376,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore",
-      "Summary": "<p sourcefile=\"api/Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.yml\" sourcestartlinenumber=\"1\">Implements <xref href=\"Chapar.Core.Outbox.IOutboxStore\" data-throw-if-not-resolved=\"false\"></xref> and <xref href=\"Chapar.Core.Cleanup.ICleanupStore\" data-throw-if-not-resolved=\"false\"></xref> using Zamin's native OutBoxEventItem table.</p>\n"
+      "Summary": "<p sourcefile=\"api/Chapar.Zamin.Outbox.Outbox.ZaminOutboxStore.yml\" sourcestartlinenumber=\"1\">Implements <xref href=\"Chapar.Core.Outbox.IOutboxStore\" data-throw-if-not-resolved=\"false\"></xref>, <xref href=\"Chapar.Core.Outbox.IOutboxCommitter\" data-throw-if-not-resolved=\"false\"></xref>, and <xref href=\"Chapar.Core.Cleanup.ICleanupStore\" data-throw-if-not-resolved=\"false\"></xref>\nusing Zamin's native OutBoxEventItem table.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1379,6 +1449,19 @@
       "output": {
         ".html": {
           "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
         }
       },
       "version": ""
